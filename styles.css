@@ -295,6 +295,6 @@ body {
 
     .expand-button {
         margin-left: -20px; /* Wyśrodkowanie ikony rozwijania */
-        margin-right: 30px;
+        margin-right: auto;
     }
 }
