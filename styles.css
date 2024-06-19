@@ -273,10 +273,19 @@ body {
         padding: 5px 10px; /* Przykładowe dostosowanie paddingu w nawigacji na bardzo małych ekranach */
     }
 
-    .social-icons img {
-        width: 20px; /* Przykładowe zmniejszenie wielkości ikon społecznościowych na bardzo małych ekranach */
-        margin:  100px; /* Zwiększony margines między ikonami */
+  .social-icons {
+        justify-content: center; /* Centrowanie ikon na małych ekranach */
     }
+
+    .social-icons img {
+        width: 20px; /* Zmniejszenie wielkości ikon */
+        margin: 5px; /* Margines między ikonami */
+    }
+
+    .social-icons img:last-child {
+        margin-right: 0; /* Usunięcie marginesu po ostatniej ikonie */
+    }
+}
 
     .container {
         width: 90%; /* Przykładowe dostosowanie szerokości kontenera na bardzo małych ekranach */
