@@ -1,10 +1,17 @@
 /* Resetowanie domyślnych stylów */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 0;
     font-family: 'Helvetica', sans-serif;
     background-color: #ffffff;
     overflow-x: hidden;
+    text-align: center; /* Wyśrodkowanie tekstu w całym body */
 }
 
 /* Tło maski */
@@ -87,6 +94,7 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0);
     position: relative;
     z-index: 999;
+    text-align: center; /* Wyśrodkowanie zawartości kontenera */
 }
 
 /* Ramki na zdjęcia */
@@ -224,6 +232,7 @@ body {
 
     .container {
         width: 90%; /* Przykładowe dostosowanie szerokości kontenera na mniejszych ekranach */
+        margin: 0 auto; /* Wyśrodkowanie kontenera */
     }
 
     .photo-frame {
