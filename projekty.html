@@ -3,85 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rogue Synthesis Media</title>
+    <title>Projekty - Rogue Synthesis Media</title>
     <link href="https://fonts.googleapis.com/css2?family=Helvetica&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <script>
-        window.onscroll = function() {toggleStickyHeader()};
-
-        function toggleStickyHeader() {
-            var header = document.querySelector('.sticky-header');
-            var mainHeader = document.querySelector('.header');
-            var headerHeight = mainHeader.offsetHeight;
-
-            if (window.pageYOffset > headerHeight) {
-                header.style.display = "block";
-            } else {
-                header.style.display = "none";
-            }
-        }
-
-        function toggleTabs() {
-            var tabs = document.querySelector('.tabs');
-            tabs.classList.toggle('expanded');
-        }
-
-        function refreshPage() {
-            location.reload();
-        }
-
-        function scrollToPortfolio() {
-            var portfolioSection = document.querySelector('#portfolio');
-            portfolioSection.scrollIntoView({ behavior: 'smooth' });
-        }
-    </script>
+    <style>
+        /* Dodatkowe style dla strony Projekty, jeśli są potrzebne */
+    </style>
 </head>
 <body>
-    <div class="header">
-        <div class="header-text">
-            <h1>ROGUE SYNTHESIS MEDIA</h1>
-            <h2>Twórca Nowego Świata</h2>
-        </div>
-    </div>
+    <header>
+        <!-- Możesz dodać nagłówek strony Projekty tutaj -->
+    </header>
 
-    <div class="tabs">
-        <div class="tabs-left">
-            <a href="javascript:void(0);" onclick="loadindex()">Portfolio</a>
-            <a href="javascript:void(0);" onclick="loadprojekty()">Projekty</a>
-            <a href="javascript:void(0);" onclick="loadblog()">Blog</a>
-            <a href="javascript:void(0);" onclick="loadomnie()">O mnie</a>
-</div>
+    <main>
+        <!-- Treść strony Projekty -->
+        <h1>Projekty</h1>
+        <p>Tutaj znajdziesz listę projektów oraz ich opis.</p>
+    </main>
 
-        </div>
-        <div class="tabs-right">
-            <div class="social-icons">
-                <a href="https://www.instagram.com" target="_blank"><img src="images/instagram-icon.png" alt="Instagram"></a>
-                <a href="https://www.tiktok.com" target="_blank"><img src="images/tiktok-icon.png" alt="TikTok"></a>
-            </div>
-            <div class="expand-button" onclick="toggleTabs()">
-                <img src="images/expand-icon.png" alt="Expand Icon">
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="photo-frame">
-            <img src="images/photo1.jpg" alt="Opis zdjęcia 1">
-        </div>
-        <div class="photo-frame">
-            <img src="images/photo2.jpg" alt="Opis zdjęcia 2">
-        </div>
-        <div class="photo-frame">
-            <img src="images/photo3.jpg" alt="Opis zdjęcia 3">
-        </div>
-        <!-- Dodaj więcej zdjęć według potrzeby -->
-    </div>
-
-    <div class="mask"></div>
-    <div class="sticky-header">
-        <a href="#" onclick="refreshPage()">ROGUE SYNTHESIS MEDIA</a>
-    </div>
-
-       </div>
+    <footer>
+        <!-- Stopka strony Projekty -->
+    </footer>
 </body>
 </html>
