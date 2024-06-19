@@ -247,6 +247,11 @@ body {
         width: 25px; /* Przykładowe zmniejszenie wielkości ikon społecznościowych na mniejszych ekranach */
         margin-left: -25px; /* Przykładowy margines dla ikon społecznościowych na mniejszych ekranach */
     }
+
+    .expand-button {
+        margin-left: auto; /* Wyśrodkowanie ikony rozwijania */
+        margin-right: auto;
+    }
 }
 
 @media only screen and (max-width: 480px) {
@@ -276,5 +281,10 @@ body {
     .container {
         width: 90%; /* Przykładowe dostosowanie szerokości kontenera na bardzo małych ekranach */
         margin: 0 auto; /* Wyśrodkowanie kontenera */
+    }
+
+    .expand-button {
+        margin-left: auto; /* Wyśrodkowanie ikony rozwijania */
+        margin-right: auto;
     }
 }
