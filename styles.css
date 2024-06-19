@@ -279,7 +279,7 @@ body {
 
     .social-icons img {
         width: 20px; /* Zmniejszenie wielkości ikon */
-        margin: 5px; /* Margines między ikonami */
+        margin: 1px; /* Margines między ikonami */
     }
 
     .social-icons img:last-child {
@@ -293,7 +293,7 @@ body {
     }
 
     .expand-button {
-        margin-left: auto; /* Wyśrodkowanie ikony rozwijania */
+        margin-left: 30px; /* Wyśrodkowanie ikony rozwijania */
         margin-right: 30px;
     }
 }
