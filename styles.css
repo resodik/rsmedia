@@ -286,6 +286,13 @@ body {
     .social-icons img:last-child {
         margin-right: auto; /* Usunięcie marginesu po ostatniej ikonie */
     }
+    .social-icons .instagram {
+        order: 1; /* Zmiana kolejności wyświetlania - Instagram na górze */
+    }
+
+    .social-icons .tiktok {
+        order: 2; /* TikTok na dole */
+    }
 
 
     .container {
