@@ -34,8 +34,16 @@
         }
 
         function loadPortfolio() {
-            location.href = 'index.html';
+            var portfolioSection = document.getElementById('portfolio'); // Pobierz sekcję z portfolio
+            if (portfolioSection) {
+                var topPosition = portfolioSection.offsetTop; // Pozycja top sekcji portfolio
+                window.scrollTo({
+                    top: topPosition,
+                    behavior: 'smooth' // Płynne przewinięcie
+                });
+            }
         }
+
         function loadProjects() {
             location.href = 'projekty.html';
         }
@@ -75,7 +83,7 @@
         </div>
     </div>
 
-    <div class="container">
+    <div id="portfolio" class="container">
         <div class="photo-frame">
             <img src="images/photo1.jpg" alt="Opis zdjęcia 1">
         </div>
