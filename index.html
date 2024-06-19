@@ -33,14 +33,10 @@
             location.reload();
         }
 
-          function scrollToPhoto1() {
-            var photo1Section = document.getElementById('photo1'); // Pobierz sekcję z zdjęciem photo1
-            if (photo1Section) {
-                window.scrollTo({
-                    top: photo1Section.offsetTop,
-                    behavior: 'smooth' // Płynne przewinięcie
+        function loadPortfolio() {
+            location.href = 'index.html';
         }
-         function loadProjects() {
+        function loadProjects() {
             location.href = 'projekty.html';
         }
 
@@ -63,7 +59,7 @@
 
     <div class="tabs">
         <div class="tabs-left">
-            <a href="javascript:void(0);" onclick="scrollToPhoto1()">Portfolio</a>
+            <a href="javascript:void(0);" onclick="loadIndex()">Portfolio</a>
             <a href="javascript:void(0);" onclick="loadProjects()">Projekty</a>
             <a href="javascript:void(0);" onclick="loadBlog()">Blog</a>
             <a href="javascript:void(0);" onclick="loadAbout()">O mnie</a>
