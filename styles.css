@@ -283,7 +283,7 @@ body {
     }
 
     .social-icons img:last-child {
-        margin-right: 0; /* Usunięcie marginesu po ostatniej ikonie */
+        margin-right: auto; /* Usunięcie marginesu po ostatniej ikonie */
     }
 
 
