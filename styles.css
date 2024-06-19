@@ -274,24 +274,17 @@ body {
         padding: 5px 10px; /* Przykładowe dostosowanie paddingu w nawigacji na bardzo małych ekranach */
     }
 
-    .social-icons {
-        display: flex;
-        align-items: center;
-        justify-content: center; /* Wyśrodkowanie ikon w pionie */
-        margin-top: 20px; /* Dodatkowy margines na górze ikon */
+  .social-icons {
+        justify-content: center; /* Centrowanie ikon na małych ekranach */
     }
 
     .social-icons img {
-        width: 25px; /* Zwiększenie wielkości ikon */
-        margin: 0 10px; /* Margines między ikonami */
+        width: 20px; /* Zmniejszenie wielkości ikon */
+        margin: -20px; /* Margines między ikonami */
     }
 
-    .social-icons .instagram {
-        order: 2; /* Ustawienie Instagrama na drugiej pozycji */
-    }
-
-    .social-icons .tiktok {
-        order: 1; /* Ustawienie TikToka na pierwszej pozycji */
+    .social-icons img:last-child {
+        margin-right: auto; /* Usunięcie marginesu po ostatniej ikonie */
     }
 
 
