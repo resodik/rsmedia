@@ -194,7 +194,7 @@ body {
 
 .social-icons img {
     width: 30px;
-    margin-left: -30px; /* Ustalony margines */
+    margin: 0 10px; /* Zwiększony margines między ikonami */
 }
 
 @keyframes fadeIn {
@@ -245,7 +245,7 @@ body {
 
     .social-icons img {
         width: 25px; /* Przykładowe zmniejszenie wielkości ikon społecznościowych na mniejszych ekranach */
-        margin-left: -25px; /* Przykładowy margines dla ikon społecznościowych na mniejszych ekranach */
+        margin: 0 10px; /* Zwiększony margines między ikonami */
     }
 
     .expand-button {
@@ -275,7 +275,7 @@ body {
 
     .social-icons img {
         width: 20px; /* Przykładowe zmniejszenie wielkości ikon społecznościowych na bardzo małych ekranach */
-        margin-left: -20px; /* Przykładowy margines dla ikon społecznościowych na bardzo małych ekranach */
+        margin: 0 10px; /* Zwiększony margines między ikonami */
     }
 
     .container {
