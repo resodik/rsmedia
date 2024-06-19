@@ -1,3 +1,4 @@
+/* Resetowanie domyślnych stylów */
 body {
     margin: 0;
     padding: 0;
@@ -6,6 +7,7 @@ body {
     overflow-x: hidden;
 }
 
+/* Tło maski */
 .mask {
     position: fixed;
     top: 0;
@@ -16,6 +18,7 @@ body {
     background: url('images/mask-image.jpg') no-repeat center center/cover;
 }
 
+/* Główny nagłówek */
 .header {
     position: relative;
     width: 100%;
@@ -51,6 +54,7 @@ body {
     font-family: 'Helvetica', sans-serif;
 }
 
+/* Nagłówek przyczepny */
 .sticky-header {
     position: fixed;
     top: 0;
@@ -58,7 +62,7 @@ body {
     text-align: center;
     padding: 10px 0;
     z-index: 1000;
-    display: none;
+    display: none; /* Domyślnie ukryty */
     background-color: transparent;
     box-shadow: 0px 2px 5px rgba(0,0,0,0);
 }
@@ -73,6 +77,7 @@ body {
     margin-right: 20px;
 }
 
+/* Kontener na zawartość */
 .container {
     width: 80%;
     margin: 20px auto;
@@ -83,6 +88,7 @@ body {
     z-index: 999;
 }
 
+/* Ramki na zdjęcia */
 .photo-frame {
     width: 100%;
     margin-bottom: 20px;
@@ -97,6 +103,7 @@ body {
     border-radius: 0px;
 }
 
+/* Paski nawigacyjne */
 .tabs {
     position: absolute;
     top: 0;
@@ -135,6 +142,7 @@ body {
     object-fit: contain;
 }
 
+/* Rozwijane menu */
 .tabs.expanded .expand-button {
     visibility: visible;
 }
@@ -168,6 +176,7 @@ body {
     opacity: 1;
 }
 
+/* Ikony społecznościowe */
 .social-icons {
     display: flex;
     align-items: center;
@@ -180,6 +189,7 @@ body {
     margin-left: 10px;
 }
 
+/* Animacja pojawiania się */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -189,11 +199,41 @@ body {
     }
 }
 
+/* Ukrywanie elementów */
 .hidden {
     display: none;
 }
 
+/* Stylowanie sekcji */
 .section {
     padding: 50px 0;
     text-align: center;
+}
+
+/* Stylowanie menu */
+.menu {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.menu li:last-child {
+    margin-right: 0;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: black; /* Zmień na odpowiedni kolor tekstu */
+    font-size: 18px;
+    font-family: 'Helvetica', sans-serif;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.menu li a:hover {
+    opacity: 1;
 }
