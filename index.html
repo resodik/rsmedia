@@ -6,6 +6,9 @@
     <title>Rogue Synthesis Media</title>
     <link href="https://fonts.googleapis.com/css2?family=Helvetica&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Tutaj możesz umieścić dodatkowe style, jeśli są potrzebne tylko dla głównej strony */
+    </style>
     <script>
         window.onscroll = function() {toggleStickyHeader()};
 
@@ -30,9 +33,16 @@
             location.reload();
         }
 
-        function scrollToPortfolio() {
-            var portfolioSection = document.querySelector('#portfolio');
-            portfolioSection.scrollIntoView({ behavior: 'smooth' });
+        function loadPortfolio() {
+            location.href = 'projekty.html';
+        }
+
+        function loadBlog() {
+            location.href = 'blog.html';
+        }
+
+        function loadAbout() {
+            location.href = 'omnie.html';
         }
     </script>
 </head>
@@ -46,10 +56,9 @@
 
     <div class="tabs">
         <div class="tabs-left">
-            <a href="javascript:void(0);" onclick="scrollToPortfolio()">Portfolio</a>
             <a href="javascript:void(0);" onclick="loadPortfolio()">Portfolio</a>
-    	    <a href="javascript:void(0);" onclick="loadBlog()">Blog</a>
-    	    <a href="javascript:void(0);" onclick="loadAbout()">O mnie</a>
+            <a href="javascript:void(0);" onclick="loadBlog()">Blog</a>
+            <a href="javascript:void(0);" onclick="loadAbout()">O mnie</a>
         </div>
         <div class="tabs-right">
             <div class="social-icons">
@@ -80,6 +89,6 @@
         <a href="#" onclick="refreshPage()">ROGUE SYNTHESIS MEDIA</a>
     </div>
 
-       </div>
+    <script src="scripts.js"></script> <!-- Jeśli chcesz przenieść skrypty do osobnego pliku -->
 </body>
 </html>
