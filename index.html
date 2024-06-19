@@ -33,8 +33,12 @@
             location.reload();
         }
 
-        function loadPortfolio() {
-             location.href = 'index.html#top';
+          function scrollToPhoto1() {
+            var photo1Section = document.getElementById('photo1'); // Pobierz sekcję z zdjęciem photo1
+            if (photo1Section) {
+                window.scrollTo({
+                    top: photo1Section.offsetTop,
+                    behavior: 'smooth' // Płynne przewinięcie
         }
          function loadProjects() {
             location.href = 'projekty.html';
