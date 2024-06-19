@@ -275,7 +275,7 @@ body {
 
     .social-icons img {
         width: 20px; /* Przykładowe zmniejszenie wielkości ikon społecznościowych na bardzo małych ekranach */
-        margin: 0 30px; /* Zwiększony margines między ikonami */
+        margin: 0 100px; /* Zwiększony margines między ikonami */
     }
 
     .container {
