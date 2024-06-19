@@ -293,7 +293,7 @@ body {
     }
 
     .expand-button {
-        margin-left: 50px; /* Wyśrodkowanie ikony rozwijania */
+        margin-left: -20px; /* Wyśrodkowanie ikony rozwijania */
         margin-right: 30px;
     }
 }
