@@ -194,7 +194,7 @@ body {
 
 .social-icons img {
     width: 30px;
-    margin: 0 10px; /* Zwiększony margines między ikonami */
+    margin: 0 -30px; /* Zwiększony margines między ikonami */
 }
 
 @keyframes fadeIn {
