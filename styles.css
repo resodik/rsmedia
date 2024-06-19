@@ -1,3 +1,4 @@
+/* Resetowanie domyślnych stylów */
 body {
     margin: 0;
     padding: 0;
@@ -6,6 +7,7 @@ body {
     overflow-x: hidden;
 }
 
+/* Tło maski */
 .mask {
     position: fixed;
     top: 0;
@@ -16,6 +18,7 @@ body {
     background: url('images/mask-image.jpg') no-repeat center center/cover;
 }
 
+/* Główny nagłówek */
 .header {
     position: relative;
     width: 100%;
@@ -51,6 +54,7 @@ body {
     font-family: 'Helvetica', sans-serif;
 }
 
+/* Nagłówek przyczepny */
 .sticky-header {
     position: fixed;
     top: 0;
@@ -58,7 +62,7 @@ body {
     text-align: center;
     padding: 10px 0;
     z-index: 1000;
-    display: none;
+    display: none; /* Domyślnie ukryty */
     background-color: transparent;
     box-shadow: 0px 2px 5px rgba(0,0,0,0);
 }
@@ -73,6 +77,7 @@ body {
     margin-right: 20px;
 }
 
+/* Kontener na zawartość */
 .container {
     width: 80%;
     margin: 20px auto;
@@ -83,6 +88,7 @@ body {
     z-index: 999;
 }
 
+/* Ramki na zdjęcia */
 .photo-frame {
     width: 100%;
     margin-bottom: 20px;
@@ -97,6 +103,7 @@ body {
     border-radius: 0px;
 }
 
+/* Paski nawigacyjne */
 .tabs {
     position: absolute;
     top: 0;
@@ -135,6 +142,7 @@ body {
     object-fit: contain;
 }
 
+/* Rozwijane menu */
 .tabs.expanded .expand-button {
     visibility: visible;
 }
@@ -177,7 +185,7 @@ body {
 
 .social-icons img {
     width: 30px;
-    margin-left: -30px;
+    margin-left: -30px; /* Ustalony margines */
 }
 
 @keyframes fadeIn {
@@ -196,4 +204,62 @@ body {
 .section {
     padding: 50px 0;
     text-align: center;
+}
+
+/* Media queries dla różnych rozmiarów ekranu */
+@media only screen and (max-width: 768px) {
+    /* Stylowanie dla tabletów i telefonów */
+    .header {
+        height: 500px; /* Przykładowa zmiana wysokości nagłówka na mniejszych ekranach */
+    }
+
+    .header-text h1 {
+        font-size: 36px; /* Przykładowa zmiana rozmiaru tekstu na mniejszych ekranach */
+    }
+
+    .header-text h2 {
+        font-size: 18px; /* Przykładowa zmiana rozmiaru tekstu na mniejszych ekranach */
+    }
+
+    .container {
+        width: 90%; /* Przykładowe dostosowanie szerokości kontenera na mniejszych ekranach */
+    }
+
+    .photo-frame {
+        margin-bottom: 10px; /* Przykładowe dostosowanie marginesów ramek na mniejszych ekranach */
+    }
+
+    .tabs a {
+        font-size: 16px; /* Przykładowa zmiana rozmiaru tekstu w nawigacji na mniejszych ekranach */
+    }
+
+    .social-icons img {
+        width: 25px; /* Przykładowe zmniejszenie wielkości ikon społecznościowych na mniejszych ekranach */
+        margin-left: -25px; /* Przykładowy margines dla ikon społecznościowych na mniejszych ekranach */
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    /* Stylowanie dla telefonów */
+    .header {
+        height: 300px; /* Przykładowa zmiana wysokości nagłówka na bardzo małych ekranach */
+    }
+
+    .header-text h1 {
+        font-size: 24px; /* Przykładowa zmiana rozmiaru tekstu na bardzo małych ekranach */
+    }
+
+    .header-text h2 {
+        font-size: 14px; /* Przykładowa zmiana rozmiaru tekstu na bardzo małych ekranach */
+    }
+
+    .tabs a {
+        font-size: 14px; /* Przykładowa zmiana rozmiaru tekstu w nawigacji na bardzo małych ekranach */
+        padding: 5px 10px; /* Przykładowe dostosowanie paddingu w nawigacji na bardzo małych ekranach */
+    }
+
+    .social-icons img {
+        width: 20px; /* Przykładowe zmniejszenie wielkości ikon społecznościowych na bardzo małych ekranach */
+        margin-left: -20px; /* Przykładowy margines dla ikon społecznościowych na bardzo małych ekranach */
+    }
 }
