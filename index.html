@@ -6,41 +6,101 @@
     <title>Rogue Synthesis Media</title>
     <link href="https://fonts.googleapis.com/css2?family=Helvetica&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Tutaj możesz umieścić dodatkowe style, jeśli są potrzebne tylko dla głównej strony */
+    </style>
+    <script>
+        window.onscroll = function() {toggleStickyHeader()};
+
+        function toggleStickyHeader() {
+            var header = document.querySelector('.sticky-header');
+            var mainHeader = document.querySelector('.header');
+            var headerHeight = mainHeader.offsetHeight;
+
+            if (window.pageYOffset > headerHeight) {
+                header.style.display = "block";
+            } else {
+                header.style.display = "none";
+            }
+        }
+
+        function toggleTabs() {
+            var tabs = document.querySelector('.tabs');
+            tabs.classList.toggle('expanded');
+        }
+
+        function refreshPage() {
+            location.reload();
+        }
+
+        function loadPortfolio() {
+            var portfolioSection = document.getElementById('portfolio'); // Pobierz sekcję z portfolio
+            if (portfolioSection) {
+                var topPosition = portfolioSection.offsetTop; // Pozycja top sekcji portfolio
+                window.scrollTo({
+                    top: topPosition,
+                    behavior: 'smooth' // Płynne przewinięcie
+                });
+            }
+        }
+
+        function loadProjects() {
+            location.href = 'projekty.html';
+        }
+
+        function loadBlog() {
+            location.href = 'blog.html';
+        }
+
+        function loadAbout() {
+            location.href = 'omnie.html';
+        }
+    </script>
 </head>
 <body>
-    <div class="mask"></div>
     <div class="header">
         <div class="header-text">
-            <h1>Rogue Synthesis Media</h1>
+            <h1>ROGUE SYNTHESIS MEDIA</h1>
             <h2>Twórca Nowego Świata</h2>
         </div>
     </div>
+
     <div class="tabs">
         <div class="tabs-left">
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Services</a>
+            <a href="javascript:void(0);" onclick="loadPortfolio()">Portfolio</a>
+            <a href="javascript:void(0);" onclick="loadProjects()">Projekty</a>
+            <a href="javascript:void(0);" onclick="loadBlog()">Blog</a>
+            <a href="javascript:void(0);" onclick="loadAbout()">O mnie</a>
         </div>
         <div class="tabs-right">
             <div class="social-icons">
-                <img src="images/instagram-icon.png" alt="Instagram">
-                <img src="images/Tiktok-icon.png" alt="Tiktok">
+                <a href="https://www.instagram.com/rogue.synthesis" target="_blank"><img src="images/instagram-icon.png" alt="Instagram"></a>
+                <a href="https://www.tiktok.com" target="_blank"><img src="images/tiktok-icon.png" alt="TikTok"></a>
             </div>
-            <div class="expand-button">
-                <img src="images/expand-icon.png" alt="Expand Menu">
+            <div class="expand-button" onclick="toggleTabs()">
+                <img src="images/expand-icon.png" alt="Expand Icon">
             </div>
         </div>
     </div>
-    <div class="container">
+
+    <div id="portfolio" class="container">
         <div class="photo-frame">
-            <img src="images/photo1.jpg" alt="Sample Photo">
+            <img src="images/photo1.jpg" alt="Opis zdjęcia 1">
         </div>
         <div class="photo-frame">
-            <img src="images/photo2.jpg" alt="Sample Photo">
+            <img src="images/photo2.jpg" alt="Opis zdjęcia 2">
         </div>
         <div class="photo-frame">
-            <img src="images/photo3.jpg" alt="Sample Photo">
+            <img src="images/photo3.jpg" alt="Opis zdjęcia 3">
         </div>
+        <!-- Dodaj więcej zdjęć według potrzeby -->
     </div>
+
+    <div class="mask"></div>
+    <div class="sticky-header">
+        <a href="#" onclick="refreshPage()">ROGUE SYNTHESIS MEDIA</a>
+    </div>
+
+    <script src="scripts.js"></script> <!-- Jeśli chcesz przenieść skrypty do osobnego pliku -->
 </body>
 </html>
