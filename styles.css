@@ -279,7 +279,7 @@ body {
     }
 
     .social-icons img {
-        height: 10px;
+        height: 3px;
         width: 20px; /* Zmniejszenie wielkości ikon */
         margin: -20px; /* Margines między ikonami */
     }
