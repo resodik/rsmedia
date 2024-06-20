@@ -275,16 +275,7 @@ body {
     }
 
   .social-icons {
-        display: flex;
-        align-items: center;
-        justify-content: center; /* Wyśrodkowanie ikon w pionie */
-        margin-top: 10px; /* Margines na górze ikon */
-        position: relative; /* Ustawienie pozycji względnej dla kontenera ikon */
-    }
-.social-icons .instagram, 
-    .social-icons .tiktok {
-        position: absolute; /* Ustawienie pozycji absolutnej dla poszczególnych ikon */
-        top: -30px; /* Przesunięcie w górę o 30px */
+        justify-content: center; /* Centrowanie ikon na małych ekranach */
     }
 
     .social-icons img {
