@@ -275,7 +275,11 @@ body {
     }
 
   .social-icons {
-        justify-content: center; /* Centrowanie ikon na małych ekranach */
+    display: flex;
+    flex-direction: column; /* Zmiana układu na kolumnę */
+    align-items: center;
+    justify-content: flex-start; /* Wyrównanie do góry */
+    margin-left: 10px;
     }
 
     .social-icons img {
