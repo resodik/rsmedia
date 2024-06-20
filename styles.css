@@ -280,7 +280,7 @@ body {
     flex-direction: column; /* Zmiana układu na kolumnę */
     align-items: flex-end;
     justify-content: flex-start; /* Wyrównanie do góry */
-    margin-right: auto;
+    margin-right: -10;
     
     }
 
