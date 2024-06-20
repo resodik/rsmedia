@@ -1,4 +1,5 @@
 
+
 /* Resetowanie domyślnych stylów */
 * {
     margin: 0;
@@ -135,9 +136,8 @@ body {
 
 .tabs-right {
     display: flex;
-    flex-direction: column; /* Zmiana układu na kolumnę */
-    align-items: center; /* Wyśrodkowanie w poziomie */
-    justify-content: center; /* Wyśrodkowanie w pionie */
+    align-items: center;
+    justify-content: flex-end;
 }
 
 .expand-button {
@@ -280,7 +280,7 @@ body {
     flex-direction: column; /* Zmiana układu na kolumnę */
     align-items: center;
     justify-content: flex-start; /* Wyrównanie do góry */
-    margin-top: 10px;
+    margin-top: 30px;
     }
 
     .social-icons img {
