@@ -278,7 +278,7 @@ body {
   .social-icons {
     display: flex;
     flex-direction: column; /* Zmiana układu na kolumnę */
-    align-items: center;
+    align-items: flex-end;
     justify-content: flex-start; /* Wyrównanie do góry */
     margin-top: 30px;
     margin-left: 30px;
