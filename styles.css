@@ -275,11 +275,11 @@ body {
     }
 
   .social-icons {
-       
         justify-content: center; /* Centrowanie ikon na małych ekranach */
     }
 
     .social-icons img {
+        top: 3;
         width: 20px; /* Zmniejszenie wielkości ikon */
         margin: -20px; /* Margines między ikonami */
     }
