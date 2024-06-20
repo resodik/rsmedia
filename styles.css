@@ -276,11 +276,13 @@ body {
     }
 
   .social-icons {
+    .social-icons {
     display: flex;
     flex-direction: column; /* Zmiana układu na kolumnę */
-    align-items: flex-end;
-    justify-content: flex-start; /* Wyrównanie do góry */
-    margin-right: -10;
+    align-items: flex-end; /* Wyrównanie do prawej strony */
+    margin-right: 10px; /* Przesunięcie w prawo */
+}
+
     
     }
 
