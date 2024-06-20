@@ -279,7 +279,7 @@ body {
     flex-direction: column; /* Zmiana układu na kolumnę */
     align-items: center;
     justify-content: flex-start; /* Wyrównanie do góry */
-    margin-left: 10px;
+    margin-top: 10px;
     }
 
     .social-icons img {
