@@ -135,15 +135,16 @@ body {
 
 .tabs-right {
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
+    flex-direction: column; /* Zmiana układu na kolumnę */
+    align-items: center; /* Wyśrodkowanie w poziomie */
+    justify-content: center; /* Wyśrodkowanie w pionie */
 }
 
 .expand-button {
     width: 30px;
     height: 50px;
     cursor: pointer;
-    margin-left: 10px;
+    margin-bottom: 10px;
 }
 
 .expand-button img {
@@ -279,7 +280,7 @@ body {
     flex-direction: column; /* Zmiana układu na kolumnę */
     align-items: center;
     justify-content: flex-start; /* Wyrównanie do góry */
-    margin-top: 30px;
+    margin-top: 10px;
     }
 
     .social-icons img {
