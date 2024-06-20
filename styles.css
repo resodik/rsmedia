@@ -287,8 +287,8 @@ body {
     .social-icons img {
         width: 20px; /* Zmniejszenie wielkości ikon */
         margin: -20px; /* Margines między ikonami */
-        transform: translateX(10px);
-        transform: translateY(10px);
+        transform: translateX(20px);
+        transform: translateY(20px);
     }
 
     .social-icons img:last-child {
