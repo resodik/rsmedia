@@ -132,6 +132,23 @@ body {
     align-items: center;
 }
 
+.tabs-left button {
+    text-decoration: none;
+    font-family: 'Helvetica', sans-serif;
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    background-color: transparent;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.tabs-left button:hover {
+    opacity: 1;
+}
+
 .tabs-right {
     display: flex;
     align-items: center;
@@ -194,7 +211,7 @@ body {
 
 .social-icons img {
     width: 30px;
-    margin: 0 -30px; /* Zwiększony margines między ikonami */
+    margin: 0 -30px;
 }
 
 @keyframes fadeIn {
@@ -219,37 +236,36 @@ body {
 @media only screen and (max-width: 768px) {
     /* Stylowanie dla tabletów i telefonów */
     .header {
-        height: 500px; /* Przykładowa zmiana wysokości nagłówka na mniejszych ekranach */
+        height: 500px;
     }
 
     .header-text h1 {
-        font-size: 36px; /* Przykładowa zmiana rozmiaru tekstu na mniejszych ekranach */
+        font-size: 36px;
     }
 
     .header-text h2 {
-        font-size: 18px; /* Przykładowa zmiana rozmiaru tekstu na mniejszych ekranach */
+        font-size: 18px;
     }
 
     .container {
-        width: 90%; /* Przykładowe dostosowanie szerokości kontenera na mniejszych ekranach */
-        margin: 0 auto; /* Wyśrodkowanie kontenera */
+        width: 90%;
     }
 
     .photo-frame {
-        margin-bottom: 10px; /* Przykładowe dostosowanie marginesów ramek na mniejszych ekranach */
+        margin-bottom: 10px;
     }
 
     .tabs a {
-        font-size: 16px; /* Przykładowa zmiana rozmiaru tekstu w nawigacji na mniejszych ekranach */
+        font-size: 16px;
     }
 
     .social-icons img {
-        width: 25px; /* Przykładowe zmniejszenie wielkości ikon społecznościowych na mniejszych ekranach */
-        margin: 0 10px; /* Zwiększony margines między ikonami */
+        width: 25px;
+        margin: 0 10px;
     }
 
     .expand-button {
-        margin-left: auto; /* Wyśrodkowanie ikony rozwijania */
+        margin-left: auto;
         margin-right: auto;
     }
 }
@@ -257,47 +273,46 @@ body {
 @media only screen and (max-width: 480px) {
     /* Stylowanie dla telefonów */
     .header {
-        height: 300px; /* Przykładowa zmiana wysokości nagłówka na bardzo małych ekranach */
+        height: 300px;
     }
 
     .header-text h1 {
-        font-size: 24px; /* Przykładowa zmiana rozmiaru tekstu na bardzo małych ekranach */
+        font-size: 24px;
     }
 
     .header-text h2 {
-        font-size: 14px; /* Przykładowa zmiana rozmiaru tekstu na bardzo małych ekranach */
+        font-size: 14px;
     }
 
     .tabs a {
-        font-size: 14px; /* Przykładowa zmiana rozmiaru tekstu w nawigacji na bardzo małych ekranach */
-        padding: 5px 10px; /* Przykładowe dostosowanie paddingu w nawigacji na bardzo małych ekranach */
+        font-size: 14px;
+        padding: 5px 10px;
     }
 
     .social-icons {
         display: flex;
-        flex-direction: column; /* Zmiana układu na kolumnę */
+        flex-direction: column;
         align-items: flex-end;
-        justify-content: flex-start; /* Wyrównanie do góry */
+        justify-content: flex-start;
         margin-top: 30px;
     }
 
     .social-icons img {
-        width: 20px; /* Zmniejszenie wielkości ikon */
-        margin: -20px; /* Margines między ikonami */
+        width: 20px;
+        margin: -20px;
         transform: translateY(20px);
     }
 
     .social-icons img:last-child {
-        margin-right: auto; /* Usunięcie marginesu po ostatniej ikonie */
+        margin-right: auto;
     }
 
     .container {
-        width: 90%; /* Przykładowe dostosowanie szerokości kontenera na bardzo małych ekranach */
-        margin: 0 auto; /* Wyśrodkowanie kontenera */
+        width: 90%;
+        margin: 0 auto;
     }
 
     .expand-button {
-        margin-left: -20px; /* Wyśrodkowanie ikony rozwijania */
-        margin-right: auto;
+        margin-left: -20px;
     }
 }
