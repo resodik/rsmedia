@@ -11,7 +11,7 @@ body {
     font-family: 'Helvetica', sans-serif;
     background-color: #ffffff;
     overflow-x: hidden;
-    text-align: center; /* Wyśrodkowanie tekstu w całym body */
+    text-align: center;
 }
 
 /* Tło maski */
@@ -70,7 +70,7 @@ body {
     text-align: center;
     padding: 10px 0;
     z-index: 1000;
-    display: none; /* Domyślnie ukryty */
+    display: none;
     background-color: transparent;
     box-shadow: 0px 2px 5px rgba(0,0,0,0);
 }
@@ -94,7 +94,7 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0);
     position: relative;
     z-index: 999;
-    text-align: center; /* Wyśrodkowanie zawartości kontenera */
+    text-align: center;
 }
 
 /* Ramki na zdjęcia */
@@ -273,26 +273,23 @@ body {
         padding: 5px 10px; /* Przykładowe dostosowanie paddingu w nawigacji na bardzo małych ekranach */
     }
 
-  .social-icons {
-    display: flex;
-    flex-direction: column; /* Zmiana układu na kolumnę */
-    align-items: flex-end;
-    justify-content: flex-start; /* Wyrównanie do góry */
-    margin-top: 30px;
-    
+    .social-icons {
+        display: flex;
+        flex-direction: column; /* Zmiana układu na kolumnę */
+        align-items: flex-end;
+        justify-content: flex-start; /* Wyrównanie do góry */
+        margin-top: 30px;
     }
 
     .social-icons img {
         width: 20px; /* Zmniejszenie wielkości ikon */
         margin: -20px; /* Margines między ikonami */
-      
         transform: translateY(20px);
     }
 
     .social-icons img:last-child {
         margin-right: auto; /* Usunięcie marginesu po ostatniej ikonie */
     }
-
 
     .container {
         width: 90%; /* Przykładowe dostosowanie szerokości kontenera na bardzo małych ekranach */
