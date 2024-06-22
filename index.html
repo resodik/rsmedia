@@ -8,6 +8,24 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Dodatkowe style dla głównej strony */
+        .pagination {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .pagination button {
+            font-family: 'Helvetica Neue', sans-serif;
+            font-size: 18px;
+            background-color: transparent;
+            border: none;
+            color: black;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+
+        .pagination button.active {
+            font-weight: bold;
+        }
     </style>
     <script>
         window.onscroll = function() {toggleStickyHeader()};
@@ -54,19 +72,18 @@
             var pagination = document.querySelector('.pagination');
             pagination.innerHTML = '';
 
-            for (var i = 1; i <= 4; i++) {
-                var pageLink = document.createElement('a');
-                pageLink.href = 'javascript:void(0);';
-                pageLink.innerText = i;
-                pageLink.onclick = (function(page) {
+            for (var i = 1; i <= 4; i++) { // Przykładowe 4 strony
+                var pageButton = document.createElement('button');
+                pageButton.innerText = i;
+                pageButton.onclick = (function(page) {
                     return function() {
                         loadPortfolioPage(page);
                     };
                 })(i);
                 if (i === currentPage) {
-                    pageLink.className = 'active';
+                    pageButton.classList.add('active');
                 }
-                pagination.appendChild(pageLink);
+                pagination.appendChild(pageButton);
             }
         }
 
@@ -105,7 +122,7 @@
         <!-- Zdjęcia będą ładowane dynamicznie tutaj -->
     </div>
     <div class="pagination">
-        <!-- Przycisk nawigacyjne zostaną dodane dynamicznie tutaj -->
+        <!-- Przyciski nawigacyjne zostaną dodane dynamicznie tutaj -->
     </div>
 
     <div class="mask"></div>
