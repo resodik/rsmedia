@@ -8,7 +8,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Helvetica Neune', sans-serif bold;
+    font-family: 'Helvetica', sans-serif;
     background-color: #ffffff;
     overflow-x: hidden;
     text-align: center;
@@ -51,7 +51,7 @@ body {
 .header-text h1 {
     margin: 0;
     font-size: 48px;
-    font-family: 'Helvetica Neune', sans-serif bold;
+    font-family: 'Helvetica', sans-serif;
     letter-spacing: 5px;
     font-weight: bold;
 }
@@ -59,7 +59,7 @@ body {
 .header-text h2 {
     margin: 0;
     font-size: 24px;
-    font-family: 'Helvetica Neune', sans-serif bold;
+    font-family: 'Helvetica', sans-serif;
 }
 
 /* Nagłówek przyczepny */
@@ -78,7 +78,7 @@ body {
 .sticky-header a {
     color: black;
     text-decoration: none;
-    font-family: 'Helvetica Neune', sans-serif bold;
+    font-family: 'Helvetica', sans-serif;
     font-size: 28px;
     font-weight: bold;
     opacity: 0.3;
@@ -134,7 +134,7 @@ body {
 
 .tabs-left button {
     text-decoration: none;
-    font-family: 'Helvetica Neune', sans-serif bold;
+    font-family: 'Helvetica', sans-serif;
     color: white;
     font-size: 18px;
     padding: 10px 20px;
@@ -187,7 +187,7 @@ body {
 
 .tabs a {
     text-decoration: none;
-    font-family: 'Helvetica Neune', sans-serif bold;
+    font-family: 'Helvetica', sans-serif;
     color: white;
     font-size: 18px;
     padding: 10px 20px;
@@ -223,7 +223,7 @@ body {
 .pagination button {
     padding: 8px 16px;
     margin: 0 5px;
-    font-family: 'Helvetica Neune', sans-serif bold;
+    font-family: 'Helvetica', sans-serif;
     font-size: 16px;
     color: #333;
     background-color: #f0f0f0;
