@@ -1,5 +1,6 @@
 
 
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -69,6 +70,43 @@
         function loadAbout() {
             location.href = 'omnie.html';
         }
+        function goToPage(pageNumber) {
+    switch (pageNumber) {
+        case 1:
+            location.href = 'strona1.html';
+            break;
+        case 2:
+            location.href = 'strona2.html';
+            break;
+        case 3:
+            location.href = 'strona3.html';
+            break;
+        case 4:
+            location.href = 'strona4.html';
+            break;
+        case 5:
+            location.href = 'strona5.html';
+            break;
+        case 6:
+            location.href = 'strona6.html';
+            break;
+        case 7:
+            location.href = 'strona7.html';
+            break;
+        case 8:
+            location.href = 'strona8.html';
+            break;
+        case 9:
+            location.href = 'strona9.html';
+            break;
+        case 10:
+            location.href = 'strona10.html';
+            break;
+        default:
+            break;
+    }
+}
+
     </script>
 </head>
 <body>
@@ -111,8 +149,8 @@
     </div>
 
     <!-- Paginacja -->
-    <div class="pagination"></div>
-        <a href="#" oneclick="active">1</a>
+    <div class="pagination">
+        <a href="#" class="active">1</a>
         <a href="#">2</a>
         <a href="#">3</a>
         <a href="#">4</a>
