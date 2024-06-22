@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rogue Synthesis Media</title>
-    <link href="https://fonts.googleapis.com/css2?family=Helvetica&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
         /* Tutaj możesz umieścić dodatkowe style, jeśli są potrzebne tylko dla głównej strony */
     </style>
     <script>
@@ -34,12 +37,12 @@
         }
 
         function loadPortfolio() {
-            var portfolioSection = document.getElementById('portfolio'); // Pobierz sekcję z portfolio
+            var portfolioSection = document.getElementById('portfolio');
             if (portfolioSection) {
-                var topPosition = portfolioSection.offsetTop; // Pozycja top sekcji portfolio
+                var topPosition = portfolioSection.offsetTop;
                 window.scrollTo({
                     top: topPosition,
-                    behavior: 'smooth' // Płynne przewinięcie
+                    behavior: 'smooth'
                 });
             }
         }
@@ -101,6 +104,6 @@
         <a href="#" onclick="refreshPage()">ROGUE SYNTHESIS MEDIA</a>
     </div>
 
-    <script src="scripts.js"></script> <!-- Jeśli chcesz przenieść skrypty do osobnego pliku -->
+    <script src="scripts.js"></script>
 </body>
 </html>
