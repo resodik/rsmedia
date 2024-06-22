@@ -5,10 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rogue Synthesis Media</title>
-    <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Dodatkowe style dla głównej strony */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+        /* Tutaj możesz umieścić dodatkowe style, jeśli są potrzebne tylko dla głównej strony */
     </style>
     <script>
         window.onscroll = function() {toggleStickyHeader()};
@@ -34,46 +37,28 @@
             location.reload();
         }
 
-        function loadPortfolioPage(pageNumber) {
+        function loadPortfolio() {
             var portfolioSection = document.getElementById('portfolio');
-            portfolioSection.innerHTML = ''; // Wyczyszczenie sekcji
-
-            for (var i = 1; i <= 3; i++) { // Przykładowe 3 zdjęcia na stronę
-                var photoFrame = document.createElement('div');
-                photoFrame.className = 'photo-frame';
-                var img = document.createElement('img');
-                img.src = 'images/photo' + ((pageNumber - 1) * 3 + i) + '.jpg';
-                img.alt = 'Opis zdjęcia ' + ((pageNumber - 1) * 3 + i);
-                photoFrame.appendChild(img);
-                portfolioSection.appendChild(photoFrame);
-            }
-
-            updatePagination(pageNumber);
-        }
-
-        function updatePagination(currentPage) {
-            var pagination = document.querySelector('.pagination');
-            pagination.innerHTML = '';
-
-            for (var i = 1; i <= 4; i++) {
-                var pageLink = document.createElement('a');
-                pageLink.href = 'javascript:void(0);';
-                pageLink.innerText = i;
-                pageLink.onclick = (function(page) {
-                    return function() {
-                        loadPortfolioPage(page);
-                    };
-                })(i);
-                if (i === currentPage) {
-                    pageLink.className = 'active';
-                }
-                pagination.appendChild(pageLink);
+            if (portfolioSection) {
+                var topPosition = portfolioSection.offsetTop;
+                window.scrollTo({
+                    top: topPosition,
+                    behavior: 'smooth'
+                });
             }
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            loadPortfolioPage(1); // Załadowanie pierwszej strony po załadowaniu dokumentu
-        });
+        function loadProjects() {
+            location.href = 'projekty.html';
+        }
+
+        function loadBlog() {
+            location.href = 'blog.html';
+        }
+
+        function loadAbout() {
+            location.href = 'omnie.html';
+        }
     </script>
 </head>
 <body>
@@ -86,10 +71,10 @@
 
     <div class="tabs expanded">
         <div class="tabs-left">
-            <a href="javascript:void(0);" onclick="loadPortfolioPage(1)">Portfolio</a>
-            <a href="projekty.html">Projekty</a>
-            <a href="blog.html">Blog</a>
-            <a href="omnie.html">O Mnie</a>
+            <a href="javascript:void(0);" onclick="loadPortfolio()">Portfolio</a>
+            <a href="javascript:void(0);" onclick="loadProjects()">Projekty</a>
+            <a href="javascript:void(0);" onclick="loadBlog()">Blog</a>
+            <a href="javascript:void(0);" onclick="loadAbout()">O Mnie</a>
         </div>
         <div class="tabs-right">
             <div class="social-icons">
@@ -103,10 +88,16 @@
     </div>
 
     <div id="portfolio" class="container">
-        <!-- Zdjęcia będą ładowane dynamicznie tutaj -->
-    </div>
-    <div class="pagination">
-        <!-- Przycisk nawigacyjne zostaną dodane dynamicznie tutaj -->
+        <div class="photo-frame">
+            <img src="images/photo1.jpg" alt="Opis zdjęcia 1">
+        </div>
+        <div class="photo-frame">
+            <img src="images/photo2.jpg" alt="Opis zdjęcia 2">
+        </div>
+        <div class="photo-frame">
+            <img src="images/photo3.jpg" alt="Opis zdjęcia 3">
+        </div>
+        <!-- Dodaj więcej zdjęć według potrzeby -->
     </div>
 
     <div class="mask"></div>
@@ -114,6 +105,6 @@
         <a href="#" onclick="refreshPage()">ROGUE SYNTHESIS MEDIA</a>
     </div>
 
-    <script src="scripts.js"></script> <!-- Jeśli chcesz przenieść skrypty do osobnego pliku -->
+    <script src="scripts.js"></script>
 </body>
 </html>
