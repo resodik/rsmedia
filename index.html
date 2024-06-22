@@ -7,28 +7,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Helvetica&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Dodatkowe style, jeśli są potrzebne tylko dla głównej strony */
-        .pagination {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .pagination a {
-            display: inline-block;
-            padding: 8px 16px;
-            margin: 0 5px;
-            background-color: #f0f0f0;
-            color: #333;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        .pagination a.active {
-            background-color: #333;
-            color: #fff;
-        }
+        /* Tutaj możesz umieścić dodatkowe style, jeśli są potrzebne tylko dla głównej strony */
     </style>
     <script>
-        // Skrypty JavaScript, jakie masz obecnie
         window.onscroll = function() {toggleStickyHeader()};
+
         function toggleStickyHeader() {
             var header = document.querySelector('.sticky-header');
             var mainHeader = document.querySelector('.header');
@@ -40,30 +23,35 @@
                 header.style.display = "none";
             }
         }
-        // Pozostałe funkcje JavaScript
+
         function toggleTabs() {
             var tabs = document.querySelector('.tabs');
             tabs.classList.toggle('expanded');
         }
+
         function refreshPage() {
             location.reload();
         }
+
         function loadPortfolio() {
-            var portfolioSection = document.getElementById('portfolio');
+            var portfolioSection = document.getElementById('portfolio'); // Pobierz sekcję z portfolio
             if (portfolioSection) {
-                var topPosition = portfolioSection.offsetTop;
+                var topPosition = portfolioSection.offsetTop; // Pozycja top sekcji portfolio
                 window.scrollTo({
                     top: topPosition,
-                    behavior: 'smooth'
+                    behavior: 'smooth' // Płynne przewinięcie
                 });
             }
         }
+
         function loadProjects() {
             location.href = 'projekty.html';
         }
+
         function loadBlog() {
             location.href = 'blog.html';
         }
+
         function loadAbout() {
             location.href = 'omnie.html';
         }
@@ -79,10 +67,10 @@
 
     <div class="tabs expanded">
         <div class="tabs-left">
-            <a href="javascript:void(0);" onclick="loadPortfolio()">Portfolio</a>
-            <a href="javascript:void(0);" onclick="loadProjects()">Projekty</a>
-            <a href="javascript:void(0);" onclick="loadBlog()">Blog</a>
-            <a href="javascript:void(0);" onclick="loadAbout()">O Mnie</a>
+            <button onclick="loadPortfolio()">Portfolio</button>
+            <button onclick="loadProjects()">Projekty</button>
+            <button onclick="loadBlog()">Blog</button>
+            <button onclick="loadAbout()">O Mnie</button>
         </div>
         <div class="tabs-right">
             <div class="social-icons">
@@ -106,17 +94,6 @@
             <img src="images/photo3.jpg" alt="Opis zdjęcia 3">
         </div>
         <!-- Dodaj więcej zdjęć według potrzeby -->
-    </div>
-
-    <!-- Paginacja -->
-    <div class="pagination">
-        <a href="#" class="active">1</a>
-        <a href="#">2</a>
-        <a href="#">3</a>
-        <a href="#">4</a>
-        <a href="#">5</a>
-        <span>&hellip;</span>
-        <a href="#">10</a> <!-- Przykładowo, gdy masz 10 stron -->
     </div>
 
     <div class="mask"></div>
