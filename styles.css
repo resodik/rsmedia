@@ -218,6 +218,7 @@ body {
     margin-top: 20px;
     display: flex;
     justify-content: center;
+    transform: translateY(10px);
 }
 
 .pagination button {
@@ -338,7 +339,7 @@ body {
     font-size: 18px;
     font-weight: bold;
     opacity: 0.3;
-    margin-right: 30px;
+    margin-right: 50px;
     .container {
         width: 90%;
         margin: 0 auto;
