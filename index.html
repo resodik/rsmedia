@@ -33,8 +33,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
         }
 
         .photo-frame img {
@@ -57,21 +55,6 @@
                 header.style.display = "none";
             }
         }
-
-             window.addEventListener('scroll', function() {
-            var elements = document.querySelectorAll('.photo-frame.hidden');
-            var windowHeight = window.innerHeight;
-
-            for (var i = 0; i < elements.length; i++) {
-                var element = elements[i];
-                var positionFromTop = element.getBoundingClientRect().top;
-
-                if (positionFromTop - windowHeight <= 0) {
-                    element.classList.add('fade-in');
-                    element.classList.remove('hidden');
-                }
-            }
-        });
         // Pozostałe funkcje JavaScript
         function toggleTabs() {
             var tabs = document.querySelector('.tabs');
@@ -134,8 +117,6 @@
         default:
             break;
     }
-
-            
 }
 
     </script>
@@ -167,13 +148,13 @@
     </div>
 
     <div id="portfolio" class="container">
-        <div class="photo-frame hidden">
+        <div class="photo-frame">
             <img src="images/photo1.jpg" alt="Opis zdjęcia 1">
         </div>
-        <div class="photo-frame hidden">
+        <div class="photo-frame">
             <img src="images/photo2.jpg" alt="Opis zdjęcia 2">
         </div>
-        <div class="photo-frame hidden">
+        <div class="photo-frame">
             <img src="images/photo3.jpg" alt="Opis zdjęcia 3">
         </div>
         <!-- Dodaj więcej zdjęć według potrzeby -->
