@@ -33,6 +33,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
         }
 
         .photo-frame img {
@@ -148,13 +150,13 @@
     </div>
 
     <div id="portfolio" class="container">
-        <div class="photo-frame">
+        <div class="photo-frame hidden">
             <img src="images/photo1.jpg" alt="Opis zdjęcia 1">
         </div>
-        <div class="photo-frame">
+        <div class="photo-frame hidden">
             <img src="images/photo2.jpg" alt="Opis zdjęcia 2">
         </div>
-        <div class="photo-frame">
+        <div class="photo-frame hidden">
             <img src="images/photo3.jpg" alt="Opis zdjęcia 3">
         </div>
         <!-- Dodaj więcej zdjęć według potrzeby -->
