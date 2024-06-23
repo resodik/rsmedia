@@ -25,16 +25,86 @@
             background-color: #333;
             color: #fff;
         }
-        /* Klasa do ukrywania zdjęć */
-        .hidden {
-            opacity: 0;
-            transition: opacity 1s ease-out;
-        }
-        /* Klasa do wyświetlania zdjęć */
-        .fade-in {
-            opacity: 1;
-        }
     </style>
+    <script>
+        // Skrypty JavaScript, jakie masz obecnie
+        window.onscroll = function() {toggleStickyHeader()};
+        function toggleStickyHeader() {
+            var header = document.querySelector('.sticky-header');
+            var mainHeader = document.querySelector('.header');
+            var headerHeight = mainHeader.offsetHeight;
+
+            if (window.pageYOffset > headerHeight) {
+                header.style.display = "block";
+            } else {
+                header.style.display = "none";
+            }
+        }
+        // Pozostałe funkcje JavaScript
+        function toggleTabs() {
+            var tabs = document.querySelector('.tabs');
+            tabs.classList.toggle('expanded');
+        }
+        function refreshPage() {
+            location.reload();
+        }
+        function loadPortfolio() {
+            var portfolioSection = document.getElementById('portfolio');
+            if (portfolioSection) {
+                var topPosition = portfolioSection.offsetTop;
+                window.scrollTo({
+                    top: topPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+        function loadProjects() {
+            location.href = 'projekty.html';
+        }
+        function loadBlog() {
+            location.href = 'blog.html';
+        }
+        function loadAbout() {
+            location.href = 'omnie.html';
+        }
+        function goToPage(pageNumber) {
+    switch (pageNumber) {
+        case 1:
+            location.href = 'index.html';
+            break;
+        case 2:
+            location.href = 'strona2.html';
+            break;
+        case 3:
+            location.href = 'strona3.html';
+            break;
+        case 4:
+            location.href = 'strona4.html';
+            break;
+        case 5:
+            location.href = 'strona5.html';
+            break;
+        case 6:
+            location.href = 'strona6.html';
+            break;
+        case 7:
+            location.href = 'strona7.html';
+            break;
+        case 8:
+            location.href = 'strona8.html';
+            break;
+        case 9:
+            location.href = 'strona9.html';
+            break;
+        case 10:
+            location.href = 'strona10.html';
+            break;
+        default:
+            break;
+    }
+}
+
+    </script>
 </head>
 <body>
     <div class="header">
@@ -63,13 +133,13 @@
     </div>
 
     <div id="portfolio" class="container">
-        <div class="photo-frame hidden">
+        <div class="photo-frame">
             <img src="images/photo1.jpg" alt="Opis zdjęcia 1">
         </div>
-        <div class="photo-frame hidden">
+        <div class="photo-frame">
             <img src="images/photo2.jpg" alt="Opis zdjęcia 2">
         </div>
-        <div class="photo-frame hidden">
+        <div class="photo-frame">
             <img src="images/photo3.jpg" alt="Opis zdjęcia 3">
         </div>
         <!-- Dodaj więcej zdjęć według potrzeby -->
@@ -78,121 +148,20 @@
     <!-- Paginacja -->
     <div class="pagination">
         <a href="index.html" class="active">1</a>
-        <a href="Portfolio1.html">2</a>
+        <a href="Portfolio1.html" >2</a>
         <a href="#">3</a>
         <a href="#">4</a>
         <a href="#">5</a>
         <span>&hellip;</span>
-        <a href="#">10</a>
+        <a href="#">10</a> <!-- Przykładowo, gdy masz 10 stron -->
     </div>
 
+  
     <div class="sticky-header">
         <a href="#" onclick="refreshPage()">ROGUE SYNTHESIS MEDIA</a>
-    </div>
+  
+
 
     <script src="scripts.js"></script> <!-- Jeśli chcesz przenieść skrypty do osobnego pliku -->
-    <script>
-        window.onscroll = function() {
-            toggleStickyHeader();
-            fadeInOnScroll();
-        };
-
-        function toggleStickyHeader() {
-            var header = document.querySelector('.sticky-header');
-            var mainHeader = document.querySelector('.header');
-            var headerHeight = mainHeader.offsetHeight;
-
-            if (window.pageYOffset > headerHeight) {
-                header.style.display = "block";
-            } else {
-                header.style.display = "none";
-            }
-        }
-
-        function fadeInOnScroll() {
-            var elements = document.querySelectorAll('.photo-frame.hidden');
-            var windowHeight = window.innerHeight;
-
-            for (var i = 0; i < elements.length; i++) {
-                var element = elements[i];
-                var positionFromTop = element.getBoundingClientRect().top;
-
-                if (positionFromTop - windowHeight <= 0) {
-                    element.classList.add('fade-in');
-                    element.classList.remove('hidden');
-                }
-            }
-        }
-
-        // Pozostałe funkcje JavaScript
-        function toggleTabs() {
-            var tabs = document.querySelector('.tabs');
-            tabs.classList.toggle('expanded');
-        }
-
-        function refreshPage() {
-            location.reload();
-        }
-
-        function loadPortfolio() {
-            var portfolioSection = document.getElementById('portfolio');
-            if (portfolioSection) {
-                var topPosition = portfolioSection.offsetTop;
-                window.scrollTo({
-                    top: topPosition,
-                    behavior: 'smooth'
-                });
-            }
-        }
-
-        function loadProjects() {
-            location.href = 'projekty.html';
-        }
-
-        function loadBlog() {
-            location.href = 'blog.html';
-        }
-
-        function loadAbout() {
-            location.href = 'omnie.html';
-        }
-
-        function goToPage(pageNumber) {
-            switch (pageNumber) {
-                case 1:
-                    location.href = 'index.html';
-                    break;
-                case 2:
-                    location.href = 'strona2.html';
-                    break;
-                case 3:
-                    location.href = 'strona3.html';
-                    break;
-                case 4:
-                    location.href = 'strona4.html';
-                    break;
-                case 5:
-                    location.href = 'strona5.html';
-                    break;
-                case 6:
-                    location.href = 'strona6.html';
-                    break;
-                case 7:
-                    location.href = 'strona7.html';
-                    break;
-                case 8:
-                    location.href = 'strona8.html';
-                    break;
-                case 9:
-                    location.href = 'strona9.html';
-                    break;
-                case 10:
-                    location.href = 'strona10.html';
-                    break;
-                default:
-                    break;
-            }
-        }
-    </script>
 </body>
 </html>
