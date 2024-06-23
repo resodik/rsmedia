@@ -57,6 +57,21 @@
                 header.style.display = "none";
             }
         }
+
+             window.addEventListener('scroll', function() {
+            var elements = document.querySelectorAll('.photo-frame.hidden');
+            var windowHeight = window.innerHeight;
+
+            for (var i = 0; i < elements.length; i++) {
+                var element = elements[i];
+                var positionFromTop = element.getBoundingClientRect().top;
+
+                if (positionFromTop - windowHeight <= 0) {
+                    element.classList.add('fade-in');
+                    element.classList.remove('hidden');
+                }
+            }
+        });
         // Pozostałe funkcje JavaScript
         function toggleTabs() {
             var tabs = document.querySelector('.tabs');
@@ -119,6 +134,8 @@
         default:
             break;
     }
+
+            
 }
 
     </script>
