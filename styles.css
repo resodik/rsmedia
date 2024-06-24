@@ -114,6 +114,9 @@ body {
     border-radius: 0px;
 }
 
+.photo-frame img.gif {
+    transform: scale(1.2);
+
 
 /* Paski nawigacyjne */
 .tabs {
