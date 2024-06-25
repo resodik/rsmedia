@@ -114,6 +114,9 @@ body {
     border-radius: 0px;
 }
 
+img.zoom {
+    width: 200%; /* Powiększenie zdjęcia */
+}
 
 /* Paski nawigacyjne */
 .tabs {
