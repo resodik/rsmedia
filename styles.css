@@ -1,3 +1,4 @@
+
 /* Resetowanie domyślnych stylów */
 * {
     margin: 0;
@@ -102,11 +103,11 @@ body {
 /* Ramki na zdjęcia */
 .photo-frame {
     width: 100%;
-    margin-bottom: 0px;
+    margin-bottom: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-  
+    margin-bottom: 100px;
 }
 
 .photo-frame img {
