@@ -350,6 +350,20 @@ img.zoom {
     .sticky-header a {
         font-size: 15px;
         margin-left: auto;
-        margin-right: auto;
-    }
+        margin-right:
+.auto;
+}
+}
+
+/* Nowe style do płynnego pojawiania się zdjęć podczas przewijania */
+
+.photo-frame {
+opacity: 0;
+transform: translateY(50px);
+transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.photo-frame.visible {
+opacity: 1;
+transform: translateY(0);
 }
