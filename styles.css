@@ -334,10 +334,7 @@ img.zoom {
         transform: translateX(30px);
     }
 
-    .social-icons img:last-child {
-        margin-right: auto;
-    }
-
+  
     .container {
         width: 90%;
         margin: 0 auto;
