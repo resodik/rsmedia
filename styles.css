@@ -330,7 +330,7 @@ img.zoom {
     .social-icons img {
         width: 20px;
         margin: -20px;
-        transform: translateY(20px);
+        transform: translateY(30px);
         transform: translateX(30px);
     }
 
@@ -344,6 +344,12 @@ img.zoom {
     }
 
     .expand-button {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .sticky-header {
+        font-size: 15px;
         margin-left: auto;
         margin-right: auto;
     }
