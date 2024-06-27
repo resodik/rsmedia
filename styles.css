@@ -233,8 +233,8 @@ img.zoom {
     margin: 0 5px;
     font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
     font-size: 16px;
-    color: #333;
-    background-color: #f0f0f0;
+    color: transparent;
+    background-color: transparent;
     border: 1px solid #ccc;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
