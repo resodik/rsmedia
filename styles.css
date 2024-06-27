@@ -241,7 +241,7 @@ img.zoom {
 }
 
 .pagination button:hover {
-    background-color: #ccc;
+    background-color: transparent;
     color: #fff;
 }
 
