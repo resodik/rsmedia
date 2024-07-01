@@ -1,3 +1,4 @@
+
 /*
 	Multiverse by HTML5 UP
 	html5up.net | @ajlkn
@@ -183,20 +184,6 @@
 						});
 
 			});
-
-	 window.onscroll = function() {toggleStickyHeader(), revealPhotos()};
-
-        function toggleStickyHeader() {
-            var header = document.querySelector('.sticky-header');
-            var mainHeader = document.querySelector('.header');
-            var headerHeight = mainHeader.offsetHeight;
-
-            if (window.pageYOffset > headerHeight) {
-                header.style.display = "block";
-            } else {
-                header.style.display = "none";
-            }
-        }
 
 	// Footer.
 		var $footer = $('#footer');
