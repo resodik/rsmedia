@@ -2038,6 +2038,28 @@ input, select, textarea {
 				}
 
 		}
+/* Nagłówek przyczepny */
+.sticky-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    z-index: 1000;
+    display: none;
+    background-color: transparent;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0);
+}
+
+.sticky-header a {
+    color: black;
+    text-decoration: none;
+    font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
+    font-size: 28px;
+    font-weight: bold;
+    opacity: 0.3;
+    margin-right: 20px;
+}
 
 /* Footer */
 
