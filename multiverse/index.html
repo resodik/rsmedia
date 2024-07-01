@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 <!--
 	Multiverse by HTML5 UP
@@ -13,83 +14,7 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
-<style>
- /* Dodaj tutaj inne style, jeśli są potrzebne tylko dla głównej strony */
-        .pagination {
-            text-align: center;
-            margin-top: 10px;
-        }
-        .pagination a {
-            display: inline-block;
-            padding: 8px 16px;
-            margin: 0 5px;
-            background-color: transparent;
-            color: #000000;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        .pagination a.active {
-            background-color: transparent;
-            color: #000000;
-        }
 
-</style>
-		
-       <script>
-        // Skrypty JavaScript, jakie masz obecnie
-        window.onscroll = function() {toggleStickyHeader(), revealPhotos()};
-
-        function toggleStickyHeader() {
-            var header = document.querySelector('.sticky-header');
-            var mainHeader = document.querySelector('.header');
-            var headerHeight = mainHeader.offsetHeight;
-
-            if (window.pageYOffset > headerHeight) {
-                header.style.display = "block";
-            } else {
-                header.style.display = "none";
-            }
-        }
-
-       
-        function goToPage(pageNumber) {
-            switch (pageNumber) {
-                case 1:
-                    location.href = 'multiverse/index.html';
-                    break;
-                case 2:
-                    location.href = 'strona2.html';
-                    break;
-                case 3:
-                    location.href = 'strona3.html';
-                    break;
-                case 4:
-                    location.href = 'strona4.html';
-                    break;
-                case 5:
-                    location.href = 'strona5.html';
-                    break;
-                case 6:
-                    location.href = 'strona6.html';
-                    break;
-                case 7:
-                    location.href = 'strona7.html';
-                    break;
-                case 8:
-                    location.href = 'strona8.html';
-                    break;
-                case 9:
-                    location.href = 'strona9.html';
-                    break;
-                case 10:
-                    location.href = 'strona10.html';
-                    break;
-                default:
-                    break;
-            }
-        }
-    </script>
-				
 		<!-- Wrapper -->
 			<div id="wrapper">
 
@@ -222,20 +147,6 @@
 					</footer>
 
 			</div>
-		   <!-- Paginacja -->
-    <div class="pagination">
-        <a href="multiverse/index.html" class="active">1</a>
-        <a href="Portfolio1.html">2</a>
-        <a href="#">3</a>
-        <a href="#">4</a>
-        <a href="#">5</a>
-        <span>&hellip;</span>
-        <a href="#">10</a> <!-- Przykładowo, gdy masz 10 stron -->
-    </div>
-
-    <div class="sticky-header">
-        <a href="#" onclick="refreshPage()">ROGUE SYNTHESIS MEDIA</a>
-    </div>
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
