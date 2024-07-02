@@ -1,3 +1,4 @@
+
 /* Resetowanie domyślnych stylów */
 * {
     margin: 0;
@@ -27,7 +28,42 @@ body {
 }
 
 /* Główny nagłówek */
+.header {
+    position: relative;
+    width: 100%;
+    height: 700px;
+    background: url('images/main-image.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    padding-top: 20px;
+    z-index: 999;
+    margin-bottom: 100px;
+}
 
+.header-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: fadeIn 2s ease-in-out;
+}
+
+.header-text h1 {
+    margin: 0;
+    font-size: 48px;
+    font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
+    letter-spacing: 5px;
+    font-weight: bold;
+}
+
+.header-text h2 {
+    margin: 0;
+    font-size: 24px;
+    font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
+}
 
 /* Nagłówek przyczepny */
 .sticky-header {
