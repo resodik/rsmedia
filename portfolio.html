@@ -240,17 +240,20 @@ body.blur:not(.overlay-visible) {
 
     let currentIndex = 0;
 
-    function openOverlay(index) {
-        overlay.style.display = "flex";
-        document.body.classList.add("blur");
-        currentIndex = index;
-        updateOverlayImage();
-    }
+   function openOverlay(index) {
+    overlay.style.display = "flex";
+    document.body.classList.add("blur");
+    document.body.classList.add("overlay-visible"); // Add overlay-visible class
+    currentIndex = index;
+    updateOverlayImage();
+}
 
-    function closeOverlay() {
-        overlay.style.display = "none";
-        document.body.classList.remove("blur");
-    }
+function closeOverlay() {
+    overlay.style.display = "none";
+    document.body.classList.remove("blur");
+    document.body.classList.remove("overlay-visible"); // Remove overlay-visible class
+}
+
 
     function updateOverlayImage() {
         overlayImg.src = thumbnails[currentIndex].src;
