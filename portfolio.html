@@ -72,18 +72,6 @@
             }
         }
 
-        function revealPhotos() {
-            var photoFrames = document.querySelectorAll('.photo-frame');
-            for (var i = 0; i < photoFrames.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = photoFrames[i].getBoundingClientRect().top;
-                var elementVisible = 150;
-                if (elementTop < windowHeight - elementVisible) {
-                    photoFrames[i].classList.add("visible");
-                }
-            }
-        }
-
         function toggleTabs() {
             var tabs = document.querySelector('.tabs');
             tabs.classList.toggle('expanded');
