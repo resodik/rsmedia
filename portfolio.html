@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -37,136 +36,66 @@
             transform: translateY(0);
         }
 
-        body.blur {
-            filter: blur(5px);
-            overflow: hidden;
-        }
-
+        /* Overlay styles */
         .overlay {
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            display: none;
             justify-content: center;
             align-items: center;
             z-index: 1000;
         }
 
         .overlay img {
-            width: 80%;
-            max-width: 800px;
+            max-width: 90%;
+            max-height: 90%;
+            z-index: 1001;
         }
 
         .close, .prev, .next {
             position: absolute;
-            top: 50%;
             color: white;
-            font-size: 30px;
-            font-weight: bold;
+            font-size: 2rem;
             cursor: pointer;
             user-select: none;
         }
 
         .close {
             top: 20px;
-            right: 35px;
+            right: 30px;
+            z-index: 1002;
         }
 
         .prev {
-            left: 10px;
+            top: 50%;
+            left: 20px;
             transform: translateY(-50%);
+            z-index: 1002;
         }
 
         .next {
-            right: 10px;
+            top: 50%;
+            right: 20px;
             transform: translateY(-50%);
+            z-index: 1002;
+        }
+
+        /* Blur effect */
+        .blur-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
         }
     </style>
     <script>
-        function toggleStickyHeader() {
-            var header = document.querySelector('.sticky-header');
-            var mainHeader = document.querySelector('.header');
-            var headerHeight = mainHeader.offsetHeight;
-
-            if (window.pageYOffset > headerHeight) {
-                header.style.display = "block";
-            } else {
-                header.style.display = "none";
-            }
-        }
-
-        function toggleTabs() {
-            var tabs = document.querySelector('.tabs');
-            tabs.classList.toggle('expanded');
-        }
-
-        function refreshPage() {
-            location.reload();
-        }
-
-        function loadPortfolio() {
-            var portfolioSection = document.getElementById('portfolio');
-            if (portfolioSection) {
-                var topPosition = portfolioSection.offsetTop;
-                window.scrollTo({
-                    top: topPosition,
-                    behavior: 'smooth'
-                });
-            }
-        }
-
-        function loadProjects() {
-            location.href = 'portfolio.html';
-        }
-
-        function loadBlog() {
-            location.href = 'blog.html';
-        }
-
-        function loadAbout() {
-            location.href = 'omnie.html';
-        }
-
-        function goToPage(pageNumber) {
-            switch (pageNumber) {
-                case 1:
-                    location.href = 'index.html';
-                    break;
-                case 2:
-                    location.href = 'strona2.html';
-                    break;
-                case 3:
-                    location.href = 'strona3.html';
-                    break;
-                case 4:
-                    location.href = 'strona4.html';
-                    break;
-                case 5:
-                    location.href = 'strona5.html';
-                    break;
-                case 6:
-                    location.href = 'strona6.html';
-                    break;
-                case 7:
-                    location.href = 'strona7.html';
-                    break;
-                case 8:
-                    location.href = 'strona8.html';
-                    break;
-                case 9:
-                    location.href = 'strona9.html';
-                    break;
-                case 10:
-                    location.href = 'strona10.html';
-                    break;
-                default:
-                    break;
-            }
-        }
-
         document.addEventListener("DOMContentLoaded", function() {
             const thumbnails = document.querySelectorAll(".photo-frame img");
             const overlay = document.getElementById("overlay");
@@ -174,28 +103,24 @@
             const closeBtn = document.querySelector(".close");
             const prevBtn = document.querySelector(".prev");
             const nextBtn = document.querySelector(".next");
+            const blurBackground = document.getElementById("blur-background");
 
             let currentIndex = 0;
 
             function openOverlay(index) {
+                blurBackground.style.display = "block";
                 overlay.style.display = "flex";
-                document.body.classList.add("blur");
                 currentIndex = index;
                 updateOverlayImage();
             }
 
             function closeOverlay() {
+                blurBackground.style.display = "none";
                 overlay.style.display = "none";
-                document.body.classList.remove("blur");
             }
 
             function updateOverlayImage() {
                 overlayImg.src = thumbnails[currentIndex].src;
-            }
-
-            function showNextImage() {
-                currentIndex = (currentIndex + 1) % thumbnails.length;
-                updateOverlayImage();
             }
 
             function showPrevImage() {
@@ -203,134 +128,4 @@
                 updateOverlayImage();
             }
 
-            thumbnails.forEach((thumbnail, index) => {
-                thumbnail.addEventListener("click", () => openOverlay(index));
-            });
-
-            closeBtn.addEventListener("click", closeOverlay);
-            overlay.addEventListener("click", (event) => {
-                if (event.target === overlay) {
-                    closeOverlay();
-                }
-            });
-            nextBtn.addEventListener("click", showNextImage);
-            prevBtn.addEventListener("click", showPrevImage);
-
-            document.addEventListener("keydown", (event) => {
-                if (overlay.style.display === "flex") {
-                    if (event.key === "ArrowRight") {
-                        showNextImage();
-                    } else if (event.key === "ArrowLeft") {
-                        showPrevImage();
-                    } else if (event.key === "Escape") {
-                        closeOverlay();
-                    }
-                }
-            });
-        });
-
-        document.addEventListener("DOMContentLoaded", function() {
-    const thumbnails = document.querySelectorAll(".photo-frame img");
-    const overlay = document.getElementById("overlay");
-    const overlayImg = document.getElementById("overlay-img");
-    const closeBtn = document.querySelector(".close");
-    const prevBtn = document.querySelector(".prev");
-    const nextBtn = document.querySelector(".next");
-
-    let currentIndex = 0;
-
-    function openOverlay(index) {
-        overlay.style.display = "flex";
-        document.body.classList.add("blur");
-        currentIndex = index;
-        updateOverlayImage();
-    }
-
-    function closeOverlay() {
-        overlay.style.display = "none";
-        document.body.classList.remove("blur");
-    }
-
-    function updateOverlayImage() {
-        overlayImg.src = thumbnails[currentIndex].src;
-    }
-
-    function showPrevImage() {
-        currentIndex = (currentIndex - 1 + thumbnails.length + 1) % thumbnails.length;
-        updateOverlayImage();
-    }
-
-    function showNextImage() {
-        currentIndex = (currentIndex + 1) % thumbnails.length;
-        updateOverlayImage();
-    }
-
-    thumbnails.forEach((thumbnail, index) => {
-        thumbnail.addEventListener("click", () => openOverlay(index));
-    });
-
-    closeBtn.addEventListener("click", closeOverlay);
-    prevBtn.addEventListener("click", showPrevImage);
-    nextBtn.addEventListener("click", showNextImage);
-    overlay.addEventListener("click", function(event) {
-        if (event.target === overlay) {
-            closeOverlay();
-        }
-    });
-});
-
-    </script>
-</head>
-<body>
-    <div id="overlay" class="overlay">
-        <span class="close">&times;</span>
-        <img class="overlay-img" id="overlay-img">
-        <a class="prev">&#10094;</a>
-        <a class="next">&#10095;</a>
-    </div>
- 
-    <div class="tabs expanded">
-        <div class="tabs-left">
-            <a href="javascript:void(0);" onclick="loadPortfolio()">Projekty</a>
-            <a href="javascript:void(0);" onclick="loadProjects()">Portfolio</a>
-            <a href="javascript:void(0);" onclick="loadBlog()">Blog</a>
-            <a href="javascript:void(0);" onclick="loadAbout()">O Mnie</a>
-        </div>
-        <div class="tabs-right">
-            <div class="social-icons">
-                <a href="https://www.instagram.com/rogue.synthesis" target="_blank"><img src="images/instagram-icon.png" alt="Instagram"></a>
-                <a href="https://www.tiktok.com" target="_blank"><img src="images/tiktok-icon.png" alt="TikTok"></a>
-            </div>
-            <div class="expand-button" onclick="toggleTabs()">
-                <img src="images/expand-icon.png" alt="Expand Icon">
-            </div>
-        </div>
-    </div>
-
-    <div id="portfolio" class="gallery">
-        <div class="photo-frame">
-            <img src="images/text1.png" alt="Opis zdjęcia 0">
-        </div>
-        <div class="photo-frame">
-            <img src="images/photo1.jpg" alt="Opis zdjęcia 1">
-        </div>
-        <div class="photo-frame">
-            <img src="images/photo2.jpg" alt="Opis zdjęcia 2">
-        </div>
-        <div class="photo-frame">
-            <img src="images/gif1.gif" alt="Opis zdjęcia 3" >
-        </div>
-        <div class="photo-frame">
-            <img src="images/photo3.jpg" alt="Opis zdjęcia 4">
-        </div>
-        <div class="photo-frame">
-            <img src="images/photo5.jpg" alt="Opis zdjęcia 5">
-        </div>
-        <!-- Dodaj więcej zdjęć według potrzeby -->
-    </div>
-
-    <div class="sticky-header">
-        <a href="#" onclick="refreshPage()">ROGUE SYNTHESIS MEDIA</a>
-    </div>
-</body>
-</html>
+            function show
