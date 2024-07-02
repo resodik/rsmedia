@@ -1,3 +1,5 @@
+
+
 /* Resetowanie domyślnych stylów */
 * {
     margin: 0;
@@ -110,6 +112,9 @@ body {
 .photo-frame {
     position: relative;
     overflow: hidden;
+    opacity: 1;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
 .photo-frame img {
@@ -121,6 +126,11 @@ body {
 
 .photo-frame:hover img {
     transform: scale(1.1);
+}
+
+.photo-frame.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Paski nawigacyjne */
@@ -354,91 +364,4 @@ body {
         margin-left: auto;
         margin-right: auto;
     }
-}
-
-/* Overlay styles */
-.overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    background: rgba(0, 0, 0, 0.8);
-}
-
-.overlay img {
-    max-width: 90%;
-    max-height: 90%;
-    z-index: 1001;
-}
-
-.close, .prev, .next {
-    position: absolute;
-    color: white;
-    font-size: 2rem;
-    cursor: pointer;
-    user-select: none;
-}
-
-.close {
-    top: 20px;
-    right: 30px;
-    z-index: 1002;
-}
-
-.prev {
-    top: 50%;
-    left: 20px;
-    transform: translateY(-50%);
-    z-index: 1002;
-}
-
-.next {
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-    z-index: 1002;
-}
-
-/* Blur effect */
-.blur-background {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-}
-
-.blur {
-    filter: blur(5px);
-}
-
-.sticky-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    text-align: center;
-    padding: 10px 0;
-    z-index: 1000;
-}
-
-.sticky-header a {
-    color: white;
-    font-size: 1.5rem;
-    text-decoration: none;
-    font-weight: bold;
-    letter-spacing: 2px;
-}
-
-.sticky-header a:hover {
-    opacity: 0.8;
 }
