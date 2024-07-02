@@ -36,9 +36,9 @@
             transform: translateY(0);
         }
 
-      /* Body blur effect excluding overlay image */
-body.blur {
-    filter: blur(1px);
+
+body.blur:not(.overlay-visible) {
+    filter: blur(5px);
     overflow: hidden;
 }
 
