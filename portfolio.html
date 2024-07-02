@@ -1,5 +1,6 @@
 
 
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -29,47 +30,44 @@
             transition: transform 0.5s ease;
         }
 
-       
 
         .visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* Ustawienie blur dla całej strony, z wyjątkiem zdjęć */
-body.blur {
-    filter: blur(5px);
-    overflow: hidden;
-}
+        body.blur {
+            filter: blur(5px);
+            overflow: hidden;
+        }
 
-/* Zmiana tła strony i zdjęcia wyglądu jako elementu */
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    overflow: hidden; /* Usuwanie niepotrzebne */
-}
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
 
-.overlay img {
-    width: 80%;
-    max-width: 800px;
-}
+        .overlay img {
+            width: 80%;
+            max-width: 800px;
+        }
 
-/* Wygląd elementu close, prev, next,*/
-.close, .prev, .next {
-    position: absolute;
-    top: 50%;
-    color: white;
-    font-size: 30px;
-   offsetY
-
+        .close, .prev, .next {
+            position: absolute;
+            top: 50%;
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            user-select: none;
+        }
 
         .close {
             top: 20px;
