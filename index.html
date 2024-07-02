@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -89,7 +88,7 @@
         }
 
         function loadProjects() {
-            location.href = 'portfolio.html';
+            location.href = 'projekty.html';
         }
 
         function loadBlog() {
@@ -103,7 +102,7 @@
         function goToPage(pageNumber) {
             switch (pageNumber) {
                 case 1:
-                    location.href = 'portfolio.html';
+                    location.href = 'index.html';
                     break;
                 case 2:
                     location.href = 'strona2.html';
@@ -148,8 +147,8 @@
 
     <div class="tabs expanded">
         <div class="tabs-left">
-            <a href="javascript:void(0);" onclick="loadPortfolio()">Projekty</a>
-            <a href="javascript:void(0);" onclick="loadProjects()">Portfolio</a>
+            <a href="javascript:void(0);" onclick="loadPortfolio()">Portfolio</a>
+            <a href="javascript:void(0);" onclick="loadProjects()">Projekty</a>
             <a href="javascript:void(0);" onclick="loadBlog()">Blog</a>
             <a href="javascript:void(0);" onclick="loadAbout()">O Mnie</a>
         </div>
@@ -189,7 +188,7 @@
 
     <!-- Paginacja -->
     <div class="pagination">
-        <a href="portfolio.html" class="active">1</a>
+        <a href="index.html" class="active">1</a>
         <a href="Portfolio1.html">2</a>
         <a href="#">3</a>
         <a href="#">4</a>
