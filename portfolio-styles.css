@@ -156,7 +156,7 @@ body {
 .tabs-left a, .tabs-left button {
     text-decoration: none;
     font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
-    color: white;
+    color: black;
     font-size: 18px;
     padding: 10px 20px;
     margin-right: 10px;
