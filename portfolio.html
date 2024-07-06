@@ -102,22 +102,6 @@
             location.reload();
         }
 
-        function loadPortfolio() {
-            location.href = 'portfolio.html';
-        }
-
-        function loadProjects() {
-            location.href = 'projects.html';
-        }
-
-        function loadBlog() {
-            location.href = 'blog.html';
-        }
-
-        function loadAbout() {
-            location.href = 'omnie.html';
-        }
-
         document.addEventListener("DOMContentLoaded", function() {
             const thumbnails = document.querySelectorAll(".photo-frame img");
             const overlay = document.getElementById("overlay");
@@ -191,10 +175,10 @@
 
     <div class="tabs expanded">
         <div class="tabs-left">
-            <a href="javascript:void(0);" onclick="loadProjects()">Projekty</a>
-            <a href="javascript:void(0);" onclick="loadPortfolio()">Portfolio</a>
-            <a href="javascript:void(0);" onclick="loadBlog()">Blog</a>
-            <a href="javascript:void(0);" onclick="loadAbout()">O Mnie</a>
+            <a href="projects.html">Projekty</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="blog.html">Blog</a>
+            <a href="omnie.html">O Mnie</a>
         </div>
         <div class="tabs-right">
             <div class="social-icons">
@@ -265,7 +249,7 @@
     </div>
 
     <div class="sticky-header">
-        <a href="#" onclick="refreshPage()">ROGUE SYNTHESIS MEDIA</a>
+        <a href="index.html">ROGUE SYNTHESIS MEDIA</a>
     </div>
 </body>
 </html>
