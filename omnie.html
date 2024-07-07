@@ -1,3 +1,7 @@
+
+
+
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -27,15 +31,19 @@
             transition: transform 0.5s ease;
         }
 
+
         .visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        body.blur:not(.overlay-visible) {
-            filter: blur(5px);
-            overflow: hidden;
-        }
+
+body.blur:not(.overlay-visible) {
+    filter: blur(5px);
+    overflow: hidden;
+   
+}
+
 
         .overlay {
             position: fixed;
@@ -79,95 +87,11 @@
             right: 10px;
             transform: translateY(-50%);
         }
-
-        /* Strata theme styles */
-        body {
-            font-family: 'Helvetica', sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background: #f4f4f4;
-            color: #333;
-        }
-
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-        }
-
-        #main-header {
-            background: #333;
-            color: #fff;
-            padding-top: 30px;
-            min-height: 70px;
-            border-bottom: #77d42a 3px solid;
-        }
-
-        #main-header a {
-            color: #fff;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 16px;
-        }
-
-        .sticky-header {
-            background: #333;
-            color: #fff;
-            padding: 15px 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            display: none;
-            z-index: 999;
-        }
-
-        #showcase {
-            min-height: 400px;
-            background: url('images/showcase.jpg') no-repeat 0 -400px;
-            text-align: center;
-            color: #fff;
-        }
-
-        #showcase h1 {
-            margin-top: 100px;
-            font-size: 55px;
-            margin-bottom: 10px;
-        }
-
-        #showcase p {
-            font-size: 20px;
-        }
-
-        .tabs {
-            padding: 20px 0;
-            background: #333;
-            color: #fff;
-            overflow: hidden;
-        }
-
-        .tabs .tabs-left a, .tabs .tabs-right a {
-            color: #fff;
-            padding: 10px;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .tabs .tabs-right .social-icons a img {
-            width: 30px;
-            height: 30px;
-        }
-
-        .tabs .expand-button img {
-            width: 30px;
-            height: 30px;
-            cursor: pointer;
-        }
     </style>
     <script>
         function toggleStickyHeader() {
             var header = document.querySelector('.sticky-header');
-            var mainHeader = document.querySelector('#main-header');
+            var mainHeader = document.querySelector('.header');
             var headerHeight = mainHeader.offsetHeight;
 
             if (window.pageYOffset > headerHeight) {
@@ -187,7 +111,7 @@
         }
 
         function loadPortfolio() {
-            location.href = 'index.html';
+              location.href = 'index.html';
             var portfolioSection = document.getElementById('portfolio');
             if (portfolioSection) {
                 var topPosition = portfolioSection.offsetTop;
@@ -260,7 +184,6 @@
             function openOverlay(index) {
                 overlay.style.display = "flex";
                 document.body.classList.add("blur");
-                document.body.classList.add("overlay-visible");
                 currentIndex = index;
                 updateOverlayImage();
             }
@@ -268,7 +191,6 @@
             function closeOverlay() {
                 overlay.style.display = "none";
                 document.body.classList.remove("blur");
-                document.body.classList.remove("overlay-visible");
             }
 
             function updateOverlayImage() {
@@ -310,36 +232,70 @@
                 }
             });
         });
+
+        document.addEventListener("DOMContentLoaded", function() {
+    const thumbnails = document.querySelectorAll(".photo-frame img");
+    const overlay = document.getElementById("overlay");
+    const overlayImg = document.getElementById("overlay-img");
+    const closeBtn = document.querySelector(".close");
+    const prevBtn = document.querySelector(".prev");
+    const nextBtn = document.querySelector(".next");
+
+    let currentIndex = 0;
+
+   function openOverlay(index) {
+    overlay.style.display = "flex";
+    document.body.classList.add("blur");
+    document.body.classList.add("overlay-visible"); // Add overlay-visible class
+    currentIndex = index;
+    updateOverlayImage();
+}
+
+function closeOverlay() {
+    overlay.style.display = "none";
+    document.body.classList.remove("blur");
+    document.body.classList.remove("overlay-visible"); // Remove overlay-visible class
+}
+
+
+    function updateOverlayImage() {
+        overlayImg.src = thumbnails[currentIndex].src;
+    }
+
+    function showPrevImage() {
+        currentIndex = (currentIndex - 1 + thumbnails.length + 1) % thumbnails.length;
+        updateOverlayImage();
+    }
+
+    function showNextImage() {
+        currentIndex = (currentIndex + 1) % thumbnails.length;
+        updateOverlayImage();
+    }
+
+    thumbnails.forEach((thumbnail, index) => {
+        thumbnail.addEventListener("click", () => openOverlay(index));
+    });
+
+    closeBtn.addEventListener("click", closeOverlay);
+    prevBtn.addEventListener("click", showPrevImage);
+    nextBtn.addEventListener("click", showNextImage);
+    overlay.addEventListener("click", function(event) {
+        if (event.target === overlay) {
+            closeOverlay();
+        }
+    });
+});
+
     </script>
 </head>
-<body onscroll="toggleStickyHeader()">
-    <header id="main-header">
-        <div class="container">
-            <h1>ROGUE SYNTHESIS MEDIA</h1>
-            <nav>
-                <a href="#" onclick="refreshPage()">Home</a>
-                <a href="javascript:void(0);" onclick="loadPortfolio()">Projekty</a>
-                <a href="javascript:void(0);" onclick="loadProjects()">Portfolio</a>
-                <a href="javascript:void(0);" onclick="loadBlog()">Blog</a>
-                <a href="javascript:void(0);" onclick="loadAbout()">O Mnie</a>
-            </nav>
-        </div>
-    </header>
-
-    <section id="showcase">
-        <div class="container">
-            <h1>Welcome to Rogue Synthesis Media</h1>
-            <p>Your source for stunning photography and media projects</p>
-        </div>
-    </section>
-
+<body>
     <div id="overlay" class="overlay">
         <span class="close">&times;</span>
         <img class="overlay-img" id="overlay-img">
         <a class="prev">&#10094;</a>
         <a class="next">&#10095;</a>
     </div>
-
+ 
     <div class="tabs expanded">
         <div class="tabs-left">
             <a href="javascript:void(0);" onclick="loadPortfolio()">Projekty</a>
@@ -357,6 +313,8 @@
             </div>
         </div>
     </div>
+
+
 
     <div class="sticky-header">
         <a href="#" onclick="refreshPage()">ROGUE SYNTHESIS MEDIA</a>
