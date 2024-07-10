@@ -113,7 +113,11 @@
 
         /* Styles for the video container */
         .video-container {
-            margin: 20px 0;
+            width: 33.33%;
+            float: left;
+            padding: 20px;
+            box-sizing: border-box;
+            margin-top: 40px;
         }
 
         .video-container video {
@@ -314,8 +318,11 @@
     <div class="video-container">
         <video autoplay loop muted playsinline>
             <source src="images/film1.mp4" type="video/mp4">
-         
+            Your browser does not support the video tag.
         </video>
     </div>
+
+    <!-- Clearfix div to ensure proper float handling -->
+    <div class="clearfix"></div>
 </body>
 </html>
