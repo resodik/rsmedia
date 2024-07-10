@@ -128,14 +128,7 @@
         }
 
         function loadPortfolio() {
-            var portfolioSection = document.getElementById('portfolio');
-            if (portfolioSection) {
-                var topPosition = portfolioSection.offsetTop;
-                window.scrollTo({
-                    top: topPosition,
-                    behavior: 'smooth'
-                });
-            }
+        location.href = 'portfolio.html';
         }
 
         function loadProjects() {
@@ -147,6 +140,7 @@
         }
 
         function loadAbout() {
+            location.href = 'omnie.html';
             var omnieSection = document.getElementById('omnie');
             if (omnieSection) {
                 var topPosition = omniesection.offsetTop;
