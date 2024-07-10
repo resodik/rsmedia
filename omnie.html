@@ -7,322 +7,106 @@
     <link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="portfolio-styles.css">
     <style>
-   /*   body {
-            background-color: #000;
-            color: #fff; 
-        }  */
-
-        
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            grid-gap: 0px;
-            margin: 0px;
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
         }
 
-        .photo-frame {
-            position: relative;
+        .section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
             overflow: hidden;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
         }
 
-        .photo-frame img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-
-        .visible {
+        .section.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        body.blur:not(.overlay-visible) {
-            filter: blur(5px);
-            overflow: hidden;
+        .section img, .section video {
+            width: 30%;
+            margin: 20px;
         }
 
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-
-        .overlay img {
-            width: 80%;
-            max-width: 800px;
-        }
-
-        .close, .prev, .next {
-            position: absolute;
-            top: 50%;
-            color: white;
-            font-size: 30px;
-            font-weight: bold;
-            cursor: pointer;
-            user-select: none;
-        }
-
-        .close {
-            top: 20px;
-            right: 35px;
-        }
-
-        .prev {
-            left: 10px;
-            transform: translateY(-50%);
-        }
-
-        .next {
-            right: 10px;
-            transform: translateY(-50%);
-        }
-
-        /* New styles for left container */
-        .left-container {
-            width: 25%;
-            float: left;
+        .section .text {
+            width: 60%;
             padding: 20px;
             box-sizing: border-box;
-            margin-top: 40px;
         }
 
-        .left-container img {
-            width: 100%;
+        .section video {
+            width: 30%;
             height: auto;
-        }
-
-        .left-container p {
-            text-align: justify;
-            margin-top: 10px;
-        }
-
-        /* Styles for clearing floats */
-        .clearfix::after {
-            content: "";
-            clear: both;
-            display: table;
-        }
-
-        /* Styles for the video container */
-        .video-container {
-            width: 33.33%;
-            float: left;
-            padding: 20px;
-            box-sizing: border-box;
-            margin-top: 40px;
-        }
-
-        .video-container video {
-            width: 100%;
-            height: auto;
-            display: block;
         }
     </style>
+</head>
+<body>
+
+    <!-- Section 1 -->
+    <div class="section">
+        <img src="images/film1.mp4" alt="Sample Image 1">
+        <div class="text">
+            <h2>Sekcja 1</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+        </div>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="section">
+        <video autoplay loop muted playsinline>
+            <source src="path/to/your/video1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="text">
+            <h2>Sekcja 2</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+        </div>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="section">
+        <img src="path/to/your/image2.jpg" alt="Sample Image 2">
+        <div class="text">
+            <h2>Sekcja 3</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+        </div>
+    </div>
+
+    <!-- Section 4 -->
+    <div class="section">
+        <video autoplay loop muted playsinline>
+            <source src="path/to/your/video2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="text">
+            <h2>Sekcja 4</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
+        </div>
+    </div>
+
     <script>
-        function toggleStickyHeader() {
-            var header = document.querySelector('.sticky-header');
-            var mainHeader = document.querySelector('.header');
-            var headerHeight = mainHeader.offsetHeight;
-
-            if (window.pageYOffset > headerHeight) {
-                header.style.display = "block";
-            } else {
-                header.style.display = "none";
-            }
-        }
-
-        function toggleTabs() {
-            var tabs = document.querySelector('.tabs');
-            tabs.classList.toggle('expanded');
-        }
-
-        function refreshPage() {
-            location.reload();
-        }
-
-        function loadPortfolio() {
-            location.href = 'index.html';
-            var portfolioSection = document.getElementById('portfolio');
-            if (portfolioSection) {
-                var topPosition = portfolioSection.offsetTop;
-                window.scrollTo({
-                    top: topPosition,
-                    behavior: 'smooth'
-                });
-            }
-        }
-
-        function loadProjects() {
-            location.href = 'portfolio.html';
-        }
-
-        function loadBlog() {
-            location.href = 'blog.html';
-        }
-
-        function loadAbout() {
-            location.href = 'omnie.html';
-        }
-
-        function goToPage(pageNumber) {
-            switch (pageNumber) {
-                case 1:
-                    location.href = 'index.html';
-                    break;
-                case 2:
-                    location.href = 'strona2.html';
-                    break;
-                case 3:
-                    location.href = 'strona3.html';
-                    break;
-                case 4:
-                    location.href = 'strona4.html';
-                    break;
-                case 5:
-                    location.href = 'strona5.html';
-                    break;
-                case 6:
-                    location.href = 'strona6.html';
-                    break;
-                case 7:
-                    location.href = 'strona7.html';
-                    break;
-                case 8:
-                    location.href = 'strona8.html';
-                    break;
-                case 9:
-                    location.href = 'strona9.html';
-                    break;
-                case 10:
-                    location.href = 'strona10.html';
-                    break;
-                default:
-                    break;
-            }
-        }
-
         document.addEventListener("DOMContentLoaded", function() {
-            const thumbnails = document.querySelectorAll(".photo-frame img");
-            const overlay = document.getElementById("overlay");
-            const overlayImg = document.getElementById("overlay-img");
-            const closeBtn = document.querySelector(".close");
-            const prevBtn = document.querySelector(".prev");
-            const nextBtn = document.querySelector(".next");
+            const sections = document.querySelectorAll(".section");
 
-            let currentIndex = 0;
-
-            function openOverlay(index) {
-                overlay.style.display = "flex";
-                document.body.classList.add("blur");
-                document.body.classList.add("overlay-visible");
-                currentIndex = index;
-                updateOverlayImage();
-            }
-
-            function closeOverlay() {
-                overlay.style.display = "none";
-                document.body.classList.remove("blur");
-                document.body.classList.remove("overlay-visible");
-            }
-
-            function updateOverlayImage() {
-                overlayImg.src = thumbnails[currentIndex].src;
-            }
-
-            function showNextImage() {
-                currentIndex = (currentIndex + 1) % thumbnails.length;
-                updateOverlayImage();
-            }
-
-            function showPrevImage() {
-                currentIndex = (currentIndex - 1 + thumbnails.length) % thumbnails.length;
-                updateOverlayImage();
-            }
-
-            thumbnails.forEach((thumbnail, index) => {
-                thumbnail.addEventListener("click", () => openOverlay(index));
-            });
-
-            closeBtn.addEventListener("click", closeOverlay);
-            overlay.addEventListener("click", (event) => {
-                if (event.target === overlay) {
-                    closeOverlay();
-                }
-            });
-            nextBtn.addEventListener("click", showNextImage);
-            prevBtn.addEventListener("click", showPrevImage);
-
-            document.addEventListener("keydown", (event) => {
-                if (overlay.style.display === "flex") {
-                    if (event.key === "ArrowRight") {
-                        showNextImage();
-                    } else if (event.key === "ArrowLeft") {
-                        showPrevImage();
-                    } else if (event.key === "Escape") {
-                        closeOverlay();
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
                     }
-                }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            sections.forEach(section => {
+                observer.observe(section);
             });
         });
     </script>
-</head>
-    
-<body onscroll="toggleStickyHeader()">
-    <div id="overlay" class="overlay">
-        <span class="close">&times;</span>
-        <img class="overlay-img" id="overlay-img">
-        <a class="prev">&#10094;</a>
-        <a class="next">&#10095;</a>
-    </div>
-
-    <div class="tabs expanded">
-        <div class="tabs-left">
-            <a href="javascript:void(0);" onclick="loadPortfolio()">Projekty</a>
-            <a href="javascript:void(0);" onclick="loadProjects()">Portfolio</a>
-            <a href="javascript:void(0);" onclick="loadBlog()">Blog</a>
-            <a href="javascript:void(0);" onclick="loadAbout()">O Mnie</a>
-        </div>
-        <div class="tabs-right">
-            <div class="social-icons">
-                <a href="https://www.instagram.com/rogue.synthesis" target="_blank"><img src="images/instagram-icon.png" alt="Instagram"></a>
-                <a href="https://www.tiktok.com" target="_blank"><img src="images/tiktok-icon.png" alt="TikTok"></a>
-            </div>
-            <div class="expand-button" onclick="toggleTabs()">
-                <img src="images/expand-icon.png" alt="Expand Icon">
-            </div>
-        </div>
-    </div>
-
-    <div class="sticky-header">
-        <a href="#" onclick="refreshPage()">ROGUE SYNTHESIS MEDIA</a>
-    </div>
-
-    <!-- New left container -->
-    <div class="left-container">
-        <img src="images/ja1-img.jpg" alt="Sample Image">
-        <p> </p>
-    </div>
-
-    <!-- Clearfix div to ensure proper float handling -->
-    <div class="clearfix"></div>
-
-    <!-- Video container -->
-    <div class="video-container">
-        <video autoplay loop muted playsinline>
-            <source src="images/film1.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
-
-    <!-- Clearfix div to ensure proper float handling -->
-    <div class="clearfix"></div>
 </body>
 </html>
