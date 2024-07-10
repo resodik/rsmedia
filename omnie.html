@@ -49,23 +49,6 @@
             margin-bottom: 20px;
         }
 
-        .sticky-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: #ffffff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            padding: 10px 0;
-            z-index: 1000;
-            display: none; /* Domyślnie ukryte */
-        }
-
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-
         .section {
             display: flex;
             justify-content: center;
@@ -232,20 +215,21 @@
         </div>
     </div>
 
-    <!-- Expanded header -->
-    <div class="expanded-header">
-        <div class="tabs">
+   <div class="tabs expanded">
+        <div class="tabs-left">
             <a href="javascript:void(0);" onclick="loadPortfolio()">Projekty</a>
             <a href="javascript:void(0);" onclick="loadProjects()">Portfolio</a>
             <a href="javascript:void(0);" onclick="loadBlog()">Blog</a>
             <a href="javascript:void(0);" onclick="loadAbout()">O Mnie</a>
         </div>
-        <div class="social-icons">
-            <a href="https://www.instagram.com/rogue.synthesis" target="_blank"><img src="images/instagram-icon.png" alt="Instagram"></a>
-            <a href="https://www.tiktok.com" target="_blank"><img src="images/tiktok-icon.png" alt="TikTok"></a>
-        </div>
-        <div class="expand-button" onclick="toggleTabs()">
-            <img src="images/expand-icon.png" alt="Expand Icon">
+        <div class="tabs-right">
+            <div class="social-icons">
+                <a href="https://www.instagram.com/rogue.synthesis" target="_blank"><img src="images/instagram-icon.png" alt="Instagram"></a>
+                <a href="https://www.tiktok.com" target="_blank"><img src="images/tiktok-icon.png" alt="TikTok"></a>
+            </div>
+            <div class="expand-button" onclick="toggleTabs()">
+                <img src="images/expand-icon.png" alt="Expand Icon">
+            </div>
         </div>
     </div>
 
