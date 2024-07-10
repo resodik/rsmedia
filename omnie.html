@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -128,7 +129,14 @@
         }
 
         function loadPortfolio() {
-        location.href = 'portfolio.html';
+            var portfolioSection = document.getElementById('portfolio');
+            if (portfolioSection) {
+                var topPosition = portfolioSection.offsetTop;
+                window.scrollTo({
+                    top: topPosition,
+                    behavior: 'smooth'
+                });
+            }
         }
 
         function loadProjects() {
@@ -141,15 +149,6 @@
 
         function loadAbout() {
             location.href = 'omnie.html';
-            var omnieSection = document.getElementById('omnie');
-            if (omnieSection) {
-                var topPosition = omniesection.offsetTop;
-                window.scrollTo({
-                    top: topPosition,
-                    behaviour: 'smooth'
-                });
-            }
-        
         }
 
         function goToPage(pageNumber) {
@@ -247,7 +246,7 @@
     <!-- Section 2 with black background -->
     <div class="section section-black">
         <video autoplay loop muted playsinline>
-            <source src="images/film1.mp4" type="video/mp4">
+            <source src="path/to/your/video1.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <div class="text">
