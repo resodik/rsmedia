@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
-        
         /* Nowe style do płynnego pojawiania się zdjęć podczas przewijania */
         .photo-frame {
             opacity: 0;
@@ -49,10 +48,10 @@
         }
 
         .section img {
-            margin: 20px;
-            height: auto; /* Zresetowanie wysokości */
-            width: auto;  /* Zresetowanie szerokości */
-            max-width: 100%; /* Ustawienie maksymalnej szerokości na 100%, aby zdjęcie nie przekroczyło kontenera */
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Dopasowanie zdjęcia do sekcji bez zniekształceń */
+            margin: 0;
         }
 
         .section .text {
