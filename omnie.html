@@ -48,10 +48,11 @@
             transform: translateY(0);
         }
 
-        .section img, .section video {
-            width: 300px; /* Ustawienie szerokości w pikselach */
-            height: 200px; /* Ustawienie wysokości w pikselach */
+        .section img {
             margin: 20px;
+            height: auto; /* Zresetowanie wysokości */
+            width: auto;  /* Zresetowanie szerokości */
+            max-width: 100%; /* Ustawienie maksymalnej szerokości na 100%, aby zdjęcie nie przekroczyło kontenera */
         }
 
         .section .text {
@@ -61,6 +62,9 @@
         }
 
         .section video {
+            width: 300px; /* Ustawienie szerokości w pikselach */
+            height: 200px; /* Ustawienie wysokości w pikselach */
+            margin: 20px;
             height: auto;
         }
 
