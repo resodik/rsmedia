@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -14,6 +13,8 @@
             opacity: 0;
             transform: translateY(50px);
             transition: opacity 1s ease-out, transform 1s ease-out;
+            width: 300px; /* Ustawienie szerokości w pikselach */
+            height: 200px; /* Ustawienie wysokości w pikselach */
         }
         .photo-frame.visible {
             opacity: 1;
@@ -28,7 +29,6 @@
             margin-top: 20px;
         }
         .main-images .photo-frame {
-            width: 30%;
             margin-bottom: 20px;
         }
 
@@ -49,7 +49,8 @@
         }
 
         .section img, .section video {
-            width: 30%;
+            width: 300px; /* Ustawienie szerokości w pikselach */
+            height: 200px; /* Ustawienie wysokości w pikselach */
             margin: 20px;
         }
 
@@ -60,7 +61,6 @@
         }
 
         .section video {
-            width: 30%;
             height: auto;
         }
 
@@ -72,12 +72,12 @@
         }
 
         .section-black .text {
-        width: 60%; /* Zmiana szerokości tekstu na 33.3% */
-    }
+            width: 60%; /* Zmiana szerokości tekstu na 60% */
+        }
 
-    .section-black video {
-        width: calc(100% - 60%); /* Zmiana szerokości wideo, aby zajmowało resztę */
-    }
+        .section-black video {
+            width: calc(100% - 60%); /* Zmiana szerokości wideo, aby zajmowało resztę */
+        }
         
     </style>
     
@@ -119,8 +119,8 @@
             location.reload();
         }
 
-       function loadPortfolio() {
-           location.href = 'index.html';
+        function loadPortfolio() {
+            location.href = 'index.html';
             var portfolioSection = document.getElementById('portfolio');
             if (portfolioSection) {
                 var topPosition = portfolioSection.offsetTop;
@@ -208,7 +208,7 @@
         </div>
     </div>
 
-   <div class="tabs expanded">
+    <div class="tabs expanded">
         <div class="tabs-left">
             <a href="javascript:void(0);" onclick="loadPortfolio()">Projekty</a>
             <a href="javascript:void(0);" onclick="loadProjects()">Portfolio</a>
@@ -226,7 +226,7 @@
         </div>
     </div>
 
-     <!-- Section 1 -->
+    <!-- Section 1 -->
     <div class="section">
         <img src="images/ja-img.jpg" alt="Sample Image 1">
         <div class="text">
@@ -268,7 +268,6 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</p>
         </div>
     </div>
-
 
     <div class="sticky-header">
         <a href="#" onclick="refreshPage()">ROGUE SYNTHESIS MEDIA</a>
