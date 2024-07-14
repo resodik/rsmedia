@@ -105,10 +105,12 @@
             }
         }
 
-        function toggleTabs() {
-            var tabs = document.querySelector('.tabs');
-            tabs.classList.toggle('expanded');
-        }
+      function toggleTabs() {
+    var tabsLeft = document.querySelector('.tabs-left');
+    var tabsRight = document.querySelector('.tabs-right');
+    tabsLeft.classList.toggle('expanded');
+    tabsRight.classList.toggle('expanded');
+}
 
         function refreshPage() {
             location.reload();
