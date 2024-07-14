@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -90,16 +91,6 @@
             width: 100%;
             height: auto;
             display: block;
-        }
-
-        /* New CSS rule for the second video */
-        .video-section.second-video {
-            padding: 40px; /* Add padding to all sides */
-            box-sizing: border-box;
-        }
-
-        .video-section.second-video video {
-            width: 100%;
         }
     </style>
     <script>
@@ -313,14 +304,13 @@
     <div class="tabs expanded">
         <div class="tabs-left">
             <a href="javascript:void(0);" onclick="loadPortfolio()">Projekty</a>
+            <a href="javascript:void(0);" onclick="loadProjects()">Portfolio</a>
             <a href="javascript:void(0);" onclick="loadBlog()">Blog</a>
-            <a href="javascript:void(0);" onclick="loadAbout()">O mnie</a>
+            <a href="javascript:void(0);" onclick="loadAbout()">O Mnie</a>
         </div>
         <div class="tabs-right">
-            <div class="social-media">
-                <a href="https://www.youtube.com" target="_blank"><img src="images/youtube-icon.png" alt="YouTube"></a>
-                <a href="https://www.facebook.com" target="_blank"><img src="images/facebook-icon.png" alt="Facebook"></a>
-                <a href="https://www.instagram.com" target="_blank"><img src="images/instagram-icon.png" alt="Instagram"></a>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/rogue.synthesis" target="_blank"><img src="images/instagram-icon.png" alt="Instagram"></a>
                 <a href="https://www.tiktok.com" target="_blank"><img src="images/tiktok-icon.png" alt="TikTok"></a>
             </div>
             <div class="expand-button" onclick="toggleTabs()">
@@ -346,63 +336,66 @@
         <div class="photo-frame">
             <img src="images/photo2.jpg" alt="Opis zdjęcia 2">
         </div>
-        <div class="photo-frame">
+         <div class="photo-frame">
             <img src="images/photo8.png" alt="Opis zdjęcia 4">
         </div>
-        <div class="photo-frame">
+          <div class="photo-frame">
             <img src="images/photo9.png" alt="Opis zdjęcia 4">
         </div>
-        <div class="photo-frame">
+         <div class="photo-frame">
             <img src="images/photo10.png" alt="Opis zdjęcia 4">
         </div>
-        <div class="photo-frame">
+           <div class="photo-frame">
             <img src="images/photo18.png" alt="Opis zdjęcia 4">
         </div>
-        <div class="photo-frame">
+           <div class="photo-frame">
             <img src="images/photo19.png" alt="Opis zdjęcia 4">
         </div>
         <div class="photo-frame">
             <img src="images/photo20.png" alt="Opis zdjęcia 4">
         </div>
-        <div class="photo-frame">
+         <!-- Dodaj więcej zdjęć według potrzeby -->
+         <div class="photo-frame">
             <img src="images/photo21.png" alt="Opis zdjęcia 4">
         </div>
-        <div class="photo-frame">
+         <div class="photo-frame">
             <img src="images/photo22.png" alt="Opis zdjęcia 4">
         </div>
-        <div class="photo-frame">
+         <div class="photo-frame">
             <img src="images/photo23.png" alt="Opis zdjęcia 4">
         </div>
-        <div class="photo-frame">
+         <!-- Dodaj więcej zdjęć według potrzeby -->
+         <div class="photo-frame">
             <img src="images/photo24.png" alt="Opis zdjęcia 4">
         </div>
-        <div class="photo-frame">
+         <div class="photo-frame">
             <img src="images/photo25.png" alt="Opis zdjęcia 4">
         </div>
-        <div class="photo-frame">
+         <div class="photo-frame">
             <img src="images/photo26.png" alt="Opis zdjęcia 4">
         </div>
-        <div class="photo-frame">
+          <!-- Dodaj więcej zdjęć według potrzeby -->
+         <div class="photo-frame">
             <img src="images/photo27.png" alt="Opis zdjęcia 4">
         </div>
-        <div class="photo-frame">
+         <div class="photo-frame">
             <img src="images/photo28.png" alt="Opis zdjęcia 4">
         </div>
-        <div class="photo-frame">
+         <div class="photo-frame">
             <img src="images/photo33.png" alt="Opis zdjęcia 5">
         </div>
-        <div class="photo-frame">
+         <div class="photo-frame">
             <img src="images/photo29.png" alt="Opis zdjęcia 5">
         </div>
-        <div class="photo-frame">
+         <div class="photo-frame">
             <img src="images/photo30.png" alt="Opis zdjęcia 5">
         </div>
-        <div class="photo-frame">
+         <div class="photo-frame">
             <img src="images/photo31.png" alt="Opis zdjęcia 5">
         </div>
     </div>
 
-    <div class="video-section second-video">
+    <div class="video-section">
         <video autoplay muted loop>
             <source src="images/Video2.mp4" type="video/mp4">
             Your browser does not support the video tag.
