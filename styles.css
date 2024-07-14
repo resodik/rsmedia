@@ -1,4 +1,5 @@
 
+
 /* Resetowanie domyślnych stylów */
 * {
     margin: 0;
@@ -168,7 +169,6 @@ img.zoom {
     height: 50px;
     cursor: pointer;
     margin-left: 10px;
-     display: flex;
 }
 
 .expand-button img {
@@ -184,7 +184,7 @@ img.zoom {
 
 .tabs.expanded .tabs-left,
 .tabs.expanded .tabs-right {
-    visibility: visible;
+    visibility: hidden;
     display: flex;
 }
 
