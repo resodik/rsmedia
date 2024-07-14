@@ -168,6 +168,7 @@ img.zoom {
     height: 50px;
     cursor: pointer;
     margin-left: 10px;
+     display: flex;
 }
 
 .expand-button img {
