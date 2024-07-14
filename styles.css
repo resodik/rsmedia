@@ -184,7 +184,7 @@ img.zoom {
 
 .tabs.expanded .tabs-left,
 .tabs.expanded .tabs-right {
-    visibility: hidden;
+    visibility: visible;
     display: flex;
 }
 
