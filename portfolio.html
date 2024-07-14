@@ -93,7 +93,7 @@
         }
 
         /* New CSS rule for the second video */
-        .video-section:nth-of-type(2) video {
+        .video-section.second-video video {
             width: 70%;
             margin: 0 auto; /* Center the video horizontally */
             display: block;
@@ -315,8 +315,10 @@
             <a href="javascript:void(0);" onclick="loadAbout()">O Mnie</a>
         </div>
         <div class="tabs-right">
-            <div class="social-icons">
-                <a href="https://www.instagram.com/rogue.synthesis" target="_blank"><img src="images/instagram-icon.png" alt="Instagram"></a>
+            <div class="social-media">
+                <a href="https://www.youtube.com" target="_blank"><img src="images/youtube-icon.png" alt="YouTube"></a>
+                <a href="https://www.facebook.com" target="_blank"><img src="images/facebook-icon.png" alt="Facebook"></a>
+                <a href="https://www.instagram.com" target="_blank"><img src="images/instagram-icon.png" alt="Instagram"></a>
                 <a href="https://www.tiktok.com" target="_blank"><img src="images/tiktok-icon.png" alt="TikTok"></a>
             </div>
             <div class="expand-button" onclick="toggleTabs()">
@@ -401,7 +403,7 @@
         </div>
     </div>
 
-    <div class="video-section">
+    <div class="video-section second-video">
         <video autoplay muted loop>
             <source src="images/Video2.mp4" type="video/mp4">
             Your browser does not support the video tag.
