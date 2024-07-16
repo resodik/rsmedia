@@ -20,7 +20,21 @@
     </style>
     <script>
         // Skrypty JavaScript, jakie masz obecnie
-        window.onscroll = function() {toggleStickyHeader(), revealPhotos()};
+        var currentPhotoIndex = 0;
+        var photos = []; // Tablica na zdjęcia
+
+        window.onload = function() {
+            initializePhotos(); // Inicjalizacja zdjęć po załadowaniu strony
+        };
+
+        function initializePhotos() {
+            photos = document.querySelectorAll('.photo-frame img');
+        }
+
+        window.onscroll = function() {
+            toggleStickyHeader();
+            revealPhotos();
+        };
 
         function toggleStickyHeader() {
             var header = document.querySelector('.sticky-header');
@@ -56,13 +70,6 @@
         }
 
         // Funkcja do zmiany zdjęcia w overlay (przyciski nawigacyjne)
-        var currentPhotoIndex = 0;
-        var photos = []; // Tablica na zdjęcia
-
-        function initializePhotos() {
-            photos = document.querySelectorAll('.photo-frame img');
-        }
-
         function changePhoto(direction) {
             currentPhotoIndex += direction;
 
