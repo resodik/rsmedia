@@ -38,20 +38,7 @@
         }
     </style>
     <script>
-        // Skrypty JavaScript, jakie masz obecnie
-        window.onscroll = function() {toggleStickyHeader(), revealPhotos()};
-
-        function toggleStickyHeader() {
-            var header = document.querySelector('.sticky-header');
-            var mainHeader = document.querySelector('.header');
-            var headerHeight = mainHeader.offsetHeight;
-
-            if (window.pageYOffset > headerHeight) {
-                header.style.display = "block";
-            } else {
-                header.style.display = "none";
-            }
-        }
+        window.onscroll = function() {revealPhotos()};
 
         function revealPhotos() {
             var photoFrames = document.querySelectorAll('.photo-frame');
@@ -65,7 +52,6 @@
             }
         }
 
-        // Pozostałe funkcje JavaScript
         function toggleTabs() {
             var tabs = document.querySelector('.tabs');
             if (tabs.classList.contains('expanded')) {
@@ -144,27 +130,26 @@
 </head>
 <body>
     <div class="header">
+        <div class="tabs expanded">
+            <div class="tabs-left">
+                <a href="javascript:void(0);" onclick="loadPortfolio()">Projekty</a>
+                <a href="javascript:void(0);" onclick="loadProjects()">Portfolio</a>
+                <a href="javascript:void(0);" onclick="loadBlog()">Blog</a>
+                <a href="javascript:void(0);" onclick="loadAbout()">O Mnie</a>
+            </div>
+            <div class="tabs-right">
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/rogue.synthesis" target="_blank"><img src="images/instagram-icon.png" alt="Instagram"></a>
+                    <a href="https://www.tiktok.com" target="_blank"><img src="images/tiktok-icon.png" alt="TikTok"></a>
+                </div>
+                <div class="expand-button" onclick="toggleTabs()">
+                    <img src="images/expand-icon.png" alt="Expand Icon">
+                </div>
+            </div>
+        </div>
         <div class="header-text">
             <h1>ROGUE SYNTHESIS MEDIA</h1>
             <h2>Twórca Nowego Świata</h2>
-        </div>
-    </div>
-
-    <div class="tabs expanded">
-        <div class="tabs-left">
-            <a href="javascript:void(0);" onclick="loadPortfolio()">Projekty</a>
-            <a href="javascript:void(0);" onclick="loadProjects()">Portfolio</a>
-            <a href="javascript:void(0);" onclick="loadBlog()">Blog</a>
-            <a href="javascript:void(0);" onclick="loadAbout()">O Mnie</a>
-        </div>
-        <div class="tabs-right">
-            <div class="social-icons">
-                <a href="https://www.instagram.com/rogue.synthesis" target="_blank"><img src="images/instagram-icon.png" alt="Instagram"></a>
-                <a href="https://www.tiktok.com" target="_blank"><img src="images/tiktok-icon.png" alt="TikTok"></a>
-            </div>
-            <div class="expand-button" onclick="toggleTabs()">
-                <img src="images/expand-icon.png" alt="Expand Icon">
-            </div>
         </div>
     </div>
 
@@ -200,10 +185,6 @@
         <a href="#">5</a>
         <span>&hellip;</span>
         <a href="#">10</a> <!-- Przykładowo, gdy masz 10 stron -->
-    </div>
-
-    <div class="sticky-header">
-        <a href="#" onclick="refreshPage()">ROGUE SYNTHESIS MEDIA</a>
     </div>
 
     <script src="scripts.js"></script> <!-- Jeśli chcesz przenieść skrypty do osobnego pliku -->
