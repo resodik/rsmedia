@@ -124,6 +124,54 @@
                     break;
             }
         }
+
+        <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var photoFrames = document.querySelectorAll('.photo-frame');
+
+        photoFrames.forEach(function(frame, index) {
+            frame.addEventListener('click', function() {
+                // Utwórz elementy dla powiększonego widoku zdjęć
+                var overlay = document.createElement('div');
+                overlay.classList.add('overlay');
+
+                var img = document.createElement('img');
+                img.src = frame.querySelector('img').src;
+                img.classList.add('expanded-img');
+
+                var prevBtn = document.createElement('div');
+                prevBtn.classList.add('prev-btn');
+                prevBtn.innerHTML = '&#10094;';
+
+                var nextBtn = document.createElement('div');
+                nextBtn.classList.add('next-btn');
+                nextBtn.innerHTML = '&#10095;';
+
+                overlay.appendChild(img);
+                overlay.appendChild(prevBtn);
+                overlay.appendChild(nextBtn);
+
+                document.body.appendChild(overlay);
+
+                // Obsługa przycisków nawigacyjnych
+                prevBtn.addEventListener('click', function() {
+                    index = (index - 1 + photoFrames.length) % photoFrames.length;
+                    img.src = photoFrames[index].querySelector('img').src;
+                });
+
+                nextBtn.addEventListener('click', function() {
+                    index = (index + 1) % photoFrames.length;
+                    img.src = photoFrames[index].querySelector('img').src;
+                });
+
+                // Zamknięcie powiększonego widoku po kliknięciu na zdjęcie
+                img.addEventListener('click', function() {
+                    overlay.remove();
+                });
+            });
+        });
+    });
+
     </script>
 </head>
 <body>
