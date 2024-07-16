@@ -1,3 +1,4 @@
+
 /* Resetowanie domyślnych stylów */
 * {
     margin: 0;
@@ -15,8 +16,21 @@ body {
     font-weight: 700; /* Ustawienie wagi na bold */
 }
 
+/* Tło maski */
+.mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 998;
+    background: url('images/mask-image.jpg') no-repeat center center/cover;
+}
+
 /* Główny nagłówek */
 .header {
+    position: sticky; /* Ustawienie nagłówka jako sticky */
+    top: 0;
     width: 100%;
     height: 700px;
     background: url('images/main-image.jpg') no-repeat center center/cover;
@@ -25,7 +39,7 @@ body {
     justify-content: center;
     color: white;
     text-align: center;
-    position: relative;
+    z-index: 1000;
 }
 
 .header-text {
@@ -50,136 +64,90 @@ body {
     font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
 }
 
-/* Sticky header */
-.sticky-header {
-    position: fixed;
-    top: 0;
+/* Przycisk zwijania i rozwijania menu */
+.expand-button {
+    cursor: pointer;
+}
+
+/* Styl dla zakładek */
+.tabs {
     width: 100%;
-    text-align: center;
     padding: 10px 0;
-    z-index: 1000;
-    display: none; /* Początkowo ukryj */
-    background-color: rgba(0, 0, 0, 0.8); /* Dodatkowy styl tła */
-}
-
-.sticky-header .tabs {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    background-color: transparent; /* Usunięcie tła */
+    z-index: 1001; /* Wyższy z-index niż header-text */
 }
 
-.sticky-header .tabs-left {
+.tabs-left, .tabs-right {
     display: flex;
     align-items: center;
 }
 
-.sticky-header .tabs-left a {
+.tabs-left a, .tabs-right a {
+    color: white; /* Zmiana koloru tekstu na biały */
     text-decoration: none;
-    font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
-    color: white;
     font-size: 18px;
-    padding: 10px 20px;
-    margin-right: 10px;
-    border: none;
-    background-color: transparent;
-    opacity: 0.5;
-    transition: opacity 0.3s ease;
+    padding: 0 20px;
+    font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
 }
 
-.sticky-header .tabs-left a:hover {
-    opacity: 1;
-}
-
-.sticky-header .tabs-right {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
-
-.sticky-header .tabs-right .social-icons {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    margin-left: 10px;
-}
-
-.sticky-header .tabs-right .social-icons img {
-    width: 30px;
+.tabs-right .social-icons a {
     margin: 0 10px;
 }
 
-.sticky-header .tabs-right .expand-button {
+.social-icons img {
     width: 30px;
-    height: 50px;
-    cursor: pointer;
-    margin-left: 10px;
+    height: 30px;
 }
 
-.sticky-header .tabs-right .expand-button img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+/* Styl dla zakładek przy zwijaniu */
+.tabs.collapsed .tabs-left,
+.tabs.collapsed .tabs-right {
+    display: none;
 }
 
-/* Main image */
-.main-image {
-    height: 700px; /* Wysokość zdjęcia głównego */
-    overflow: hidden; /* Ukryj overflow */
+.tabs .expand-button {
+    display: none;
 }
 
-.main-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* Kontener na zawartość */
+/* Styl dla kontenera */
 .container {
-    width: 80%;
-    margin: 20px auto;
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    position: relative;
-    z-index: 999;
-    text-align: center;
 }
 
-/* Ramki na zdjęcia */
 .photo-frame {
-    width: 100%;
     margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .photo-frame img {
-    max-width: 100%;
-    max-height: 100%;
-    border-radius: 5px;
+    width: 100%;
+    height: auto;
 }
 
-/* Dodatkowe style dla paginacji */
+/* Styl paginacji */
 .pagination {
+    text-align: center;
     margin-top: 20px;
-    display: flex;
-    justify-content: center;
 }
 
 .pagination a {
     display: inline-block;
     padding: 8px 16px;
     margin: 0 5px;
-    background-color: transparent;
+    background-color: transparent; /* Usunięcie tła */
     color: #000000;
     text-decoration: none;
     border-radius: 5px;
 }
 
 .pagination a.active {
-    background-color: transparent;
+    background-color: transparent; /* Usunięcie tła */
     color: #000000;
 }
 
@@ -195,12 +163,4 @@ body {
     transform: translateY(0);
 }
 
-/* Animacja fadeIn */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
+/* Dodaj więcej stylów według potrzeby */
