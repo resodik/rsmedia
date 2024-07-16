@@ -1,4 +1,3 @@
-
 window.onscroll = function() {revealPhotos()};
 
 function revealPhotos() {
