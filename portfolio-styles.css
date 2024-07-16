@@ -4,6 +4,7 @@
 
 
 
+
 /* Resetowanie domyślnych stylów */
 * {
     margin: 0;
@@ -99,7 +100,7 @@ body {
     padding: 10px 0;
     z-index: 1000;
     display: none;
-    background-color: none;
+    background-color: transparent;
     box-shadow: 0px 2px 5px rgba(0,0,0,0);
 }
 
@@ -123,7 +124,6 @@ body {
     position: relative;
     z-index: 999;
     text-align: center;
-    opacity: 0;
 }
 
 /* Galeria zdjęć */
@@ -187,13 +187,13 @@ body {
     padding: 10px 20px;
     margin-right: 10px;
     border: none;
-    background-color: none;
+    background-color: transparent;
     opacity: 0.5;
     transition: opacity 0.3s ease;
 }
 
 .tabs-left a:hover, .tabs-left button:hover {
-    opacity: 0;
+    opacity: 1;
 }
 
 .tabs-right {
@@ -240,13 +240,13 @@ body {
     padding: 10px 20px;
     margin-right: 10px;
     border: none;
-    background-color: none;
+    background-color: transparent;
     opacity: 0.5;
     transition: opacity 0.3s ease;
 }
 
 .tabs a:hover {
-    opacity: 0;
+    opacity: 1;
 }
 
 .social-icons {
@@ -369,5 +369,8 @@ body {
         margin-right: auto;
     }
 
+    body, h1, h2, h3, h4, h5, h6, p, a, div, span, li, button {
+    color: white !important;
 }
 
+}
