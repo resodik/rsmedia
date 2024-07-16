@@ -62,14 +62,64 @@ body {
     background-color: rgba(0, 0, 0, 0.8); /* Dodatkowy styl tła */
 }
 
-.sticky-header a {
-    color: white;
+.sticky-header .tabs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.sticky-header .tabs-left {
+    display: flex;
+    align-items: center;
+}
+
+.sticky-header .tabs-left a {
     text-decoration: none;
     font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
-    font-size: 28px;
-    font-weight: bold;
-    opacity: 0.8;
-    margin-right: 20px;
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    background-color: transparent;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.sticky-header .tabs-left a:hover {
+    opacity: 1;
+}
+
+.sticky-header .tabs-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.sticky-header .tabs-right .social-icons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-left: 10px;
+}
+
+.sticky-header .tabs-right .social-icons img {
+    width: 30px;
+    margin: 0 10px;
+}
+
+.sticky-header .tabs-right .expand-button {
+    width: 30px;
+    height: 50px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.sticky-header .tabs-right .expand-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 /* Main image */
@@ -145,4 +195,12 @@ body {
     transform: translateY(0);
 }
 
-/* Dodaj więcej stylów według potrzeby */
+/* Animacja fadeIn */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
