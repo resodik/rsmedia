@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -6,50 +7,10 @@
     <title>Rogue Synthesis Media</title>
     <link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Dodatkowe style dla płynnego pojawiania się zdjęć */
-        .photo-frame {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 1s ease-out, transform 1s ease-out;
-        }
-        .photo-frame.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
-    <script>
-        window.onscroll = function() {
-            toggleStickyHeader();
-        };
-
-        function toggleStickyHeader() {
-            var header = document.querySelector('.sticky-header');
-            var mainImage = document.querySelector('.main-image');
-
-            if (window.pageYOffset > mainImage.offsetHeight) {
-                header.style.display = "block";
-            } else {
-                header.style.display = "none";
-            }
-        }
-    </script>
 </head>
 <body>
     <div class="header">
-        <div class="header-text">
-            <h1>ROGUE SYNTHESIS MEDIA</h1>
-            <h2>Twórca Nowego Świata</h2>
-        </div>
-    </div>
-
-    <div class="main-image">
-        <!-- Tutaj główne zdjęcie -->
-        <img src="images/main-image.jpg" alt="Main Image">
-    </div>
-
-    <div class="sticky-header">
-        <div class="tabs">
+        <div class="tabs expanded">
             <div class="tabs-left">
                 <a href="javascript:void(0);" onclick="loadPortfolio()">Projekty</a>
                 <a href="javascript:void(0);" onclick="loadProjects()">Portfolio</a>
@@ -66,9 +27,12 @@
                 </div>
             </div>
         </div>
+        <div class="header-text">
+            <h1>ROGUE SYNTHESIS MEDIA</h1>
+            <h2>Twórca Nowego Świata</h2>
+        </div>
     </div>
 
-    <!-- Dodatkowe sekcje, zdjęcia, paginacja, itp. -->
     <div id="portfolio" class="container">
         <div class="photo-frame">
             <img src="images/text1.png" alt="Opis zdjęcia 0">
@@ -76,9 +40,33 @@
         <div class="photo-frame">
             <img src="images/photo1.jpg" alt="Opis zdjęcia 1">
         </div>
+        <div class="photo-frame">
+            <img src="images/photo2.jpg" alt="Opis zdjęcia 2">
+        </div>
+        <div class="photo-frame">
+            <img src="images/gif1.gif" alt="Opis zdjęcia 3" >
+        </div>
+        <div class="photo-frame">
+            <img src="images/photo3.jpg" alt="Opis zdjęcia 4">
+        </div>
+        <div class="photo-frame">
+            <img src="images/photo5.jpg" alt="Opis zdjęcia 4">
+        </div>
+        
         <!-- Dodaj więcej zdjęć według potrzeby -->
     </div>
 
-    <script src="scripts.js"></script> <!-- Jeśli chcesz przenieść skrypty do osobnego pliku -->
+    <!-- Paginacja -->
+    <div class="pagination">
+        <a href="index.html" class="active">1</a>
+        <a href="Portfolio1.html">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <span>&hellip;</span>
+        <a href="#">10</a> <!-- Przykładowo, gdy masz 10 stron -->
+    </div>
+
+    <script src="scripts.js"></script>
 </body>
 </html>
