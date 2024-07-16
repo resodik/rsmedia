@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -137,13 +138,7 @@
     </script>
 </head>
 <body>
-    <div class="header">
-        <div class="header-text">
-            <h1>ROGUE SYNTHESIS MEDIA</h1>
-            <h2>Twórca Nowego Świata</h2>
-        </div>
-    </div>
-
+   
     <div class="tabs collapsed">
         <div class="tabs-left">
             <a href="javascript:void(0);" onclick="loadPortfolio()">Projekty</a>
@@ -162,12 +157,17 @@
         </div>
     </div>
 
-   <div class="video-section">
+    <div class="video-section">
         <video autoplay muted loop>
             <source src="images/Video1a.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
+
+    <div id="portfolio" class="gallery">
+        <div class="photo-frame">
+            <img src="images/main-image.jpg" alt="Opis zdjęcia 0">
+        </div>
         <div class="photo-frame">
             <img src="images/photo1.jpg" alt="Opis zdjęcia 1">
         </div>
@@ -233,25 +233,15 @@
         </div>
     </div>
 
-        
-        <!-- Dodaj więcej zdjęć według potrzeby -->
-    </div>
-
-    <!-- Paginacja -->
-    <div class="pagination">
-        <a href="index.html" class="active">1</a>
-        <a href="Portfolio1.html">2</a>
-        <a href="#">3</a>
-        <a href="#">4</a>
-        <a href="#">5</a>
-        <span>&hellip;</span>
-        <a href="#">10</a> <!-- Przykładowo, gdy masz 10 stron -->
+    <div class="video-section">
+        <video autoplay muted loop>
+            <source src="images/Video2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
     </div>
 
     <div class="sticky-header">
         <a href="#" onclick="refreshPage()">ROGUE SYNTHESIS MEDIA</a>
     </div>
-
-    <script src="scripts.js"></script> <!-- Jeśli chcesz przenieść skrypty do osobnego pliku -->
 </body>
 </html>
