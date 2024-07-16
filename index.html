@@ -19,13 +19,13 @@
         }
     </style>
     <script>
-        window.onscroll = function() {toggleStickyHeader()};
+        window.onscroll = function() {
+            toggleStickyHeader();
+        };
 
         function toggleStickyHeader() {
             var header = document.querySelector('.sticky-header');
-            var mainHeader = document.querySelector('.header');
             var mainImage = document.querySelector('.main-image');
-            var headerHeight = mainHeader.offsetHeight;
 
             if (window.pageYOffset > mainImage.offsetHeight) {
                 header.style.display = "block";
@@ -49,7 +49,23 @@
     </div>
 
     <div class="sticky-header">
-        <a href="#" onclick="refreshPage()">ROGUE SYNTHESIS MEDIA</a>
+        <div class="tabs">
+            <div class="tabs-left">
+                <a href="javascript:void(0);" onclick="loadPortfolio()">Projekty</a>
+                <a href="javascript:void(0);" onclick="loadProjects()">Portfolio</a>
+                <a href="javascript:void(0);" onclick="loadBlog()">Blog</a>
+                <a href="javascript:void(0);" onclick="loadAbout()">O Mnie</a>
+            </div>
+            <div class="tabs-right">
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/rogue.synthesis" target="_blank"><img src="images/instagram-icon.png" alt="Instagram"></a>
+                    <a href="https://www.tiktok.com" target="_blank"><img src="images/tiktok-icon.png" alt="TikTok"></a>
+                </div>
+                <div class="expand-button" onclick="toggleTabs()">
+                    <img src="images/expand-icon.png" alt="Expand Icon">
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Dodatkowe sekcje, zdjęcia, paginacja, itp. -->
