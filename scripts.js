@@ -1,3 +1,4 @@
+
 // Skrypt JavaScript
 window.onscroll = function() {
     toggleStickyHeader();
@@ -14,11 +15,12 @@ function toggleStickyHeader() {
     }
 }
 
-// Funkcje JavaScript
+// Pozostałe funkcje JavaScript
 function refreshPage() {
     location.reload();
 }
 
+// Funkcje do nawigacji, ładowania stron, itp.
 function loadPortfolio() {
     location.href = 'portfolio.html';
 }
