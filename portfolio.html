@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -6,94 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rogue Synthesis Media</title>
     <link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="portfolio-styles.css">
+    <link rel="stylesheet" href="styles.css">
     <style>
-        /* Styles */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            grid-gap: 0px;
-            margin-top: 20px;
+        /* Dodaj tutaj inne style, jeśli są potrzebne tylko dla głównej strony */
+        .pagination {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .pagination a {
+            display: inline-block;
+            padding: 8px 16px;
+            margin: 0 5px;
+            background-color: transparent;
+            color: #000000;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .pagination a.active {
+            background-color: transparent;
+            color: #000000;
         }
 
+        /* Nowe style do płynnego pojawiania się zdjęć podczas przewijania */
         .photo-frame {
-            position: relative;
-            overflow: hidden;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
         }
-
-        .photo-frame img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-
-        .visible {
+        .photo-frame.visible {
             opacity: 1;
             transform: translateY(0);
         }
-
-        body.blur:not(.overlay-visible) {
-            filter: blur(5px);
-            overflow: hidden;
-        }
-
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-
-        .overlay img {
-            width: 80%;
-            max-width: 800px;
-        }
-
-        .close, .prev, .next {
-            position: absolute;
-            top: 50%;
-            color: white;
-            font-size: 30px;
-            font-weight: bold;
-            cursor: pointer;
-            user-select: none;
-        }
-
-        .close {
-            top: 20px;
-            right: 35px;
-        }
-
-        .prev {
-            left: 10px;
-            transform: translateY(-50%);
-        }
-
-        .next {
-            right: 10px;
-            transform: translateY(-50%);
-        }
-
-        .video-section {
-            width: 100%;
-            height: auto;
-            margin-top: 20px;
-        }
-
-        .video-section video {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
     </style>
     <script>
+        // Skrypty JavaScript, jakie masz obecnie
+        window.onscroll = function() {toggleStickyHeader(), revealPhotos()};
+
         function toggleStickyHeader() {
             var header = document.querySelector('.sticky-header');
             var mainHeader = document.querySelector('.header');
@@ -106,11 +53,22 @@
             }
         }
 
+        function revealPhotos() {
+            var photoFrames = document.querySelectorAll('.photo-frame');
+            for (var i = 0; i < photoFrames.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = photoFrames[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    photoFrames[i].classList.add("visible");
+                }
+            }
+        }
+
+        // Pozostałe funkcje JavaScript
         function toggleTabs() {
-            var tabsLeft = document.querySelector('.tabs-left');
-            var tabsRight = document.querySelector('.tabs-right');
-            tabsLeft.classList.toggle('expanded');
-            tabsRight.classList.toggle('expanded');
+            var tabs = document.querySelector('.tabs');
+            tabs.classList.toggle('expanded');
         }
 
         function refreshPage() {
@@ -118,7 +76,6 @@
         }
 
         function loadPortfolio() {
-            location.href = 'index.html';
             var portfolioSection = document.getElementById('portfolio');
             if (portfolioSection) {
                 var topPosition = portfolioSection.offsetTop;
@@ -177,131 +134,17 @@
                     break;
             }
         }
-
-        document.addEventListener("DOMContentLoaded", function() {
-            const thumbnails = document.querySelectorAll(".photo-frame img");
-            const overlay = document.getElementById("overlay");
-            const overlayImg = document.getElementById("overlay-img");
-            const closeBtn = document.querySelector(".close");
-            const prevBtn = document.querySelector(".prev");
-            const nextBtn = document.querySelector(".next");
-
-            let currentIndex = 0;
-
-            function openOverlay(index) {
-                overlay.style.display = "flex";
-                document.body.classList.add("blur");
-                currentIndex = index;
-                updateOverlayImage();
-            }
-
-            function closeOverlay() {
-                overlay.style.display = "none";
-                document.body.classList.remove("blur");
-            }
-
-            function updateOverlayImage() {
-                overlayImg.src = thumbnails[currentIndex].src;
-            }
-
-            function showNextImage() {
-                currentIndex = (currentIndex + 1) % thumbnails.length;
-                updateOverlayImage();
-            }
-
-            function showPrevImage() {
-                currentIndex = (currentIndex - 1 + thumbnails.length) % thumbnails.length;
-                updateOverlayImage();
-            }
-
-            thumbnails.forEach((thumbnail, index) => {
-                thumbnail.addEventListener("click", () => openOverlay(index));
-            });
-
-            closeBtn.addEventListener("click", closeOverlay);
-            overlay.addEventListener("click", (event) => {
-                if (event.target === overlay) {
-                    closeOverlay();
-                }
-            });
-            nextBtn.addEventListener("click", showNextImage);
-            prevBtn.addEventListener("click", showPrevImage);
-
-            document.addEventListener("keydown", (event) => {
-                if (overlay.style.display === "flex") {
-                    if (event.key === "ArrowRight") {
-                        showNextImage();
-                    } else if (event.key === "ArrowLeft") {
-                        showPrevImage();
-                    } else if (event.key === "Escape") {
-                        closeOverlay();
-                    }
-                }
-            });
-        });
-
-        document.addEventListener("DOMContentLoaded", function() {
-            const thumbnails = document.querySelectorAll(".photo-frame img");
-            const overlay = document.getElementById("overlay");
-            const overlayImg = document.getElementById("overlay-img");
-            const closeBtn = document.querySelector(".close");
-            const prevBtn = document.querySelector(".prev");
-            const nextBtn = document.querySelector(".next");
-
-            let currentIndex = 0;
-
-            function openOverlay(index) {
-                overlay.style.display = "flex";
-                document.body.classList.add("blur");
-                document.body.classList.add("overlay-visible"); // Add overlay-visible class
-                currentIndex = index;
-                updateOverlayImage();
-            }
-
-            function closeOverlay() {
-                overlay.style.display = "none";
-                document.body.classList.remove("blur");
-                document.body.classList.remove("overlay-visible"); // Remove overlay-visible class
-            }
-
-            function updateOverlayImage() {
-                overlayImg.src = thumbnails[currentIndex].src;
-            }
-
-            function showPrevImage() {
-                currentIndex = (currentIndex - 1 + thumbnails.length + 1) % thumbnails.length;
-                updateOverlayImage();
-            }
-
-            function showNextImage() {
-                currentIndex = (currentIndex + 1) % thumbnails.length;
-                updateOverlayImage();
-            }
-
-            thumbnails.forEach((thumbnail, index) => {
-                thumbnail.addEventListener("click", () => openOverlay(index));
-            });
-
-            closeBtn.addEventListener("click", closeOverlay);
-            prevBtn.addEventListener("click", showPrevImage);
-            nextBtn.addEventListener("click", showNextImage);
-            overlay.addEventListener("click", function(event) {
-                if (event.target === overlay) {
-                    closeOverlay();
-                }
-            });
-        });
     </script>
 </head>
 <body>
-    <div id="overlay" class="overlay">
-        <span class="close">&times;</span>
-        <img class="overlay-img" id="overlay-img">
-        <a class="prev">&#10094;</a>
-        <a class="next">&#10095;</a>
+    <div class="header">
+        <div class="header-text">
+            <h1>ROGUE SYNTHESIS MEDIA</h1>
+            <h2>Twórca Nowego Świata</h2>
+        </div>
     </div>
 
-    <div class="tabs expanded">
+    <div class="tabs collapsed">
         <div class="tabs-left">
             <a href="javascript:void(0);" onclick="loadPortfolio()">Projekty</a>
             <a href="javascript:void(0);" onclick="loadProjects()">Portfolio</a>
