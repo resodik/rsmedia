@@ -68,7 +68,13 @@
         // Pozostałe funkcje JavaScript
         function toggleTabs() {
             var tabs = document.querySelector('.tabs');
-            tabs.classList.toggle('collapsed');
+            if (tabs.classList.contains('expanded')) {
+                tabs.classList.remove('expanded');
+                tabs.classList.add('collapsed');
+            } else {
+                tabs.classList.remove('collapsed');
+                tabs.classList.add('expanded');
+            }
         }
 
         function refreshPage() {
@@ -197,16 +203,9 @@
     </div>
 
     <div class="sticky-header">
-        <div class="tabs-left">
-            <a href="javascript:void(0);" onclick="loadPortfolio()">Projekty</a>
-            <a href="javascript:void(0);" onclick="loadProjects()">Portfolio</a>
-            <a href="javascript:void(0);" onclick="loadBlog()">Blog</a>
-            <a href="javascript:void(0);" onclick="loadAbout()">O Mnie</a>
-        </div>
-        <div class="social-icons">
-            <a href="https://www.instagram.com/rogue.synthesis" target="_blank"><img src="images/instagram-icon.png" alt="Instagram"></a>
-            <a href="https://www.tiktok.com" target="_blank"><img src="images/tiktok-icon.png" alt="TikTok"></a>
-        </div>
+        <a href="#" onclick="refreshPage()">ROGUE SYNTHESIS MEDIA</a>
     </div>
+
+    <script src="scripts.js"></script> <!-- Jeśli chcesz przenieść skrypty do osobnego pliku -->
 </body>
 </html>
