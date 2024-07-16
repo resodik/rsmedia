@@ -123,6 +123,7 @@ body {
     position: relative;
     z-index: 999;
     text-align: center;
+    opacity: 0;
 }
 
 /* Galeria zdjęć */
