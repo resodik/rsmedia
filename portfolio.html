@@ -117,6 +117,35 @@
                     break;
             }
         }
+        // JavaScript
+
+// Funkcja do pokazywania powiększonego zdjęcia w overlay
+function showImage(src) {
+    var overlay = document.getElementById('overlay');
+    var expandedImg = document.getElementById('expanded-img');
+
+    expandedImg.src = src;
+    overlay.classList.remove('hidden');
+}
+
+// Funkcja do zmiany zdjęcia w overlay (przyciski nawigacyjne)
+var currentPhotoIndex = 0;
+var photos = document.querySelectorAll('.photo-frame img');
+
+function changePhoto(direction) {
+    currentPhotoIndex += direction;
+
+    if (currentPhotoIndex >= photos.length) {
+        currentPhotoIndex = 0;
+    } else if (currentPhotoIndex < 0) {
+        currentPhotoIndex = photos.length - 1;
+    }
+
+    var newSrc = photos[currentPhotoIndex].src;
+    var expandedImg = document.getElementById('expanded-img');
+    expandedImg.src = newSrc;
+}
+
     </script>
 </head>
 <body>
@@ -150,6 +179,13 @@
             </div>
         </div>
     </div>
+
+    
+        <div class="overlay hidden" id="overlay">
+    <span class="prev-btn" onclick="changePhoto(-1)">&#10094;</span>
+    <img src="" class="expanded-img" id="expanded-img" alt="Powiększone zdjęcie">
+    <span class="next-btn" onclick="changePhoto(1)">&#10095;</span>
+</div>
 
    <div id="portfolio" class="gallery">
         <div class="photo-frame">
@@ -220,7 +256,6 @@
         </div>
     </div>
 
-        
 
     </div>
 
