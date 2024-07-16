@@ -83,7 +83,7 @@ body {
 }
 
 .sticky-header a {
-    color: white;
+    color: black;
     text-decoration: none;
     font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
     font-size: 28px;
@@ -145,7 +145,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color:white;
+    color:black;
     background-color: rgba(0, 0, 0, 0);
     padding: 10px 20px;
     z-index: 1000;
