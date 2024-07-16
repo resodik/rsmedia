@@ -28,7 +28,8 @@ body {
 
 /* Główny nagłówek */
 .header {
-    position: relative;
+    position: sticky; /* Ustawienie nagłówka jako sticky */
+    top: 0;
     width: 100%;
     height: 700px;
     background: url('images/main-image.jpg') no-repeat center center/cover;
@@ -37,9 +38,7 @@ body {
     justify-content: center;
     color: white;
     text-align: center;
-    padding-top: 20px;
-    z-index: 999;
-    margin-bottom: 100px;
+    z-index: 1000;
 }
 
 .header-text {
@@ -76,10 +75,10 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: absolute; /* Umieszczenie menu na samej górze */
+    position: absolute;
     top: 0;
     background-color: transparent; /* Usunięcie tła */
-    z-index: 1000;
+    z-index: 1001; /* Wyższy z-index niż header-text */
 }
 
 .tabs-left, .tabs-right {
