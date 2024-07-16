@@ -115,6 +115,41 @@
             var expandedImg = document.getElementById('expanded-img');
             expandedImg.src = newSrc;
         }
+
+                // Pozostałe funkcje JavaScript
+        function toggleTabs() {
+            var tabs = document.querySelector('.tabs');
+            tabs.classList.toggle('expanded');
+        }
+
+        function refreshPage() {
+            location.reload();
+        }
+
+        function loadPortfolio() {
+                location.href = 'index.html';
+            var portfolioSection = document.getElementById('portfolio');
+            if (portfolioSection) {
+                var topPosition = portfolioSection.offsetTop;
+                window.scrollTo({
+                    top: topPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        function loadProjects() {
+            location.href = 'portfolio.html';
+        }
+
+        function loadBlog() {
+            location.href = 'blog.html';
+        }
+
+        function loadAbout() {
+            location.href = 'omnie.html';
+        }
+
     </script>
 </head>
 <body>
