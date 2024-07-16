@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="portfolio-styles.css">
     <style>
-      
         /* Nowe style do płynnego pojawiania się zdjęć podczas przewijania */
         .photo-frame {
             opacity: 0;
@@ -47,115 +46,46 @@
             }
         }
 
-        // Pozostałe funkcje JavaScript
-        function toggleTabs() {
-            var tabs = document.querySelector('.tabs');
-            tabs.classList.toggle('expanded');
+        // Funkcja do pokazywania powiększonego zdjęcia w overlay
+        function showImage(src) {
+            var overlay = document.getElementById('overlay');
+            var expandedImg = document.getElementById('expanded-img');
+
+            expandedImg.src = src;
+            overlay.classList.remove('hidden');
         }
 
-        function refreshPage() {
-            location.reload();
+        // Funkcja do zmiany zdjęcia w overlay (przyciski nawigacyjne)
+        var currentPhotoIndex = 0;
+        var photos = []; // Tablica na zdjęcia
+
+        function initializePhotos() {
+            photos = document.querySelectorAll('.photo-frame img');
         }
 
-        function loadPortfolio() {
-                location.href = 'index.html';
-            var portfolioSection = document.getElementById('portfolio');
-            if (portfolioSection) {
-                var topPosition = portfolioSection.offsetTop;
-                window.scrollTo({
-                    top: topPosition,
-                    behavior: 'smooth'
-                });
+        function changePhoto(direction) {
+            currentPhotoIndex += direction;
+
+            if (currentPhotoIndex >= photos.length) {
+                currentPhotoIndex = 0;
+            } else if (currentPhotoIndex < 0) {
+                currentPhotoIndex = photos.length - 1;
             }
+
+            var newSrc = photos[currentPhotoIndex].src;
+            var expandedImg = document.getElementById('expanded-img');
+            expandedImg.src = newSrc;
         }
-
-        function loadProjects() {
-            location.href = 'portfolio.html';
-        }
-
-        function loadBlog() {
-            location.href = 'blog.html';
-        }
-
-        function loadAbout() {
-            location.href = 'omnie.html';
-        }
-
-        function goToPage(pageNumber) {
-            switch (pageNumber) {
-                case 1:
-                    location.href = 'index.html';
-                    break;
-                case 2:
-                    location.href = 'strona2.html';
-                    break;
-                case 3:
-                    location.href = 'strona3.html';
-                    break;
-                case 4:
-                    location.href = 'strona4.html';
-                    break;
-                case 5:
-                    location.href = 'strona5.html';
-                    break;
-                case 6:
-                    location.href = 'strona6.html';
-                    break;
-                case 7:
-                    location.href = 'strona7.html';
-                    break;
-                case 8:
-                    location.href = 'strona8.html';
-                    break;
-                case 9:
-                    location.href = 'strona9.html';
-                    break;
-                case 10:
-                    location.href = 'strona10.html';
-                    break;
-                default:
-                    break;
-            }
-        }
-        // JavaScript
-
-// Funkcja do pokazywania powiększonego zdjęcia w overlay
-function showImage(src) {
-    var overlay = document.getElementById('overlay');
-    var expandedImg = document.getElementById('expanded-img');
-
-    expandedImg.src = src;
-    overlay.classList.remove('hidden');
-}
-
-// Funkcja do zmiany zdjęcia w overlay (przyciski nawigacyjne)
-var currentPhotoIndex = 0;
-var photos = document.querySelectorAll('.photo-frame img');
-
-function changePhoto(direction) {
-    currentPhotoIndex += direction;
-
-    if (currentPhotoIndex >= photos.length) {
-        currentPhotoIndex = 0;
-    } else if (currentPhotoIndex < 0) {
-        currentPhotoIndex = photos.length - 1;
-    }
-
-    var newSrc = photos[currentPhotoIndex].src;
-    var expandedImg = document.getElementById('expanded-img');
-    expandedImg.src = newSrc;
-}
-
     </script>
 </head>
 <body>
     <div class="header">
-         <div class="video-section">
-        <video autoplay muted loop>
-            <source src="images/Video1a.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
+        <div class="video-section">
+            <video autoplay muted loop>
+                <source src="images/Video1a.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
         <div class="header-text">
             <h1>ROGUE SYNTHESIS MEDIA</h1>
             <h2>Twórca Nowego Świata</h2>
@@ -180,98 +110,23 @@ function changePhoto(direction) {
         </div>
     </div>
 
-    
-        <div class="overlay hidden" id="overlay">
-    <span class="prev-btn" onclick="changePhoto(-1)">&#10094;</span>
-    <img src="" class="expanded-img" id="expanded-img" alt="Powiększone zdjęcie">
-    <span class="next-btn" onclick="changePhoto(1)">&#10095;</span>
-</div>
+    <div class="overlay hidden" id="overlay">
+        <span class="prev-btn" onclick="changePhoto(-1)">&#10094;</span>
+        <img src="" class="expanded-img" id="expanded-img" alt="Powiększone zdjęcie">
+        <span class="next-btn" onclick="changePhoto(1)">&#10095;</span>
+    </div>
 
     <div id="portfolio" class="gallery">
-    <!-- Zdjęcia w galerii -->
-    <div class="photo-frame">
-        <img src="images/main-image.jpg" alt="Opis zdjęcia 0" onclick="showImage(this.src)">
-    </div>
-    <div class="photo-frame">
-        <img src="images/photo1.jpg" alt="Opis zdjęcia 1" onclick="showImage(this.src)">
-    </div>
-    <!-- Dodaj pozostałe zdjęcia zgodnie z potrzebami -->
-</div>
-
-
-   <div id="portfolio" class="gallery">
+        <!-- Zdjęcia w galerii -->
         <div class="photo-frame">
             <img src="images/main-image.jpg" alt="Opis zdjęcia 0" onclick="showImage(this.src)">
         </div>
         <div class="photo-frame">
             <img src="images/photo1.jpg" alt="Opis zdjęcia 1" onclick="showImage(this.src)">
         </div>
-        <div class="photo-frame">
-            <img src="images/photo2.jpg" alt="Opis zdjęcia 2" onclick="showImage(this.src)">
-        </div>
-         <div class="photo-frame">
-            <img src="images/photo8.png" alt="Opis zdjęcia 4" onclick="showImage(this.src)">
-        </div>
-          <div class="photo-frame">
-            <img src="images/photo9.png" alt="Opis zdjęcia 4" onclick="showImage(this.src)">
-        </div>
-         <div class="photo-frame">
-            <img src="images/photo10.png" alt="Opis zdjęcia 4" onclick="showImage(this.src)">
-        </div>
-           <div class="photo-frame">
-            <img src="images/photo18.png" alt="Opis zdjęcia 4" onclick="showImage(this.src)">
-        </div>
-           <div class="photo-frame">
-            <img src="images/photo19.png" alt="Opis zdjęcia 4" onclick="showImage(this.src)">
-        </div>
-        <div class="photo-frame">
-            <img src="images/photo20.png" alt="Opis zdjęcia 4" onclick="showImage(this.src)">
-        </div>
-         <!-- Dodaj więcej zdjęć według potrzeby -->
-         <div class="photo-frame">
-            <img src="images/photo21.png" alt="Opis zdjęcia 4" onclick="showImage(this.src)">
-        </div>
-         <div class="photo-frame">
-            <img src="images/photo22.png" alt="Opis zdjęcia 4" onclick="showImage(this.src)">
-        </div>
-         <div class="photo-frame">
-            <img src="images/photo23.png" alt="Opis zdjęcia 4" onclick="showImage(this.src)">
-        </div>
-         <!-- Dodaj więcej zdjęć według potrzeby -->
-         <div class="photo-frame">
-            <img src="images/photo24.png" alt="Opis zdjęcia 4" onclick="showImage(this.src)">
-        </div>
-         <div class="photo-frame">
-            <img src="images/photo25.png" alt="Opis zdjęcia 4" onclick="showImage(this.src)">
-        </div>
-         <div class="photo-frame">
-            <img src="images/photo26.png" alt="Opis zdjęcia 4" onclick="showImage(this.src)">
-        </div>
-        
-         <div class="photo-frame">
-            <img src="images/photo27.png" alt="Opis zdjęcia 4" onclick="showImage(this.src)">
-        </div>
-         <div class="photo-frame">
-            <img src="images/photo28.png" alt="Opis zdjęcia 4" onclick="showImage(this.src)">
-        </div>
-         <div class="photo-frame">
-            <img src="images/photo33.png" alt="Opis zdjęcia 5" onclick="showImage(this.src)">
-        </div>
-         <div class="photo-frame">
-            <img src="images/photo29.png" alt="Opis zdjęcia 5" onclick="showImage(this.src)">
-        </div>
-         <div class="photo-frame">
-            <img src="images/photo30.png" alt="Opis zdjęcia 5" onclick="showImage(this.src)">
-        </div>
-         <div class="photo-frame">
-            <img src="images/photo31.png" alt="Opis zdjęcia 5" onclick="showImage(this.src)">
-        </div>
+        <!-- Dodaj pozostałe zdjęcia zgodnie z potrzebami -->
     </div>
 
-
-    </div>
-
-  
     <div class="sticky-header">
         <a href="#" onclick="refreshPage()">ROGUE SYNTHESIS MEDIA</a>
     </div>
