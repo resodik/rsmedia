@@ -100,31 +100,6 @@
             var overlay = document.getElementById('overlay');
             overlay.classList.add('hidden');
         }
-
-        // Funkcje do przełączania sekcji
-        function loadPortfolio() {
-            scrollToSection('portfolio');
-        }
-
-        function loadProjects() {
-            scrollToSection('projects');
-        }
-
-        function loadBlog() {
-            scrollToSection('blog');
-        }
-
-        function loadAbout() {
-            scrollToSection('about');
-        }
-
-        function scrollToSection(sectionId) {
-            var section = document.getElementById(sectionId);
-            window.scrollTo({
-                top: section.offsetTop,
-                behavior: 'smooth'
-            });
-        }
     </script>
 </head>
 <body>
@@ -166,8 +141,7 @@
         <div class="close-btn" onclick="closeOverlay()">✕</div>
     </div>
 
-    <div id="portfolio" class="gallery section">
-        <h2>Projekty</h2>
+    <div id="portfolio" class="gallery">
         <!-- Zdjęcia w galerii -->
         <div class="photo-frame">
             <img src="images/main-image.jpg" alt="Opis zdjęcia 0" onclick="showImage(this.src)">
@@ -178,35 +152,8 @@
         <!-- Dodaj pozostałe zdjęcia zgodnie z potrzebami -->
     </div>
 
-    <div id="projects" class="gallery section">
-        <h2>Portfolio</h2>
-        <!-- Zdjęcia w galerii -->
-        <div class="photo-frame">
-            <img src="images/project-image1.jpg" alt="Opis zdjęcia 0" onclick="showImage(this.src)">
-        </div>
-        <div class="photo-frame">
-            <img src="images/project-image2.jpg" alt="Opis zdjęcia 1" onclick="showImage(this.src)">
-        </div>
-        <!-- Dodaj pozostałe zdjęcia zgodnie z potrzebami -->
-    </div>
-
-    <div id="blog" class="section">
-        <h2>Blog</h2>
-        <!-- Treść bloga -->
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis libero eget nunc volutpat, vel aliquet erat sollicitudin. Suspendisse potenti. Nullam id nibh at nisl fermentum euismod.</p>
-    </div>
-
-    <div id="about" class="section">
-        <h2>O Mnie</h2>
-        <!-- Informacje o mnie -->
-        <p>Mauris varius eu velit non accumsan. Donec eget fringilla ipsum. Duis ultricies nisi ac semper pellentesque. Nam lobortis viverra leo eget egestas.</p>
-    </div>
-
     <div class="sticky-header">
-        <a href="javascript:void(0);" onclick="loadPortfolio()">Projekty</a>
-        <a href="javascript:void(0);" onclick="loadProjects()">Portfolio</a>
-        <a href="javascript:void(0);" onclick="loadBlog()">Blog</a>
-        <a href="javascript:void(0);" onclick="loadAbout()">O Mnie</a>
+        <a href="#" onclick="refreshPage()">ROGUE SYNTHESIS MEDIA</a>
     </div>
 
     <script src="scripts.js"></script> <!-- Jeśli chcesz przenieść skrypty do osobnego pliku -->
