@@ -1,16 +1,4 @@
-window.onscroll = function() {toggleStickyHeader(), revealPhotos()};
-
-function toggleStickyHeader() {
-    var header = document.querySelector('.sticky-header');
-    var mainHeader = document.querySelector('.header');
-    var headerHeight = mainHeader.offsetHeight;
-
-    if (window.pageYOffset > headerHeight) {
-        header.style.display = "block";
-    } else {
-        header.style.display = "none";
-    }
-}
+window.onscroll = function() {revealPhotos()};
 
 function revealPhotos() {
     var photoFrames = document.querySelectorAll('.photo-frame');
@@ -24,7 +12,6 @@ function revealPhotos() {
     }
 }
 
-// Pozostałe funkcje JavaScript
 function toggleTabs() {
     var tabs = document.querySelector('.tabs');
     if (tabs.classList.contains('expanded')) {
