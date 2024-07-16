@@ -1,4 +1,125 @@
-/* Dodaj tutaj swoje style CSS */
+/* Resetowanie domyślnych stylów */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
+    background-color: #ffffff;
+    overflow-x: hidden;
+    text-align: center;
+    font-weight: 700; /* Ustawienie wagi na bold */
+}
+
+/* Tło maski */
+.mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 998;
+    background: url('images/mask-image.jpg') no-repeat center center/cover;
+}
+
+/* Główny nagłówek */
+.header {
+    position: relative;
+    width: 100%;
+    height: 700px;
+    background: url('images/main-image.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    padding-top: 20px;
+    z-index: 999;
+    margin-bottom: 100px;
+}
+
+.header-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: fadeIn 2s ease-in-out;
+}
+
+.header-text h1 {
+    margin: 0;
+    font-size: 48px;
+    font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
+    letter-spacing: 5px;
+    font-weight: bold;
+}
+
+.header-text h2 {
+    margin: 0;
+    font-size: 24px;
+    font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
+}
+
+/* Nagłówek przyczepny */
+.sticky-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: none;
+}
+
+.sticky-header a {
+    color: black;
+    text-decoration: none;
+    font-size: 24px;
+    font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
+}
+
+/* Przycisk zwijania i rozwijania menu */
+.expand-button {
+    cursor: pointer;
+}
+
+/* Styl dla zakładek */
+.tabs {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+}
+
+.tabs-left, .tabs-right {
+    display: flex;
+    align-items: center;
+}
+
+.tabs-left a, .tabs-right a {
+    color: #000;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 0 20px;
+    font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
+}
+
+.tabs-right .social-icons a {
+    margin: 0 10px;
+}
+
+.social-icons img {
+    width: 30px;
+    height: 30px;
+}
 
 /* Styl dla headera */
 .header {
@@ -160,3 +281,5 @@
     opacity: 1;
     transform: translateY(0);
 }
+
+/* Dodaj więcej stylów według potrzeby */
