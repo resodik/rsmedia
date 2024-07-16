@@ -193,7 +193,7 @@ body {
 }
 
 .tabs-left a:hover, .tabs-left button:hover {
-    opacity: 1;
+    opacity: 0;
 }
 
 .tabs-right {
