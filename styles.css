@@ -16,21 +16,8 @@ body {
     font-weight: 700; /* Ustawienie wagi na bold */
 }
 
-/* Tło maski */
-.mask {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 998;
-    background: url('images/mask-image.jpg') no-repeat center center/cover;
-}
-
 /* Główny nagłówek */
 .header {
-    position: sticky; /* Ustawienie nagłówka jako sticky */
-    top: 0;
     width: 100%;
     height: 700px;
     background: url('images/main-image.jpg') no-repeat center center/cover;
@@ -39,7 +26,7 @@ body {
     justify-content: center;
     color: white;
     text-align: center;
-    z-index: 1000;
+    position: relative;
 }
 
 .header-text {
@@ -64,90 +51,86 @@ body {
     font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
 }
 
-/* Przycisk zwijania i rozwijania menu */
-.expand-button {
-    cursor: pointer;
-}
-
-/* Styl dla zakładek */
-.tabs {
-    width: 100%;
-    padding: 10px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: absolute;
+/* Sticky header */
+.sticky-header {
+    position: fixed;
     top: 0;
-    background-color: transparent; /* Usunięcie tła */
-    z-index: 1001; /* Wyższy z-index niż header-text */
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    z-index: 1000;
+    display: none; /* Początkowo ukryj */
+    background-color: rgba(0, 0, 0, 0.8); /* Dodatkowy styl tła */
 }
 
-.tabs-left, .tabs-right {
-    display: flex;
-    align-items: center;
-}
-
-.tabs-left a, .tabs-right a {
-    color: white; /* Zmiana koloru tekstu na biały */
+.sticky-header a {
+    color: white;
     text-decoration: none;
-    font-size: 18px;
-    padding: 0 20px;
     font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
+    font-size: 28px;
+    font-weight: bold;
+    opacity: 0.8;
+    margin-right: 20px;
 }
 
-.tabs-right .social-icons a {
-    margin: 0 10px;
+/* Main image */
+.main-image {
+    height: 700px; /* Wysokość zdjęcia głównego */
+    overflow: hidden; /* Ukryj overflow */
 }
 
-.social-icons img {
-    width: 30px;
-    height: 30px;
+.main-image img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
-/* Styl dla zakładek przy zwijaniu */
-.tabs.collapsed .tabs-left,
-.tabs.collapsed .tabs-right {
-    display: none;
-}
-
-.tabs .expand-button {
-    display: none;
-}
-
-/* Styl dla kontenera */
+/* Kontener na zawartość */
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
+    width: 80%;
+    margin: 20px auto;
     padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 999;
+    text-align: center;
 }
 
+/* Ramki na zdjęcia */
 .photo-frame {
+    width: 100%;
     margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .photo-frame img {
-    width: 100%;
-    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 5px;
 }
 
-/* Styl paginacji */
+/* Dodatkowe style dla paginacji */
 .pagination {
-    text-align: center;
     margin-top: 20px;
+    display: flex;
+    justify-content: center;
 }
 
 .pagination a {
     display: inline-block;
     padding: 8px 16px;
     margin: 0 5px;
-    background-color: transparent; /* Usunięcie tła */
+    background-color: transparent;
     color: #000000;
     text-decoration: none;
     border-radius: 5px;
 }
 
 .pagination a.active {
-    background-color: transparent; /* Usunięcie tła */
+    background-color: transparent;
     color: #000000;
 }
 
