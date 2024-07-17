@@ -363,8 +363,8 @@ body {
 @media only screen and (max-width: 768px) {
     /* Stylowanie dla tabletów i telefonów */
     .gallery {
-        grid-template-columns: repeat(3, 1fr); /* Trzy kolumny na tabletach */
-    }
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        
     .header {
         height: 500px;
     }
