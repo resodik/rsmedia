@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -7,198 +8,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="portfolio-styles.css">
     <style>
-        /* Resetowanie domyślnych stylów */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
-            background-color: black;
-            color: white;
-            overflow-x: hidden;
-            text-align: center;
-            font-weight: 700; /* Ustawienie wagi na bold */
-        }
-
-        /* Tło maski */
-        .mask {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 998;
-            background: url('images/mask-image.jpg') no-repeat center center/cover;
-        }
-
-        /* Wideo tła */
-        .video-section {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: -1;
-        }
-
-        .video-section video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Główny nagłówek */
-        .header {
-            position: relative;
-            width: 100%;
-            height: 700px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-            padding-top: 20px;
-            z-index: 999;
-            margin-bottom: 100px;
-        }
-
-        .header-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            animation: fadeIn 2s ease-in-out;
-        }
-
-        .header-text h1 {
-            margin: 0;
-            font-size: 48px;
-            font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
-            letter-spacing: 5px;
-            font-weight: bold;
-        }
-
-        .header-text h2 {
-            margin: 0;
-            font-size: 24px;
-            font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
-        }
-
-        /* Nagłówek przyczepny */
-        .sticky-header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            text-align: center;
-            padding: 10px 0;
-            z-index: 1000;
-            display: none;
-            background-color: transparent;
-            box-shadow: 0px 2px 5px rgba(0,0,0,0);
-        }
-
-        .sticky-header a {
-            color: black;
-            text-decoration: none;
-            font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
-            font-size: 28px;
-            font-weight: bold;
-            opacity: 0.3;
-            margin-right: 20px;
-        }
-
-        /* Kontener na zawartość */
-        .container {
-            width: 80%;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0);
-            position: relative;
-            z-index: 999;
-            text-align: center;
-        }
-
-        /* Galeria zdjęć */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            grid-gap: 10px;
-            margin-top: 60px;
-        }
-
+        /* Nowe style do płynnego pojawiania się zdjęć podczas przewijania */
         .photo-frame {
-            position: relative;
-            overflow: hidden;
-            opacity: 1;
+            opacity: 0;
             transform: translateY(50px);
             transition: opacity 1s ease-out, transform 1s ease-out;
         }
-
-        .photo-frame img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-
-        .photo-frame:hover img {
-            transform: scale(1.1);
-        }
-
         .photo-frame.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* Overlay */
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-
-        .overlay.hidden {
-            display: none;
-        }
-
-        .expanded-img {
-            max-width: 90%;
-            max-height: 90%;
-            cursor: pointer;
-        }
-
-        .prev-btn,
-        .next-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            color: white;
-            font-size: 30px;
-            cursor: pointer;
-        }
-
-        .prev-btn {
-            left: 20px;
-        }
-
-        .next-btn {
-            right: 20px;
-        }
-
+        /* Styl przycisku zamknięcia */
         .close-btn {
             position: absolute;
             top: 10px;
@@ -208,258 +29,9 @@
             z-index: 1001; /* Nad wszystkimi innymi elementami w overlayu */
             color: white;
         }
-
-        /* Paski nawigacyjne */
-        .tabs {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            color: black;
-            background-color: rgba(0, 0, 0, 0);
-            padding: 10px 20px;
-            z-index: 1000;
-            transition: height 0.3s ease;
-        }
-
-        .tabs-left {
-            display: flex;
-            align-items: center;
-        }
-
-        .tabs-left a,
-        .tabs-left button {
-            text-decoration: none;
-            font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
-            color: white;
-            font-size: 18px;
-            padding: 10px 20px;
-            margin-right: 10px;
-            border: none;
-            background-color: none;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .tabs-left a:hover,
-        .tabs-left button:hover {
-            opacity: 0;
-        }
-
-        .tabs-right {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-        }
-
-        .expand-button {
-            width: 30px;
-            height: 50px;
-            cursor: pointer;
-            margin-left: 10px;
-        }
-
-        .expand-button img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        /* Rozwijane menu */
-        .tabs.expanded .expand-button {
-            visibility: visible;
-        }
-
-        .tabs.expanded .tabs-left,
-        .tabs.expanded .tabs-right {
-            visibility: hidden;
-            display: flex;
-        }
-
-        .tabs.expanded {
-            height: auto;
-            padding-top: 10px;
-            padding-bottom: 10px;
-        }
-
-        .tabs a {
-            text-decoration: none;
-            font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
-            color: black;
-            font-size: 18px;
-            padding: 10px 20px;
-            margin-right: 10px;
-            border: none;
-            background-color: transparent;
-            opacity: 0.5;
-            transition: opacity 0.3s ease;
-        }
-
-        .tabs a:hover {
-            opacity: 1;
-        }
-
-        .social-icons {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            margin-left: 10px;
-        }
-
-        .social-icons img {
-            width: 30px;
-            margin: 0 -30px;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        .section {
-            padding: 50px 0;
-            text-align: center;
-        }
-
-        /* Media queries dla różnych rozmiarów ekranu */
-        @media only screen and (max-width: 768px) {
-            /* Stylowanie dla tabletów i telefonów */
-            .gallery {
-                grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            }
-
-            .header {
-                height: 500px;
-            }
-
-            .header-text h1 {
-                font-size: 36px;
-            }
-
-            .header-text h2 {
-                font-size: 20px;
-            }
-
-            .photo-frame img {
-                transform: scale(1);
-            }
-
-            .tabs {
-                font-size: 16px;
-            }
-
-            .tabs-left a,
-            .tabs-left button {
-                font-size: 16px;
-                padding: 8px 16px;
-            }
-
-            .expand-button {
-                width: 25px;
-            }
-        }
-
-        @media only screen and (max-width: 480px) {
-            /* Stylowanie dla telefonów */
-            .header {
-                height: 400px;
-            }
-
-            .header-text h1 {
-                font-size: 28px;
-            }
-
-            .header-text h2 {
-                font-size: 18px;
-            }
-
-            .tabs {
-                font-size: 14px;
-            }
-
-            .tabs-left a,
-            .tabs-left button {
-                font-size: 14px;
-                padding: 6px 12px;
-            }
-
-            .expand-button {
-                width: 20px;
-            }
-        }
     </style>
-</head>
-<body>
-    <div class="mask"></div>
-    <div class="video-section">
-        <video autoplay muted loop>
-            <source src="images/video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
-
-    <!-- Nagłówek -->
-    <div class="header">
-        <div class="header-text">
-            <h1>Rogue Synthesis Media</h1>
-            <h2>Creating Beyond the Ordinary</h2>
-        </div>
-    </div>
-
-    <!-- Nagłówek przyczepny -->
-    <div class="sticky-header">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#contact">Contact</a>
-    </div>
-
-    <!-- Kontener na zawartość -->
-    <div class="container">
-        <!-- Galeria zdjęć -->
-        <div class="gallery">
-            <div class="photo-frame">
-                <img src="images/photo1.jpg" alt="Photo 1">
-            </div>
-            <div class="photo-frame">
-                <img src="images/photo2.jpg" alt="Photo 2">
-            </div>
-            <div class="photo-frame">
-                <img src="images/photo3.jpg" alt="Photo 3">
-            </div>
-            <div class="photo-frame">
-                <img src="images/photo4.jpg" alt="Photo 4">
-            </div>
-            <div class="photo-frame">
-                <img src="images/photo5.jpg" alt="Photo 5">
-            </div>
-            <div class="photo-frame">
-                <img src="images/photo6.jpg" alt="Photo 6">
-            </div>
-            <!-- Dodaj więcej zdjęć według potrzeb -->
-        </div>
-
-        <!-- Overlay -->
-        <div id="overlay" class="overlay hidden">
-            <span class="close-btn" onclick="closeOverlay()">&times;</span>
-            <img id="expanded-img" class="expanded-img" src="" alt="Expanded Image">
-            <div class="prev-btn" onclick="changePhoto(-1)">&#10094;</div>
-            <div class="next-btn" onclick="changePhoto(1)">&#10095;</div>
-        </div>
-    </div>
-
     <script>
+        // Skrypty JavaScript, jakie masz obecnie
         var currentPhotoIndex = 0;
         var photos = []; // Tablica na zdjęcia
 
@@ -469,13 +41,6 @@
 
         function initializePhotos() {
             photos = document.querySelectorAll('.photo-frame img');
-            
-            // Przypisanie obsługi kliknięcia do każdego zdjęcia w galerii
-            for (var i = 0; i < photos.length; i++) {
-                photos[i].onclick = function() {
-                    showImage(this.src);
-                };
-            }
         }
 
         window.onscroll = function() {
@@ -511,31 +76,218 @@
         function showImage(src) {
             var overlay = document.getElementById('overlay');
             var expandedImg = overlay.querySelector('.expanded-img');
+            var photoFrames = document.querySelectorAll('.photo-frame');
 
             expandedImg.src = src;
             overlay.classList.remove('hidden');
-        }
 
-        // Funkcja do zmiany zdjęcia w overlay (przyciski nawigacyjne)
-        function changePhoto(direction) {
-            currentPhotoIndex += direction;
-
-            if (currentPhotoIndex >= photos.length) {
-                currentPhotoIndex = 0;
-            } else if (currentPhotoIndex < 0) {
-                currentPhotoIndex = photos.length - 1;
+            // Znajdź aktywne zdjęcie i usuń klasę visible
+            var activePhoto = document.querySelector('.photo-frame.active');
+            if (activePhoto) {
+                activePhoto.classList.remove('active');
             }
 
-            var newSrc = photos[currentPhotoIndex].src;
-            var expandedImg = document.getElementById('expanded-img');
-            expandedImg.src = newSrc;
+            // Ustaw aktywne zdjęcie na to, które zostało kliknięte
+            for (var i = 0; i < photoFrames.length; i++) {
+                if (photoFrames[i].querySelector('img').src === src) {
+                    photoFrames[i].classList.add('active');
+                }
+            }
+
+            // Dodaj event listener do zdjęcia, aby można było kliknąć je, by je zamknąć
+            expandedImg.onclick = function() {
+                closeOverlay();
+            };
         }
 
         // Funkcja do zamykania overlaya
         function closeOverlay() {
             var overlay = document.getElementById('overlay');
             overlay.classList.add('hidden');
+
+            // Usuń klasę active z aktywnego zdjęcia w galerii
+            var activePhoto = document.querySelector('.photo-frame.active');
+            if (activePhoto) {
+                activePhoto.classList.remove('active');
+            }
         }
+
+        // Funkcja do zmiany zdjęcia w overlay (przyciski nawigacyjne)
+        function changePhoto(direction) {
+            var photoFrames = document.querySelectorAll('.photo-frame');
+            var activePhoto = document.querySelector('.photo-frame.active');
+            var index = Array.from(photoFrames).indexOf(activePhoto);
+
+            // Usuń klasę active z obecnego zdjęcia
+            if (activePhoto) {
+                activePhoto.classList.remove('active');
+            }
+
+            // Zmiana indeksu zdjęcia
+            index += direction;
+            if (index >= photoFrames.length) {
+                index = 0;
+            } else if (index < 0) {
+                index = photoFrames.length - 1;
+            }
+
+            // Ustawienie klasy active dla nowego zdjęcia
+            var newPhoto = photoFrames[index];
+            newPhoto.classList.add('active');
+
+            // Aktualizacja zdjęcia w overlayu
+            var newSrc = newPhoto.querySelector('img').src;
+            var expandedImg = document.getElementById('expanded-img');
+            expandedImg.src = newSrc;
+        }
+
+        // Pozostałe funkcje JavaScript
+        function toggleTabs() {
+            var tabs = document.querySelector('.tabs');
+            tabs.classList.toggle('expanded');
+        }
+
+        function refreshPage() {
+            location.reload();
+        }
+
+        function loadPortfolio() {
+            location.href = 'index.html';
+            var portfolioSection = document.getElementById('portfolio');
+            if (portfolioSection) {
+                var topPosition = portfolioSection.offsetTop;
+                window.scrollTo({
+                    top: topPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        function loadProjects() {
+            location.href = 'portfolio.html';
+        }
+
+        function loadBlog() {
+            location.href = 'blog.html';
+        }
+
+        function loadAbout() {
+            location.href = 'omnie.html';
+        }
+
     </script>
+</head>
+<body>
+    <div class="header">
+        <div class="video-section">
+            <video autoplay muted loop>
+                <source src="images/Video1a.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="header-text">
+            <h1>ROGUE SYNTHESIS MEDIA</h1>
+            <h2>Twórca Nowego Świata</h2>
+        </div>
+    </div>
+
+    <div class="tabs collapsed">
+        <div class="tabs-left">
+            <a href="javascript:void(0);" onclick="loadPortfolio()">Projekty</a>
+            <a href="javascript:void(0);" onclick="loadProjects()">Portfolio</a>
+            <a href="javascript:void(0);" onclick="loadBlog()">Blog</a>
+            <a href="javascript:void(0);" onclick="loadAbout()">O Mnie</a>
+        </div>
+        <div class="tabs-right">
+            <div class="social-icons">
+                <a href="https://www.instagram.com/rogue.synthesis" target="_blank"><img src="images/instagram-icon.png" alt="Instagram"></a>
+                <a href="https://www.tiktok.com" target="_blank"><img src="images/tiktok-icon.png" alt="TikTok"></a>
+            </div>
+            <div class="expand-button" onclick="toggleTabs()">
+                <img src="images/expand-icon.png" alt="Expand Icon">
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay hidden" id="overlay">
+        <span class="prev-btn" onclick="changePhoto(-1)">&#10094;</span>
+        <img src="" class="expanded-img" id="expanded-img" alt="Powiększone zdjęcie">
+        <span class="next-btn" onclick="changePhoto(1)">&#10095;</span>
+        <div class="close-btn" onclick="closeOverlay()">✕</div>
+    </div>
+
+    <div id="portfolio" class="gallery">
+        <!-- Zdjęcia w galerii -->
+        <div class="photo-frame">
+            <img src="images/main-image.jpg" alt="Opis zdjęcia 0" onclick="showImage(this.src)">
+        </div>
+        <div class="photo-frame">
+            <img src="images/photo1.jpg" alt="Opis zdjęcia 1" onclick="showImage(this.src)">
+        </div>
+           <div class="photo-frame">
+            <img src="images/photo2.jpg" alt="Opis zdjęcia 1" onclick="showImage(this.src)">
+        </div>
+         <div class="photo-frame">
+            <img src="images/photo8.png" alt="Opis zdjęcia 1" onclick="showImage(this.src)">
+        </div>
+         <div class="photo-frame">
+            <img src="images/photo9.png" alt="Opis zdjęcia 1" onclick="showImage(this.src)">
+        </div>
+        <div class="photo-frame">
+            <img src="images/photo10.png" alt="Opis zdjęcia 1" onclick="showImage(this.src)">
+        </div>
+        <div class="photo-frame">
+            <img src="images/photo18.png" alt="Opis zdjęcia 1" onclick="showImage(this.src)">
+        </div>
+        <div class="photo-frame">
+            <img src="images/photo19.png" alt="Opis zdjęcia 1" onclick="showImage(this.src)">
+        </div>
+          <div class="photo-frame">
+            <img src="images/photo20.png" alt="Opis zdjęcia 1" onclick="showImage(this.src)">
+        </div>
+        <div class="photo-frame">
+            <img src="images/photo21.png" alt="Opis zdjęcia 1" onclick="showImage(this.src)">
+        </div>
+        <div class="photo-frame">
+            <img src="images/photo22.png" alt="Opis zdjęcia 1" onclick="showImage(this.src)">
+        </div>
+        <div class="photo-frame">
+            <img src="images/photo23.png" alt="Opis zdjęcia 1" onclick="showImage(this.src)">
+        </div>
+         <div class="photo-frame">
+            <img src="images/photo24.png" alt="Opis zdjęcia 1" onclick="showImage(this.src)">
+        </div>
+        <div class="photo-frame">
+            <img src="images/photo25.png" alt="Opis zdjęcia 1" onclick="showImage(this.src)">
+        </div>
+        <div class="photo-frame">
+            <img src="images/photo26.png" alt="Opis zdjęcia 1" onclick="showImage(this.src)">
+        </div>
+        <div class="photo-frame">
+            <img src="images/photo27.png" alt="Opis zdjęcia 1" onclick="showImage(this.src)">
+        </div>
+        <div class="photo-frame">
+            <img src="images/photo28.png" alt="Opis zdjęcia 1" onclick="showImage(this.src)">
+        </div>
+        <div class="photo-frame">
+            <img src="images/photo33.png" alt="Opis zdjęcia 1" onclick="showImage(this.src)">
+        </div>
+        <div class="photo-frame">
+            <img src="images/photo29.png" alt="Opis zdjęcia 1" onclick="showImage(this.src)">
+        </div>
+        <div class="photo-frame">
+            <img src="images/photo30.png" alt="Opis zdjęcia 1" onclick="showImage(this.src)">
+        </div>
+        <div class="photo-frame">
+            <img src="images/photo31.png" alt="Opis zdjęcia 1" onclick="showImage(this.src)">
+        </div>
+        <!-- Dodaj pozostałe zdjęcia zgodnie z potrzebami -->
+    </div>
+
+    <div class="sticky-header">
+        <a href="#" onclick="refreshPage()">ROGUE SYNTHESIS MEDIA</a>
+    </div>
+
+    <script src="scripts.js"></script> <!-- Jeśli chcesz przenieść skrypty do osobnego pliku -->
 </body>
 </html>
