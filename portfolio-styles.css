@@ -313,7 +313,7 @@ body, h1, h2, h3, h4, h5, h6, p, a, div, span, li, button {
 }
 
 /* Media queries dla różnych rozmiarów ekranu */
-@media only screen and (max-width: 1024px) {
+@media only screen and (max-width: 1500px) {
     /* Stylowanie dla tabletów */
     .gallery {
         grid-template-columns: repeat(auto-fit, minmax(33.33%, 1fr));
