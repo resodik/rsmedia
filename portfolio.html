@@ -74,49 +74,73 @@
         // Funkcja do pokazywania powiększonego zdjęcia w overlay
         function showImage(src) {
             var overlay = document.getElementById('overlay');
-            var expandedImg = document.getElementById('expanded-img');
+            var expandedImg = overlay.querySelector('.expanded-img');
+            var photoFrames = document.querySelectorAll('.photo-frame');
 
             expandedImg.src = src;
             overlay.classList.remove('hidden');
-        }
 
-        // Funkcja do zmiany zdjęcia w overlay (przyciski nawigacyjne)
-        function changePhoto(direction) {
-            currentPhotoIndex += direction;
-
-            if (currentPhotoIndex >= photos.length) {
-                currentPhotoIndex = 0;
-            } else if (currentPhotoIndex < 0) {
-                currentPhotoIndex = photos.length - 1;
+            // Znajdź aktywne zdjęcie i usuń klasę visible
+            var activePhoto = document.querySelector('.photo-frame.active');
+            if (activePhoto) {
+                activePhoto.classList.remove('active');
             }
 
-            var newSrc = photos[currentPhotoIndex].src;
-            var expandedImg = document.getElementById('expanded-img');
-            expandedImg.src = newSrc;
+            // Ustaw aktywne zdjęcie na to, które zostało kliknięte
+            for (var i = 0; i < photoFrames.length; i++) {
+                if (photoFrames[i].querySelector('img').src === src) {
+                    photoFrames[i].classList.add('active');
+                }
+            }
+
+            // Dodaj event listener do zdjęcia, aby można było kliknąć je, by je zamknąć
+            expandedImg.onclick = function() {
+                closeOverlay();
+            };
         }
 
         // Funkcja do zamykania overlaya
         function closeOverlay() {
             var overlay = document.getElementById('overlay');
             overlay.classList.add('hidden');
+
+            // Usuń klasę active z aktywnego zdjęcia w galerii
+            var activePhoto = document.querySelector('.photo-frame.active');
+            if (activePhoto) {
+                activePhoto.classList.remove('active');
+            }
         }
 
         // Funkcja do zmiany zdjęcia w overlay (przyciski nawigacyjne)
         function changePhoto(direction) {
-            currentPhotoIndex += direction;
+            var photoFrames = document.querySelectorAll('.photo-frame');
+            var activePhoto = document.querySelector('.photo-frame.active');
+            var index = Array.from(photoFrames).indexOf(activePhoto);
 
-            if (currentPhotoIndex >= photos.length) {
-                currentPhotoIndex = 0;
-            } else if (currentPhotoIndex < 0) {
-                currentPhotoIndex = photos.length - 1;
+            // Usuń klasę active z obecnego zdjęcia
+            if (activePhoto) {
+                activePhoto.classList.remove('active');
             }
 
-            var newSrc = photos[currentPhotoIndex].src;
+            // Zmiana indeksu zdjęcia
+            index += direction;
+            if (index >= photoFrames.length) {
+                index = 0;
+            } else if (index < 0) {
+                index = photoFrames.length - 1;
+            }
+
+            // Ustawienie klasy active dla nowego zdjęcia
+            var newPhoto = photoFrames[index];
+            newPhoto.classList.add('active');
+
+            // Aktualizacja zdjęcia w overlayu
+            var newSrc = newPhoto.querySelector('img').src;
             var expandedImg = document.getElementById('expanded-img');
             expandedImg.src = newSrc;
         }
 
-                // Pozostałe funkcje JavaScript
+        // Pozostałe funkcje JavaScript
         function toggleTabs() {
             var tabs = document.querySelector('.tabs');
             tabs.classList.toggle('expanded');
@@ -127,7 +151,7 @@
         }
 
         function loadPortfolio() {
-                location.href = 'index.html';
+            location.href = 'index.html';
             var portfolioSection = document.getElementById('portfolio');
             if (portfolioSection) {
                 var topPosition = portfolioSection.offsetTop;
