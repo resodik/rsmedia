@@ -362,6 +362,9 @@ body {
 /* Media queries dla różnych rozmiarów ekranu */
 @media only screen and (max-width: 768px) {
     /* Stylowanie dla tabletów i telefonów */
+    .gallery {
+        grid-template-columns: repeat(3, 1fr); /* Trzy kolumny na tabletach */
+    }
     .header {
         height: 500px;
     }
