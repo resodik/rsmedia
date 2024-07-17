@@ -136,6 +136,7 @@ body {
     position: relative;
     overflow: hidden;
     opacity: 1;
+    width: 30%;
     transform: translateY(50px);
     transition: opacity 1s ease-out, transform 1s ease-out;
 }
