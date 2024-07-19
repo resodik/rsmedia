@@ -89,23 +89,7 @@ body {
     margin-right: 20px;
 }
 
-/* Kontener na zawartość */
-.container {
-    width: 80%;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0);
-    position: relative;
-    z-index: 999;
-    text-align: center;
-}
 
-
-
-img.zoom {
-    width: 100%; /* Powiększenie zdjęcia */
-}
 
 /* Paski nawigacyjne */
 .tabs {
