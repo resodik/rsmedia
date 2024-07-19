@@ -29,6 +29,62 @@ body {
 }
 
 /* Główny nagłówek */
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    color: #fff;
+}
+
+.section {
+    position: relative;
+    height: 100vh;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10%;
+}
+
+#section1 {
+    background-image: url('images/image1.jpg');
+}
+
+#section2 {
+    background-image: url('images/image1.jpg');
+}
+
+.left-image {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.left-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.left-image img:hover {
+    transform: scale(1.05);
+}
+
+.content {
+    flex: 2;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+/*nowe dodane wyzej */
+
 .header {
     position: relative;
     width: 100%;
@@ -192,84 +248,6 @@ body {
     width: 30px;
     margin: 0 -30px;
 }
-/* Dodatkowe style dla paginacji */
-.pagination {
-    margin-top: 100px;
-    display: flex;
-    justify-content: center;
-}
-
-.pagination button {
-    padding: 8px 16px;
-    margin: 0 5px;
-    font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
-    font-size: 16px;
-    color: transparent;
-    background-color: transparent;
-    border: 1px solid #ccc;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.pagination button:hover {
-    background-color: transparent;
-    color: #fff;
-}
-
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow-x: hidden;
-    font-family: Arial, sans-serif;
-    color: #fff;
-}
-
-.section {
-    position: relative;
-    height: 100vh;
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 10%;
-}
-
-#section1 {
-    background-image: url('images/image1.jpg');
-}
-
-#section2 {
-    background-image: url('images/image1.jpg');
-}
-
-.left-image {
-    flex: 1;
-    margin-right: 20px;
-}
-
-.left-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-}
-
-.left-image img:hover {
-    transform: scale(1.05);
-}
-
-.content {
-    flex: 2;
-    text-align: center;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 2rem;
-    border-radius: 10px;
-}
-
-
 
 
 @keyframes fadeIn {
