@@ -3,62 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rogue Synthesis Media</title>
-    <link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="omnie-styles.css">
-
-    
-    <!-- Add more sections as needed -->
-
-      <div class="header">
-        <div class="header-text">
-            <h1>ROGUE SYNTHESIS MEDIA</h1>
-            <h2>Twórca Nowego Świata</h2>
-        </div>
-    </div>
- 
+    <title>Moja Strona</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
 <body>
-    <section class="section" id="section1">
-        <div class="left-image">
-            <img src="images/ja-img.jpg" alt="Left Image 1">
+    <header>
+        <div class="logo">
+            <h1>Moja Strona</h1>
         </div>
-        <div class="content">
-            <h1>O MNIE</h1>
-            <p>Nazywam się Renata Sobieniak i specjalizuję się w dziedzinie grafiki 3D oraz level designu. Ukończyłam studia z zakresu projektowania gier komputerowych i aplikacji, gdzie miałam okazję zrealizować swój projekt dyplomowy – eksploracyjno-zręcznościową grę wideo.</p>
+        <nav>
+            <ul>
+                <li><a href="#home">Strona Główna</a></li>
+                <li><a href="#about">O mnie</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-text">
+            <h2>Witaj na mojej stronie!</h2>
+            <p>Odkryj więcej o mnie i mojej pracy.</p>
         </div>
     </section>
 
-     <section class="section" id="section2">
+    <section id="about">
         <div class="content">
-            <h1>Title 2</h1>
-            <p>Lorem ipsum dolor sit amet...</p>
+            <h2>O mnie</h2>
+            <p>Cześć, jestem [Twoje Imię]. Jestem [Twoja Profesja] z pasją do [Twoje Zainteresowania]. Moje doświadczenie obejmuje [krótki opis doświadczenia]. W wolnym czasie lubię [Twoje Hobby].</p>
+            <p>Możesz się ze mną skontaktować poprzez sekcję kontaktu poniżej.</p>
         </div>
     </section>
-   
 
-    <div class="tabs collapsed">
-        <div class="tabs-left">
-            <a href="javascript:void(0);" onclick="loadPortfolio()">Projekty</a>
-            <a href="javascript:void(0);" onclick="loadProjects()">Portfolio</a>
-            <a href="javascript:void(0);" onclick="loadBlog()">Blog</a>
-            <a href="javascript:void(0);" onclick="loadAbout()">O Mnie</a>
+    <section id="contact">
+        <div class="content">
+            <h2>Kontakt</h2>
+            <p>Skontaktuj się ze mną pod adresem email: <a href="mailto:twojemail@example.com">twojemail@example.com</a></p>
         </div>
-        <div class="tabs-right">
-            <div class="social-icons">
-                <a href="https://www.instagram.com/rogue.synthesis" target="_blank"><img src="images/instagram-icon.png" alt="Instagram"></a>
-                <a href="https://www.tiktok.com" target="_blank"><img src="images/tiktok-icon.png" alt="TikTok"></a>
-            </div>
-            <div class="expand-button" onclick="toggleTabs()">
-                <img src="images/expand-icon.png" alt="Expand Icon">
-            </div>
-        </div>
-    </div>
+    </section>
 
-
-    <div class="sticky-header">
-        <a href="#" onclick="refreshPage()">ROGUE SYNTHESIS MEDIA</a>
-    </div>
-    
-    <script src="script.js"></script>
+    <footer>
+        <p>&copy; 2024 Moja Strona. Wszelkie prawa zastrzeżone.</p>
+    </footer>
 </body>
 </html>
