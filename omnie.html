@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -6,134 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rogue Synthesis Media</title>
     <link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="omnie-styles.css">
     <style>
-        /* Nowe style do płynnego pojawiania się zdjęć podczas przewijania */
-        .photo-frame {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 1s ease-out, transform 1s ease-out;
-            width: 300px; /* Ustawienie szerokości w pikselach */
-            height: 200px; /* Ustawienie wysokości w pikselach */
-        }
-        .photo-frame.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Dodatkowe style dla main-images, sticky header i expanded header */
-        .main-images {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            margin-top: 0px;
-        }
-        .main-images .photo-frame {
-            margin-bottom: 0px;
-        }
-
-        .section {
-            display: flex;
-            margin-bottom: 20px;
-            justify-content: center;
-            align-items: center;
-            height: 600px;
-            overflow: hidden;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 1s ease-out, transform 1s ease-out;
-        }
-
-        .section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .section img {
-            width: 400px;
-            height: auto;
-            object-fit: cover; /* Dopasowanie zdjęcia do sekcji bez zniekształceń */
+        body {
             margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
+            background-color: #ffffff;
+            overflow-x: hidden;
+            text-align: center;
+            font-weight: 700; /* Ustawienie wagi na bold */
         }
 
-        .section .text {
-            width: 60%;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        .section video {
-            width: 300px; /* Ustawienie szerokości w pikselach */
-            height: 200px; /* Ustawienie wysokości w pikselach */
-            margin: 20px;
-            height: auto;
-        }
-
-        /* Styles for section 2 */
-        .section-black {
-            background-color: black;
+        .header {
+            position: relative;
+            width: 100%;
+            height: 700px;
+            background: url('images/main-image.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: white;
-            flex-direction: row-reverse; /* Odwrócenie kolejności elementów */
+            text-align: center;
+            padding-top: 20px;
+            z-index: 999;
         }
 
-        .section-black .text {
-            width: 60%; /* Zmiana szerokości tekstu na 60% */
+        .tabs {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: rgba(0, 0, 0, 0);
+            padding: 10px 20px;
+            z-index: 1000;
         }
 
-        .section-black video {
-            width: calc(100% - 60%); /* Zmiana szerokości wideo, aby zajmowało resztę */
+        .tabs-left {
+            display: flex;
+            align-items: center;
         }
-        
+
+        .tabs a {
+            text-decoration: none;
+            font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
+            color: white;
+            font-size: 18px;
+            padding: 10px 20px;
+            margin-right: 10px;
+            border: none;
+            background-color: transparent;
+            opacity: 0.5;
+            transition: opacity 0.3s ease;
+        }
+
+        .tabs a:hover {
+            opacity: 1;
+        }
+
+        .tabs-right {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .social-icons img {
+            width: 30px;
+            margin: 0 10px;
+        }
+
+        .expand-button {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .expand-button img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
     </style>
-    
     <script>
-        // Skrypty JavaScript, jakie masz obecnie
-        window.onscroll = function() {toggleStickyHeader(), revealPhotos()};
-
-        function toggleStickyHeader() {
-            var header = document.querySelector('.sticky-header');
-            var mainHeader = document.querySelector('.header');
-            var headerHeight = mainHeader.offsetHeight;
-
-            if (window.pageYOffset > headerHeight) {
-                header.style.display = "block";
-            } else {
-                header.style.display = "none";
-            }
-        }
-
-        function revealPhotos() {
-            var photoFrames = document.querySelectorAll('.photo-frame');
-            for (var i = 0; i < photoFrames.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = photoFrames[i].getBoundingClientRect().top;
-                var elementVisible = 150;
-                if (elementTop < windowHeight - elementVisible) {
-                    photoFrames[i].classList.add("visible");
-                }
-            }
-        }
-
-        // Pozostałe funkcje JavaScript
-        function toggleTabs() {
-            var tabs = document.querySelector('.tabs');
-            tabs.classList.toggle('expanded');
-        }
-
-        function refreshPage() {
-            location.reload();
-        }
-
         function loadPortfolio() {
             location.href = 'index.html';
-            var portfolioSection = document.getElementById('portfolio');
-            if (portfolioSection) {
-                var topPosition = portfolioSection.offsetTop;
-                window.scrollTo({
-                    top: topPosition,
-                    behavior: 'smooth'
-                });
-            }
         }
 
         function loadProjects() {
@@ -147,73 +105,11 @@
         function loadAbout() {
             location.href = 'omnie.html';
         }
-
-        function goToPage(pageNumber) {
-            switch (pageNumber) {
-                case 1:
-                    location.href = 'index.html';
-                    break;
-                case 2:
-                    location.href = 'strona2.html';
-                    break;
-                case 3:
-                    location.href = 'strona3.html';
-                    break;
-                case 4:
-                    location.href = 'strona4.html';
-                    break;
-                case 5:
-                    location.href = 'strona5.html';
-                    break;
-                case 6:
-                    location.href = 'strona6.html';
-                    break;
-                case 7:
-                    location.href = 'strona7.html';
-                    break;
-                case 8:
-                    location.href = 'strona8.html';
-                    break;
-                case 9:
-                    location.href = 'strona9.html';
-                    break;
-                case 10:
-                    location.href = 'strona10.html';
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        document.addEventListener("DOMContentLoaded", function() {
-            const sections = document.querySelectorAll(".section");
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("visible");
-                    }
-                });
-            }, {
-                threshold: 0.1
-            });
-
-            sections.forEach(section => {
-                observer.observe(section);
-            });
-        });
-        
     </script>
 </head>
 <body>
-    <div class="header">
-        <div class="header-text">
-            <h1>O MNIE</h1>
-            <h2></h2>
-        </div>
-    </div>
-
-    <div class="tabs collapses">
+    <div class="header"></div>
+    <div class="tabs expanded">
         <div class="tabs-left">
             <a href="javascript:void(0);" onclick="loadPortfolio()">Projekty</a>
             <a href="javascript:void(0);" onclick="loadProjects()">Portfolio</a>
@@ -230,57 +126,5 @@
             </div>
         </div>
     </div>
-
-    <!-- Section 1 -->
-    <div class="section">
-        <img src="images/ja-img.jpg" alt="Sample Image 1">
-        <div class="text">
-            <h2></h2>
-            <p>
-Nazywam się Renata Sobieniak i specjalizuję się w dziedzinie grafiki 3D oraz level designu. Ukończyłam studia z zakresu projektowania gier komputerowych i aplikacji, gdzie miałam okazję zrealizować swój projekt dyplomowy – eksploracyjno-zręcznościową grę wideo.
-                  </p>
-        </div>
-    </div>
-
-    <!-- Section 2 with black background -->
-    <div class="section section-black">
-        <video autoplay loop muted playsinline>
-            <source src="images/film1.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div class="text">
-            <h2></h2>
-            <p>Nieustannie rozwijam swoją wiedzę w dziedzinie grafiki 3D, wykorzystując przy tym  techniki takie jak fotogrametria i skany 3D.
-</p>
-        </div>
-    </div>
-
-    <!-- Section 3 -->
-    <div class="section">
-        <img src="path/to/your/image2.jpg" alt="Sample Image 2">
-        <div class="text">
-            <h2>Sekcja 3</h2>
-            <p>Rozumienie znaczenia oświetlenia, które jest fundamentem każdego dobrego projektu, pozwala mi tworzyć realistyczne i angażujące sceny. 
-</p>
-        </div>
-    </div>
-
-    <!-- Section 4 -->
-    <div class="section">
-        <video autoplay loop muted playsinline>
-            <source src="path/to/your/video2.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div class="text">
-            <h2>Sekcja 4</h2>
-            <p>Liczne pasje rozwijają moją kreatywność. Dzięki nim jeszcze bardziej kocham tworzyć światy i zawarte w nich historie. </p>
-        </div>
-    </div>
-
-    <div class="sticky-header">
-        <a href="#" onclick="refreshPage()">ROGUE SYNTHESIS MEDIA</a>
-    </div>
-
-    <script src="scripts.js"></script> <!-- Jeśli chcesz przenieść skrypty do osobnego pliku -->
 </body>
 </html>
