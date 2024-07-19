@@ -1,3 +1,8 @@
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -5,94 +10,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rogue Synthesis Media</title>
     <link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css">
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
-            background-color: #ffffff;
-            overflow-x: hidden;
+        /* Dodaj tutaj inne style, jeśli są potrzebne tylko dla głównej strony */
+        .pagination {
             text-align: center;
-            font-weight: 700; /* Ustawienie wagi na bold */
+            margin-top: 10px;
         }
-
-        .header {
-            position: relative;
-            width: 100%;
-            height: 700px;
-            background: url('images/main-image.jpg') no-repeat center center/cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-            padding-top: 20px;
-            z-index: 999;
-        }
-
-        .tabs {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: rgba(0, 0, 0, 0);
-            padding: 10px 20px;
-            z-index: 1000;
-        }
-
-        .tabs-left {
-            display: flex;
-            align-items: center;
-        }
-
-        .tabs a {
-            text-decoration: none;
-            font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
-            color: white;
-            font-size: 18px;
-            padding: 10px 20px;
-            margin-right: 10px;
-            border: none;
+        .pagination a {
+            display: inline-block;
+            padding: 8px 16px;
+            margin: 0 5px;
             background-color: transparent;
-            opacity: 0.5;
-            transition: opacity 0.3s ease;
+            color: #000000;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .pagination a.active {
+            background-color: transparent;
+            color: #000000;
         }
 
-        .tabs a:hover {
+        /* Nowe style do płynnego pojawiania się zdjęć podczas przewijania */
+        .photo-frame {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+        .photo-frame.visible {
             opacity: 1;
-        }
-
-        .tabs-right {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-        }
-
-        .social-icons img {
-            width: 30px;
-            margin: 0 10px;
-        }
-
-        .expand-button {
-            width: 30px;
-            height: 30px;
-            cursor: pointer;
-            margin-left: 10px;
-        }
-
-        .expand-button img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
+            transform: translateY(0);
         }
     </style>
     <script>
+        // Skrypty JavaScript, jakie masz obecnie
+        window.onscroll = function() {toggleStickyHeader(), revealPhotos()};
+
+        function toggleStickyHeader() {
+            var header = document.querySelector('.sticky-header');
+            var mainHeader = document.querySelector('.header');
+            var headerHeight = mainHeader.offsetHeight;
+
+            if (window.pageYOffset > headerHeight) {
+                header.style.display = "block";
+            } else {
+                header.style.display = "none";
+            }
+        }
+
+        function revealPhotos() {
+            var photoFrames = document.querySelectorAll('.photo-frame');
+            for (var i = 0; i < photoFrames.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = photoFrames[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    photoFrames[i].classList.add("visible");
+                }
+            }
+        }
+
+        // Pozostałe funkcje JavaScript
+        function toggleTabs() {
+            var tabs = document.querySelector('.tabs');
+            tabs.classList.toggle('expanded');
+        }
+
+        function refreshPage() {
+            location.reload();
+        }
+
         function loadPortfolio() {
-            location.href = 'index.html';
+            var portfolioSection = document.getElementById('portfolio');
+            if (portfolioSection) {
+                var topPosition = portfolioSection.offsetTop;
+                window.scrollTo({
+                    top: topPosition,
+                    behavior: 'smooth'
+                });
+            }
         }
 
         function loadProjects() {
@@ -106,11 +102,54 @@
         function loadAbout() {
             location.href = 'omnie.html';
         }
+
+        function goToPage(pageNumber) {
+            switch (pageNumber) {
+                case 1:
+                    location.href = 'index.html';
+                    break;
+                case 2:
+                    location.href = 'strona2.html';
+                    break;
+                case 3:
+                    location.href = 'strona3.html';
+                    break;
+                case 4:
+                    location.href = 'strona4.html';
+                    break;
+                case 5:
+                    location.href = 'strona5.html';
+                    break;
+                case 6:
+                    location.href = 'strona6.html';
+                    break;
+                case 7:
+                    location.href = 'strona7.html';
+                    break;
+                case 8:
+                    location.href = 'strona8.html';
+                    break;
+                case 9:
+                    location.href = 'strona9.html';
+                    break;
+                case 10:
+                    location.href = 'strona10.html';
+                    break;
+                default:
+                    break;
+            }
+        }
     </script>
 </head>
 <body>
-    <div class="header"></div>
-    <div class="tabs expanded">
+    <div class="header">
+        <div class="header-text">
+            <h1>ROGUE SYNTHESIS MEDIA</h1>
+            <h2>Twórca Nowego Świata</h2>
+        </div>
+    </div>
+
+    <div class="tabs collapsed">
         <div class="tabs-left">
             <a href="javascript:void(0);" onclick="loadPortfolio()">Projekty</a>
             <a href="javascript:void(0);" onclick="loadProjects()">Portfolio</a>
@@ -127,5 +166,16 @@
             </div>
         </div>
     </div>
+
+
+
+  
+    </div>
+
+    <div class="sticky-header">
+        <a href="#" onclick="refreshPage()">ROGUE SYNTHESIS MEDIA</a>
+    </div>
+
+    <script src="scripts.js"></script> <!-- Jeśli chcesz przenieść skrypty do osobnego pliku -->
 </body>
 </html>
