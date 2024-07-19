@@ -1,55 +1,33 @@
-body, html {
+
+
+
+
+/* Resetowanie domyślnych stylów */
+* {
     margin: 0;
     padding: 0;
-    height: 100%;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
+    background-color: #ffffff;
     overflow-x: hidden;
-    font-family: Arial, sans-serif;
-    color: #fff;
-}
-
-.section {
-    position: relative;
-    height: 100vh;
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 10%;
-}
-
-#section1 {
-    background-image: url('images/photo2.jpg');
-}
-
-#section2 {
-    background-image: url('images/photo2.jpg');
-}
-
-.left-image {
-    flex: 1;
-    margin-right: 20px;
-    margin-left: 20px;
-}
-
-.left-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-}
-
-.left-image img:hover {
-    transform: scale(1.05);
-}
-
-.content {
-    flex: 2;
     text-align: center;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 2rem;
-    border-radius: 10px;
+    font-weight: 700; /* Ustawienie wagi na bold */
+}
+
+/* Tło maski */
+.mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 998;
+    background: url('images/mask-image.jpg') no-repeat center center/cover;
 }
 
 /* Główny nagłówek */
@@ -113,37 +91,50 @@ body, html {
     margin-right: 20px;
 }
 
-/* Kontener na zawartość */
-.container {
-    width: 80%;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+.section {
     position: relative;
-    z-index: 999;
-    text-align: center;
-}
-
-/* Ramki na zdjęcia */
-.photo-frame {
-    width: 100%;
-    margin-bottom: 20px;
+    height: 100vh;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
     display: flex;
-    justify-content: center;
     align-items: center;
-    margin-bottom: 100px;
+    justify-content: center;
+    padding: 0 10%;
 }
 
-.photo-frame img {
-    max-width: 100%;
-    max-height: 100%;
-    border-radius: 0px;
+#section1 {
+    background-image: url('images/image1.jpg');
 }
 
-img.zoom {
-    width: 100%; /* Powiększenie zdjęcia */
+#section2 {
+    background-image: url('images/image1.jpg');
 }
+
+.left-image {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.left-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.left-image img:hover {
+    transform: scale(1.05);
+}
+
+.content {
+    flex: 2;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+    border-radius: 10px;
+}
+
 
 /* Paski nawigacyjne */
 .tabs {
