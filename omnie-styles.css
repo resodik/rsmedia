@@ -334,6 +334,8 @@ margin: 5rem 0;
     line-height: 1.6;
 }
 
+
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -464,5 +466,9 @@ margin: 5rem 0;
         width: 90%;
         text-align: center;
         padding: 10px;
+    }
+
+      .services-container {
+        grid-template-columns: 1fr;
     }
 }
