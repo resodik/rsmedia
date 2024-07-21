@@ -46,7 +46,17 @@ document.querySelectorAll('.section').forEach(section => {
             tabs.classList.toggle('expanded');
         }
 
-        function refreshPage() {
+      function loadProjects() {
+            location.href = 'portfolio.html';
+        }
+
+      
+
+        function loadAbout() {
+            location.href = 'omnie.html';
+        }
+
+          function refreshPage() {
             location.reload();
         }
 
@@ -62,14 +72,6 @@ document.querySelectorAll('.section').forEach(section => {
             }
         }
 
-        function loadProjects() {
-            location.href = 'portfolio.html';
-        }
-
-        function loadBlog() {
+       function loadBlog() {
             location.href = 'blog.html';
-        }
-
-        function loadAbout() {
-            location.href = 'omnie.html';
         }
