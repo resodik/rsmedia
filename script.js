@@ -51,6 +51,7 @@ document.querySelectorAll('.section').forEach(section => {
         }
 
         function loadPortfolio() {
+             location.href = 'index.html';
             var portfolioSection = document.getElementById('portfolio');
             if (portfolioSection) {
                 var topPosition = portfolioSection.offsetTop;
