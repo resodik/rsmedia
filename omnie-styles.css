@@ -54,26 +54,7 @@ body {
     margin-right: 20px;
 }
 
-.logo {
-    font-size: 3rem;
-    color: var(--text-color);
-    font-weight: 800;
-    cursor: pointer;
-    transition: 0.3s ease;
-}
-.logo:hover {
-    transform: scale(1.1);
-}
 
-.logo span {
-    text-shadow: 0 0 10px var(--main-color);
-}
-
-#menu-icon {
-    font-size: 3.6rem;
-    color: var(--main-color);
-    display: none;
-}
 section {
     min-height: 100vh;
     padding: 10rem 12%;
