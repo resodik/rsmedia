@@ -9,6 +9,13 @@
     box-sizing: border-box;
 }
 
+:root {
+    --bg-color: #080808;
+    --second-bg-color: #313131;
+    --text-color: white;
+    --main-color:#baffc4;
+}
+
 
 /* Główny nagłówek */
 .header {
