@@ -83,11 +83,13 @@ body {
 }
 
 .timeline-item:nth-child(odd) .timeline-dot {
-    left: calc(100% - 10.5px);
+    left: auto;
+    right: -10.5px;
 }
 
 .timeline-item:nth-child(even) .timeline-dot {
     left: -10.5px;
+    right: auto;
 }
 
 .timeline-date {
@@ -126,33 +128,16 @@ body {
     line-height: 22px;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-.hidden {
-    display: none;
-}
-
-.section {
-    padding: 50px 0;
-    text-align: center;
-}
-
 @media only screen and (max-width: 768px) {
     .timeline-item {
         width: 100%;
-        padding-left: 0 !important;
         padding-right: 0 !important;
+        padding-left: 0 !important;
         text-align: left !important;
     }
 
     .timeline-dot {
         left: calc(50% - 10.5px) !important;
+        right: auto !important;
     }
 }
