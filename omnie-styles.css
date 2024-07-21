@@ -293,7 +293,7 @@ margin: 5rem 0;
 background: var(--bg-color);
 color: black;
 }
-}
+
 services h2{
 margin-bottom: 5rem;
 color: white;
@@ -311,7 +311,7 @@ border: 5px solid transparent;
 cursor: pointer;
 transition: 0.4s ease-in-out;
 }
-    .service-box:hover{
+.service-box:hover{
 background: white;
 color: black;
 border: 5px solid var(--main-color);
