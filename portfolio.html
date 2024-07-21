@@ -47,12 +47,13 @@
     </div>
 
     <div class="tabs collapsed">
+         <div class="tabs collapsed">
         <div class="tabs-left">
-            <a href="javascript:void(0);" onclick="loadPortfolio()">Projekty</a>
-            <a href="javascript:void(0);" onclick="loadProjects()">Portfolio</a>
-            <a href="javascript:void(0);" onclick="loadBlog()">Blog</a>
-            <a href="javascript:void(0);" onclick="loadAbout()">O Mnie</a>
-        </div>
+           <a href="javascript:void(0);" onclick="loadProjects()">Portfolio</a>
+           <a href="javascript:void(0);" onclick="loadAbout()">O Mnie</a>
+           <a href="javascript:void(0);" onclick="loadPortfolio()">Projekty</a>
+           <a href="javascript:void(0);" onclick="loadBlog()">Blog</a>
+             </div>
         <div class="tabs-right">
             <div class="social-icons">
                 <a href="https://www.instagram.com/rogue.synthesis" target="_blank"><img src="images/instagram-icon.png" alt="Instagram"></a>
@@ -255,12 +256,22 @@
             tabs.classList.toggle('expanded');
         }
 
-        function refreshPage() {
+   function loadProjects() {
+            location.href = 'portfolio.html';
+        }
+
+      
+
+        function loadAbout() {
+            location.href = 'omnie.html';
+        }
+
+          function refreshPage() {
             location.reload();
         }
 
         function loadPortfolio() {
-            location.href = 'index.html';
+             location.href = 'index.html';
             var portfolioSection = document.getElementById('portfolio');
             if (portfolioSection) {
                 var topPosition = portfolioSection.offsetTop;
@@ -271,16 +282,8 @@
             }
         }
 
-        function loadProjects() {
-            location.href = 'portfolio.html';
-        }
-
-        function loadBlog() {
+       function loadBlog() {
             location.href = 'blog.html';
-        }
-
-        function loadAbout() {
-            location.href = 'omnie.html';
         }
     </script>
 </body>
