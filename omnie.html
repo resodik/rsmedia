@@ -51,29 +51,13 @@
             tabs.classList.toggle('expanded');
         }
 
-        function refreshPage() {
-            location.reload();
-        }
-
-        function loadPortfolio() {
-              location.href = 'index.html';
-            var portfolioSection = document.getElementById('portfolio');
-            if (portfolioSection) {
-                var topPosition = portfolioSection.offsetTop;
-                window.scrollTo({
-                    top: topPosition,
-                    behavior: 'smooth'
-                });
-            }
-        }
+   
 
         function loadProjects() {
             location.href = 'portfolio.html';
         }
 
-        function loadBlog() {
-            location.href = 'blog.html';
-        }
+      
 
         function loadAbout() {
             location.href = 'omnie.html';
@@ -86,9 +70,9 @@
 
     <div class="tabs collapsed">
         <div class="tabs-left">
-            <a href="javascript:void(0);" onclick="loadPortfolio()">Projekty</a>
+           
             <a href="javascript:void(0);" onclick="loadProjects()">Portfolio</a>
-            <a href="javascript:void(0);" onclick="loadBlog()">Blog</a>
+     
             <a href="javascript:void(0);" onclick="loadAbout()">O Mnie</a>
         </div>
         <div class="tabs-right">
