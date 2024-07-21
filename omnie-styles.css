@@ -338,7 +338,7 @@ left: calc(50% - 8px);
 border-radius: 50%;
 top: 10px;
 }
-timeline-date{ I
+timeline-date{ 
 font-size: 20px;
 font-weight: 800;
 color: white;
@@ -358,7 +358,6 @@ transform: scale(1.05);
 box-shadow: 0 0 25px var(--main-color);
 }
 .timeline-content h3{
-I
 font-size: 20px;
 color: white;
 margin: 0 0 10px;
