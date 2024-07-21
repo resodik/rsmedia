@@ -251,10 +251,7 @@
         }
 
         // Pozostałe funkcje JavaScript
-        function toggleTabs() {
-            var tabs = document.querySelector('.tabs');
-            tabs.classList.toggle('expanded');
-        }
+       
 
    function loadProjects() {
             location.href = 'portfolio.html';
@@ -269,7 +266,11 @@
           function refreshPage() {
             location.reload();
         }
-
+        
+        function toggleTabs() {
+            var tabs = document.querySelector('.tabs');
+            tabs.classList.toggle('expanded');
+        }
         function loadPortfolio() {
              location.href = 'index.html';
             var portfolioSection = document.getElementById('portfolio');
