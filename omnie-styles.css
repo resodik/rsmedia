@@ -166,7 +166,7 @@ span {
     display: flex;
     align-items: center;
     gap: 1.5em;
-    margin-top: 2rem;
+    margin-top: 3rem;
 }
 
 .btn-group a:nth-of-type(2) {
