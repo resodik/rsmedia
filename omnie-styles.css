@@ -296,6 +296,8 @@ margin: 5rem 0;
     color: var(--text-color);
     padding: 50px 0;
     text-align: center;
+    padding-left: 5%; /* Nowy padding z lewej */
+    padding-right: 5%; /* Nowy padding z prawej */
 }
 
 .services h2 {
@@ -309,6 +311,8 @@ margin: 5rem 0;
     align-items: center;
     justify-content: center;
     gap: 3rem;
+    padding-left: 5%; /* Nowy padding z lewej */
+    padding-right: 5%; /* Nowy padding z prawej */
 }
 
 .service-box {
