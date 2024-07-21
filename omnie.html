@@ -6,9 +6,107 @@
     <title>Rogue Synthesis Media</title>
     <link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="omnie-styles.css">
+    <script>
+        window.onscroll = function() {toggleStickyHeader(), revealPhotos()};
+
+        function toggleStickyHeader() {
+            var header = document.querySelector('.sticky-header');
+            var mainHeader = document.querySelector('.header');
+            var headerHeight = mainHeader.offsetHeight;
+
+            if (window.pageYOffset > headerHeight) {
+                header.style.display = "block";
+            } else {
+                header.style.display = "none";
+            }
+        }
+
+        function revealPhotos() {
+            var photoFrames = document.querySelectorAll('.photo-frame');
+            for (var i = 0; i < photoFrames.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = photoFrames[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    photoFrames[i].classList.add("visible");
+                }
+            }
+        }
+
+        function toggleTabs() {
+            var tabs = document.querySelector('.tabs');
+            tabs.classList.toggle('expanded');
+        }
+
+        function refreshPage() {
+            location.reload();
+        }
+
+        function loadPortfolio() {
+            location.href = 'index.html';
+            var portfolioSection = document.getElementById('portfolio');
+            if (portfolioSection) {
+                var topPosition = portfolioSection.offsetTop;
+                window.scrollTo({
+                    top: topPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        function loadProjects() {
+            location.href = 'portfolio.html';
+        }
+
+        function loadBlog() {
+            location.href = 'blog.html';
+        }
+
+        function loadAbout() {
+            location.href = 'omnie.html';
+        }
+
+    </script>
 </head>
 <body>
-    <!-- Inne sekcje strony -->
+    <div class="tabs collapsed">
+        <div class="tabs-left">
+            <a href="javascript:void(0);" onclick="loadPortfolio()">Projekty</a>
+            <a href="javascript:void(0);" onclick="loadProjects()">Portfolio</a>
+            <a href="javascript:void(0);" onclick="loadBlog()">Blog</a>
+            <a href="javascript:void(0);" onclick="loadAbout()">O Mnie</a>
+        </div>
+        <div class="tabs-right">
+            <div class="social-icons">
+                <a href="https://www.instagram.com/rogue.synthesis" target="_blank"><img src="images/instagram-icon.png" alt="Instagram"></a>
+                <a href="https://www.tiktok.com" target="_blank"><img src="images/tiktok-icon.png" alt="TikTok"></a>
+            </div>
+            <div class="expand-button" onclick="toggleTabs()">
+                <img src="images/expand-icon.png" alt="Expand Icon">
+            </div>
+        </div>
+    </div>
+
+    <section class="home" id="home">
+        <div class="home-content">
+            <h1><span>Renata Sobieniak</span></h1>
+            <h3 class="text-animation">3D designer</h3>
+            <p>Nazywam się Renata Sobieniak i specjalizuję się w dziedzinie grafiki 3D oraz level designu. Ukończyłam studia z zakresu projektowania gier komputerowych i aplikacji, gdzie miałam okazję zrealizować swój projekt dyplomowy – eksploracyjno-zręcznościową grę wideo.</p>
+
+            <div class="social-icons">
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+            </div>
+            <div class="btn-group">
+                <a href="#" class="btn">Kontakt</a>
+            </div>
+        </div>
+        <div class="home-img">
+            <img src="images/ja.jpg" alt="">
+        </div>
+    </section>
 
     <section class="education">
         <h2 class="heading">Moja Edukacja</h2>
@@ -21,7 +119,6 @@
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae harum suscipit libero natus laborum nam vitae quod ratione voluptate esse?</p>
                 </div>
             </div>
-
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div class="timeline-date">2022</div>
@@ -30,7 +127,6 @@
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae harum suscipit libero natus laborum nam vitae quod ratione voluptate esse?</p>
                 </div>
             </div>
-
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div class="timeline-date">2023</div>
@@ -41,8 +137,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Inne sekcje strony -->
 
     <script src="script.js"></script>
 </body>
