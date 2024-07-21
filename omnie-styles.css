@@ -1,5 +1,4 @@
 
-
 * {
     margin: 0;
     padding: 0;
@@ -28,66 +27,6 @@ body {
     overflow-x: hidden;
     text-align: center;
     font-weight: 700; /* Ustawienie wagi na bold */
-}
-
-.header {
-    position: relative;
-    width: 100%;
-    height: 700px;
-    background: url('images/main-image.jpg') no-repeat center center/cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-align: center;
-    padding-top: 20px;
-    z-index: 999;
-    margin-bottom: 100px;
-}
-
-.header-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation: fadeIn 2s ease-in-out;
-}
-
-.mask {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 998;
-    background: url('images/mask-image.jpg') no-repeat center center/cover;
-}
-
-.sticky-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    text-align: center;
-    padding: 10px 0;
-    z-index: 1000;
-    display: none;
-    background-color: transparent;
-    box-shadow: 0px 2px 5px rgba(0,0,0,0);
-}
-
-.sticky-header a {
-    color: black;
-    text-decoration: none;
-    font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
-    font-size: 28px;
-    font-weight: bold;
-    opacity: 0.3;
-    margin-right: 20px;
-}
-
-section {
-    min-height: 100vh;
-    padding: 10rem 12%;
 }
 
 .home {
@@ -184,112 +123,48 @@ span {
     color: black;
 }
 
-.tabs {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    display: flex;
+.services {
+    background: var(--bg-color);
+    color: var(--text-color);
+    padding: 50px 0;
+    text-align: center;
+}
+
+.services h2 {
+    margin-bottom: 5rem;
+    color: var(--main-color);
+}
+
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     align-items: center;
-    justify-content: space-between;
-    background-color: rgba(0, 0, 0, 0);
-    padding: 10px 20px;
-    z-index: 1000;
-    transition: height 0.3s ease;
+    justify-content: center;
+    gap: 3rem;
 }
 
-.tabs-left {
-    display: flex;
-    align-items: center;
+.service-box {
+    background: var(--second-bg-color);
+    padding: 2rem;
+    border: 2px solid transparent;
+    transition: 0.4s ease-in-out;
 }
 
-.tabs-left a {
-    text-decoration: none;
-    font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
-    color: white;
-    font-size: 18px;
-    padding: 10px 20px;
-    margin-right: 10px;
-    border: none;
-    background-color: transparent;
-    opacity: 0.5;
-    transition: opacity 0.3s ease;
+.service-box:hover {
+    box-shadow: 0 0 5px var(--main-color),
+                0 0 10px var(--main-color),
+                0 0 25px var(--main-color);
 }
 
-.tabs-left a:hover {
-    opacity: 1;
+.service-info h4 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
 }
 
-.tabs-right {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+.service-info p {
+    font-size: 1.2rem;
+    line-height: 1.6;
 }
-
-.expand-button {
-    width: 30px;
-    height: 50px;
-    cursor: pointer;
-    margin-left: 10px;
-}
-
-.expand-button img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-.tabs.expanded .expand-button {
-    visibility: visible;
-}
-
-.tabs.expanded .tabs-left,
-.tabs.expanded .tabs-right {
-    visibility: hidden;
-    display: flex;
-}
-
-.tabs.expanded {
-    height: auto;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-.tabs a {
-    text-decoration: none;
-    font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
-    color: white;
-    font-size: 18px;
-    padding: 10px 20px;
-    margin-right: 10px;
-    border: none;
-    background-color: transparent;
-    opacity: 0.5;
-    transition: opacity 0.3s ease;
-}
-
-.tabs a:hover {
-    opacity: 1;
-}
-
-.social-icons {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    margin-left: 10px;
-}
-
-.social-icons img {
-    width: 30px;
-    margin: 0 -30px;
-}
-
-.heading{
-font-size: 8rem; 
-text-align: center;
-margin: 5rem 0;
-}
-
 
 @keyframes fadeIn {
     from {
