@@ -352,7 +352,7 @@ margin: 5rem 0;
 
 /* Stylizacja efektu podświetlenia */
 .email-link:hover {
-    color: #00FF00; /* Zielony kolor tekstu podczas najechania */
+    color: #313131;; /* Zielony kolor tekstu podczas najechania */
     box-shadow: 0 0 8px rgba(0, 255, 0, 0.5); /* Subtelna zielona poświata */
 }
 
