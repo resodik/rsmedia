@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = htmlspecialchars($_POST['message']);
     
     // Ustawienia e-maila
-    $to = 'r.sobieniak.grafika@gmail.com';
+    $to = 'rena1199@gmail.com'; // Zaktualizowany adres e-mail
     $subject = 'Nowa wiadomość kontaktowa';
     
     // Treść e-maila
