@@ -317,12 +317,10 @@ margin: 5rem 0;
 }
 
 .service-box {
-    flex: 1 1 calc(25% - 40px);
-    max-width: calc(25% - 40px);
     background: var(--second-bg-color);
-    border-radius: 10px;
-    padding: 20px;
-    transition: transform 0.3s;
+    padding: 2rem;
+    border: 2px solid transparent;
+    transition: 0.4s ease-in-out;
 }
 
 .service-box:hover {
