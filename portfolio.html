@@ -2,8 +2,6 @@
 
 
 
-
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -13,25 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="portfolio-styles.css">
     <style>
-        /* Dodaj tutaj inne style, jeśli są potrzebne tylko dla głównej strony */
-        .pagination {
-            text-align: center;
-            margin-top: 10px;
-        }
-        .pagination a {
-            display: inline-block;
-            padding: 8px 16px;
-            margin: 0 5px;
-            background-color: transparent;
-            color: #000000;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        .pagination a.active {
-            background-color: transparent;
-            color: #000000;
-        }
-
         /* Nowe style do płynnego pojawiania się zdjęć podczas przewijania */
         .photo-frame {
             opacity: 0;
@@ -42,22 +21,147 @@
             opacity: 1;
             transform: translateY(0);
         }
-    </style>
-    <script>
-        // Skrypty JavaScript, jakie masz obecnie
-        window.onscroll = function() {toggleStickyHeader(), revealPhotos()};
 
-        function toggleStickyHeader() {
-            var header = document.querySelector('.sticky-header');
-            var mainHeader = document.querySelector('.header');
-            var headerHeight = mainHeader.offsetHeight;
-
-            if (window.pageYOffset > headerHeight) {
-                header.style.display = "block";
-            } else {
-                header.style.display = "none";
-            }
+        /* Styl przycisku zamknięcia */
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1001; /* Nad wszystkimi innymi elementami w overlayu */
+            color: white;
         }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="video-section">
+            <video autoplay muted loop>
+                <source src="images/Video1a.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="header-text">
+            <h1>ROGUE SYNTHESIS MEDIA</h1>
+            <h2>Twórca Nowego Świata</h2>
+        </div>
+    </div>
+
+    <div class="tabs collapsed">
+        <div class="tabs-left">
+            <a href="javascript:void(0);" onclick="loadProjects()">Portfolio</a>
+            <a href="javascript:void(0);" onclick="loadAbout()">O Mnie</a>
+            <a href="javascript:void(0);" onclick="loadPortfolio()">Projekty</a>
+            <a href="javascript:void(0);" onclick="loadBlog()">Blog</a>
+            
+        </div>
+        <div class="tabs-right">
+            <div class="social-icons">
+                <a href="https://www.instagram.com/rogue.synthesis" target="_blank"><img src="images/instagram-icon.png" alt="Instagram"></a>
+                <a href="https://www.tiktok.com" target="_blank"><img src="images/tiktok-icon.png" alt="TikTok"></a>
+            </div>
+            <div class="expand-button" onclick="toggleTabs()">
+                <img src="images/expand-icon.png" alt="Expand Icon">
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay hidden" id="overlay">
+        <span class="prev-btn" onclick="changePhoto(-1)">&#10094;</span>
+        <img src="" class="expanded-img" id="expanded-img" alt="Powiększone zdjęcie">
+        <span class="next-btn" onclick="changePhoto(1)">&#10095;</span>
+        <div class="close-btn" onclick="closeOverlay()">✕</div> <!-- Krzyżyk do zamknięcia overlaya -->
+    </div>
+
+    <div id="portfolio" class="gallery">
+        <!-- Zdjęcia w galerii -->
+        <div class="photo-frame">
+            <img src="images/main-image.jpg" alt="Opis zdjęcia 0" onclick="showImage(this.src)">
+        </div>
+        <div class="photo-frame">
+            <img src="images/photo1.jpg" alt="Opis zdjęcia 1" onclick="showImage(this.src)">
+        </div>
+        <div class="photo-frame">
+            <img src="images/photo2.jpg" alt="Opis zdjęcia 2" onclick="showImage(this.src)">
+        </div>
+        <div class="photo-frame">
+            <img src="images/photo8.png" alt="Opis zdjęcia 8" onclick="showImage(this.src)">
+        </div>
+        <div class="photo-frame">
+            <img src="images/photo9.png" alt="Opis zdjęcia 9" onclick="showImage(this.src)">
+        </div>
+        <div class="photo-frame">
+            <img src="images/photo10.png" alt="Opis zdjęcia 10" onclick="showImage(this.src)">
+        </div>
+        <div class="photo-frame">
+            <img src="images/photo18.png" alt="Opis zdjęcia 18" onclick="showImage(this.src)">
+        </div>
+        <div class="photo-frame">
+            <img src="images/photo19.png" alt="Opis zdjęcia 19" onclick="showImage(this.src)">
+        </div>
+        <div class="photo-frame">
+            <img src="images/photo20.png" alt="Opis zdjęcia 20" onclick="showImage(this.src)">
+        </div>
+        <div class="photo-frame">
+            <img src="images/photo21.png" alt="Opis zdjęcia 21" onclick="showImage(this.src)">
+        </div>
+        <div class="photo-frame">
+            <img src="images/photo22.png" alt="Opis zdjęcia 22" onclick="showImage(this.src)">
+        </div>
+        <div class="photo-frame">
+            <img src="images/photo24.png" alt="Opis zdjęcia 23" onclick="showImage(this.src)">
+        </div>
+        <div class="photo-frame">
+            <img src="images/photo23.png" alt="Opis zdjęcia 24" onclick="showImage(this.src)">
+        </div>
+        <div class="photo-frame">
+            <img src="images/photo25.png" alt="Opis zdjęcia 25" onclick="showImage(this.src)">
+        </div>
+        <div class="photo-frame">
+            <img src="images/photo26.png" alt="Opis zdjęcia 26" onclick="showImage(this.src)">
+        </div>
+        <div class="photo-frame">
+            <img src="images/photo27.png" alt="Opis zdjęcia 27" onclick="showImage(this.src)">
+        </div>
+        <div class="photo-frame">
+            <img src="images/photo28.png" alt="Opis zdjęcia 28" onclick="showImage(this.src)">
+        </div>
+        <div class="photo-frame">
+            <img src="images/photo33.png" alt="Opis zdjęcia 33" onclick="showImage(this.src)">
+        </div>
+        <div class="photo-frame">
+            <img src="images/photo29.png" alt="Opis zdjęcia 29" onclick="showImage(this.src)">
+        </div>
+        <div class="photo-frame">
+            <img src="images/photo30.png" alt="Opis zdjęcia 30" onclick="showImage(this.src)">
+        </div>
+        <div class="photo-frame">
+            <img src="images/photo31.png" alt="Opis zdjęcia 31" onclick="showImage(this.src)">
+        </div>
+    </div>
+
+    <div class="sticky-header">
+        <a href="#" onclick="refreshPage()">ROGUE SYNTHESIS MEDIA</a>
+    </div>
+
+    <script src="scripts.js"></script> <!-- Skrypty JavaScript -->
+    <script>
+        // Skrypty JavaScript
+        var currentPhotoIndex = 0;
+        var photos = []; // Tablica na zdjęcia
+
+        window.onload = function() {
+            initializePhotos(); // Inicjalizacja zdjęć po załadowaniu strony
+        };
+
+        function initializePhotos() {
+            photos = document.querySelectorAll('.photo-frame img');
+        }
+
+        window.onscroll = function() {
+            revealPhotos();
+        };
 
         function revealPhotos() {
             var photoFrames = document.querySelectorAll('.photo-frame');
@@ -71,6 +175,83 @@
             }
         }
 
+        // Funkcja do pokazywania powiększonego zdjęcia w overlay
+        function showImage(src) {
+            var overlay = document.getElementById('overlay');
+            var expandedImg = overlay.querySelector('.expanded-img');
+            var photoFrames = document.querySelectorAll('.photo-frame');
+
+            expandedImg.src = src;
+            overlay.classList.remove('hidden');
+
+            // Znajdź aktywne zdjęcie i usuń klasę active
+            var activePhoto = document.querySelector('.photo-frame.active');
+            if (activePhoto) {
+                activePhoto.classList.remove('active');
+            }
+
+            // Ustaw aktywne zdjęcie na to, które zostało kliknięte
+            for (var i = 0; i < photoFrames.length; i++) {
+                if (photoFrames[i].querySelector('img').src === src) {
+                    photoFrames[i].classList.add('active');
+                }
+            }
+
+            // Dodaj event listener do zdjęcia, aby można było kliknąć je, by je zamknąć
+            expandedImg.onclick = function(event) {
+                if (event.target === this) { // Sprawdź, czy kliknięto na zdjęcie
+                    closeOverlay();
+                }
+            };
+
+            // Obsługa kliknięcia na krzyżyku do zamknięcia overlaya
+            var closeBtn = overlay.querySelector('.close-btn');
+            closeBtn.onclick = function() {
+                closeOverlay();
+            };
+        }
+
+        // Funkcja do zamykania overlaya
+        function closeOverlay() {
+            var overlay = document.getElementById('overlay');
+            overlay.classList.add('hidden');
+
+            // Usuń klasę active z aktywnego zdjęcia w galerii
+            var activePhoto = document.querySelector('.photo-frame.active');
+            if (activePhoto) {
+                activePhoto.classList.remove('active');
+            }
+        }
+
+        // Funkcja do zmiany zdjęcia w overlay (przyciski nawigacyjne)
+        function changePhoto(direction) {
+            var photoFrames = document.querySelectorAll('.photo-frame');
+            var activePhoto = document.querySelector('.photo-frame.active');
+            var index = Array.from(photoFrames).indexOf(activePhoto);
+
+            // Usuń klasę active z obecnego zdjęcia
+            if (activePhoto) {
+                activePhoto.classList.remove('active');
+            }
+
+            // Zmiana indeksu zdjęcia
+            index += direction;
+            if (index >= photoFrames.length) {
+                index = 0;
+            } else if (index < 0) {
+                index = photoFrames.length - 1;
+            }
+
+            // Ustawienie klasy active dla nowego zdjęcia
+            var newPhoto = photoFrames[index];
+            newPhoto.classList.add('active');
+
+            // Aktualizacja zdjęcia w overlayu
+            var newSrc = newPhoto.querySelector('img').src;
+            var expandedImg = document.getElementById('expanded-img');
+            expandedImg.src = newSrc;
+        }
+
         // Pozostałe funkcje JavaScript
         function toggleTabs() {
             var tabs = document.querySelector('.tabs');
@@ -82,6 +263,7 @@
         }
 
         function loadPortfolio() {
+            location.href = 'index.html';
             var portfolioSection = document.getElementById('portfolio');
             if (portfolioSection) {
                 var topPosition = portfolioSection.offsetTop;
@@ -103,109 +285,6 @@
         function loadAbout() {
             location.href = 'omnie.html';
         }
-
-        function goToPage(pageNumber) {
-            switch (pageNumber) {
-                case 1:
-                    location.href = 'index.html';
-                    break;
-                case 2:
-                    location.href = 'strona2.html';
-                    break;
-                case 3:
-                    location.href = 'strona3.html';
-                    break;
-                case 4:
-                    location.href = 'strona4.html';
-                    break;
-                case 5:
-                    location.href = 'strona5.html';
-                    break;
-                case 6:
-                    location.href = 'strona6.html';
-                    break;
-                case 7:
-                    location.href = 'strona7.html';
-                    break;
-                case 8:
-                    location.href = 'strona8.html';
-                    break;
-                case 9:
-                    location.href = 'strona9.html';
-                    break;
-                case 10:
-                    location.href = 'strona10.html';
-                    break;
-                default:
-                    break;
-            }
-        }
     </script>
-</head>
-<body>
-    <div class="header">
-        <div class="header-text">
-            <h1>ROGUE SYNTHESIS MEDIA</h1>
-            <h2>Twórca Nowego Świata</h2>
-        </div>
-    </div>
-
-    <div class="tabs collapsed">
-        <div class="tabs-left">
-            <a href="javascript:void(0);" onclick="loadPortfolio()">Projekty</a>
-            <a href="javascript:void(0);" onclick="loadProjects()">Portfolio</a>
-            <a href="javascript:void(0);" onclick="loadBlog()">Blog</a>
-            <a href="javascript:void(0);" onclick="loadAbout()">O Mnie</a>
-        </div>
-        <div class="tabs-right">
-            <div class="social-icons">
-                <a href="https://www.instagram.com/rogue.synthesis" target="_blank"><img src="images/instagram-icon.png" alt="Instagram"></a>
-                <a href="https://www.tiktok.com" target="_blank"><img src="images/tiktok-icon.png" alt="TikTok"></a>
-            </div>
-            <div class="expand-button" onclick="toggleTabs()">
-                <img src="images/expand-icon.png" alt="Expand Icon">
-            </div>
-        </div>
-    </div>
-
-    <div id="portfolio" class="container">
-        <div class="photo-frame">
-            <img src="images/text1.png" alt="Opis zdjęcia 0">
-        </div>
-        <div class="photo-frame">
-            <img src="images/photo1.jpg" alt="Opis zdjęcia 1">
-        </div>
-        <div class="photo-frame">
-            <img src="images/photo2.jpg" alt="Opis zdjęcia 2">
-        </div>
-        <div class="photo-frame">
-            <img src="images/gif1.gif" alt="Opis zdjęcia 3" >
-        </div>
-        <div class="photo-frame">
-            <img src="images/photo3.jpg" alt="Opis zdjęcia 4">
-        </div>
-        <div class="photo-frame">
-            <img src="images/photo5.jpg" alt="Opis zdjęcia 4">
-        </div>
-        
-        <!-- Dodaj więcej zdjęć według potrzeby -->
-    </div>
-
-    <!-- Paginacja -->
-    <div class="pagination">
-        <a href="index.html" class="active">1</a>
-        <a href="Portfolio1.html">2</a>
-        <a href="#">3</a>
-        <a href="#">4</a>
-        <a href="#">5</a>
-        <span>&hellip;</span>
-        <a href="#">10</a> <!-- Przykładowo, gdy masz 10 stron -->
-    </div>
-
-    <div class="sticky-header">
-        <a href="#" onclick="refreshPage()">ROGUE SYNTHESIS MEDIA</a>
-    </div>
-
-    <script src="scripts.js"></script> <!-- Jeśli chcesz przenieść skrypty do osobnego pliku -->
 </body>
-</html> 
+</html>
