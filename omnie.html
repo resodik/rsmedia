@@ -1,15 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -18,10 +6,8 @@
     <title>Rogue Synthesis Media</title>
     <link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="omnie-styles.css">
-   
     <script>
-        // Skrypty JavaScript, jakie masz obecnie
-        window.onscroll = function() {toggleStickyHeader(), revealPhotos()};
+        window.onscroll = function() { toggleStickyHeader(), revealPhotos() };
 
         function toggleStickyHeader() {
             var header = document.querySelector('.sticky-header');
@@ -47,30 +33,25 @@
             }
         }
 
-        // Pozostałe funkcje JavaScript
         function toggleTabs() {
             var tabs = document.querySelector('.tabs');
             tabs.classList.toggle('expanded');
         }
 
-   
-
         function loadProjects() {
             location.href = 'portfolio.html';
         }
-
-      
 
         function loadAbout() {
             location.href = 'omnie.html';
         }
 
-          function refreshPage() {
+        function refreshPage() {
             location.reload();
         }
 
         function loadPortfolio() {
-             location.href = 'index.html';
+            location.href = 'index.html';
             var portfolioSection = document.getElementById('portfolio');
             if (portfolioSection) {
                 var topPosition = portfolioSection.offsetTop;
@@ -81,23 +62,18 @@
             }
         }
 
-       function loadBlog() {
+        function loadBlog() {
             location.href = 'blog.html';
         }
-
     </script>
 </head>
 <body>
-    
-
-   <div class="tabs collapsed">
+    <div class="tabs collapsed">
         <div class="tabs-left">
-           <a href="javascript:void(0);" onclick="loadProjects()">Portfolio</a>
-           <a href="javascript:void(0);" onclick="loadAbout()">O Mnie</a>
-           <a href="javascript:void(0);" onclick="loadPortfolio()">Projekty</a>
-           <a href="javascript:void(0);" onclick="loadBlog()">Blog</a>
-            
-           
+            <a href="javascript:void(0);" onclick="loadProjects()">Portfolio</a>
+            <a href="javascript:void(0);" onclick="loadAbout()">O Mnie</a>
+            <a href="javascript:void(0);" onclick="loadPortfolio()">Projekty</a>
+            <a href="javascript:void(0);" onclick="loadBlog()">Blog</a>
         </div>
         <div class="tabs-right">
             <div class="social-icons">
@@ -110,31 +86,29 @@
         </div>
     </div>
 
-<section class="home" id="home">
-    <div class="home-content">
-        <h1><span>Renata Sobieniak</span></h1>
-        <h3 class="text-animation">3D designer</span></h3>
-        <p>Nazywam się Renata Sobieniak i specjalizuję się w dziedzinie grafiki 3D oraz level designu. Ukończyłam studia z zakresu projektowania gier komputerowych i aplikacji, gdzie miałam okazję zrealizować swój projekt dyplomowy – eksploracyjno-zręcznościową grę wideo.</p>
-
-        <div class="social-icons">
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
+    <section class="home" id="home">
+        <div class="home-content">
+            <h1><span>Renata Sobieniak</span></h1>
+            <h3 class="text-animation">3D designer</h3>
+            <p>Nazywam się Renata Sobieniak i specjalizuję się w dziedzinie grafiki 3D oraz level designu. Ukończyłam studia z zakresu projektowania gier komputerowych i aplikacji, gdzie miałam okazję zrealizować swój projekt dyplomowy – eksploracyjno-zręcznościową grę wideo.</p>
+            <div class="social-icons">
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+            </div>
+            <div class="btn-group">
+                <a href="#" class="btn">Kontakt</a>
+            </div>
         </div>
-        <div class="btn-group">
-            <a href="#" class="btn">Kontakt</a>
-           
+        <div class="home-img">
+            <img src="images/ja.jpg" alt="">
         </div>
-    </div>
-    <div class="home-img">
-        <img src="images/ja.jpg" alt="">
-    </div>
-</section>
+    </section>
 
     <!-- Nowa sekcja usług -->
     <section class="services">
-        <h2></h2>
+        <h2>Usługi</h2>
         <div class="services-container">
             <div class="service-box">
                 <div class="service-info">
@@ -142,13 +116,6 @@
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium tempore rerum beatae autem consectetur, ipsum aut, ut neque molestiae veniam necessitatibus quisquam explicabo natus minima quas vel incidunt, unde perferendis!</p>
                 </div>
             </div>
-            <div class="service-box">
-                <div class="service-info">
-                    <h4>Skany 3D</h4>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium tempore rerum beatae autem consectetur, ipsum aut, ut neque molestiae veniam necessitatibus quisquam explicabo natus minima quas vel incidunt, unde perferendis!</p>
-                </div>
-            </div>
-
             <div class="service-box">
                 <div class="service-info">
                     <h4>Skany 3D</h4>
@@ -165,23 +132,18 @@
     </section>
 
     <section id="contact" class="contact">
-    <h2>Skontaktuj się z nami</h2>
-   <form id="contactForm" action="send_email.php" method="POST">
-       <label for="name">Imię:</label>
-        <input type="text" id="name" name="name" required>
-        
-        <label for="email">E-mail:</label>
-        <input type="email" id="email" name="email" required>
-        
-        <label for="message">Wiadomość:</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-        
-        <button type="submit">Wyślij</button>
-    </form>
-</section>
+        <h2>Skontaktuj się z nami</h2>
+        <form id="contactForm" action="send_email.php" method="POST">
+            <label for="name">Imię:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Wiadomość:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            <button type="submit">Wyślij</button>
+        </form>
+    </section>
 
-
-        
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
