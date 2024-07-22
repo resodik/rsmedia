@@ -1,4 +1,3 @@
-
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Zbierz dane z formularza
@@ -22,9 +21,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     // Wyślij e-mail
     if (mail($to, $subject, $body, $headers)) {
-        echo "Wiadomość została wysłana!";
+        echo "<p>Wiadomość została wysłana!</p>";
     } else {
-        echo "Wystąpił problem podczas wysyłania wiadomości.";
+        echo "<p>Wystąpił problem podczas wysyłania wiadomości.</p>";
     }
 }
 ?>
