@@ -3,6 +3,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -81,7 +82,6 @@
         }
 
         function loadPortfolio() {
-              location.href = 'projekty.html';
             var portfolioSection = document.getElementById('portfolio');
             if (portfolioSection) {
                 var topPosition = portfolioSection.offsetTop;
@@ -93,7 +93,7 @@
         }
 
         function loadProjects() {
-            location.href = 'index.html';
+            location.href = 'portfolio.html';
         }
 
         function loadBlog() {
@@ -107,7 +107,7 @@
         function goToPage(pageNumber) {
             switch (pageNumber) {
                 case 1:
-                    location.href = 'projekty.html';
+                    location.href = 'index.html';
                     break;
                 case 2:
                     location.href = 'strona2.html';
