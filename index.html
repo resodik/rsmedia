@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rogue Synthesis Media</title>
     <link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="portfolio-styles.css">
+    <link rel="stylesheet" href="index-styles.css">
     <style>
         /* Nowe style do płynnego pojawiania się zdjęć podczas przewijania */
         .photo-frame {
@@ -49,9 +49,9 @@
 
     <div class="tabs collapsed">
         <div class="tabs-left">
-            <a href="javascript:void(0);" onclick="loadProjects()">Portfolio</a>
+            <a href="javascript:void(0);" onclick="loadProjects()">index</a>
             <a href="javascript:void(0);" onclick="loadAbout()">O Mnie</a>
-            <a href="javascript:void(0);" onclick="loadPortfolio()">Projekty</a>
+            <a href="javascript:void(0);" onclick="loadindex()">Projekty</a>
             <a href="javascript:void(0);" onclick="loadBlog()">Blog</a>
             
         </div>
@@ -73,7 +73,7 @@
         <div class="close-btn" onclick="closeOverlay()">✕</div> <!-- Krzyżyk do zamknięcia overlaya -->
     </div>
 
-    <div id="portfolio" class="gallery">
+    <div id="index" class="gallery">
         <!-- Zdjęcia w galerii -->
         <div class="photo-frame">
             <img src="images/main-image.jpg" alt="Opis zdjęcia 0" onclick="showImage(this.src)">
@@ -274,7 +274,7 @@
         }
 
         function loadProjects() {
-            location.href = 'portfolio.html';
+            location.href = 'index.html';
         }
 
         function loadBlog() {
