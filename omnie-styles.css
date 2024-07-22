@@ -345,18 +345,17 @@ margin: 5rem 0;
 .email-link {
     color: var(--primary-color); /* Kolor podstawowy tekstu */
     text-decoration: none; /* Usuń podkreślenie */
-    padding: 0; /* Usuń padding */
     background-color: transparent; /* Tło przezroczyste */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Płynne przejście */
+    padding: 0; /* Usuń padding */
+    transition: color 0.3s ease, box-shadow 0.3s ease; /* Płynne przejście */
 }
 
 /* Stylizacja efektu podświetlenia */
 .email-link:hover {
-    background-color: rgba(0, 255, 0, 0.1); /* Przezroczyste zielone tło podczas najechania */
     color: #00FF00; /* Zielony kolor tekstu podczas najechania */
-    border-radius: 3px; /* Opcjonalne zaokrąglenie krawędzi tła */
-    padding: 0.2rem 0.5rem; /* Dodaj padding tylko dla efektu tła */
+    box-shadow: 0 0 8px rgba(0, 255, 0, 0.5); /* Subtelna zielona poświata */
 }
+
 
 
 
