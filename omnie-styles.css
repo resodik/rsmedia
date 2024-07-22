@@ -341,19 +341,23 @@ margin: 5rem 0;
     line-height: 1.6;
 }
 
-/* Dodany kod CSS na końcu pliku */
+/* Usunięcie domyślnych stylów linków */
 .email-link {
-    color: var(--primary-color); /* Kolor podstawowy linku */
-    text-decoration: none; /* Usuń podkreślenie linku */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Animacja przejścia */
-    padding: 0.5rem;
-    border-radius: 5px; /* Zaokrąglenie narożników */
+    color: var(--primary-color); /* Kolor podstawowy tekstu */
+    text-decoration: none; /* Usuń podkreślenie */
+    padding: 0; /* Usuń padding */
+    background-color: transparent; /* Tło przezroczyste */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Płynne przejście */
 }
 
+/* Stylizacja efektu podświetlenia */
 .email-link:hover {
-    background-color: #d4edda; /* Kolor tła podczas najechania */
-    color: #155724; /* Kolor tekstu podczas najechania */
+    background-color: rgba(0, 255, 0, 0.1); /* Przezroczyste zielone tło podczas najechania */
+    color: #00FF00; /* Zielony kolor tekstu podczas najechania */
+    border-radius: 3px; /* Opcjonalne zaokrąglenie krawędzi tła */
+    padding: 0.2rem 0.5rem; /* Dodaj padding tylko dla efektu tła */
 }
+
 
 
 
