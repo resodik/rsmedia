@@ -343,10 +343,12 @@ margin: 5rem 0;
 .contact {
     background: var(--second-bg-color);
     color: var(--text-color);
-    padding: 50px 0;
+    padding: 50px;
     text-align: center;
     position: relative;
     transition: box-shadow 0.3s ease, border 0.3s ease;
+    width: 33%; /* 1/3 szerokości strony */
+    margin: 0 auto; /* Wyśrodkowanie */
 }
 
 .contact:hover {
@@ -363,7 +365,7 @@ margin: 5rem 0;
 }
 
 .contact form {
-    max-width: 600px;
+    max-width: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
