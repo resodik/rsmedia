@@ -407,29 +407,38 @@ text-align: center;
 margin: 5rem 0;
 }
 
+/* Styl dla sekcji .services */
 .services {
     position: relative;
     padding: 50px 20px;
     background: #f4f4f4;
 }
 
-.scroll-down-btn {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+.services-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.service-box {
+    margin-bottom: 20px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: background 0.3s, transform 0.3s;
+}
+
+.service-info {
     cursor: pointer;
-    z-index: 10;
 }
 
-.scroll-down-btn img {
-    width: 50px;
-    height: auto;
-    transition: transform 0.3s ease;
+#game-design {
+    background: #ddd;
 }
 
-.scroll-down-btn:hover img {
-    transform: translateY(5px);
+#game-design:hover {
+    background: #ccc;
+    transform: scale(1.05);
 }
 
 .services h2 {
