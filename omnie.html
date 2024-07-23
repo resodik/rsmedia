@@ -67,12 +67,18 @@
             location.href = 'blog.html';
         }
 
-        function scrollToTimeline() {
+    document.addEventListener('DOMContentLoaded', function() {
+    var gameDesignBox = document.getElementById('game-design');
     var timelineSection = document.getElementById('timeline');
-    if (timelineSection) {
-        timelineSection.scrollIntoView({ behavior: 'smooth' });
+
+    if (gameDesignBox && timelineSection) {
+        gameDesignBox.addEventListener('click', function() {
+            timelineSection.scrollIntoView({ behavior: 'smooth' });
+        });
     }
-}
+});
+
+
 
     </script>
 </head>
@@ -128,7 +134,7 @@
                     <p>Opis usługi modelowania 3D.</p>
                 </div>
             </div>
-            <div class="service-box">
+            <div class="service-box" id="game-design">
                 <div class="service-info">
                     <h4>Projektowanie gier</h4>
                     <p>Opis usługi projektowania gier.</p>
@@ -146,10 +152,6 @@
                     <p>Opis usługi fotogrametrii.</p>
                 </div>
             </div>
-        </div>
-        <!-- Przycisk przewijania w dół -->
-        <div class="scroll-down-btn" onclick="scrollToTimeline()">
-            <img src="images/scroll-down-icon.png" alt="Scroll Down">
         </div>
     </section>
 
