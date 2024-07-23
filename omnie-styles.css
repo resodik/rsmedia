@@ -408,12 +408,28 @@ margin: 5rem 0;
 }
 
 .services {
-    background: var(--bg-color);
-    color: var(--text-color);
-    padding: 50px 0;
-    text-align: center;
-    padding-left: 5%; /* Nowy padding z lewej */
-    padding-right: 5%; /* Nowy padding z prawej */
+    position: relative;
+    padding: 50px 20px;
+    background: #f4f4f4;
+}
+
+.scroll-down-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    z-index: 10;
+}
+
+.scroll-down-btn img {
+    width: 50px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.scroll-down-btn:hover img {
+    transform: translateY(5px);
 }
 
 .services h2 {
