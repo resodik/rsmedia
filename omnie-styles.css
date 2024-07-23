@@ -515,6 +515,41 @@ margin: 5rem 0;
     text-align: center;
 }
 
+@media only screen and (max-width: 1024px) {
+    .header {
+        height: 600px;
+    }
+
+    .header-text h1 {
+        font-size: 5rem;
+    }
+
+    .header-text h2 {
+        font-size: 24px;
+    }
+
+    .home {
+        flex-direction: column;
+        gap: 5rem;
+    }
+
+    .home-content h1 {
+        font-size: 5rem;
+    }
+
+    .home-content h3 {
+        font-size: 2.5rem;
+    }
+
+    .home-img img {
+        width: 50vw;
+    }
+
+    .home-content p {
+        font-size: 1.2rem;
+    }
+}
+
 @media only screen and (max-width: 768px) {
     .header {
         height: 500px;
@@ -530,6 +565,7 @@ margin: 5rem 0;
 
     .container {
         width: 90%;
+        padding: 0 20px;
     }
 
     .photo-frame {
@@ -550,30 +586,9 @@ margin: 5rem 0;
         margin-right: auto;
     }
 
-     @media screen and (max-width: 600px) {
-    .timeline::before {
-        left: 31px;
+    .services-container {
+        grid-template-columns: 1fr;
     }
-
-    .container {
-        width: 100%;
-        padding-left: 70px;
-        padding-right: 25px;
-    }
-
-    .container.left, .container.right {
-        left: 0;
-    }
-
-    .container.left::after, .container.right::after {
-        left: 60px;
-    }
-
-    .left .content, .right .content {
-        margin-left: 0;
-        margin-right: 0;
-    }
-
 }
 
 @media only screen and (max-width: 480px) {
@@ -654,7 +669,7 @@ margin: 5rem 0;
         padding: 10px;
     }
 
-      .services-container {
+    .services-container {
         grid-template-columns: 1fr;
     }
 }
