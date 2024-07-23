@@ -66,6 +66,13 @@
             location.href = 'blog.html';
         }
 
+        function scrollToServices() {
+            var servicesSection = document.getElementById('services');
+            if (servicesSection) {
+                servicesSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             var gameDesignBox = document.getElementById('game-design');
             var timelineSection = document.getElementById('timeline');
@@ -73,6 +80,14 @@
             if (gameDesignBox && timelineSection) {
                 gameDesignBox.addEventListener('click', function() {
                     timelineSection.scrollIntoView({ behavior: 'smooth' });
+                });
+            }
+
+            var contactButton = document.querySelector('.btn-group .btn');
+            if (contactButton) {
+                contactButton.addEventListener('click', function(event) {
+                    event.preventDefault(); // Zapobiega domyślnej akcji kliknięcia
+                    scrollToServices();
                 });
             }
         });
@@ -121,7 +136,7 @@
     </section>
 
     <!-- Sekcja services -->
-    <section class="services">
+    <section id="services" class="services">
         <h2>Usługi</h2>
         <div class="services-container">
             <div class="service-box">
