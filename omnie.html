@@ -52,17 +52,15 @@
         }
 
         function loadPortfolio() {
-            location.href = 'index.html';
-            var portfolioSection = document.getElementById('portfolio');
-            if (portfolioSection) {
-                var topPosition = portfolioSection.offsetTop;
-                window.scrollTo({
-                    top: topPosition,
-                    behavior: 'smooth'
-                });
-            }
-        }
-
+    var timelineSection = document.getElementById('timeline');
+    if (timelineSection) {
+        var topPosition = timelineSection.offsetTop;
+        window.scrollTo({
+            top: topPosition,
+            behavior: 'smooth'
+        });
+    }
+}
         function loadBlog() {
             location.href = 'blog.html';
         }
@@ -141,7 +139,7 @@
         </div>
     </section>
 
-<div class="timeline">
+<div class="timeline" id="timeline">
         <div class="container left" style="--order: 1;">
             <div class="content">
                 <h2>1</h2>
