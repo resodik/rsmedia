@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -7,10 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="omnie-styles.css">
     <script>
-        window.onscroll = function() {
-            toggleStickyHeader();
-            revealPhotos();
-        };
+        window.onscroll = function() { toggleStickyHeader(), revealPhotos() };
 
         function toggleStickyHeader() {
             var header = document.querySelector('.sticky-header');
@@ -26,15 +25,14 @@
 
         function revealPhotos() {
             var photoFrames = document.querySelectorAll('.photo-frame');
-            var windowHeight = window.innerHeight;
-            var elementVisible = 150;
-
-            photoFrames.forEach(function(photoFrame) {
-                var elementTop = photoFrame.getBoundingClientRect().top;
+            for (var i = 0; i < photoFrames.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = photoFrames[i].getBoundingClientRect().down;
+                var elementVisible = 150;
                 if (elementTop < windowHeight - elementVisible) {
-                    photoFrame.classList.add("visible");
+                    photoFrames[i].classList.add("visible");
                 }
-            });
+            }
         }
 
         function toggleTabs() {
@@ -48,6 +46,10 @@
 
         function loadAbout() {
             location.href = 'omnie.html';
+        }
+
+        function refreshPage() {
+            location.reload();
         }
 
         function loadPortfolio() {
@@ -66,16 +68,19 @@
             location.href = 'blog.html';
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            var gameDesignBox = document.getElementById('game-design');
-            var timelineSection = document.getElementById('timeline');
+    document.addEventListener('DOMContentLoaded', function() {
+    var gameDesignBox = document.getElementById('game-design');
+    var timelineSection = document.getElementById('timeline');
 
-            if (gameDesignBox && timelineSection) {
-                gameDesignBox.addEventListener('click', function() {
-                    timelineSection.scrollIntoView({ behavior: 'smooth' });
-                });
-            }
+    if (gameDesignBox && timelineSection) {
+        gameDesignBox.addEventListener('click', function() {
+            timelineSection.scrollIntoView({ behavior: 'smooth' });
         });
+    }
+});
+        }
+
+
     </script>
 </head>
 <body>
@@ -120,7 +125,7 @@
         </div>
     </section>
 
-    <!-- Sekcja services -->
+   <!-- Sekcja services -->
     <section class="services">
         <h2>Usługi</h2>
         <div class="services-container">
@@ -157,7 +162,7 @@
             <div class="content">
                 <h2>1</h2>
                 <h3>Pomysł</h3>
-                <p>Pierwszym zamysłem gry było stworzenie świata o ciekawym terenie, gdzie gracz może wczuć się w rolę gracza-turysty, biegać po nim i go zwiedzać, rozwijając podstawowe umiejętności.</p>
+                <p>Pierwszym zamysłem gry było stworzenie świata o ciekawym terenie, gdzie gracz może wczuć się w rolę gracza-turysty, biegać po nim i go zzwiedzać, rozwijając podstawowe umiejętności.</p>
             </div>
         </div>
         <div class="container right" style="--order: 2;">
@@ -209,21 +214,24 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae harum suscipit libero natus laborum nam vitae quod ratione voluptate esse?</p>
             </div>
         </div>
-    </section>
-
-    <div class="sticky-header" style="display: none;">
-        <div class="header">
-            <a href="javascript:void(0);" onclick="loadProjects()">Portfolio</a>
-            <a href="javascript:void(0);" onclick="loadAbout()">O Mnie</a>
-            <a href="javascript:void(0);" onclick="loadPortfolio()">Projekty</a>
-            <a href="javascript:void(0);" onclick="loadBlog()">Blog</a>
+        <div class="container left" style="--order: 9;">
+            <div class="content">
+                <h2>2029</h2>
+                <h3>Research</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae harum suscipit libero natus laborum nam vitae quod ratione voluptate esse?</p>
+            </div>
+        </div>
+        <div class="container right" style="--order: 10;">
+            <div class="content">
+                <h2>2030</h3>
+                <h3>Future Plans</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae harum suscipit libero natus laborum nam vitae quod ratione voluptate esse?</p>
+            </div>
         </div>
     </div>
 
-    <!-- Other sections of your page -->
 
-    <footer>
-        <!-- Footer content -->
-    </footer>
+    
+    <script src="script.js"></script>
 </body>
 </html>
