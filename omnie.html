@@ -66,6 +66,14 @@
         function loadBlog() {
             location.href = 'blog.html';
         }
+
+        function scrollToTimeline() {
+    var timelineSection = document.getElementById('timeline');
+    if (timelineSection) {
+        timelineSection.scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
     </script>
 </head>
 <body>
