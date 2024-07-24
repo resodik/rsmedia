@@ -220,6 +220,7 @@ section {
     text-align: left;
     justify-content: center;
     margin-top: 3rem;
+    font-size: 0.875rem; /* Zmniejszony tekst w sekcji "home" */
 }
 
 span {
@@ -433,7 +434,7 @@ margin: 5rem 0;
 }
 
 #game-design {
-    background: #ddd;
+    background-color: #333; /* Ciemniejsza szarość */
 }
 
 #game-design:hover {
