@@ -290,16 +290,16 @@ span {
 }
 
 .btn-group a:nth-of-type(2) {
-    background-color: black;
-    color: var(--main-color);
-    border: 2px solid var(--main-color);
-    box-shadow: 0 0 10px transparent;
+   background-color: #4a4a4a; /* Ciemniejszy szary */
+   color: #ffffff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+    cursor: pointer;
 }
 
 .btn-group a:nth-of-type(2):hover {
-    box-shadow: 0 0 10px var(--main-color);
-    background-color: var(--main-color);
-    color: black;
+    background-color: #3a3a3a; /* Ciemniejszy odcień przy najechaniu */
+    color: var(--main-color); /* Podświetlenie kolorem głównym */
 }
 
 .tabs {
