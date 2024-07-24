@@ -3,6 +3,7 @@
 
 
 
+
 * {
     margin: 0;
     padding: 0;
@@ -290,16 +291,16 @@ span {
 }
 
 .btn-group a:nth-of-type(2) {
-   background-color: #4a4a4a; /* Ciemniejszy szary */
-   color: #ffffff;
-    border-radius: 5px;
-    transition: background-color 0.3s ease-in-out;
-    cursor: pointer;
+    background-color: black;
+    color: var(--main-color);
+    border: 2px solid var(--main-color);
+    box-shadow: 0 0 10px transparent;
 }
 
 .btn-group a:nth-of-type(2):hover {
-    background-color: #3a3a3a; /* Ciemniejszy odcień przy najechaniu */
-    color: var(--main-color); /* Podświetlenie kolorem głównym */
+    box-shadow: 0 0 10px var(--main-color);
+    background-color: var(--main-color);
+    color: black;
 }
 
 .tabs {
@@ -519,22 +520,13 @@ margin: 5rem 0;
     text-align: center;
 }
 
-@media only screen and (max-width: 1024px) {
-    .header {
-        height: 600px;
-    }
+/* Media Queries for responsiveness */
 
-    .header-text h1 {
-        font-size: 5rem;
-    }
-
-    .header-text h2 {
-        font-size: 24px;
-    }
-
+/* Tablets */
+@media (max-width: 1024px) {
     .home {
         flex-direction: column;
-        gap: 5rem;
+        gap: 2rem;
     }
 
     .home-content h1 {
@@ -549,131 +541,110 @@ margin: 5rem 0;
         width: 50vw;
     }
 
-    .home-content p {
-        font-size: 1.2rem;
-    }
-}
-
-@media only screen and (max-width: 768px) {
-    .header {
-        height: 500px;
-    }
-
-    .header-text h1 {
-        font-size: 36px;
-    }
-
-    .header-text h2 {
-        font-size: 18px;
+    .timeline::before {
+        left: 20px;
     }
 
     .container {
-        width: 90%;
-        padding: 0 20px;
+        width: 100%;
+        padding-left: 60px;
+        padding-right: 25px;
     }
 
-    .photo-frame {
-        margin-bottom: 10px;
+    .container.right {
+        left: 0%;
     }
 
-    .tabs a {
-        font-size: 16px;
+    .left .content,
+    .right .content {
+        margin: 0;
+    }
+
+    .container.right::after,
+    .container.left::after {
+        left: 15px;
+        right: auto;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .home-content h1 {
+        font-size: 3rem;
+    }
+
+    .home-content h3 {
+        font-size: 2rem;
+    }
+
+    .home-content p {
+        font-size: 1rem;
+    }
+
+    .btn {
+        font-size: 1.2rem;
+        padding: 0.8rem 2rem;
+    }
+
+    .btn-group {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .home-img img {
+        width: 80vw;
+    }
+
+    .services-container {
+        grid-template-columns: 1fr;
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+
+    .heading {
+        font-size: 5rem;
+    }
+
+    .timeline::before {
+        left: 30px;
+    }
+
+    .container {
+        width: 100%;
+        padding-left: 80px;
+        padding-right: 25px;
+    }
+
+    .container.right {
+        left: 0%;
+    }
+
+    .left .content,
+    .right .content {
+        margin: 0;
+    }
+
+    .container.right::after,
+    .container.left::after {
+        left: 15px;
+        right: auto;
+    }
+
+    .tabs-left a,
+    .tabs-right a {
+        font-size: 14px;
+    }
+
+    .sticky-header a {
+        font-size: 20px;
+    }
+
+    .expand-button {
+        width: 25px;
+        height: 40px;
     }
 
     .social-icons img {
         width: 25px;
-        margin: 0 10px;
-    }
-
-    .expand-button {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .services-container {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media only screen and (max-width: 480px) {
-    .header {
-        height: 300px;
-    }
-
-    .header-text h1 {
-        font-size: 22px;
-        transform: translateY(20px);
-    }
-
-    .header-text h2 {
-        font-size: 12px;
-        transform: translateY(20px);
-    }
-
-    .tabs a {
-        font-size: 14px;
-        padding: 5px 10px;
-    }
-
-    .social-icons {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        justify-content: flex-start;
-    }
-
-    .social-icons img {
-        width: 20px;
-        margin: -60px;
-        transform: translateX(34px);
-    }
-
-    .container {
-        width: 90%;
-        margin: 0 auto;
-    }
-
-    .expand-button {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .sticky-header a {
-        font-size: 15px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
-
-.photo-frame {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 1s ease-out, transform 1s ease-out;
-}
-
-.photo-frame.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-@media (max-width: 768px) {
-    .section {
-        flex-direction: column;
-        height: auto;
-    }
-
-    .section img, .section video {
-        width: 80%;
-        margin: 10px 0;
-    }
-
-    .section .text {
-        width: 90%;
-        text-align: center;
-        padding: 10px;
-    }
-
-    .services-container {
-        grid-template-columns: 1fr;
     }
 }
