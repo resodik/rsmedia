@@ -567,84 +567,77 @@ margin: 5rem 0;
     }
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-    .home-content h1 {
-        font-size: 3rem;
+/* Mobile phones (portrait and landscape) */
+@media only screen and (max-width: 767px) {
+    .header {
+        height: 400px; /* Zmniejszenie wysokości dla mniejszych ekranów */
+        background-position: center top; /* Dopasowanie pozycji tła */
     }
 
-    .home-content h3 {
-        font-size: 2rem;
+    .header-text {
+        font-size: 1.5rem; /* Zmniejszenie czcionki dla nagłówka */
+        padding: 0 1rem; /* Padding dla mniejszych ekranów */
     }
 
-    .home-content p {
-        font-size: 1rem;
-    }
-
-    .btn {
-        font-size: 1.2rem;
-        padding: 0.8rem 2rem;
-    }
-
-    .btn-group {
-        flex-direction: column;
-        gap: 1rem;
+    .home {
+        flex-direction: column; /* Kolumna na mniejszych ekranach */
+        gap: 2rem; /* Zmniejszenie przerwy między elementami */
     }
 
     .home-img img {
-        width: 80vw;
+        width: 90vw; /* Większa szerokość dla obrazu */
+        top: 1rem; /* Zmniejszenie marginesu górnego */
+    }
+
+    .btn-group {
+        flex-direction: column; /* Kolumna dla przycisków */
+        gap: 1rem; /* Zmniejszenie przerwy między przyciskami */
+    }
+
+    .btn-group a:nth-of-type(2) {
+        font-size: 1.4rem; /* Zmniejszenie czcionki dla przycisku */
     }
 
     .services-container {
-        grid-template-columns: 1fr;
-        padding-left: 2%;
-        padding-right: 2%;
+        grid-template-columns: repeat(2, 1fr); /* Dwa elementy w rzędzie */
     }
 
-    .heading {
-        font-size: 5rem;
+    .service-box {
+        width: 100%; /* Szerokość 100% dla elementów w rzędzie */
+        box-sizing: border-box; /* Uwzględnienie paddingu w szerokości */
     }
 
-    .timeline::before {
-        left: 30px;
+    .timeline {
+        padding: 20px 0; /* Zmniejszenie paddingu */
     }
 
     .container {
-        width: 100%;
-        padding-left: 80px;
-        padding-right: 25px;
+        width: 100%; /* Pełna szerokość dla kontenerów */
+        padding: 10px; /* Mniejsze paddingi */
     }
 
-    .container.right {
-        left: 0%;
+    .content {
+        animation-delay: calc(var(--order) * 0.2s);
+        padding: 15px; /* Mniejsze paddingi dla treści */
     }
-
-    .left .content,
-    .right .content {
-        margin: 0;
-    }
-
-    .container.right::after,
-    .container.left::after {
-        left: 15px;
-        right: auto;
-    }
-
-    .tabs-left a,
-    .tabs-right a {
-        font-size: 14px;
-    }
-
-    .sticky-header a {
-        font-size: 20px;
-    }
-
+    
     .expand-button {
         width: 25px;
-        height: 40px;
+        height: 25px;
     }
 
-    .social-icons img {
-        width: 25px;
+    .tabs {
+        flex-direction: column; /* Kolumna dla tabów */
+        align-items: center; /* Wyśrodkowanie elementów */
+        padding: 5px 10px; /* Mniejsze paddingi */
+    }
+
+    .tabs-left, .tabs-right {
+        margin: 0; /* Usunięcie marginesów */
+    }
+
+    .tabs a {
+        font-size: 16px; /* Zmniejszenie czcionki dla linków */
+        padding: 8px 16px; /* Mniejsze paddingi */
     }
 }
