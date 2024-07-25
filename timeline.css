@@ -272,15 +272,17 @@ img.zoom {
     text-align: center;
 }
 
-}
 
+
+/* Stylizacja sekcji timeline */
 .timeline {
     position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 0;
+    max-width: 1200px; /* Maksymalna szerokość dla sekcji timeline */
+    margin: 0 auto; /* Wyśrodkowanie sekcji */
+    padding: 40px 20px; /* Padding wewnętrzny sekcji */
 }
 
+/* Pionowa linia timeline */
 .timeline::before {
     content: '';
     position: absolute;
@@ -289,24 +291,29 @@ img.zoom {
     top: 0;
     bottom: 0;
     left: 50%;
-    margin-left: -3px;
+    transform: translateX(-50%); /* Wyśrodkowanie linii pionowej */
 }
 
+/* Stylizacja kontenerów */
 .container {
-    padding: 10px 40px;
     position: relative;
+    width: 50%; /* Szerokość kontenerów */
+    padding: 10px 40px;
     background-color: inherit;
-    width: 50%;
+    box-sizing: border-box;
 }
 
+/* Kontener po lewej stronie */
 .container.left {
-    left: 0;
+    float: left; /* Kontenery będą pływać obok siebie */
 }
 
+/* Kontener po prawej stronie */
 .container.right {
-    left: 50%;
+    float: right;
 }
 
+/* Stylizacja dla zawartości kontenera */
 .content {
     padding: 20px 30px;
     background-color: #333;
@@ -321,58 +328,19 @@ img.zoom {
     text-align: justify;
 }
 
-.date {
-    text-align: center;
-}
-
-.container.left .content {
-    animation-delay: calc(var(--order) * 0.4s);
-}
-
+/* Wyśrodkowanie boxów w kontenerze */
+.container.left .content,
 .container.right .content {
-    animation-delay: calc(var(--order) * 0.4s + 0.2s);
+    margin: 0 auto;
 }
 
-.container.left::after {
-    content: "";
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    right: -17px;
-    background-color: #baffc4;
-    border: 4px solid #1c1c1c;
-    top: 15px;
-    border-radius: 50%;
-    z-index: 1;
+/* Pojedyńcze style dla boxów */
+.container.left {
+    margin-left: 0;
 }
 
-.container.right::after {
-    content: "";
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    left: -17px;
-    background-color: #baffc4;
-    border: 4px solid #1c1c1c;
-    top: 15px;
-    border-radius: 50%;
-    z-index: 1;
-}
-
-.left .content {
-    margin-left: 70px;
-}
-
-.right .content {
-    margin-right: 70px;
-}
-
-h2, h3 {
-    margin: 0;
-}
-
-p {
-    margin: 10px 0 0;
+.container.right {
+    margin-right: 0;
 }
 
 @keyframes fadeInUp {
@@ -385,6 +353,7 @@ p {
         transform: translateY(0);
     }
 }
+
 
 section {
     min-height: 100vh;
