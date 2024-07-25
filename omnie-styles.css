@@ -499,10 +499,6 @@ span {
         transform: translateX(34px);
     }
 
-    .container {
-        width: 90%;
-        margin: 0 auto;
-    }
 
     .expand-button {
         margin-left: auto;
