@@ -1,15 +1,25 @@
-/* Resetowanie domyślnych stylów */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: "Helvetica Neue", sans-serif;
+}
+
+:root {
+    --bg-color: #000000; /* Czarne tło */
+    --second-bg-color: #313131;
+    --text-color: #ffffff; /* Biały tekst */
+    --main-color: #baffc4; /* Główny kolor akcentujący */
 }
 
 body {
-    margin: 0;
-    padding: 0;
+    background: var(--bg-color);
+    color: var(--text-color);
     font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
-    background-color: #ffffff;
     overflow-x: hidden;
     text-align: center;
     font-weight: 700; /* Ustawienie wagi na bold */
