@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -109,25 +110,6 @@ body {
     text-align: center;
 }
 
-/* Ramki na zdjęcia */
-.photo-frame {
-    width: 100%;
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 100px;
-}
-
-.photo-frame img {
-    max-width: 100%;
-    max-height: 100%;
-    border-radius: 0px;
-}
-
-img.zoom {
-    width: 100%; /* Powiększenie zdjęcia */
-}
 
 /* Paski nawigacyjne */
 .tabs {
@@ -267,22 +249,15 @@ img.zoom {
     display: none;
 }
 
-.section {
-    padding: 50px 0;
-    text-align: center;
-}
 
 
-
-/* Stylizacja sekcji timeline */
 .timeline {
     position: relative;
-    max-width: 1200px; /* Maksymalna szerokość dla sekcji timeline */
-    margin: 0 auto; /* Wyśrodkowanie sekcji */
-    padding: 40px 20px; /* Padding wewnętrzny sekcji */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 0;
 }
 
-/* Pionowa linia timeline */
 .timeline::before {
     content: '';
     position: absolute;
@@ -291,29 +266,24 @@ img.zoom {
     top: 0;
     bottom: 0;
     left: 50%;
-    transform: translateX(-50%); /* Wyśrodkowanie linii pionowej */
+    margin-left: -3px;
 }
 
-/* Stylizacja kontenerów */
 .container {
-    position: relative;
-    width: 50%; /* Szerokość kontenerów */
     padding: 10px 40px;
+    position: relative;
     background-color: inherit;
-    box-sizing: border-box;
+    width: 50%;
 }
 
-/* Kontener po lewej stronie */
 .container.left {
-    float: left; /* Kontenery będą pływać obok siebie */
+    left: 0;
 }
 
-/* Kontener po prawej stronie */
 .container.right {
-    float: right;
+    left: 50%;
 }
 
-/* Stylizacja dla zawartości kontenera */
 .content {
     padding: 20px 30px;
     background-color: #333;
@@ -328,19 +298,58 @@ img.zoom {
     text-align: justify;
 }
 
-/* Wyśrodkowanie boxów w kontenerze */
-.container.left .content,
+.date {
+    text-align: center;
+}
+
+.container.left .content {
+    animation-delay: calc(var(--order) * 0.4s);
+}
+
 .container.right .content {
-    margin: 0 auto;
+    animation-delay: calc(var(--order) * 0.4s + 0.2s);
 }
 
-/* Pojedyńcze style dla boxów */
-.container.left {
-    margin-left: 0;
+.container.left::after {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -17px;
+    background-color: #baffc4;
+    border: 4px solid #1c1c1c;
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
 }
 
-.container.right {
-    margin-right: 0;
+.container.right::after {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    left: -17px;
+    background-color: #baffc4;
+    border: 4px solid #1c1c1c;
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.left .content {
+    margin-left: 70px;
+}
+
+.right .content {
+    margin-right: 70px;
+}
+
+h2, h3 {
+    margin: 0;
+}
+
+p {
+    margin: 10px 0 0;
 }
 
 @keyframes fadeInUp {
@@ -353,7 +362,6 @@ img.zoom {
         transform: translateY(0);
     }
 }
-
 
 section {
     min-height: 100vh;
