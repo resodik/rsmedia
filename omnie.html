@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -25,7 +26,7 @@
             var photoFrames = document.querySelectorAll('.photo-frame');
             for (var i = 0; i < photoFrames.length; i++) {
                 var windowHeight = window.innerHeight;
-                var elementTop = photoFrames[i].getBoundingClientRect().top;
+                var elementTop = photoFrames[i].getBoundingClientRect().top; // Poprawiona linia
                 var elementVisible = 150;
                 if (elementTop < windowHeight - elementVisible) {
                     photoFrames[i].classList.add("visible");
@@ -73,35 +74,26 @@
             }
         }
 
-        function scrollToCertificates() {
-            var certificatesSection = document.querySelector('.certyfikaty');
-            if (certificatesSection) {
-                certificatesSection.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-
         document.addEventListener('DOMContentLoaded', function() {
             var gameDesignBox = document.getElementById('game-design');
             var timelineSection = document.getElementById('timeline');
 
             if (gameDesignBox) {
                 gameDesignBox.addEventListener('click', function() {
-                    location.href = 'Portfolio1.html';
+                    location.href = 'Portfolio1.html'; // Zaktualizowane przekierowanie
                 });
             }
 
-            var projectsButton = document.querySelector('.btn-group .btn-projects');
-            var certificatesButton = document.querySelector('.btn-group .btn-certificates');
-            var contactButton = document.querySelector('.btn-group .contact-button');
-
-            if (projectsButton) {
-                projectsButton.addEventListener('click', function(event) {
-                    event.preventDefault();
+            var contactButton = document.querySelector('.btn-group .btn');
+            if (contactButton) {
+                contactButton.addEventListener('click', function(event) {
+                    event.preventDefault(); // Zapobiega domyślnej akcji kliknięcia
                     scrollToServices();
                 });
             }
+        });
 
-            if (certificatesButton) {
+         if (certificatesButton) {
                 certificatesButton.addEventListener('click', function(event) {
                     event.preventDefault();
                     scrollToCertificates();
@@ -115,6 +107,7 @@
                 });
             }
         });
+        
     </script>
 </head>
 <body>
@@ -141,10 +134,18 @@
             <h1><span>Renata Sobieniak</span></h1>
             <h3 class="text-animation">3D designer</h3>
             <p>Nazywam się Renata Sobieniak i specjalizuję się w dziedzinie grafiki 3D oraz level designu. Ukończyłam studia z zakresu projektowania gier komputerowych i aplikacji, gdzie miałam okazję zrealizować swój projekt dyplomowy – eksploracyjno-zręcznościową grę wideo.</p>
+            <div class="social-icons">
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+            </div>
             <div class="btn-group">
-                <a href="#" class="btn btn-projects">Projekty</a>
-                <a href="#" class="btn btn-certificates">Certyfikaty</a>
-                <a href="mailto:renata@roguesynthesis.com" class="contact-button">renata@roguesynthesis.com</a>
+                <a href="#" class="btn">Projekty</a>
+                <div class="contact-info">
+                      <h2>Kontakt</h2>
+                    <a href="mailto:renata@roguesynthesis.com" class="email-link">renata@roguesynthesis.com</a>
+                </div>
             </div>
         </div>
         <div class="home-img">
@@ -152,8 +153,9 @@
         </div>
     </section>
 
+    <!-- Sekcja services -->
     <section id="services" class="services">
-        <h2>Usługi</h2>
+        <h2></h2>
         <div class="services-container">
             <div class="service-box">
                 <div class="service-info">
@@ -191,7 +193,7 @@
             <img src="images/cert4.jpg" alt="Certyfikat 4">
         </div>
     </section>
-
+    
     <script src="script.js"></script>
 </body>
 </html>
