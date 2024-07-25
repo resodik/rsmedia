@@ -104,6 +104,7 @@ section {
     font-size: 0.875rem;
 }
 
+
 span {
     color: var(--main-color);
 }
@@ -120,6 +121,11 @@ span {
     margin-top: 1.5rem;
     line-height: 1;
 }
+
+.home-content .btn-certificates {
+    background-color: var(--bg-color);
+    color: var(--main-color);
+    border: 2px solid var(--main-color);
 
 .home-img img {
     position: relative;
