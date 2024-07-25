@@ -128,6 +128,7 @@
                 <a href="#" class="btn">Projekty</a>
                 <div class="contact-info">
                       <h2>Kontakt</h2>
+                    <a href="#" class="btn btn-certificates">Certyfikaty</a>
                     <a href="mailto:renata@roguesynthesis.com" class="email-link">renata@roguesynthesis.com</a>
                 </div>
             </div>
@@ -166,6 +167,33 @@
                 </div>
             </div>
         </div>
+
+          var projectsButton = document.querySelector('.btn-group .btn-projects');
+            var certificatesButton = document.querySelector('.btn-group .btn-certificates');
+            var contactButton = document.querySelector('.btn-group .contact-button');
+
+            if (projectsButton) {
+                projectsButton.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    scrollToServices();
+                });
+            }
+
+            if (certificatesButton) {
+                certificatesButton.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    scrollToCertificates();
+                });
+            }
+
+            if (contactButton) {
+                contactButton.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    scrollToCertificates();
+                });
+            }
+        });
+        
     </section>
      
     
