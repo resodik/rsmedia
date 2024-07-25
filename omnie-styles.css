@@ -575,29 +575,27 @@ span {
         font-size: 1rem;
     }
    
-    }
+    
 }
 
 @media only screen and (max-width: 480px) {
     /* Stylowanie dla telefonów */
-    .header {
-        height: 300px;
+   
+
+    .home-content h1 {
+        font-size: 40px;
+        margin-top: -100px;
+        
+       
     }
 
-    .header-text h1 {
-        font-size: 22px;
-        transform: translateY(20px);
-    }
+     .home-content h3 {
+        font-size: 30px;
+        margin: 20px;
+        margin-left: 200px;
+    
 
-    .header-text h2 {
-        font-size: 12px;
-        transform: translateY(20px);
-    }
-
-    .tabs a {
-        font-size: 14px;
-        padding: 5px 10px;
-    }
+   
 
     .social-icons {
         display: flex;
@@ -627,10 +625,26 @@ span {
         margin-left: auto;
         margin-right: auto;
     }
+
+      .services-container {
+        grid-template-columns: 1fr;
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+
+    .service-box {
+        padding: 1.5rem;
+    }
+
+    .service-info h4 {
+        font-size: 2rem;
+    }
+
+    .service-info p {
+        font-size: 1rem;
+    }
+   
 }
-
-
-
 
 
 
