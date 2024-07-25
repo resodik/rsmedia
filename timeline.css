@@ -557,6 +557,9 @@ span {
         transform: translateY(20px);
     }
 
+   
+   }
+
     .tabs a {
         font-size: 14px;
         padding: 5px 10px;
@@ -592,22 +595,22 @@ span {
     }
 
         .container {
-        width: 80%;
+        width: 90%;
         padding-left: 20px;
         padding-right: 20px;
     }
 
     .container.left, .container.right {
-        left: 0px;
+        left: 10px;
     }
 
     .container.left .content, .container.right .content {
-        margin-left: 0px;
-        margin-right: 0px;
+        margin-left: 10px;
+        margin-right: 10px;
     }
 
     .tabs-left a {
-        font-size: 14px;
+        font-size: 8px;
         padding: 8px 15px;
     }
 
@@ -616,3 +619,4 @@ span {
     }
 
 }
+
