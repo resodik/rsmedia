@@ -140,6 +140,34 @@
                     break;
             }
         }
+
+        
+        function scrollToServices() {
+            var servicesSection = document.getElementById('services');
+            if (servicesSection) {
+                servicesSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var gameDesignBox = document.getElementById('game-design');
+            var timelineSection = document.getElementById('timeline');
+
+            if (gameDesignBox) {
+                gameDesignBox.addEventListener('click', function() {
+                    location.href = 'index.html'; // Zaktualizowane przekierowanie
+                });
+            }
+
+            var contactButton = document.querySelector('.btn-group .btn');
+            if (contactButton) {
+                contactButton.addEventListener('click', function(event) {
+                    event.preventDefault(); // Zapobiega domyślnej akcji kliknięcia
+                    scrollToServices();
+                });
+            }
+        });
+        
     </script>
 </head>
 <body>
@@ -169,28 +197,84 @@
         </div>
     </div>
 
-    <div id="portfolio" class="container">
-        <div class="photo-frame">
-            <img src="images/text1.png" alt="Opis zdjęcia 0">
+    <!-- Sekcja timeline -->
+    <section id="timeline" class="timeline">
+        <div class="container left" style="--order: 1;">
+            <div class="content">
+                <h2></h2>
+                <h3>Pomysł i planowanie projektu</h3>
+                <p>Pierwszym zamysłem gry było stworzenie świata o ciekawym terenie, gdzie gracz może wczuć się w rolę gracza-turysty, biegać po nim i go zzwiedzać, rozwijając podstawowe umiejętności.</p>
+            </div>
         </div>
-        <div class="photo-frame">
-            <img src="images/photo1.jpg" alt="Opis zdjęcia 1">
+        <div class="container right" style="--order: 2;">
+            <div class="content">
+                <h2></h2>
+                <h3>Research i fabuła</h3>
+                <p>Research był etapem pobudzenia wyobraźni i wyznaczenia wizualnych ram projektu, a także opracowaniem fabuły.</p>
+            </div>
         </div>
-        <div class="photo-frame">
-            <img src="images/photo2.jpg" alt="Opis zdjęcia 2">
+        <div class="container left" style="--order: 3;">
+            <div class="content">
+                 <h2></h2>
+                <h3>ConceptArt</h3>
+                <p>Powstały pierwsze concepty terenu gry, postaci, fantów a także mapa świata.
+                   Znalezienie interesujących obrazów referencyjnych pomaga wprowadzić w klimat i pobudzić wyobraźnię przed procesem modelowania. 
+                   Do bardziej skomplikowanych konstrukcji warto znaleźć obrazy referencyjne, przedstawiające rzut z góry i widok z boków.
+                   Pomagają również przy zachowaniu proporcji modelowanego obiektu. </p>
+            </div>
         </div>
-        <div class="photo-frame">
-            <img src="images/gif1.gif" alt="Opis zdjęcia 3" >
+        <div class="container right" style="--order: 4;">
+            <div class="content">
+                 <h2></h2>
+                <h3>Mapa i mechanika</h3>
+                <p>Research był etapem pobudzenia wyobraźni i wyznaczenia wizualnych ram projektu, a także wstępnym określeniem mechaniki gry.</p>
+            </div>
         </div>
-        <div class="photo-frame">
-            <img src="images/photo3.jpg" alt="Opis zdjęcia 4">
+        <div class="container left" style="--order: 5;">
+            <div class="content">
+                <h2></h2>
+                <h3>Prototypowanie</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae harum suscipit libero natus laborum nam vitae quod ratione voluptate esse?</p>
+            </div>
         </div>
-        <div class="photo-frame">
-            <img src="images/photo5.jpg" alt="Opis zdjęcia 4">
+        <div class="container right" style="--order: 6;">
+            <div class="content">
+                <h2></h2>
+                <h3>Modelowanie i texturowanie</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae harum suscipit libero natus laborum nam vitae quod ratione voluptate esse?</p>
+            </div>
         </div>
-        
-        <!-- Dodaj więcej zdjęć według potrzeby -->
-    </div>
+        <div class="container left" style="--order: 7;">
+            <div class="content">
+                <h2></h2>
+                <h3>Tworzenie animacji</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae harum suscipit libero natus laborum nam vitae quod ratione voluptate esse?</p>
+            </div>
+        </div>
+        <div class="container right" style="--order: 8;">
+            <div class="content">
+                <h2></h2>
+                <h3>Oświetlenie i efekty</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae harum suscipit libero natus laborum nam vitae quod ratione voluptate esse?</p>
+            </div>
+        </div>
+        <div class="container left" style="--order: 9;">
+            <div class="content">
+                <h2></h2>
+                <h3>Rendery</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae harum suscipit libero natus laborum nam vitae quod ratione voluptate esse?</p>
+            </div>
+        </div>
+        <div class="container right" style="--order: 10;">
+            <div class="content">
+                <h2></h2>
+                <h3>Optymalizacja gry</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae harum suscipit libero natus laborum nam vitae quod ratione voluptate esse?</p>
+            </div>
+        </div>
+    </section>
+    
+
 
     <!-- Paginacja -->
     <div class="pagination">
@@ -207,6 +291,6 @@
         <a href="#" onclick="refreshPage()">ROGUE SYNTHESIS MEDIA</a>
     </div>
 
-    <script src="scripts.js"></script> <!-- Jeśli chcesz przenieść skrypty do osobnego pliku -->
+    <script src="script.js"></script> <!-- Jeśli chcesz przenieść skrypty do osobnego pliku -->
 </body>
 </html>
