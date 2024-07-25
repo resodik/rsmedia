@@ -592,18 +592,18 @@ span {
     }
 
         .container {
-        width: 100%;
+        width: 80%;
         padding-left: 20px;
         padding-right: 20px;
     }
 
     .container.left, .container.right {
-        left: 10px;
+        left: 0px;
     }
 
     .container.left .content, .container.right .content {
-        margin-left: 10px;
-        margin-right: 10px;
+        margin-left: 0px;
+        margin-right: 0px;
     }
 
     .tabs-left a {
