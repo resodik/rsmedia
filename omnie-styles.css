@@ -389,36 +389,6 @@ span {
     text-align: center;
 }
 
-
-.certyfikaty {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-}
-
-.certyfikaty-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.certyfikaty-container img {
-    width: 300px;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-}
-
-.certyfikaty-container img:hover {
-    transform: scale(1.05);
-}
-
-.home-content .btn-certificates {
-    background-color: var(--bg-color);
-    color: var(--main-color);
-    border: 2px solid var(--main-color);
-}
-
-
 /* Media Queries for Mobile */
 @media (max-width: 768px) {
     /* Stylowanie dla tabletów i telefonów */
