@@ -561,13 +561,13 @@ span {
     }
 
     .container {
-        width: 90%;
+        width: 100%;
         padding-left: 20px;
         padding-right: 20px;
     }
 
     .container.left, .container.right {
-        left: 10px;
+        left: 0px;
     }
 
     .container.left .content, .container.right .content {
