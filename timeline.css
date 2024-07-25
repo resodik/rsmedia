@@ -520,12 +520,15 @@ span {
         transform: translateY(20px);
     }
 
-   
-   }
-
     .tabs a {
-        font-size: 20px;
+        font-size: 18px; /* Zwiększenie rozmiaru czcionki dla elementów nawigacyjnych */
         padding: 5px 10px;
+    }
+
+    .tabs {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
     .social-icons {
@@ -557,7 +560,7 @@ span {
         margin-right: auto;
     }
 
-        .container {
+    .container {
         width: 90%;
         padding-left: 20px;
         padding-right: 20px;
@@ -573,7 +576,7 @@ span {
     }
 
     .tabs-left a {
-        font-size: 8px;
+        font-size: 18px;
         padding: 8px 15px;
     }
 
@@ -581,9 +584,8 @@ span {
         font-size: 4rem;
     }
 
- /* Usunięcie kropek w timeline */
+    /* Usunięcie kropek w timeline */
     .container.left::after, .container.right::after {
         display: none;
     }
 }
-
