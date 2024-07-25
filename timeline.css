@@ -1,4 +1,5 @@
 
+
 * {
     margin: 0;
     padding: 0;
@@ -561,13 +562,13 @@ span {
     }
 
     .container {
-        width: 100%;
+        width: 90%;
         padding-left: 20px;
         padding-right: 20px;
     }
 
     .container.left, .container.right {
-        left: 0px;
+        left: 10px;
     }
 
     .container.left .content, .container.right .content {
