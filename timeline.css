@@ -507,6 +507,44 @@ span {
     }
 
 
+/* Media queries dla różnych rozmiarów ekranu */
+@media only screen and (max-width: 768px) {
+    /* Stylowanie dla tabletów i telefonów */
+    .header {
+        height: 500px;
+    }
+
+    .header-text h1 {
+        font-size: 36px;
+    }
+
+    .header-text h2 {
+        font-size: 18px;
+    }
+
+    .container {
+        width: 90%;
+    }
+
+    .photo-frame {
+        margin-bottom: 10px;
+    }
+
+    .tabs a {
+        font-size: 16px;
+    }
+
+    .social-icons img {
+        width: 25px;
+        margin: 0 10px;
+    }
+
+    .expand-button {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
 @media only screen and (max-width: 480px) {
     /* Stylowanie dla telefonów */
     .header {
@@ -523,11 +561,8 @@ span {
         transform: translateY(20px);
     }
 
-   
-   }
-
     .tabs a {
-        font-size: 20px;
+        font-size: 14px;
         padding: 5px 10px;
     }
 
@@ -559,6 +594,54 @@ span {
         margin-left: auto;
         margin-right: auto;
     }
+}
+
+
+
+/* Nowe style do płynnego pojawiania się zdjęć podczas przewijania */
+
+.photo-frame {
+opacity: 0;
+transform: translateY(50px);
+transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.photo-frame.visible {
+opacity: 1;
+transform: translateY(0);
+}
+
+/* Nowe style do płynnego pojawiania się zdjęć podczas przewijania */
+
+.photo-frame {
+opacity: 0;
+transform: translateY(50px);
+transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.photo-frame.visible {
+opacity: 1;
+transform: translateY(0);
+}
+
+ /* Media query for mobile devices */
+    @media (max-width: 768px) {
+        .section {
+            flex-direction: column;
+            height: auto; /* Allow sections to adjust height based on content */
+        }
+
+        .section img, .section video {
+            width: 80%;
+            margin: 10px 0;
+        }
+
+        .section .text {
+            width: 90%;
+            text-align: center;
+            padding: 10px;
+        }
+    
 
         .container {
         width: 90%;
