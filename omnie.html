@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -8,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="omnie-styles.css">
     <script>
-        window.onscroll = function() { toggleStickyHeader(), revealPhotos() };
+        window.onscroll = function() { toggleStickyHeader(); revealPhotos(); };
 
         function toggleStickyHeader() {
             var header = document.querySelector('.sticky-header');
@@ -26,7 +25,7 @@
             var photoFrames = document.querySelectorAll('.photo-frame');
             for (var i = 0; i < photoFrames.length; i++) {
                 var windowHeight = window.innerHeight;
-                var elementTop = photoFrames[i].getBoundingClientRect().top; // Poprawiona linia
+                var elementTop = photoFrames[i].getBoundingClientRect().top;
                 var elementVisible = 150;
                 if (elementTop < windowHeight - elementVisible) {
                     photoFrames[i].classList.add("visible");
@@ -87,7 +86,7 @@
             var contactButton = document.querySelector('.btn-group .btn');
             if (contactButton) {
                 contactButton.addEventListener('click', function(event) {
-                    event.preventDefault(); // Zapobiega domyślnej akcji kliknięcia
+                    event.preventDefault();
                     scrollToServices();
                 });
             }
@@ -118,16 +117,10 @@
             <h1><span>Renata Sobieniak</span></h1>
             <h3 class="text-animation">3D designer</h3>
             <p>Nazywam się Renata Sobieniak i specjalizuję się w dziedzinie grafiki 3D oraz level designu. Ukończyłam studia z zakresu projektowania gier komputerowych i aplikacji, gdzie miałam okazję zrealizować swój projekt dyplomowy – eksploracyjno-zręcznościową grę wideo.</p>
-            <div class="social-icons">
-                <a href="#"></a>
-                <a href="#"></a>
-                <a href="#"></a>
-                <a href="#"></a>
-            </div>
             <div class="btn-group">
                 <a href="#" class="btn">Projekty</a>
                 <div class="contact-info">
-                      <h2>Kontakt</h2>
+                    <h2>Kontakt</h2>
                     <a href="mailto:renata@roguesynthesis.com" class="email-link">renata@roguesynthesis.com</a>
                 </div>
             </div>
@@ -137,114 +130,107 @@
         </div>
     </section>
 
-    <!-- Sekcja services -->
     <section id="services" class="services">
-        <h2></h2>
+        <h2>Usługi</h2>
         <div class="services-container">
             <div class="service-box">
                 <div class="service-info">
                     <h4>Modelowanie 3D</h4>
-                    <p></p>
+                    <p>Opis usługi modelowania 3D.</p>
                 </div>
             </div>
             <div class="service-box" id="game-design">
                 <div class="service-info">
                     <h4>Projekt gry</h4>
-                    <p></p>
+                    <p>Opis usługi projektowania gier.</p>
                 </div>
             </div>
             <div class="service-box">
                 <div class="service-info">
                     <h4>Skany 3D</h4>
-                    <p></p>
+                    <p>Opis usługi skanowania 3D.</p>
                 </div>
             </div>
             <div class="service-box">
                 <div class="service-info">
                     <h4>Fotogrametria</h4>
-                    <p></p>
+                    <p>Opis usługi fotogrametrii.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sekcja timeline -->
     <section id="timeline" class="timeline">
         <div class="container left" style="--order: 1;">
             <div class="content">
-                <h2></h2>
+                <h2>Etap 1</h2>
                 <h3>Pomysł i planowanie projektu</h3>
                 <p>Pierwszym zamysłem gry było stworzenie świata o ciekawym terenie, gdzie gracz może wczuć się w rolę gracza-turysty, biegać po nim i go zzwiedzać, rozwijając podstawowe umiejętności.</p>
             </div>
         </div>
         <div class="container right" style="--order: 2;">
             <div class="content">
-                <h2></h2>
+                <h2>Etap 2</h2>
                 <h3>Research i fabuła</h3>
                 <p>Research był etapem pobudzenia wyobraźni i wyznaczenia wizualnych ram projektu, a także opracowaniem fabuły.</p>
             </div>
         </div>
         <div class="container left" style="--order: 3;">
             <div class="content">
-                 <h2></h2>
+                <h2>Etap 3</h2>
                 <h3>ConceptArt</h3>
-                <p>Powstały pierwsze concepty terenu gry, postaci, fantów a także mapa świata.
-                   Znalezienie interesujących obrazów referencyjnych pomaga wprowadzić w klimat i pobudzić wyobraźnię przed procesem modelowania. 
-                   Do bardziej skomplikowanych konstrukcji warto znaleźć obrazy referencyjne, przedstawiające rzut z góry i widok z boków.
-                   Pomagają również przy zachowaniu proporcji modelowanego obiektu. </p>
+                <p>Powstały pierwsze concepty terenu gry, postaci, fantów a także mapa świata. Znalezienie interesujących obrazów referencyjnych pomaga wprowadzić w klimat i pobudzić wyobraźnię przed procesem modelowania. Do bardziej skomplikowanych konstrukcji warto znaleźć obrazy referencyjne, przedstawiające rzut z góry i widok z boków. Pomagają również przy zachowaniu proporcji modelowanego obiektu.</p>
             </div>
         </div>
         <div class="container right" style="--order: 4;">
             <div class="content">
-                 <h2></h2>
+                <h2>Etap 4</h2>
                 <h3>Mapa i mechanika</h3>
                 <p>Research był etapem pobudzenia wyobraźni i wyznaczenia wizualnych ram projektu, a także wstępnym określeniem mechaniki gry.</p>
             </div>
         </div>
         <div class="container left" style="--order: 5;">
             <div class="content">
-                <h2></h2>
+                <h2>Etap 5</h2>
                 <h3>Prototypowanie</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae harum suscipit libero natus laborum nam vitae quod ratione voluptate esse?</p>
+                <p>Opis prototypowania gry.</p>
             </div>
         </div>
         <div class="container right" style="--order: 6;">
             <div class="content">
-                <h2></h2>
+                <h2>Etap 6</h2>
                 <h3>Modelowanie i texturowanie</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae harum suscipit libero natus laborum nam vitae quod ratione voluptate esse?</p>
+                <p>Opis modelowania i texturowania.</p>
             </div>
         </div>
         <div class="container left" style="--order: 7;">
             <div class="content">
-                <h2></h2>
-                <h3>Tworzenie animacji</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae harum suscipit libero natus laborum nam vitae quod ratione voluptate esse?</p>
+                <h2>Etap 7</h2>
+                <h3>Testowanie</h3>
+                <p>Opis testowania gry.</p>
             </div>
         </div>
         <div class="container right" style="--order: 8;">
             <div class="content">
-                <h2></h2>
-                <h3>Oświetlenie i efekty</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae harum suscipit libero natus laborum nam vitae quod ratione voluptate esse?</p>
+                <h2>Etap 8</h2>
+                <h3>Feedback i iteracje</h3>
+                <p>Opis feedbacku i iteracji.</p>
             </div>
         </div>
         <div class="container left" style="--order: 9;">
             <div class="content">
-                <h2></h2>
-                <h3>Rendery</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae harum suscipit libero natus laborum nam vitae quod ratione voluptate esse?</p>
+                <h2>Etap 9</h2>
+                <h3>Premiera i wdrożenie</h3>
+                <p>Opis premiery i wdrożenia.</p>
             </div>
         </div>
         <div class="container right" style="--order: 10;">
             <div class="content">
-                <h2></h2>
-                <h3>Optymalizacja gry</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae harum suscipit libero natus laborum nam vitae quod ratione voluptate esse?</p>
+                <h2>Etap 10</h2>
+                <h3>Wsparcie po premierze</h3>
+                <p>Opis wsparcia po premierze gry.</p>
             </div>
         </div>
     </section>
-    
-    <script src="script.js"></script>
 </body>
 </html>
