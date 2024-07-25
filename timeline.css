@@ -581,5 +581,9 @@ span {
         font-size: 4rem;
     }
 
+ /* Usunięcie kropek w timeline */
+    .container.left::after, .container.right::after {
+        display: none;
+    }
 }
 
