@@ -506,21 +506,25 @@ span {
         margin-bottom: 50px;
     }
 
+    .header-text {
+        font-size: 2rem;
+    }
+
     .home {
         flex-direction: column;
         gap: 2rem;
     }
 
     .home-content h1 {
-        font-size: 4rem;
+        font-size: 3rem;
     }
 
     .home-content h3 {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 
     .home-content p {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 
     .home-img img {
@@ -529,8 +533,8 @@ span {
     }
 
     .btn {
-        font-size: 1.2rem;
-        padding: 0.8rem 2rem;
+        font-size: 1rem;
+        padding: 0.6rem 1.5rem;
     }
 
     .btn-group {
@@ -545,15 +549,15 @@ span {
     }
 
     .service-box {
-        padding: 1.5rem;
+        padding: 1rem;
     }
 
     .service-info h4 {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 
     .service-info p {
-        font-size: 1rem;
+        font-size: 0.875rem;
     }
 
     .timeline::before {
@@ -573,5 +577,18 @@ span {
     .container.left .content, .container.right .content {
         margin-left: 0;
         margin-right: 0;
+    }
+
+    .tabs-left a {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+
+    .heading {
+        font-size: 4rem;
+    }
+
+    .sticky-header a {
+        font-size: 20px;
     }
 }
