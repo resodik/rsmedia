@@ -1,34 +1,53 @@
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rogue Synthesis Media</title>
-    <link href="https://fonts.googleapis.com/css2?family=Helvetica&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Dodatkowe style, jeśli są potrzebne tylko dla głównej strony */
+        /* Dodaj tutaj inne style, jeśli są potrzebne tylko dla głównej strony */
         .pagination {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 10px;
         }
         .pagination a {
             display: inline-block;
             padding: 8px 16px;
             margin: 0 5px;
-            background-color: #f0f0f0;
-            color: #333;
+            background-color: transparent;
+            color: #000000;
             text-decoration: none;
             border-radius: 5px;
         }
         .pagination a.active {
-            background-color: #333;
-            color: #fff;
+            background-color: transparent;
+            color: #000000;
+        }
+
+        /* Nowe style do płynnego pojawiania się zdjęć podczas przewijania */
+        .photo-frame {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+        .photo-frame.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
     <script>
         // Skrypty JavaScript, jakie masz obecnie
-        window.onscroll = function() {toggleStickyHeader()};
+        window.onscroll = function() {toggleStickyHeader(), revealPhotos()};
+
         function toggleStickyHeader() {
             var header = document.querySelector('.sticky-header');
             var mainHeader = document.querySelector('.header');
@@ -40,14 +59,29 @@
                 header.style.display = "none";
             }
         }
+
+        function revealPhotos() {
+            var photoFrames = document.querySelectorAll('.photo-frame');
+            for (var i = 0; i < photoFrames.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = photoFrames[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    photoFrames[i].classList.add("visible");
+                }
+            }
+        }
+
         // Pozostałe funkcje JavaScript
         function toggleTabs() {
             var tabs = document.querySelector('.tabs');
             tabs.classList.toggle('expanded');
         }
+
         function refreshPage() {
             location.reload();
         }
+
         function loadPortfolio() {
             var portfolioSection = document.getElementById('portfolio');
             if (portfolioSection) {
@@ -58,52 +92,55 @@
                 });
             }
         }
+
         function loadProjects() {
-            location.href = 'projekty.html';
+            location.href = 'portfolio.html';
         }
+
         function loadBlog() {
             location.href = 'blog.html';
         }
+
         function loadAbout() {
             location.href = 'omnie.html';
         }
-        function goToPage(pageNumber) {
-    switch (pageNumber) {
-        case 1:
-            location.href = 'index.html';
-            break;
-        case 2:
-            location.href = 'Portfolio1.html';
-            break;
-        case 3:
-            location.href = 'strona3.html';
-            break;
-        case 4:
-            location.href = 'strona4.html';
-            break;
-        case 5:
-            location.href = 'strona5.html';
-            break;
-        case 6:
-            location.href = 'strona6.html';
-            break;
-        case 7:
-            location.href = 'strona7.html';
-            break;
-        case 8:
-            location.href = 'strona8.html';
-            break;
-        case 9:
-            location.href = 'strona9.html';
-            break;
-        case 10:
-            location.href = 'strona10.html';
-            break;
-        default:
-            break;
-    }
-}
 
+        function goToPage(pageNumber) {
+            switch (pageNumber) {
+                case 1:
+                    location.href = 'index.html';
+                    break;
+                case 2:
+                    location.href = 'strona2.html';
+                    break;
+                case 3:
+                    location.href = 'strona3.html';
+                    break;
+                case 4:
+                    location.href = 'strona4.html';
+                    break;
+                case 5:
+                    location.href = 'strona5.html';
+                    break;
+                case 6:
+                    location.href = 'strona6.html';
+                    break;
+                case 7:
+                    location.href = 'strona7.html';
+                    break;
+                case 8:
+                    location.href = 'strona8.html';
+                    break;
+                case 9:
+                    location.href = 'strona9.html';
+                    break;
+                case 10:
+                    location.href = 'strona10.html';
+                    break;
+                default:
+                    break;
+            }
+        }
     </script>
 </head>
 <body>
@@ -114,12 +151,13 @@
         </div>
     </div>
 
-    <div class="tabs expanded">
+    <div class="tabs collapsed">
         <div class="tabs-left">
-            <a href="javascript:void(0);" onclick="loadPortfolio()">Portfolio</a>
-            <a href="javascript:void(0);" onclick="loadProjects()">Projekty</a>
-            <a href="javascript:void(0);" onclick="loadBlog()">Blog</a>
+            <a href="javascript:void(0);" onclick="loadProjects()">Portfolio</a>
             <a href="javascript:void(0);" onclick="loadAbout()">O Mnie</a>
+            <a href="javascript:void(0);" onclick="loadPortfolio()">Projekty</a>
+            <a href="javascript:void(0);" onclick="loadBlog()">Blog</a>
+            
         </div>
         <div class="tabs-right">
             <div class="social-icons">
@@ -134,21 +172,31 @@
 
     <div id="portfolio" class="container">
         <div class="photo-frame">
+            <img src="images/text1.png" alt="Opis zdjęcia 0">
+        </div>
+        <div class="photo-frame">
             <img src="images/photo1.jpg" alt="Opis zdjęcia 1">
         </div>
         <div class="photo-frame">
             <img src="images/photo2.jpg" alt="Opis zdjęcia 2">
         </div>
         <div class="photo-frame">
-            <img src="images/photo3.jpg" alt="Opis zdjęcia 3">
+            <img src="images/gif1.gif" alt="Opis zdjęcia 3" >
         </div>
+        <div class="photo-frame">
+            <img src="images/photo3.jpg" alt="Opis zdjęcia 4">
+        </div>
+        <div class="photo-frame">
+            <img src="images/photo5.jpg" alt="Opis zdjęcia 4">
+        </div>
+        
         <!-- Dodaj więcej zdjęć według potrzeby -->
     </div>
 
     <!-- Paginacja -->
     <div class="pagination">
-        <a href="index.html">1</a>
-        <a href="Portfolio1.html" class="active">2</a>
+        <a href="index.html" class="active">1</a>
+        <a href="Portfolio1.html">2</a>
         <a href="#">3</a>
         <a href="#">4</a>
         <a href="#">5</a>
@@ -156,11 +204,9 @@
         <a href="#">10</a> <!-- Przykładowo, gdy masz 10 stron -->
     </div>
 
-
     <div class="sticky-header">
         <a href="#" onclick="refreshPage()">ROGUE SYNTHESIS MEDIA</a>
-  
-
+    </div>
 
     <script src="scripts.js"></script> <!-- Jeśli chcesz przenieść skrypty do osobnego pliku -->
 </body>
