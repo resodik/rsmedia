@@ -432,6 +432,7 @@ span {
     .home-img img {
         width: 80%;
         top: 1rem;
+        text-margin: 10px;
     }
 
     .btn {
