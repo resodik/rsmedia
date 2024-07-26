@@ -145,8 +145,9 @@ span {
 
 
 .home-img img {
-    width: 100%;
-    height: auto;
+    width: 100%; /* Obrazek zajmuje całą szerokość kontenera */
+    height: auto; /* Wysokość dostosowuje się proporcjonalnie do szerokości */
+    max-width: 100%; /* Maksymalna szerokość obrazka nie przekracza kontenera */
     position: relative;
     top: 3rem;
     width: 28vw;
