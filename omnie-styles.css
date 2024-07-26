@@ -145,6 +145,8 @@ span {
 
 
 .home-img img {
+    width: 100%;
+    height: auto;
     position: relative;
     top: 3rem;
     width: 28vw;
