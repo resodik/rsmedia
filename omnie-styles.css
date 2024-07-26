@@ -290,10 +290,9 @@ span {
 }
 
 .certificates {
-
+    right: 40vw;
     position: relative;
-    top: 10rem;
-    width: 30vw;
+    top: 17rem;
    
 }
 
