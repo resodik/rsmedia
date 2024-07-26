@@ -259,6 +259,14 @@
         <div class="photo-frame">
             <img src="images/photo2.jpg" alt="Opis zdjęcia 2">
         </div>
+
+ <div class="overlay hidden" id="overlay">
+        <span class="prev-btn" onclick="changePhoto(-1)">&#10094;</span>
+        <img src="" class="expanded-img" id="expanded-img" alt="Powiększone zdjęcie">
+        <span class="next-btn" onclick="changePhoto(1)">&#10095;</span>
+        <div class="close-btn" onclick="closeOverlay()">✕</div> <!-- Krzyżyk do zamknięcia overlaya -->
+    </div>
+
         <div class="photo-frame1">
    <img src="images/photo2.jpg" alt="Opis zdjęcia 2"  onclick="showImage(this.src)">>
    <img src="images/photo2.jpg" alt="Opis zdjęcia 2" >
@@ -278,12 +286,7 @@
     </div>
 
 
- <div class="overlay hidden" id="overlay">
-        <span class="prev-btn" onclick="changePhoto(-1)">&#10094;</span>
-        <img src="" class="expanded-img" id="expanded-img" alt="Powiększone zdjęcie">
-        <span class="next-btn" onclick="changePhoto(1)">&#10095;</span>
-        <div class="close-btn" onclick="closeOverlay()">✕</div> <!-- Krzyżyk do zamknięcia overlaya -->
-    </div>
+
 
   
 
