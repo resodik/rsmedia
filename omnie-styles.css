@@ -371,6 +371,25 @@ span {
     color: #baffc4;
 }
 
+.certificates-section {
+    margin-top: 2rem; /* Space above the certificates section */
+    text-align: center; /* Center text */
+    color: var(--main-color); /* Use main color for text */
+}
+
+.certificates-section h2 {
+    font-size: 3rem; /* Font size for the header */
+    margin-bottom: 1rem; /* Space below the header */
+}
+
+.certificates-section p {
+    font-size: 1.5rem; /* Font size for the paragraph */
+    max-width: 800px; /* Max width for the paragraph */
+    margin: 0 auto; /* Center the paragraph */
+    line-height: 1.6; /* Line height for readability */
+}
+
+
 @keyframes fadeIn {
     from {
         opacity: 0;
