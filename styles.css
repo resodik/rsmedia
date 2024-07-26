@@ -113,10 +113,10 @@ body {
 }
 
 .photo-frame1 img {
- max-width: 49%;
+ max-width: 45%;
     max-height: auto%;
     border-radius: 0px;
-padding:10px;
+
 }
 
 .photo-frame img {
