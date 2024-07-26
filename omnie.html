@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -25,7 +27,7 @@
             var photoFrames = document.querySelectorAll('.photo-frame');
             for (var i = 0; i < photoFrames.length; i++) {
                 var windowHeight = window.innerHeight;
-                var elementTop = photoFrames[i].getBoundingClientRect().top;
+                var elementTop = photoFrames[i].getBoundingClientRect().top; // Poprawiona linia
                 var elementVisible = 150;
                 if (elementTop < windowHeight - elementVisible) {
                     photoFrames[i].classList.add("visible");
@@ -79,14 +81,14 @@
 
             if (gameDesignBox) {
                 gameDesignBox.addEventListener('click', function() {
-                    location.href = 'Portfolio1.html'; 
+                    location.href = 'Portfolio1.html'; // Zaktualizowane przekierowanie
                 });
             }
 
             var contactButton = document.querySelector('.btn-group .btn');
             if (contactButton) {
                 contactButton.addEventListener('click', function(event) {
-                    event.preventDefault();
+                    event.preventDefault(); // Zapobiega domyślnej akcji kliknięcia
                     scrollToServices();
                 });
             }
@@ -134,10 +136,6 @@
         <div class="home-img">
             <img src="images/ja.jpg" alt="">
         </div>
-        <div class="certificates">
-            <h2>Certyfikaty</h2>
-            <p>List your certificates or achievements here.</p>
-        </div>
     </section>
 
     <!-- Sekcja services -->
@@ -162,7 +160,7 @@
                     <p></p>
                 </div>
             </div>
-            <div class="service-box" id="game-design">
+               <div class="service-box" id="game-design">
                 <div class="service-info">
                     <h4>Fotogrametria</h4>
                     <p></p>
@@ -176,7 +174,8 @@
             </div>
         </div>
     </section>
-
+     
+    
     <script src="script.js"></script>
 </body>
 </html>
