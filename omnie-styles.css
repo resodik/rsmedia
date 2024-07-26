@@ -124,8 +124,8 @@ span {
 
 .home-img img {
     position: relative;
-    top: -6rem;
-    width: 22vw;
+    top: 3rem;
+    width: 32vw;
     cursor: pointer;
     transition: 0.4s ease-in-out;
 }
