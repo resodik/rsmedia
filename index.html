@@ -248,6 +248,13 @@
         </div>
     </div>
 
+     <div class="overlay hidden" id="overlay">
+        <span class="prev-btn" onclick="changePhoto(-1)">&#10094;</span>
+        <img src="" class="expanded-img" id="expanded-img" alt="Powiększone zdjęcie">
+        <span class="next-btn" onclick="changePhoto(1)">&#10095;</span>
+        <div class="close-btn" onclick="closeOverlay()">✕</div> <!-- Krzyżyk do zamknięcia overlaya -->
+    </div>
+
     <div id="portfolio" class="container">
         <div class="photo-frame">
             <img src="images/text1.png" alt="Opis zdjęcia 0">
