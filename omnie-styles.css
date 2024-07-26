@@ -290,8 +290,11 @@ span {
 }
 
 .certificates {
-    margin-top: 2rem;
-    text-align: center;
+
+    position: relative;
+    top: 10rem;
+    width: 30vw;
+   
 }
 
 .certificates h2 {
