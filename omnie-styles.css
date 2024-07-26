@@ -289,23 +289,6 @@ span {
     margin: 5rem 0;
 }
 
-.certificates {
-    margin-top: 2rem;
-    text-align: center;
-    width: 100%;
-}
-
-.certificates h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.certificates p {
-    font-size: 1.4rem;
-    line-height: 1.8;
-}
-
-
 .services {
     position: relative;
     padding: 50px 20px;
@@ -388,9 +371,6 @@ span {
 .email-link:hover {
     color: #baffc4;
 }
-
-
-
 
 @keyframes fadeIn {
     from {
