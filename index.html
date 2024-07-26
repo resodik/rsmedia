@@ -143,83 +143,6 @@
                     break;
             }
         }
-
- // Funkcja do pokazywania powiększonego zdjęcia w overlay
-        function showImage(src) {
-            var overlay = document.getElementById('overlay');
-            var expandedImg = overlay.querySelector('.expanded-img');
-            var photoFrames = document.querySelectorAll('.photo-frame');
-
-            expandedImg.src = src;
-            overlay.classList.remove('hidden');
-
-            // Znajdź aktywne zdjęcie i usuń klasę active
-            var activePhoto = document.querySelector('.photo-frame.active');
-            if (activePhoto) {
-                activePhoto.classList.remove('active');
-            }
-
-            // Ustaw aktywne zdjęcie na to, które zostało kliknięte
-            for (var i = 0; i < photoFrames.length; i++) {
-                if (photoFrames[i].querySelector('img').src === src) {
-                    photoFrames[i].classList.add('active');
-                }
-            }
-
-            // Dodaj event listener do zdjęcia, aby można było kliknąć je, by je zamknąć
-            expandedImg.onclick = function(event) {
-                if (event.target === this) { // Sprawdź, czy kliknięto na zdjęcie
-                    closeOverlay();
-                }
-            };
-
-            // Obsługa kliknięcia na krzyżyku do zamknięcia overlaya
-            var closeBtn = overlay.querySelector('.close-btn');
-            closeBtn.onclick = function() {
-                closeOverlay();
-            };
-        }
-
-        // Funkcja do zamykania overlaya
-        function closeOverlay() {
-            var overlay = document.getElementById('overlay');
-            overlay.classList.add('hidden');
-
-            // Usuń klasę active z aktywnego zdjęcia w galerii
-            var activePhoto = document.querySelector('.photo-frame.active');
-            if (activePhoto) {
-                activePhoto.classList.remove('active');
-            }
-        }
-
-        // Funkcja do zmiany zdjęcia w overlay (przyciski nawigacyjne)
-        function changePhoto(direction) {
-            var photoFrames = document.querySelectorAll('.photo-frame');
-            var activePhoto = document.querySelector('.photo-frame.active');
-            var index = Array.from(photoFrames).indexOf(activePhoto);
-
-            // Usuń klasę active z obecnego zdjęcia
-            if (activePhoto) {
-                activePhoto.classList.remove('active');
-            }
-
-            // Zmiana indeksu zdjęcia
-            index += direction;
-            if (index >= photoFrames.length) {
-                index = 0;
-            } else if (index < 0) {
-                index = photoFrames.length - 1;
-            }
-
-            // Ustawienie klasy active dla nowego zdjęcia
-            var newPhoto = photoFrames[index];
-            newPhoto.classList.add('active');
-
-            // Aktualizacja zdjęcia w overlayu
-            var newSrc = newPhoto.querySelector('img').src;
-            var expandedImg = document.getElementById('expanded-img');
-            expandedImg.src = newSrc;
-        }
     </script>
 </head>
 <body>
@@ -259,17 +182,9 @@
         <div class="photo-frame">
             <img src="images/photo2.jpg" alt="Opis zdjęcia 2">
         </div>
-
- <div class="overlay hidden" id="overlay">
-        <span class="prev-btn" onclick="changePhoto(-1)">&#10094;</span>
-        <img src="" class="expanded-img" id="expanded-img" alt="Powiększone zdjęcie">
-        <span class="next-btn" onclick="changePhoto(1)">&#10095;</span>
-        <div class="close-btn" onclick="closeOverlay()">✕</div> <!-- Krzyżyk do zamknięcia overlaya -->
-    </div>
-
         <div class="photo-frame1">
-   <img src="images/photo2.jpg" alt="Opis zdjęcia 2"  onclick="showImage(this.src)">>
-   <img src="images/photo2.jpg" alt="Opis zdjęcia 2" >
+   <img src="images/photo2.jpg" alt="Opis zdjęcia 2">
+   <img src="images/photo2.jpg" alt="Opis zdjęcia 2">
    <img src="images/photo2.jpg" alt="Opis zdjęcia 2">
    <img src="images/photo2.jpg" alt="Opis zdjęcia 2">
    <img src="images/photo2.jpg" alt="Opis zdjęcia 2">
@@ -284,11 +199,6 @@
         
         <!-- Dodaj więcej zdjęć według potrzeby -->
     </div>
-
-
-
-
-  
 
     <!-- Paginacja -->
     <div class="pagination">
