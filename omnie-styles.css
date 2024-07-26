@@ -1,5 +1,3 @@
-
-
 * {
     margin: 0;
     padding: 0;
@@ -82,7 +80,6 @@ body {
     margin-right: 20px;
 }
 
-
 section {
     min-height: 100vh;
     padding: 10rem 12%;
@@ -93,6 +90,7 @@ section {
     align-items: center;
     justify-content: center;
     gap: 15rem;
+    flex-wrap: wrap; /* Zapewnia, że zawartość może się zawijać na mniejszych ekranach */
 }
 
 .home-content {
@@ -116,7 +114,7 @@ span {
 }
 
 .home-content p {
- text-align:justify ;
+    text-align: justify;
 }
 
 .home-content h1 {
@@ -126,31 +124,17 @@ span {
     line-height: 1;
 }
 
-.home-img p {
-    
-    text-align:start ;
-    margin-top:1rem;
+.home-img {
+    flex: 1; /* Umożliwia elastyczne dostosowanie szerokości */
+    display: flex;
+    justify-content: center; /* Wyśrodkowanie obrazka w kontenerze */
+    align-items: center; /* Wyśrodkowanie obrazka w kontenerze */
+    padding: 1rem; /* Dodaje przestrzeń wokół obrazka */
 }
-
-.home-img h2 {
-    margin-bottom: -3rem; /* Możesz dostosować wartość */
-    margin-top:1rem;
-    line-height:7;
-    text-align:center ;
-}
-
-
-
-
-
 
 .home-img img {
-    width: 100%; /* Obrazek zajmuje całą szerokość kontenera */
+    max-width: 100%; /* Obrazek dostosowuje się do szerokości kontenera */
     height: auto; /* Wysokość dostosowuje się proporcjonalnie do szerokości */
-    max-width: 100%; /* Maksymalna szerokość obrazka nie przekracza kontenera */
-    position: relative;
-    top: 3rem;
-    width: 28vw;
     cursor: pointer;
     transition: 0.4s ease-in-out;
 }
@@ -386,7 +370,7 @@ span {
 }
 
 .email-link {
-    color: var(--primary-color);
+    color: var(--main-color);
     text-decoration: none;
     background-color: transparent;
     padding: 0;
