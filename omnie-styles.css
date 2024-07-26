@@ -115,6 +115,10 @@ span {
     font-size: 3.5rem;
 }
 
+.home-content p {
+ text-align:justify ;
+}
+
 .home-content h1 {
     font-size: 7rem;
     font-weight: 700;
