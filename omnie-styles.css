@@ -123,7 +123,7 @@ span {
 }
 
 .home-img img {
-    position: relative;
+    position: absolute;
     top: -10rem;
     width: 30vw;
     cursor: pointer;
@@ -131,7 +131,7 @@ span {
 }
 
 .certificates {
-    position: relative;
+    position: absolute;
     top: 30rem;
     right:30vw;
     
