@@ -1,3 +1,6 @@
+
+
+
 * {
     margin: 0;
     padding: 0;
@@ -80,6 +83,7 @@ body {
     margin-right: 20px;
 }
 
+
 section {
     min-height: 100vh;
     padding: 10rem 12%;
@@ -114,7 +118,7 @@ span {
 }
 
 .home-content p {
-    text-align: justify;
+ text-align:justify ;
 }
 
 .home-content h1 {
@@ -123,6 +127,20 @@ span {
     margin-top: 1.5rem;
     line-height: 1;
 }
+
+.home-img p {
+    
+    text-align:start ;
+    margin-top:1rem;
+}
+
+.home-img h2 {
+    margin-bottom: -3rem; /* Możesz dostosować wartość */
+    margin-top:1rem;
+    line-height:7;
+    text-align:center ;
+}
+
 
 .home-img {
     flex: 1; /* Umożliwia elastyczne dostosowanie szerokości */
@@ -370,7 +388,7 @@ span {
 }
 
 .email-link {
-    color: var(--main-color);
+    color: var(--primary-color);
     text-decoration: none;
     background-color: transparent;
     padding: 0;
