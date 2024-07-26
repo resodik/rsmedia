@@ -94,7 +94,6 @@ section {
     align-items: center;
     justify-content: center;
     gap: 15rem;
-    flex-wrap: wrap; /* Zapewnia, że zawartość może się zawijać na mniejszych ekranach */
 }
 
 .home-content {
@@ -142,17 +141,14 @@ span {
 }
 
 
-.home-img {
-    flex: 1; /* Umożliwia elastyczne dostosowanie szerokości */
-    display: flex;
-    justify-content: center; /* Wyśrodkowanie obrazka w kontenerze */
-    align-items: center; /* Wyśrodkowanie obrazka w kontenerze */
-    padding: 1rem; /* Dodaje przestrzeń wokół obrazka */
-}
+
+
+
 
 .home-img img {
-    max-width: 100%; /* Obrazek dostosowuje się do szerokości kontenera */
-    height: auto; /* Wysokość dostosowuje się proporcjonalnie do szerokości */
+    position: relative;
+    top: 3rem;
+    width: 28vw;
     cursor: pointer;
     transition: 0.4s ease-in-out;
 }
