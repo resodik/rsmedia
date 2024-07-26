@@ -122,16 +122,21 @@ span {
     line-height: 1;
 }
 
+.home-img p {
+    
+    text-align:start ;
+    margin-top:1rem;
+}
+
 .home-img h2 {
     margin-bottom: -3rem; /* Możesz dostosować wartość */
     margin-top:1rem;
     line-height:7;
-  
+    text-align:center ;
 }
 
-.home-img p {
-     text-align: start;
-}
+
+
 
 
 
