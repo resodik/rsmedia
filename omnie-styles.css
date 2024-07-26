@@ -89,8 +89,9 @@ section {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 3rem;
+    gap: 2rem; /* Adjust gap if necessary */
     margin-top: 5rem; /* Adjust margin as needed */
+    position: relative;
 }
 
 .home-content {
@@ -122,16 +123,17 @@ section {
 }
 
 .home-img {
-    position: relative;
+    display: flex;
+    justify-content: flex-end;
     width: 100%;
     max-width: 600px;
+    margin: 0 auto;
 }
 
 .home-img img {
     width: 100%;
     height: auto;
     display: block;
-    margin: 0 auto;
     border-radius: 10px;
     box-shadow: 0 0 5px var(--main-color), 0 0 10px var(--main-color), 0 0 25px var(--main-color);
     transition: transform 0.4s ease-in-out;
@@ -429,7 +431,6 @@ section {
     .home {
         flex-direction: column;
         gap: 2rem;
-        margin-top: 2rem; /* Adjust margin as needed */
     }
 
     .home-content h1 {
