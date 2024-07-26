@@ -126,7 +126,11 @@ span {
     margin-bottom: -3rem; /* Możesz dostosować wartość */
     margin-top:1rem;
     line-height:7;
-    text-align: start;
+  
+}
+
+.home-img p {
+     text-align: start;
 }
 
 
