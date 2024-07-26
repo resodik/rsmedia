@@ -133,7 +133,7 @@ span {
 .home-img img {
     position: relative;
     top: 3rem;
-    width: 32vw;
+    width: 22vw;
     cursor: pointer;
     transition: 0.4s ease-in-out;
 }
