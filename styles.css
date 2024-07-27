@@ -289,7 +289,7 @@ img.zoom {
 }
 
 .photo-frame2 img {
-    max-width: 45%; /* Ustawienie szerokości zdjęć tak, aby zmieściły się dwa w jednym rzędzie */
+    max-width: 49.2%; /* Ustawienie szerokości zdjęć tak, aby zmieściły się dwa w jednym rzędzie */
     height: auto; /* Zachowanie proporcji */
     display: block;
 }
