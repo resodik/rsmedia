@@ -256,14 +256,16 @@ img.zoom {
 }
 
 .photo-frame-lat {
-    
-    width: 100%;
-    margin-bottom: 1000px;
     display: flex;
     justify-content: center;
-    align-items: center;
-
+    margin: 20px 0; /* Dodaj marginesy według własnych potrzeb */
 }
+
+.photo-frame-lat img {
+    max-width: 50%; /* Ustawienie szerokości zdjęcia, aby je zmniejszyć */
+    height: auto; /* Zachowanie proporcji */
+}
+
     margin-top:100px;
 }
 
