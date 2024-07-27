@@ -256,6 +256,14 @@ img.zoom {
 }
 
 .photo-frame-lat {
+    
+    width: 100%;
+    margin-bottom: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
     margin-top:100px;
 }
 
