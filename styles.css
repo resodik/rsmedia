@@ -273,6 +273,15 @@ img.zoom {
     text-align: center;
 }
 
+/* Stylowanie wideo */
+.container video {
+    display: block;
+    margin: 0 auto;
+    max-width: 80%; /* Zmniejsz rozmiar wideo do 80% szerokości kontenera */
+    height: auto; /* Zachowaj proporcje wideo */
+}
+
+
 /* Media queries dla różnych rozmiarów ekranu */
 @media only screen and (max-width: 768px) {
     /* Stylowanie dla tabletów i telefonów */
