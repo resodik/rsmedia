@@ -281,6 +281,19 @@ img.zoom {
     height: auto; /* Zachowaj proporcje wideo */
 }
 
+.photo-frame2 {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px; /* Odstęp między zdjęciami, możesz dostosować do własnych potrzeb */
+}
+
+.photo-frame2 img {
+    max-width: 45%; /* Ustawienie szerokości zdjęć tak, aby zmieściły się dwa w jednym rzędzie */
+    height: auto; /* Zachowanie proporcji */
+    display: block;
+}
+
 
 /* Media queries dla różnych rozmiarów ekranu */
 @media only screen and (max-width: 768px) {
