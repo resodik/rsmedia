@@ -277,7 +277,7 @@ img.zoom {
 .container video {
     display: block;
     margin: 0 auto;
-    max-width: 80%; /* Zmniejsz rozmiar wideo do 80% szerokości kontenera */
+    max-width: 100%; /* Zmniejsz rozmiar wideo do 80% szerokości kontenera */
     height: auto; /* Zachowaj proporcje wideo */
 }
 
