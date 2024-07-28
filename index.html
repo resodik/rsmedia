@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -141,14 +142,6 @@
         </div>
     </section>
 
-     <div class="overlay hidden" id="overlay">
-        <span class="prev-btn" onclick="changeMedia(-1)">&#10094;</span>
-        <img src="" class="expanded-img" id="expanded-img" alt="Powiększone zdjęcie">
-        <video class="expanded-video" id="expanded-video" controls loop></video> <!-- Dodano loop -->
-        <span class="next-btn" onclick="changeMedia(1)">&#10095;</span>
-        <div class="close-btn" onclick="closeOverlay()">✕</div>
-    </div>
-
    <!-- Nowa sekcja z tymi samymi zdjęciami -->
     <section id="additional-projects">
         <div class="container">
@@ -161,13 +154,10 @@
                 <div class="project-item" onclick="showImage(this.querySelector('img').src)">
                     <img src="images/photo7.jpg" alt="Project 2">
                     <p>Projekt 2</p>
-             <div class="project-item" onclick="showMedia(this.querySelector('video').querySelector('source').src)">
-                    <video class="video-frame">
-                        <source src="gazety/domek.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <p>Projekt Wideo</p>
-              
+                </div>
+                <div class="project-item" onclick="showImage(this.querySelector('img').src)">
+                    <img src="images/photo5.jpg" alt="Project 3">
+                    <p>Projekt 3</p>
                 </div>
             </div>
         </div>
