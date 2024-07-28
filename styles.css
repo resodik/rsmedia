@@ -1,7 +1,6 @@
 
 
 
-
 /* Resetowanie domyślnych stylów */
 * {
     margin: 0;
@@ -13,10 +12,16 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
-    background-color: #ffffff;
+    background-color: black;
+    color: white;
     overflow-x: hidden;
     text-align: center;
     font-weight: 700; /* Ustawienie wagi na bold */
+}
+
+/* Kolor tekstu dla wszystkich elementów */
+body, h1, h2, h3, h4, h5, h6, p, a, div, span, li, button {
+    color: white !important;
 }
 
 /* Tło maski */
@@ -30,12 +35,28 @@ body {
     background: url('images/mask-image.jpg') no-repeat center center/cover;
 }
 
+/* Wideo tła */
+.video-section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.video-section video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 /* Główny nagłówek */
 .header {
     position: relative;
     width: 100%;
     height: 700px;
-    background: url('images/main-image.jpg') no-repeat center center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -103,31 +124,27 @@ body {
     text-align: center;
 }
 
-/* Ramki na zdjęcia */
-.photo-frame {
-    width: 100%;
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 100px;
+/* Galeria zdjęć */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-gap: 10px;
+    margin-top: 60px;
 }
 
-.photo-frame1 img {
- max-width: 24.4%;
-    max-height: auto%;
-    border-radius: 0px;
-
+.photo-frame {
+    position: relative;
+    overflow: hidden;
+    opacity: 1;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
 .photo-frame img {
-    max-width: 100%;
-    max-height: 100%;
-    border-radius: 0px;
-}
-
-img.zoom {
-    width: 100%; /* Powiększenie zdjęcia */
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
 }
 
 .photo-frame:hover img {
@@ -177,7 +194,6 @@ img.zoom {
 }
 
 
-
 /* Paski nawigacyjne */
 .tabs {
     position: absolute;
@@ -187,6 +203,7 @@ img.zoom {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    color:black;
     background-color: rgba(0, 0, 0, 0);
     padding: 10px 20px;
     z-index: 1000;
@@ -198,7 +215,7 @@ img.zoom {
     align-items: center;
 }
 
-.tabs-left button {
+.tabs-left a, .tabs-left button {
     text-decoration: none;
     font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
     color: white;
@@ -206,13 +223,13 @@ img.zoom {
     padding: 10px 20px;
     margin-right: 10px;
     border: none;
-    background-color: transparent;
-    opacity: 0.5;
+    background-color: none;
+    opacity: 0;
     transition: opacity 0.3s ease;
 }
 
-.tabs-left button:hover {
-    opacity: 1;
+.tabs-left a:hover, .tabs-left button:hover {
+    opacity: 0;
 }
 
 .tabs-right {
@@ -254,7 +271,7 @@ img.zoom {
 .tabs a {
     text-decoration: none;
     font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
-    color: white;
+    color: black;
     font-size: 18px;
     padding: 10px 20px;
     margin-right: 10px;
@@ -279,50 +296,6 @@ img.zoom {
     width: 30px;
     margin: 0 -30px;
 }
-/* Dodatkowe style dla paginacji */
-.pagination {
-    margin-top: 100px;
-    display: flex;
-    justify-content: center;
-}
-
-.pagination button {
-    padding: 8px 16px;
-    margin: 0 5px;
-    font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
-    font-size: 16px;
-    color: transparent;
-    background-color: transparent;
-    border: 1px solid #ccc;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.pagination button:hover {
-    background-color: transparent;
-    color: #fff;
-}
-
-.photo-frame-lat {
-    display: flex;
-    justify-content: center;
-    margin: 100px 0; /* Dodaj marginesy według własnych potrzeb */
-}
-
-.photo-frame-lat img {
-    max-width: 100%; /* Ustawienie szerokości zdjęcia, aby je zmniejszyć */
-    height: auto; /* Zachowanie proporcji */
-}
-
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
 
 .hidden {
     display: none;
@@ -333,31 +306,29 @@ img.zoom {
     text-align: center;
 }
 
-/* Stylowanie wideo */
-.container video {
-    display: block;
-    margin: 0 auto;
-    max-width: 100%; /* Zmniejsz rozmiar wideo do 80% szerokości kontenera */
-    height: auto; /* Zachowaj proporcje wideo */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
-
-.photo-frame2 {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px; /* Odstęp między zdjęciami, możesz dostosować do własnych potrzeb */
-}
-
-.photo-frame2 img {
-    max-width: 49.2%; /* Ustawienie szerokości zdjęć tak, aby zmieściły się dwa w jednym rzędzie */
-    height: auto; /* Zachowanie proporcji */
-    display: block;
-}
-
 
 /* Media queries dla różnych rozmiarów ekranu */
+@media only screen and (max-width: 1024px) {
+    /* Stylowanie dla tabletów */
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(33.33%, 1fr));
+    }
+}
+
 @media only screen and (max-width: 768px) {
     /* Stylowanie dla tabletów i telefonów */
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
     .header {
         height: 500px;
     }
@@ -443,50 +414,3 @@ img.zoom {
         margin-right: auto;
     }
 }
-
-
-
-/* Nowe style do płynnego pojawiania się zdjęć podczas przewijania */
-
-.photo-frame {
-opacity: 0;
-transform: translateY(50px);
-transition: opacity 1s ease-out, transform 1s ease-out;
-}
-
-.photo-frame.visible {
-opacity: 1;
-transform: translateY(0);
-}
-
-/* Nowe style do płynnego pojawiania się zdjęć podczas przewijania */
-
-.photo-frame {
-opacity: 0;
-transform: translateY(50px);
-transition: opacity 1s ease-out, transform 1s ease-out;
-}
-
-.photo-frame.visible {
-opacity: 1;
-transform: translateY(0);
-}
-
- /* Media query for mobile devices */
-    @media (max-width: 768px) {
-        .section {
-            flex-direction: column;
-            height: auto; /* Allow sections to adjust height based on content */
-        }
-
-        .section img, .section video {
-            width: 80%;
-            margin: 10px 0;
-        }
-
-        .section .text {
-            width: 90%;
-            text-align: center;
-            padding: 10px;
-        }
-    }
