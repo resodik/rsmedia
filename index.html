@@ -76,18 +76,25 @@
         </div>
     </div>
 
-     <div id="portfolio" class="container">
-        <div class="photo-frame">
-            <img src="gazety/gaz2.png" alt="Opis zdjęcia 0">
-        </div>
-    
-
     <div class="overlay hidden" id="overlay">
         <span class="prev-btn" onclick="changePhoto(-1)">&#10094;</span>
         <img src="" class="expanded-img" id="expanded-img" alt="Powiększone zdjęcie">
         <span class="next-btn" onclick="changePhoto(1)">&#10095;</span>
         <div class="close-btn" onclick="closeOverlay()">✕</div> <!-- Krzyżyk do zamknięcia overlaya -->
     </div>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Kontakt</h2>
+            <p>Skontaktuj się ze mną pod adresem: <a href="mailto:info@daravalasko.com">info@daravalasko.com</a></p>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <p>Jestem projektantką interaktywną z San Francisco, obecnie mieszkającą w Berlinie. Pracowałam z markami takimi jak: Glossier, Levi's, Lululemon i innymi.</p>
+        </div>
+    </section>
 
     <section id="projects">
         <div class="container">
@@ -231,6 +238,23 @@
 
         function loadAbout() {
             location.href = 'omnie.html';
+        }
+
+        window.onscroll = function() {
+            toggleStickyHeader();
+            revealPhotos();
+        };
+
+        function toggleStickyHeader() {
+            var header = document.querySelector('.sticky-header');
+            var mainHeader = document.querySelector('.header');
+            var headerHeight = mainHeader.offsetHeight;
+
+            if (window.pageYOffset > headerHeight) {
+                header.style.display = "block";
+            } else {
+                header.style.display = "none";
+            }
         }
     </script>
 </body>
