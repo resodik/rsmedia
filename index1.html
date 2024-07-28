@@ -117,7 +117,7 @@
     <div class="overlay hidden" id="overlay">
         <span class="prev-btn" onclick="changeMedia(-1)">&#10094;</span>
         <img src="" class="expanded-img" id="expanded-img" alt="Powiększone zdjęcie">
-        <video class="expanded-video" id="expanded-video" controls></video>
+        <video class="expanded-video" id="expanded-video" controls loop></video> <!-- Dodano loop -->
         <span class="next-btn" onclick="changeMedia(1)">&#10095;</span>
         <div class="close-btn" onclick="closeOverlay()">✕</div>
     </div>
@@ -208,6 +208,7 @@
                 expandedImg.style.display = 'none';
                 expandedVideo.style.display = 'block';
                 expandedVideo.src = src;
+                expandedVideo.loop = true; // Dodanie pętli do wideo
             } else {
                 expandedImg.style.display = 'block';
                 expandedVideo.style.display = 'none';
@@ -241,6 +242,7 @@
                 expandedImg.style.display = 'none';
                 expandedVideo.style.display = 'block';
                 expandedVideo.src = currentMedia;
+                expandedVideo.loop = true; // Dodanie pętli do wideo
             } else {
                 expandedImg.style.display = 'block';
                 expandedVideo.style.display = 'none';
