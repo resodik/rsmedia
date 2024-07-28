@@ -10,7 +10,7 @@ body {
     padding: 0;
     font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
     background-color: white;
-    color: white;
+    color: black; /* Zmiana koloru tekstu na czarny */
     overflow-x: hidden;
     text-align: center;
     font-weight: 700; /* Ustawienie wagi na bold */
@@ -29,9 +29,9 @@ body {
 
 /* Styl dla wideo */
 video {
-    max-width: 25%; /* Maksymalna szerokość wideo */
+    max-width: 100%; /* Maksymalna szerokość wideo */
     height: auto; /* Automatyczna wysokość zachowująca proporcje */
-    display: block; /* Blokowy wyświetlanie */
+    display: block; /* Blokowe wyświetlanie */
     margin: 0 auto; /* Wyśrodkowanie wideo */
     object-fit: cover; /* Dopasowanie wideo do kontenera */
 }
@@ -127,17 +127,12 @@ video {
     margin-bottom: 40px;
 }
 
-.photo-frame img {
-    width: 80%;
-    margin-left: 80px;
-    height: auto;
-    display: block;
-    transition: transform 0.5s ease;
-}
-
+.photo-frame img,
 .photo-frame video {
     width: 100%;
     height: auto;
+    display: block;
+    transition: transform 0.5s ease;
 }
 
 .photo-frame img[src*="gaz1"], 
@@ -146,7 +141,8 @@ video {
     transition: none !important;
 }
 
-.photo-frame:hover img {
+.photo-frame:hover img,
+.photo-frame:hover video {
     transform: scale(1.1);
 }
 
@@ -168,7 +164,8 @@ video {
     z-index: 1000;
 }
 
-.expanded-img {
+.expanded-img,
+.expanded-video {
     max-width: 90%;
     max-height: 90%;
     cursor: pointer;
