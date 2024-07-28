@@ -413,6 +413,12 @@ footer {
 
     .photo-frame {
         margin-bottom: 10px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .photo-frame img {
+        width: 100%;
     }
 
     .tabs a {
