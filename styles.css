@@ -2,6 +2,7 @@
 
 
 
+
 /* Resetowanie domyślnych stylów */
 * {
     margin: 0;
@@ -238,9 +239,6 @@ body {
 
 .tabs-left a:hover, .tabs-left button:hover {
     opacity: 0;
-    color: white;
-    
-}
 }
 
 .tabs-right {
