@@ -20,10 +20,6 @@ body {
     font-weight: 700; /* Ustawienie wagi na bold */
 }
 
-/* Kolor tekstu dla wszystkich elementów */
-body, h1, h2, h3, h4, h5, h6, p, a, div, span, li, button, pagination {
-    color: black !important;
-}
 
 /* Tło maski */
 .mask {
