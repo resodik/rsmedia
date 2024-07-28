@@ -1,3 +1,8 @@
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -32,7 +37,10 @@
 </head>
 <body>
     <div class="header">
+         <div class="header">
         <img src="images/main-image.jpg" alt="Main Image" class="main-image">
+        <div class="header-text">
+        </div>
         <div class="header-text">
             <h1>ROGUE SYNTHESIS MEDIA</h1>
             <h2>Twórca Nowego Świata</h2>
@@ -65,14 +73,22 @@
         <div class="close-btn" onclick="closeOverlay()">✕</div> <!-- Krzyżyk do zamknięcia overlaya -->
     </div>
 
-    <div id="portfolio" class="container">
+  <div id="portfolio" class="container">
         <div class="photo-frame">
-            <img src="gazety/gaz1.png" alt="Opis zdjęcia 0" class="gaz-img">
+            <img src="gazety/gaz1.png" alt="Opis zdjęcia 0">
         </div>
         <div class="photo-frame">
             <img src="images/photo1.jpg" alt="Opis zdjęcia 1">
         </div>
+
+
+    <div class="overlay hidden" id="overlay">
+        <span class="prev-btn" onclick="changePhoto(-1)">&#10094;</span>
+        <img src="" class="expanded-img" id="expanded-img" alt="Powiększone zdjęcie">
+        <span class="next-btn" onclick="changePhoto(1)">&#10095;</span>
+        <div class="close-btn" onclick="closeOverlay()">✕</div> <!-- Krzyżyk do zamknięcia overlaya -->
     </div>
+    
     
     <div id="portfolio" class="gallery">
         <!-- Zdjęcia w galerii -->
@@ -208,58 +224,92 @@
         function changePhoto(direction) {
             var photoFrames = document.querySelectorAll('.photo-frame');
             var activePhoto = document.querySelector('.photo-frame.active');
-            if (!activePhoto) return; // Jeśli nie ma aktywnego zdjęcia, zakończ
+            var index = Array.from(photoFrames).indexOf(activePhoto);
 
-            var activeIndex;
-            for (var i = 0; i < photoFrames.length; i++) {
-                if (photoFrames[i] === activePhoto) {
-                    activeIndex = i;
-                    break;
-                }
+            // Usuń klasę active z obecnego zdjęcia
+            if (activePhoto) {
+                activePhoto.classList.remove('active');
             }
 
-            // Oblicz indeks nowego zdjęcia
-            var newIndex = activeIndex + direction;
-            if (newIndex < 0) {
-                newIndex = photoFrames.length - 1; // Przejdź na koniec, jeśli idziemy wstecz z pierwszego zdjęcia
-            } else if (newIndex >= photoFrames.length) {
-                newIndex = 0; // Przejdź na początek, jeśli idziemy naprzód z ostatniego zdjęcia
+            // Zmiana indeksu zdjęcia
+            index += direction;
+            if (index >= photoFrames.length) {
+                index = 0;
+            } else if (index < 0) {
+                index = photoFrames.length - 1;
             }
 
-            var newPhoto = photoFrames[newIndex].querySelector('img').src;
-            showImage(newPhoto);
+            // Ustawienie klasy active dla nowego zdjęcia
+            var newPhoto = photoFrames[index];
+            newPhoto.classList.add('active');
+
+            // Aktualizacja zdjęcia w overlayu
+            var newSrc = newPhoto.querySelector('img').src;
+            var expandedImg = document.getElementById('expanded-img');
+            expandedImg.src = newSrc;
         }
 
-        // Funkcja do załadowania sekcji "Projekty"
-        function loadProjects() {
-            window.location.href = "Portfolio1.html";
-        }
-
-        // Funkcja do załadowania sekcji "O Mnie"
-        function loadAbout() {
-            // Przykładowy kod do załadowania sekcji "O Mnie"
-        }
-
-        // Funkcja do załadowania sekcji "Portfolio"
-        function loadPortfolio() {
-            // Przykładowy kod do załadowania sekcji "Portfolio"
-        }
-
-        // Funkcja do załadowania sekcji "Blog"
-        function loadBlog() {
-            // Przykładowy kod do załadowania sekcji "Blog"
-        }
-
-        // Funkcja do odświeżania strony
-        function refreshPage() {
-            window.location.reload();
-        }
-
-        // Funkcja do przełączania widoczności zakładek
+        // Pozostałe funkcje JavaScript
         function toggleTabs() {
             var tabs = document.querySelector('.tabs');
-            tabs.classList.toggle('collapsed');
+            tabs.classList.toggle('expanded');
         }
+
+        function refreshPage() {
+            location.reload();
+        }
+
+        function loadPortfolio() {
+            location.href = 'index.html';
+            var portfolioSection = document.getElementById('portfolio');
+            if (portfolioSection) {
+                var topPosition = portfolioSection.offsetTop;
+                window.scrollTo({
+                    top: topPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        function loadProjects() {
+            location.href = 'portfolio.html';
+        }
+
+        function loadBlog() {
+            location.href = 'blog.html';
+        }
+
+        function loadAbout() {
+            location.href = 'omnie.html';
+        }
+
+   // Skrypty JavaScript, jakie masz obecnie
+        window.onscroll = function() {toggleStickyHeader(), revealPhotos()};
+
+        function toggleStickyHeader() {
+            var header = document.querySelector('.sticky-header');
+            var mainHeader = document.querySelector('.header');
+            var headerHeight = mainHeader.offsetHeight;
+
+            if (window.pageYOffset > headerHeight) {
+                header.style.display = "block";
+            } else {
+                header.style.display = "none";
+            }
+        }
+
+        function revealPhotos() {
+            var photoFrames = document.querySelectorAll('.photo-frame');
+            for (var i = 0; i < photoFrames.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = photoFrames[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    photoFrames[i].classList.add("visible");
+                }
+            }
+        }
+
     </script>
 </body>
 </html>
