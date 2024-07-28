@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -94,13 +95,11 @@
         </div>
     </div>
 
-   <!-- Nowa sekcja z tymi samymi zdjęciami -->
-  <div class="overlay hidden" id="overlay">
-        <span class="prev-btn" onclick="changeMedia(-1)">&#10094;</span>
+    <div class="overlay hidden" id="overlay">
+        <span class="prev-btn" onclick="changePhoto(-1)">&#10094;</span>
         <img src="" class="expanded-img" id="expanded-img" alt="Powiększone zdjęcie">
-        <video class="expanded-video" id="expanded-video" controls loop></video> <!-- Dodano loop -->
-        <span class="next-btn" onclick="changeMedia(1)">&#10095;</span>
-        <div class="close-btn" onclick="closeOverlay()">✕</div>
+        <span class="next-btn" onclick="changePhoto(1)">&#10095;</span>
+        <div class="close-btn" onclick="closeOverlay()">✕</div> <!-- Krzyżyk do zamknięcia overlaya -->
     </div>
 
     <section id="projects">
@@ -144,31 +143,35 @@
         </div>
     </section>
 
-   
 
-    <section id="projects">
+      <div class="overlay hidden" id="overlay">
+        <span class="prev-btn" onclick="changeMedia(-1)">&#10094;</span>
+        <img src="" class="expanded-img" id="expanded-img" alt="Powiększone zdjęcie">
+        <video class="expanded-video" id="expanded-video" controls loop></video> <!-- Dodano loop -->
+        <span class="next-btn" onclick="changeMedia(1)">&#10095;</span>
+        <div class="close-btn" onclick="closeOverlay()">✕</div>
+    </div>
+    
+   <!-- Nowa sekcja z tymi samymi zdjęciami -->
+    <section id="additional-projects">
         <div class="container">
-            <h2>Moje Projekty</h2>
+            <h2>Dodatkowe Projekty</h2>
             <div class="project-grid">
-                <div class="project-item" onclick="showMedia(this.querySelector('img').src)">
-                    <img src="images/photoa.png" alt="Project 2">
+                <div class="project-item" onclick="showImage(this.querySelector('img').src)">
+                    <img src="images/photo6.png" alt="Project 1">
+                    <p>Projekt 1</p>
+                </div>
+                <div class="project-item" onclick="showImage(this.querySelector('img').src)">
+                    <img src="images/photo7.jpg" alt="Project 2">
                     <p>Projekt 2</p>
                 </div>
-                <div class="project-item" onclick="showMedia(this.querySelector('img').src)">
-                    <img src="images/photob.png" alt="Project 3">
-                    <p>Projekt 3</p>
-                </div>
-                <div class="project-item" onclick="showMedia(this.querySelector('video').querySelector('source').src)">
-                    <video class="video-frame">
-                        <source src="gazety/domek.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <p>Projekt Wideo</p>
-                </div>
-            </div>
+               <div id="portfolio" class="container">
+        <div class="photo-frame">
+            <img src="gazety/gaz2.png" alt="Opis zdjęcia 0" width="300">
+        </div>
+    </div>
         </div>
     </section>
-
     
     <div class="sticky-header">
         <a href="#" onclick="refreshPage()">ROGUE SYNTHESIS MEDIA</a>
