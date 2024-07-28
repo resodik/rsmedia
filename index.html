@@ -161,9 +161,12 @@
                 <div class="project-item" onclick="showImage(this.querySelector('img').src)">
                     <img src="images/photo7.jpg" alt="Project 2">
                     <p>Projekt 2</p>
-              <div class="project-item" onclick="showMedia(this.querySelector('img').src)">
-                    <img src="images/photo23.png" alt="Project 3">
-                    <p>Projekt 3</p>
+             <div class="project-item" onclick="showMedia(this.querySelector('video').querySelector('source').src)">
+                    <video class="video-frame">
+                        <source src="gazety/domek.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p>Projekt Wideo</p>
               
                 </div>
             </div>
