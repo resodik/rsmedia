@@ -34,22 +34,14 @@ body {
     background: url('images/mask-image.jpg') no-repeat center center/cover;
 }
 
-/* Wideo tła */
-.video-section {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: -1;
+/* Styl dla wideo */
+video {
+    max-width: 100%; /* Maksymalna szerokość wideo */
+    height: auto; /* Automatyczna wysokość zachowująca proporcje */
+    display: block; /* Blokowy wyświetlanie */
+    margin: 0 auto; /* Wyśrodkowanie wideo */
 }
 
-.video-section video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
 
 /* Główny nagłówek */
 .header {
