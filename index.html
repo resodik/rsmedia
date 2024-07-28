@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -30,7 +29,7 @@
             color: white;
         }
 
-        /* Dodaj tutaj inne style, jeśli są potrzebne tylko dla głównej strony */
+        /* Stylizacja dla paginacji */
         .pagination {
             text-align: center;
             margin-top: 40px;
@@ -49,6 +48,11 @@
             color: black;
         }
 
+        /* Usunięcie stylowania dla obrazków */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
     </style>
 </head>
 <body>
@@ -77,11 +81,11 @@
         </div>
     </div>
 
-     <div id="portfolio" class="container">
+    <div id="portfolio" class="container">
         <div class="photo-frame">
-            <img src="gazety/gaz1.png" alt="Opis zdjęcia 0">
+            <img src="gazety/gaz1.png" alt="Opis zdjęcia 0" width="300"> <!-- Zmniejszono obraz poprzez ustawienie width -->
         </div>
-    
+    </div>
 
     <div class="overlay hidden" id="overlay">
         <span class="prev-btn" onclick="changePhoto(-1)">&#10094;</span>
