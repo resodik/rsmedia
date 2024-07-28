@@ -91,7 +91,34 @@
         <div class="close-btn" onclick="closeOverlay()">✕</div> <!-- Krzyżyk do zamknięcia overlaya -->
     </div>
 
-       <section id="about">
+     
+    
+    <section id="contact">
+        <div class="container">
+            <h2>Kontakt</h2>
+            <p>Skontaktuj się ze mną pod adresem: <a href="mailto:info@daravalasko.com">info@daravalasko.com</a></p>
+        </div>
+    </section>
+
+
+  <div id="portfolio" class="container">
+        <div class="photo-frame">
+            <img src="gazety/gaz1.png" alt="Opis zdjęcia 0">
+        </div>
+        <div class="photo-frame">
+            <img src="images/photo1.jpg" alt="Opis zdjęcia 1">
+        </div>
+
+      
+
+    <div class="overlay hidden" id="overlay">
+        <span class="prev-btn" onclick="changePhoto(-1)">&#10094;</span>
+        <img src="" class="expanded-img" id="expanded-img" alt="Powiększone zdjęcie">
+        <span class="next-btn" onclick="changePhoto(1)">&#10095;</span>
+        <div class="close-btn" onclick="closeOverlay()">✕</div> <!-- Krzyżyk do zamknięcia overlaya -->
+    </div>
+
+        <section id="about">
         <div class="container">
             <p>Jestem projektantką interaktywną z San Francisco, obecnie mieszkającą w Berlinie. Pracowałam z markami takimi jak: Glossier, Levi's, Lululemon i innymi.</p>
         </div>
@@ -116,31 +143,6 @@
             </div>
         </div>
     </section>
-    
-    <section id="contact">
-        <div class="container">
-            <h2>Kontakt</h2>
-            <p>Skontaktuj się ze mną pod adresem: <a href="mailto:info@daravalasko.com">info@daravalasko.com</a></p>
-        </div>
-    </section>
-
-
-  <div id="portfolio" class="container">
-        <div class="photo-frame">
-            <img src="gazety/gaz1.png" alt="Opis zdjęcia 0">
-        </div>
-        <div class="photo-frame">
-            <img src="images/photo1.jpg" alt="Opis zdjęcia 1">
-        </div>
-
-
-    <div class="overlay hidden" id="overlay">
-        <span class="prev-btn" onclick="changePhoto(-1)">&#10094;</span>
-        <img src="" class="expanded-img" id="expanded-img" alt="Powiększone zdjęcie">
-        <span class="next-btn" onclick="changePhoto(1)">&#10095;</span>
-        <div class="close-btn" onclick="closeOverlay()">✕</div> <!-- Krzyżyk do zamknięcia overlaya -->
-    </div>
-    
     
     <div id="portfolio" class="gallery">
         <!-- Zdjęcia w galerii -->
