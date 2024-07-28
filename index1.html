@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -6,6 +7,70 @@
     <title>Rogue Synthesis Media</title>
     <link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Nowe style do płynnego pojawiania się zdjęć podczas przewijania */
+        .photo-frame {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+            position: relative; /* Dodane, aby umieścić elementy wideo i zdjęcia wewnątrz */
+            overflow: hidden; /* Ukrywa część wideo, która wykracza poza ramkę */
+        }
+        .photo-frame.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Styl przycisku zamknięcia */
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1001; /* Nad wszystkimi innymi elementami w overlayu */
+            color: white;
+        }
+
+        /* Stylizacja dla paginacji */
+        .pagination {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .pagination a {
+            display: inline-block;
+            padding: 8px 16px;
+            margin: 0 5px;
+            background-color: transparent;
+            color: black;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .pagination a.active {
+            background-color: transparent;
+            color: black;
+        }
+
+        /* Usunięcie stylowania dla obrazków */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Stylizacja dla projektu */
+        .project-item img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Stylizacja dla wideo */
+        .video-frame {
+            width: 100%; /* Dopasowuje wideo do szerokości ramki */
+            height: auto; /* Automatyczna wysokość zachowująca proporcje */
+            display: block; /* Blokowy wyświetlanie */
+            object-fit: cover; /* Wypełnia ramkę, przycinając wideo, jeśli to konieczne */
+        }
+    </style>
 </head>
 <body>
     <div class="header">
@@ -33,48 +98,55 @@
         </div>
     </div>
 
+ 
+
     <div class="overlay hidden" id="overlay">
         <span class="prev-btn" onclick="changePhoto(-1)">&#10094;</span>
-        <div id="overlay-content"></div>
+        <img src="" class="expanded-img" id="expanded-img" alt="Powiększone zdjęcie">
         <span class="next-btn" onclick="changePhoto(1)">&#10095;</span>
-        <div class="close-btn" onclick="closeOverlay()">✕</div>
+        <div class="close-btn" onclick="closeOverlay()">✕</div> <!-- Krzyżyk do zamknięcia overlaya -->
     </div>
 
     <section id="projects">
         <div class="container">
             <h2>Moje Projekty</h2>
-            <div class="gallery">
-                <div class="photo-frame" onclick="showImage(this.querySelector('img, video').src)">
-                    <img src="images/photoa.png" alt="Projekt 1">
+            <div class="project-grid">
+                
+                <div class="project-item" onclick="showImage(this.querySelector('img').src)">
+                    <img src="images/photoa.png" alt="Project 2">
+                    <p>Projekt 2</p>
                 </div>
-                <div class="photo-frame" onclick="showImage(this.querySelector('img, video').src)">
-                    <video autoplay muted loop>
-                        <source src="gazety/domek.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-                <div class="photo-frame" onclick="showImage(this.querySelector('img, video').src)">
-                    <img src="images/photob.png" alt="Projekt 2">
+                <div class="project-item" onclick="showImage(this.querySelector('img').src)">
+                    <img src="images/photob.png" alt="Project 3">
+                    <p>Projekt 3</p>
                 </div>
             </div>
 
-            <div class="pagination">
-                <a href="index.html" class="active">1</a>
-                <a href="index1.html">2</a>
-                <a href="index2.html">3</a>
-                <a href="index3.html">4</a>
-                <a href="index4.html">5</a>
-                <a href="index5.html">6</a>
-                <a href="Portfolio1.html">7</a>
-                <a href="omnieRS.html">8</a>
-                <span>&hellip;</span>
-                <a href="#">10</a> <!-- Przykładowo, gdy masz 10 stron -->
-            </div>
+            <!-- Wideo dodane ponownie, jeśli potrzebne w innym miejscu -->
+            <video autoplay muted loop class="video-frame">
+                <source src="gazety/domek.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
         </div>
     </section>
 
     <div class="sticky-header">
         <a href="#" onclick="refreshPage()">ROGUE SYNTHESIS MEDIA</a>
+    </div>
+
+    <!-- Paginacja -->
+    <div class="pagination">
+        <a href="index.html" class="active">1</a>
+        <a href="index1.html">2</a>
+        <a href="index2.html">3</a>
+        <a href="index3.html">4</a>
+        <a href="index4.html">5</a>
+        <a href="index5.html">6</a>
+        <a href="Portfolio1.html">7</a>
+        <a href="omnieRS.html">8</a>
+        <span>&hellip;</span>
+        <a href="#">10</a> <!-- Przykładowo, gdy masz 10 stron -->
     </div>
 
     <footer>
@@ -86,14 +158,14 @@
     <script src="scripts.js"></script> <!-- Skrypty JavaScript -->
     <script>
         var currentPhotoIndex = 0;
-        var photos = []; // Tablica na zdjęcia i wideo
+        var photos = []; // Tablica na zdjęcia
 
         window.onload = function() {
             initializePhotos(); // Inicjalizacja zdjęć po załadowaniu strony
         };
 
         function initializePhotos() {
-            photos = Array.from(document.querySelectorAll('.photo-frame img, .photo-frame video'));
+            photos = document.querySelectorAll('.project-item img'); // Aktualizacja selektora, aby działał dla zdjęć w projektach
         }
 
         window.onscroll = function() {
@@ -112,12 +184,12 @@
             }
         }
 
-        // Funkcja do pokazywania powiększonego zdjęcia/wideo w overlay
+        // Funkcja do pokazywania powiększonego zdjęcia w overlay
         function showImage(src) {
             var overlay = document.getElementById('overlay');
-            var overlayContent = document.getElementById('overlay-content');
+            var expandedImg = document.getElementById('expanded-img');
 
-            // Znajdź indeks zdjęcia lub wideo
+            // Znajdź indeks zdjęcia
             for (var i = 0; i < photos.length; i++) {
                 if (photos[i].src === src) {
                     currentPhotoIndex = i;
@@ -125,13 +197,7 @@
                 }
             }
 
-            // Sprawdź, czy element to zdjęcie czy wideo
-            if (photos[currentPhotoIndex].tagName.toLowerCase() === 'video') {
-                overlayContent.innerHTML = '<video class="expanded-video" controls autoplay><source src="' + src + '" type="video/mp4"></video>';
-            } else {
-                overlayContent.innerHTML = '<img src="' + src + '" class="expanded-img">';
-            }
-
+            expandedImg.src = src;
             overlay.classList.remove('hidden');
         }
 
@@ -139,10 +205,9 @@
         function closeOverlay() {
             var overlay = document.getElementById('overlay');
             overlay.classList.add('hidden');
-            document.getElementById('overlay-content').innerHTML = ''; // Wyczyść overlay
         }
 
-        // Funkcja do zmiany zdjęcia/wideo w overlay (przyciski nawigacyjne)
+        // Funkcja do zmiany zdjęcia w overlay (przyciski nawigacyjne)
         function changePhoto(direction) {
             currentPhotoIndex += direction;
 
@@ -152,14 +217,8 @@
                 currentPhotoIndex = photos.length - 1;
             }
 
-            var src = photos[currentPhotoIndex].src;
-
-            // Sprawdź, czy element to zdjęcie czy wideo
-            if (photos[currentPhotoIndex].tagName.toLowerCase() === 'video') {
-                document.querySelector('.expanded-video').src = src;
-            } else {
-                document.querySelector('.expanded-img').src = src;
-            }
+            var expandedImg = document.getElementById('expanded-img');
+            expandedImg.src = photos[currentPhotoIndex].src;
         }
 
         // Pozostałe funkcje JavaScript
@@ -174,6 +233,14 @@
 
         function loadPortfolio() {
             location.href = 'index.html';
+            var portfolioSection = document.getElementById('portfolio');
+            if (portfolioSection) {
+                var topPosition = portfolioSection.offsetTop;
+                window.scrollTo({
+                    top: topPosition,
+                    behavior: 'smooth'
+                });
+            }
         }
 
         function loadProjects() {
