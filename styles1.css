@@ -1,1 +1,493 @@
 
+
+
+
+
+/* Resetowanie domyślnych stylów */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
+    background-color: #ffffff;
+    overflow-x: hidden;
+    text-align: center;
+    font-weight: 700; /* Ustawienie wagi na bold */
+}
+
+/* Tło maski */
+.mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 998;
+    background: url('images/mask-image.jpg') no-repeat center center/cover;
+}
+
+/* Główny nagłówek */
+.header {
+    position: relative;
+    width: 100%;
+    height: 700px;
+    background: url('images/main-image.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    padding-top: 20px;
+    z-index: 999;
+    margin-bottom: 100px;
+}
+
+.header-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: fadeIn 2s ease-in-out;
+}
+
+.header-text h1 {
+    margin: 0;
+    font-size: 48px;
+    font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
+    letter-spacing: 5px;
+    font-weight: bold;
+}
+
+.header-text h2 {
+    margin: 0;
+    font-size: 24px;
+    font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
+}
+
+/* Nagłówek przyczepny */
+.sticky-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    z-index: 1000;
+    display: none;
+    background-color: transparent;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0);
+}
+
+.sticky-header a {
+    color: black;
+    text-decoration: none;
+    font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
+    font-size: 28px;
+    font-weight: bold;
+    opacity: 0.3;
+    margin-right: 20px;
+}
+
+/* Kontener na zawartość */
+.container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+    position: relative;
+    z-index: 999;
+    text-align: center;
+}
+
+/* Ramki na zdjęcia */
+.photo-frame {
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.photo-frame1 img {
+ max-width: 24.4%;
+    max-height: auto%;
+    border-radius: 0px;
+
+}
+
+.photo-frame img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 0px;
+}
+
+img.zoom {
+    width: 100%; /* Powiększenie zdjęcia */
+}
+
+.photo-frame:hover img {
+    transform: scale(1.1);
+}
+
+.photo-frame.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.expanded-img {
+    max-width: 90%;
+    max-height: 90%;
+    cursor: pointer;
+}
+
+.prev-btn,
+.next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.prev-btn {
+    left: 20px;
+}
+
+.next-btn {
+    right: 20px;
+}
+
+
+
+/* Paski nawigacyjne */
+.tabs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 10px 20px;
+    z-index: 1000;
+    transition: height 0.3s ease;
+}
+
+.tabs-left {
+    display: flex;
+    align-items: center;
+}
+
+.tabs-left button {
+    text-decoration: none;
+    font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    background-color: transparent;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.tabs-left button:hover {
+    opacity: 1;
+}
+
+.tabs-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.expand-button {
+    width: 30px;
+    height: 50px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.expand-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Rozwijane menu */
+.tabs.expanded .expand-button {
+    visibility: visible;
+}
+
+.tabs.expanded .tabs-left,
+.tabs.expanded .tabs-right {
+    visibility: hidden;
+    display: flex;
+}
+
+.tabs.expanded {
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.tabs a {
+    text-decoration: none;
+    font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    background-color: transparent;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.tabs a:hover {
+    opacity: 1;
+}
+
+.social-icons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-left: 10px;
+}
+
+.social-icons img {
+    width: 30px;
+    margin: 0 -30px;
+}
+/* Dodatkowe style dla paginacji */
+.pagination {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.pagination button {
+    padding: 8px 16px;
+    margin: 0 5px;
+    font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
+    font-size: 16px;
+    color: transparent;
+    background-color: transparent;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination button:hover {
+    background-color: transparent;
+    color: #fff;
+}
+
+.photo-frame-lat {
+    display: flex;
+    justify-content: center;
+    margin: 100px 0; /* Dodaj marginesy według własnych potrzeb */
+}
+
+.photo-frame-lat img {
+    max-width: 100%; /* Ustawienie szerokości zdjęcia, aby je zmniejszyć */
+    height: auto; /* Zachowanie proporcji */
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+.section {
+    padding: 50px 0;
+    text-align: center;
+}
+
+/* Stylowanie wideo */
+.container video {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%; /* Zmniejsz rozmiar wideo do 80% szerokości kontenera */
+    height: auto; /* Zachowaj proporcje wideo */
+}
+
+.photo-frame2 {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px; /* Odstęp między zdjęciami, możesz dostosować do własnych potrzeb */
+}
+
+.photo-frame2 img {
+    max-width: 49.2%; /* Ustawienie szerokości zdjęć tak, aby zmieściły się dwa w jednym rzędzie */
+    height: auto; /* Zachowanie proporcji */
+    display: block;
+}
+
+
+/* Media queries dla różnych rozmiarów ekranu */
+@media only screen and (max-width: 768px) {
+    /* Stylowanie dla tabletów i telefonów */
+    .header {
+        height: 500px;
+    }
+
+    .header-text h1 {
+        font-size: 36px;
+    }
+
+    .header-text h2 {
+        font-size: 18px;
+    }
+
+    .container {
+        width: 90%;
+    }
+
+    .photo-frame {
+        margin-bottom: 10px;
+    }
+
+    .tabs a {
+        font-size: 16px;
+    }
+
+    .social-icons img {
+        width: 25px;
+        margin: 0 10px;
+    }
+
+    .expand-button {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    /* Stylowanie dla telefonów */
+    .header {
+        height: 300px;
+    }
+
+    .header-text h1 {
+        font-size: 22px;
+        transform: translateY(20px);
+    }
+
+    .header-text h2 {
+        font-size: 12px;
+        transform: translateY(20px);
+    }
+
+    .tabs a {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+
+    .social-icons {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-start;
+    }
+
+    .social-icons img {
+        width: 20px;
+        margin: -60px;
+        transform: translateX(34px);
+    }
+
+    .container {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .expand-button {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .sticky-header a {
+        font-size: 15px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
+
+/* Nowe style do płynnego pojawiania się zdjęć podczas przewijania */
+
+.photo-frame {
+opacity: 0;
+transform: translateY(50px);
+transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.photo-frame.visible {
+opacity: 1;
+transform: translateY(0);
+}
+
+/* Nowe style do płynnego pojawiania się zdjęć podczas przewijania */
+
+.photo-frame {
+opacity: 0;
+transform: translateY(50px);
+transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.photo-frame.visible {
+opacity: 1;
+transform: translateY(0);
+}
+
+ /* Media query for mobile devices */
+    @media (max-width: 768px) {
+        .section {
+            flex-direction: column;
+            height: auto; /* Allow sections to adjust height based on content */
+        }
+
+        .section img, .section video {
+            width: 80%;
+            margin: 10px 0;
+        }
+
+        .section .text {
+            width: 90%;
+            text-align: center;
+            padding: 10px;
+        }
+    }
