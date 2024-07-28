@@ -693,4 +693,22 @@ transform: translateY(0);
     .container.left::after, .container.right::after {
         display: none;
     }
+
+        /* Wideo tła */
+.video-section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 33.3%;
+    height: auto;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.video-section video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 }
