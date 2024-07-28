@@ -512,6 +512,25 @@ span {
         font-size: 16px;
     }
 
+/* Style dla sekcji .skany */
+.skany {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+.skany .photo-frame {
+    width: 30%;
+    margin: 10px;
+}
+.skany img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 5px;
+}
+
+
 
 /* Media queries dla różnych rozmiarów ekranu */
 @media only screen and (max-width: 768px) {
