@@ -213,6 +213,7 @@
                 expandedImg.style.display = 'block';
                 expandedVideo.style.display = 'none';
                 expandedImg.src = src;
+                expandedVideo.src = ''; // Resetowanie źródła wideo, gdy nie jest używane
             }
 
             overlay.classList.remove('hidden');
@@ -247,6 +248,7 @@
                 expandedImg.style.display = 'block';
                 expandedVideo.style.display = 'none';
                 expandedImg.src = currentMedia;
+                expandedVideo.src = ''; // Resetowanie źródła wideo, gdy nie jest używane
             }
         }
 
