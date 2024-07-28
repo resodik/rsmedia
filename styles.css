@@ -356,7 +356,7 @@ body {
 #projects h2,
 #contact h2 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: -80px;
 }
 
 .project-grid {
