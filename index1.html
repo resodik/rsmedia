@@ -107,6 +107,7 @@
     <div class="overlay hidden" id="overlay">
         <span class="prev-btn" onclick="changePhoto(-1)">&#10094;</span>
         <img src="" class="expanded-img" id="expanded-img" alt="Powiększone zdjęcie">
+        <video class="expanded-video" id="expanded-video" controls></video>
         <span class="next-btn" onclick="changePhoto(1)">&#10095;</span>
         <div class="close-btn" onclick="closeOverlay()">✕</div> <!-- Krzyżyk do zamknięcia overlaya -->
     </div>
@@ -224,6 +225,32 @@
             var expandedImg = document.getElementById('expanded-img');
             expandedImg.src = photos[currentPhotoIndex].src;
         }
+
+        function changeMedia(direction) {
+    currentPhotoIndex += direction;
+
+    if (currentPhotoIndex >= photos.length) {
+        currentPhotoIndex = 0;
+    } else if (currentPhotoIndex < 0) {
+        currentPhotoIndex = photos.length - 1;
+    }
+
+    var expandedImg = document.getElementById('expanded-img');
+    var expandedVideo = document.getElementById('expanded-video');
+
+    var currentMedia = photos[currentPhotoIndex].src;
+    var isVideo = currentMedia.endsWith('.mp4') || currentMedia.endsWith('.webm') || currentMedia.endsWith('.avi');
+
+    if (isVideo) {
+        expandedImg.style.display = 'none';
+        expandedVideo.style.display = 'block';
+        expandedVideo.src = currentMedia;
+    } else {
+        expandedImg.style.display = 'block';
+        expandedVideo.style.display = 'none';
+        expandedImg.src = currentMedia;
+    }
+
 
         // Pozostałe funkcje JavaScript
         function toggleTabs() {
