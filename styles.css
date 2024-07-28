@@ -340,6 +340,12 @@ body {
     color: black;
 }
 
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
 #about p {
     font-size: 18px;
     line-height: 1.6;
