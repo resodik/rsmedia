@@ -153,7 +153,7 @@
             overlay.classList.remove('hidden');
 
             // Znajdź aktywne zdjęcie i usuń klasę active
-            var activePhoto = document.querySelector('.photo-frame.active');
+            var activePhoto = document.querySelector('.photo-frame1.active');
             if (activePhoto) {
                 activePhoto.classList.remove('active');
             }
@@ -185,7 +185,7 @@
             overlay.classList.add('hidden');
 
             // Usuń klasę active z aktywnego zdjęcia w galerii
-            var activePhoto = document.querySelector('.photo-frame.active');
+            var activePhoto = document.querySelector('.photo-frame1.active');
             if (activePhoto) {
                 activePhoto.classList.remove('active');
             }
@@ -193,8 +193,8 @@
 
         // Funkcja do zmiany zdjęcia w overlay (przyciski nawigacyjne)
         function changePhoto(direction) {
-            var photoFrames = document.querySelectorAll('.photo-frame');
-            var activePhoto = document.querySelector('.photo-frame.active');
+            var photoFrames = document.querySelectorAll('.photo-frame1');
+            var activePhoto = document.querySelector('.photo-frame1.active');
             var index = Array.from(photoFrames).indexOf(activePhoto);
 
             // Usuń klasę active z obecnego zdjęcia
