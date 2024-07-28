@@ -12,6 +12,8 @@
             opacity: 0;
             transform: translateY(50px);
             transition: opacity 1s ease-out, transform 1s ease-out;
+            position: relative; /* Dodane, aby umieścić elementy wideo i zdjęcia wewnątrz */
+            overflow: hidden; /* Ukrywa część wideo, która wykracza poza ramkę */
         }
         .photo-frame.visible {
             opacity: 1;
@@ -60,12 +62,12 @@
             height: auto;
         }
 
-        /* Styl dla wideo */
-        video {
-            max-width: 100%; /* Maksymalna szerokość wideo */
+        /* Stylizacja dla wideo */
+        .video-frame {
+            width: 100%; /* Dopasowuje wideo do szerokości ramki */
             height: auto; /* Automatyczna wysokość zachowująca proporcje */
             display: block; /* Blokowy wyświetlanie */
-            margin: 0 auto; /* Wyśrodkowanie wideo */
+            object-fit: cover; /* Wypełnia ramkę, przycinając wideo, jeśli to konieczne */
         }
     </style>
 </head>
@@ -98,7 +100,7 @@
     <div id="portfolio" class="container">
         <div class="photo-frame">
             <!-- Wstawienie wideo zamiast obrazu -->
-            <video controls autoplay muted loop>
+            <video autoplay muted loop class="video-frame">
                 <source src="gazety/domek.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -127,7 +129,8 @@
                 </div>
             </div>
 
-            <video controls autoplay muted loop>
+            <!-- Wideo dodane ponownie, jeśli potrzebne w innym miejscu -->
+            <video autoplay muted loop class="video-frame">
                 <source src="gazety/domek.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
