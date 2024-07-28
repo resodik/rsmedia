@@ -148,10 +148,11 @@ body {
 }
 
 
-/* Dodaj klasę do usunięcia efektu zoom dla gaz1 i photo1 */
-.photo-frame img[src$="gaz1.png"],
-.photo-frame img[src$="photo1.jpg"] {
-    transition: none; /* Usuń przejście dla gaz1 i photo1 */
+/* Efekty dla zdjęć gaz1 i photo1 */
+.photo-frame img[src*="gaz1"], 
+.photo-frame img[src*="photo1"] {
+    transform: none !important;
+    transition: none !important;
 }
 
 .photo-frame:hover img {
