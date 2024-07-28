@@ -1,9 +1,3 @@
-
-
-
-
-
-
 /* Resetowanie domyślnych stylów */
 * {
     margin: 0;
@@ -22,7 +16,6 @@ body {
     font-weight: 700; /* Ustawienie wagi na bold */
 }
 
-
 /* Tło maski */
 .mask {
     position: fixed;
@@ -40,8 +33,8 @@ video {
     height: auto; /* Automatyczna wysokość zachowująca proporcje */
     display: block; /* Blokowy wyświetlanie */
     margin: 0 auto; /* Wyśrodkowanie wideo */
+    object-fit: cover; /* Dopasowanie wideo do kontenera */
 }
-
 
 /* Główny nagłówek */
 .header {
@@ -130,21 +123,23 @@ video {
     opacity: 1;
     transform: translateY(50px);
     transition: opacity 1s ease-out, transform 1s ease-out;
-    padding:10px;
-    margin-bottom:40px;
+    padding: 10px;
+    margin-bottom: 40px;
 }
 
 .photo-frame img {
     width: 80%;
-    margin-left:80px;
+    margin-left: 80px;
     height: auto;
     display: block;
     transition: transform 0.5s ease;
 }
 
+.photo-frame video {
+    width: 100%;
+    height: auto;
+}
 
-
-/* Efekty dla zdjęć gaz1 i photo1 */
 .photo-frame img[src*="gaz1"], 
 .photo-frame img[src*="photo1"] {
     transform: none !important;
@@ -196,7 +191,6 @@ video {
 .next-btn {
     right: 20px;
 }
-
 
 /* Paski nawigacyjne */
 .tabs {
@@ -376,8 +370,6 @@ footer {
     text-align: center;
     padding: 20px 0;
 }
-
-
 
 @keyframes fadeIn {
     from {
