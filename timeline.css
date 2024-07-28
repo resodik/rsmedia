@@ -694,13 +694,13 @@ transform: translateY(0);
         display: none;
     }
 
-        /* Wideo tła */
+       /* Wideo tła */
 .video-section {
     position: absolute;
-    top: 0;
+    top: -100;
     left: 0;
-    width: 33.3%;
-    height: auto;
+    width: 50%;
+    height: quto;
     overflow: hidden;
     z-index: -1;
 }
