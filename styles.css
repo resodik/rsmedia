@@ -390,20 +390,8 @@ footer {
     }
 }
 
-/* Media queries dla różnych rozmiarów ekranu */
-@media only screen and (max-width: 1024px) {
-    /* Stylowanie dla tabletów */
-    .gallery {
-        grid-template-columns: repeat(auto-fit, minmax(33.33%, 1fr));
-    }
-}
-
-@media only screen and (max-width: 768px) {
-    /* Stylowanie dla tabletów i telefonów */
-    .gallery {
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    }
-
+/* Media Queries for responsiveness */
+@media (max-width: 1024px) {
     .header {
         height: 500px;
     }
@@ -413,79 +401,85 @@ footer {
     }
 
     .header-text h2 {
-        font-size: 18px;
+        font-size: 20px;
     }
 
     .container {
         width: 90%;
+        padding: 20px 0;
     }
 
-    .photo-frame {
-        margin-bottom: 10px;
-    }
-
-    .tabs a {
-        font-size: 16px;
-    }
-
-    .social-icons img {
-        width: 25px;
-        margin: 0 10px;
-    }
-
-    .expand-button {
-        margin-left: auto;
-        margin-right: auto;
+    .project-item {
+        width: 45%;
     }
 }
 
-@media only screen and (max-width: 480px) {
-    /* Stylowanie dla telefonów */
+@media (max-width: 768px) {
+    .header {
+        height: 400px;
+    }
+
+    .header-text h1 {
+        font-size: 28px;
+    }
+
+    .header-text h2 {
+        font-size: 18px;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .photo-frame img {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .tabs-left, .tabs-right {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tabs-left a, .tabs-left button, .tabs a {
+        padding: 5px 10px;
+        font-size: 16px;
+    }
+
+    .expand-button {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 480px) {
     .header {
         height: 300px;
     }
 
     .header-text h1 {
-        font-size: 22px;
-        transform: translateY(20px);
+        font-size: 24px;
     }
 
     .header-text h2 {
-        font-size: 12px;
-        transform: translateY(20px);
-    }
-
-    .tabs a {
-        font-size: 14px;
-        padding: 5px 10px;
-    }
-
-    .social-icons {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        justify-content: flex-start;
-    }
-
-    .social-icons img {
-        width: 20px;
-        margin: -60px;
-        transform: translateX(34px);
+        font-size: 16px;
     }
 
     .container {
-        width: 90%;
-        margin: 0 auto;
+        width: 100%;
+        padding: 10px 0;
     }
 
-    .expand-button {
-        margin-left: auto;
-        margin-right: auto;
+    .tabs-left a, .tabs-left button, .tabs a {
+        font-size: 14px;
+        padding: 5px;
     }
 
-    .sticky-header a {
-        font-size: 15px;
-        margin-left: auto;
-        margin-right: auto;
+    .project-item {
+        width: 100%;
+    }
+
+    .pagination button {
+        padding: 5px 10px;
+        font-size: 14px;
     }
 }
