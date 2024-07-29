@@ -158,6 +158,22 @@
     </div>
 
     <script>
+
+        document.addEventListener('DOMContentLoaded', function() {
+    var closeBtn = document.querySelector('.close-btn');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeOverlay);
+    }
+
+    function closeOverlay() {
+        console.log('Close button clicked'); // Sprawdź, czy ten komunikat pojawia się w konsoli
+        var overlay = document.getElementById('overlay');
+        if (overlay) {
+            overlay.classList.add('hidden');
+        }
+    }
+});
+
         var currentPhotoIndex = 0;
         var photos = [];
 
@@ -224,6 +240,8 @@
         closeBtn.onclick = function() {
             closeOverlay();
         };
+
+        
 
         function changePhoto(direction) {
             var photoFrames = document.querySelectorAll('.photo-frame');
