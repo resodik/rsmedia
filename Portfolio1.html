@@ -79,10 +79,10 @@
         <span class="prev-btn" onclick="changePhoto(-1)">&#10094;</span>
         <img src="" class="expanded-img" id="expanded-img" alt="Powiększone zdjęcie">
         <span class="next-btn" onclick="changePhoto(1)">&#10095;</span>
-        <div class="close-btn" onclick="closeOverlay()">✕</div>
+        <div class="close-btn">✕</div>
     </div>
 
-    <div id="portfolio" class="container">
+    <div id="portfolio-gallery" class="container">
         <div class="photo-frame">
             <img src="images/mapa.jpg" alt="Opis zdjęcia 0" onclick="showImage(this.src)">
         </div>
@@ -91,7 +91,7 @@
         </div>
     </div>
 
-    <div id="portfolio" class="container">
+    <div id="projects" class="container">
         <h2>Moje Projekty</h2>
         <div class="project-grid">
             <div class="project-item" onclick="showImage(this.querySelector('img').src)">
@@ -109,7 +109,7 @@
         </div>
     </div>
 
-    <div id="portfolio" class="gallery">
+    <div id="gallery" class="gallery">
         <div class="photo-frame">
             <img src="images/photo1.jpg" alt="Opis zdjęcia 0" onclick="showImage(this.src)">
         </div>
@@ -137,7 +137,6 @@
         <a href="#" onclick="refreshPage()">ROGUE SYNTHESIS MEDIA</a>
     </div>
 
-   
     <div class="pagination">
         <a href="index.html">1</a>
         <a href="index1.html">2</a>
@@ -145,151 +144,149 @@
         <a href="index3.html">4</a>
         <a href="index4.html">5</a>
         <a href="index5.html">6</a>
-        <a href="Portfolio1.html"  class="active">7</a>
+        <a href="Portfolio1.html" class="active">7</a>
         <a href="omnieRS.html">8</a>
         <span>&hellip;</span>
         <a href="#">10</a>
     </div>
 
-    <div class="sticky-header">
-        <a href="#" onclick="refreshPage()">ROGUE SYNTHESIS MEDIA</a>
-    </div>
-
     <script>
-       document.addEventListener('DOMContentLoaded', function() {
-    var closeBtn = document.querySelector('.close-btn');
-    if (closeBtn) {
-        closeBtn.addEventListener('click', closeOverlay);
-    }
+        var currentPhotoIndex = 0;
+        var photos = [];
 
-    window.onload = function() {
-        initializePhotos();
-        revealPhotos();
-    };
+        document.addEventListener('DOMContentLoaded', function() {
+            var closeBtn = document.querySelector('.close-btn');
+            if (closeBtn) {
+                closeBtn.addEventListener('click', closeOverlay);
+            }
 
-    function initializePhotos() {
-        photos = document.querySelectorAll('.photo-frame img');
-        photos.forEach((photo, index) => {
-            photo.dataset.index = index;
-        });
-    }
+            window.onload = function() {
+                initializePhotos();
+                revealPhotos();
+            };
 
-    window.onscroll = function() {
-        revealPhotos();
-        toggleStickyHeader();
-    };
+            function initializePhotos() {
+                photos = document.querySelectorAll('.photo-frame img');
+                photos.forEach((photo, index) => {
+                    photo.dataset.index = index;
+                });
+            }
 
-    function revealPhotos() {
-        var photoFrames = document.querySelectorAll('.photo-frame');
-        photoFrames.forEach(frame => {
-            var windowHeight = window.innerHeight;
-            var elementTop = frame.getBoundingClientRect().top;
-            var elementVisible = 150;
-            if (elementTop < windowHeight - elementVisible) {
-                frame.classList.add("visible");
+            window.onscroll = function() {
+                revealPhotos();
+                toggleStickyHeader();
+            };
+
+            function revealPhotos() {
+                var photoFrames = document.querySelectorAll('.photo-frame');
+                photoFrames.forEach(frame => {
+                    var windowHeight = window.innerHeight;
+                    var elementTop = frame.getBoundingClientRect().top;
+                    var elementVisible = 150;
+                    if (elementTop < windowHeight - elementVisible) {
+                        frame.classList.add("visible");
+                    }
+                });
+            }
+
+            function showImage(src) {
+                var overlay = document.getElementById('overlay');
+                var expandedImg = document.getElementById('expanded-img');
+                var photoFrames = document.querySelectorAll('.photo-frame');
+
+                expandedImg.src = src;
+                overlay.classList.remove('hidden');
+
+                var activePhoto = document.querySelector('.photo-frame.active');
+                if (activePhoto) {
+                    activePhoto.classList.remove('active');
+                }
+
+                photoFrames.forEach((frame, index) => {
+                    if (frame.querySelector('img').src === src) {
+                        frame.classList.add('active');
+                        currentPhotoIndex = index; // aktualizujemy indeks aktywnego zdjęcia
+                    }
+                });
+            }
+
+            function closeOverlay() {
+                var overlay = document.getElementById('overlay');
+                overlay.classList.add('hidden');
+
+                var activePhoto = document.querySelector('.photo-frame.active');
+                if (activePhoto) {
+                    activePhoto.classList.remove('active');
+                }
+            }
+
+            function changePhoto(direction) {
+                var photoFrames = document.querySelectorAll('.photo-frame');
+
+                currentPhotoIndex += direction;
+                if (currentPhotoIndex >= photoFrames.length) {
+                    currentPhotoIndex = 0;
+                } else if (currentPhotoIndex < 0) {
+                    currentPhotoIndex = photoFrames.length - 1;
+                }
+
+                var newPhoto = photoFrames[currentPhotoIndex];
+                var newSrc = newPhoto.querySelector('img').src;
+                var expandedImg = document.getElementById('expanded-img');
+                expandedImg.src = newSrc;
+
+                var activePhoto = document.querySelector('.photo-frame.active');
+                if (activePhoto) {
+                    activePhoto.classList.remove('active');
+                }
+                newPhoto.classList.add('active');
+            }
+
+            function toggleTabs() {
+                var tabs = document.querySelector('.tabs');
+                tabs.classList.toggle('expanded');
+            }
+
+            function refreshPage() {
+                location.reload();
+            }
+
+            function loadPortfolio() {
+                location.href = 'index.html';
+                var portfolioSection = document.getElementById('portfolio-gallery');
+                if (portfolioSection) {
+                    var topPosition = portfolioSection.offsetTop;
+                    window.scrollTo({
+                        top: topPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+
+            function loadProjects() {
+                location.href = 'portfolio.html';
+            }
+
+            function loadBlog() {
+                location.href = 'blog.html';
+            }
+
+            function loadAbout() {
+                location.href = 'omnie.html';
+            }
+
+            function toggleStickyHeader() {
+                var header = document.querySelector('.sticky-header');
+                var mainHeader = document.querySelector('.header');
+                var headerHeight = mainHeader.offsetHeight;
+
+                if (window.pageYOffset > headerHeight) {
+                    header.style.display = "block";
+                } else {
+                    header.style.display = "none";
+                }
             }
         });
-    }
-
-    function showImage(src) {
-        var overlay = document.getElementById('overlay');
-        var expandedImg = document.getElementById('expanded-img');
-        var photoFrames = document.querySelectorAll('.photo-frame');
-
-        expandedImg.src = src;
-        overlay.classList.remove('hidden');
-
-        var activePhoto = document.querySelector('.photo-frame.active');
-        if (activePhoto) {
-            activePhoto.classList.remove('active');
-        }
-
-        photoFrames.forEach((frame, index) => {
-            if (frame.querySelector('img').src === src) {
-                frame.classList.add('active');
-                currentPhotoIndex = index; // aktualizujemy indeks aktywnego zdjęcia
-            }
-        });
-    }
-
-    function closeOverlay() {
-        var overlay = document.getElementById('overlay');
-        overlay.classList.add('hidden');
-
-        var activePhoto = document.querySelector('.photo-frame.active');
-        if (activePhoto) {
-            activePhoto.classList.remove('active');
-        }
-    }
-
-    function changePhoto(direction) {
-        var photoFrames = document.querySelectorAll('.photo-frame');
-
-        currentPhotoIndex += direction;
-        if (currentPhotoIndex >= photoFrames.length) {
-            currentPhotoIndex = 0;
-        } else if (currentPhotoIndex < 0) {
-            currentPhotoIndex = photoFrames.length - 1;
-        }
-
-        var newPhoto = photoFrames[currentPhotoIndex];
-        var newSrc = newPhoto.querySelector('img').src;
-        var expandedImg = document.getElementById('expanded-img');
-        expandedImg.src = newSrc;
-
-        var activePhoto = document.querySelector('.photo-frame.active');
-        if (activePhoto) {
-            activePhoto.classList.remove('active');
-        }
-        newPhoto.classList.add('active');
-    }
-
-    function toggleTabs() {
-        var tabs = document.querySelector('.tabs');
-        tabs.classList.toggle('expanded');
-    }
-
-    function refreshPage() {
-        location.reload();
-    }
-
-    function loadPortfolio() {
-        location.href = 'index.html';
-        var portfolioSection = document.getElementById('portfolio');
-        if (portfolioSection) {
-            var topPosition = portfolioSection.offsetTop;
-            window.scrollTo({
-                top: topPosition,
-                behavior: 'smooth'
-            });
-        }
-    }
-
-    function loadProjects() {
-        location.href = 'portfolio.html';
-    }
-
-    function loadBlog() {
-        location.href = 'blog.html';
-    }
-
-    function loadAbout() {
-        location.href = 'omnie.html';
-    }
-
-    function toggleStickyHeader() {
-        var header = document.querySelector('.sticky-header');
-        var mainHeader = document.querySelector('.header');
-        var headerHeight = mainHeader.offsetHeight;
-
-        if (window.pageYOffset > headerHeight) {
-            header.style.display = "block";
-        } else {
-            header.style.display = "none";
-        }
-    }
-});
-
     </script>
 </body>
 </html>
