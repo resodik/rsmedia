@@ -403,7 +403,7 @@ footer {
 @media only screen and (max-width: 768px) {
     /* Stylowanie dla tabletów i telefonów */
     .gallery {
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     }
 
     .header {
@@ -418,8 +418,9 @@ footer {
         font-size: 18px;
     }
 
-    .container {
-        width: 90%;
+   .container {
+        width: 100%;
+        padding: 10px 0;
     }
 
     .photo-frame {
@@ -475,9 +476,9 @@ footer {
         transform: translateX(34px);
     }
 
-    .container {
-        width: 90%;
-        margin: 0 auto;
+  .container {
+        width: 100%;
+        padding: 0px 0;
     }
 
     .expand-button {
