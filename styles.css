@@ -142,7 +142,7 @@ video {
     width: 100%;
     height: auto;
 }
-
+.photo-frame img[src*="gaz6"], 
 .photo-frame img[src*="gaz1"], 
 .photo-frame img[src*="photo1"] {
     transform: none !important;
