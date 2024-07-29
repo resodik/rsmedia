@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -212,17 +211,6 @@
                     photoFrames[i].classList.add('active');
                 }
             }
-
-            expandedImg.onclick = function(event) {
-                if (event.target === this) {
-                    closeOverlay();
-                }
-            };
-
-            var closeBtn = overlay.querySelector('.close-btn');
-            closeBtn.onclick = function() {
-                closeOverlay();
-            };
         }
 
         function closeOverlay() {
@@ -234,6 +222,11 @@
                 activePhoto.classList.remove('active');
             }
         }
+
+        var closeBtn = document.querySelector('.close-btn');
+        closeBtn.onclick = function() {
+            closeOverlay();
+        };
 
         function changePhoto(direction) {
             var photoFrames = document.querySelectorAll('.photo-frame');
