@@ -1,6 +1,7 @@
 
 
 
+
 /* Resetowanie domyślnych stylów */
 * {
     margin: 0;
@@ -390,8 +391,6 @@ footer {
     }
 }
 
-
-
 /* Media queries dla różnych rozmiarów ekranu */
 @media only screen and (max-width: 1024px) {
     /* Stylowanie dla tabletów */
@@ -403,7 +402,7 @@ footer {
 @media only screen and (max-width: 768px) {
     /* Stylowanie dla tabletów i telefonów */
     .gallery {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     }
 
     .header {
@@ -418,9 +417,8 @@ footer {
         font-size: 18px;
     }
 
-   .container {
-        width: 100%;
-        padding: 10px 0;
+    .container {
+        width: 90%;
     }
 
     .photo-frame {
@@ -476,9 +474,9 @@ footer {
         transform: translateX(34px);
     }
 
-  .container {
-        width: 100%;
-        padding: 0px 0;
+    .container {
+        width: 90%;
+        margin: 0 auto;
     }
 
     .expand-button {
