@@ -156,140 +156,140 @@
     </div>
 
     <script>
-        var currentPhotoIndex = 0;
-        var photos = [];
+       document.addEventListener('DOMContentLoaded', function() {
+    var closeBtn = document.querySelector('.close-btn');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeOverlay);
+    }
 
-        window.onload = function() {
-            initializePhotos();
-            revealPhotos();
-        };
+    window.onload = function() {
+        initializePhotos();
+        revealPhotos();
+    };
 
-        function initializePhotos() {
-            photos = document.querySelectorAll('.photo-frame img');
-            photos.forEach((photo, index) => {
-                photo.dataset.index = index;
+    function initializePhotos() {
+        photos = document.querySelectorAll('.photo-frame img');
+        photos.forEach((photo, index) => {
+            photo.dataset.index = index;
+        });
+    }
+
+    window.onscroll = function() {
+        revealPhotos();
+        toggleStickyHeader();
+    };
+
+    function revealPhotos() {
+        var photoFrames = document.querySelectorAll('.photo-frame');
+        photoFrames.forEach(frame => {
+            var windowHeight = window.innerHeight;
+            var elementTop = frame.getBoundingClientRect().top;
+            var elementVisible = 150;
+            if (elementTop < windowHeight - elementVisible) {
+                frame.classList.add("visible");
+            }
+        });
+    }
+
+    function showImage(src) {
+        var overlay = document.getElementById('overlay');
+        var expandedImg = document.getElementById('expanded-img');
+        var photoFrames = document.querySelectorAll('.photo-frame');
+
+        expandedImg.src = src;
+        overlay.classList.remove('hidden');
+
+        var activePhoto = document.querySelector('.photo-frame.active');
+        if (activePhoto) {
+            activePhoto.classList.remove('active');
+        }
+
+        photoFrames.forEach((frame, index) => {
+            if (frame.querySelector('img').src === src) {
+                frame.classList.add('active');
+                currentPhotoIndex = index; // aktualizujemy indeks aktywnego zdjęcia
+            }
+        });
+    }
+
+    function closeOverlay() {
+        var overlay = document.getElementById('overlay');
+        overlay.classList.add('hidden');
+
+        var activePhoto = document.querySelector('.photo-frame.active');
+        if (activePhoto) {
+            activePhoto.classList.remove('active');
+        }
+    }
+
+    function changePhoto(direction) {
+        var photoFrames = document.querySelectorAll('.photo-frame');
+
+        currentPhotoIndex += direction;
+        if (currentPhotoIndex >= photoFrames.length) {
+            currentPhotoIndex = 0;
+        } else if (currentPhotoIndex < 0) {
+            currentPhotoIndex = photoFrames.length - 1;
+        }
+
+        var newPhoto = photoFrames[currentPhotoIndex];
+        var newSrc = newPhoto.querySelector('img').src;
+        var expandedImg = document.getElementById('expanded-img');
+        expandedImg.src = newSrc;
+
+        var activePhoto = document.querySelector('.photo-frame.active');
+        if (activePhoto) {
+            activePhoto.classList.remove('active');
+        }
+        newPhoto.classList.add('active');
+    }
+
+    function toggleTabs() {
+        var tabs = document.querySelector('.tabs');
+        tabs.classList.toggle('expanded');
+    }
+
+    function refreshPage() {
+        location.reload();
+    }
+
+    function loadPortfolio() {
+        location.href = 'index.html';
+        var portfolioSection = document.getElementById('portfolio');
+        if (portfolioSection) {
+            var topPosition = portfolioSection.offsetTop;
+            window.scrollTo({
+                top: topPosition,
+                behavior: 'smooth'
             });
         }
+    }
 
-        window.onscroll = function() {
-            revealPhotos();
-        };
+    function loadProjects() {
+        location.href = 'portfolio.html';
+    }
 
-        function revealPhotos() {
-            var photoFrames = document.querySelectorAll('.photo-frame');
-            for (var i = 0; i < photoFrames.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = photoFrames[i].getBoundingClientRect().top;
-                var elementVisible = 150;
-                if (elementTop < windowHeight - elementVisible) {
-                    photoFrames[i].classList.add("visible");
-                }
-            }
+    function loadBlog() {
+        location.href = 'blog.html';
+    }
+
+    function loadAbout() {
+        location.href = 'omnie.html';
+    }
+
+    function toggleStickyHeader() {
+        var header = document.querySelector('.sticky-header');
+        var mainHeader = document.querySelector('.header');
+        var headerHeight = mainHeader.offsetHeight;
+
+        if (window.pageYOffset > headerHeight) {
+            header.style.display = "block";
+        } else {
+            header.style.display = "none";
         }
+    }
+});
 
-        function showImage(src) {
-            var overlay = document.getElementById('overlay');
-            var expandedImg = overlay.querySelector('.expanded-img');
-            var photoFrames = document.querySelectorAll('.photo-frame');
-
-            expandedImg.src = src;
-            overlay.classList.remove('hidden');
-
-            var activePhoto = document.querySelector('.photo-frame.active');
-            if (activePhoto) {
-                activePhoto.classList.remove('active');
-            }
-
-            for (var i = 0; i < photoFrames.length; i++) {
-                if (photoFrames[i].querySelector('img').src === src) {
-                    photoFrames[i].classList.add('active');
-                    currentPhotoIndex = i; // aktualizujemy indeks aktywnego zdjęcia
-                }
-            }
-        }
-
-        function closeOverlay() {
-            var overlay = document.getElementById('overlay');
-            overlay.classList.add('hidden');
-
-            var activePhoto = document.querySelector('.photo-frame.active');
-            if (activePhoto) {
-                activePhoto.classList.remove('active');
-            }
-        }
-
-        var closeBtn = document.querySelector('.close-btn');
-        closeBtn.onclick = function() {
-            closeOverlay();
-        };
-
-        function changePhoto(direction) {
-            var photoFrames = document.querySelectorAll('.photo-frame');
-
-            currentPhotoIndex += direction;
-            if (currentPhotoIndex >= photoFrames.length) {
-                currentPhotoIndex = 0;
-            } else if (currentPhotoIndex < 0) {
-                currentPhotoIndex = photoFrames.length - 1;
-            }
-
-            var newPhoto = photoFrames[currentPhotoIndex];
-            newPhoto.classList.add('active');
-
-            var newSrc = newPhoto.querySelector('img').src;
-            var expandedImg = document.getElementById('expanded-img');
-            expandedImg.src = newSrc;
-        }
-
-        function toggleTabs() {
-            var tabs = document.querySelector('.tabs');
-            tabs.classList.toggle('expanded');
-        }
-
-        function refreshPage() {
-            location.reload();
-        }
-
-        function loadPortfolio() {
-            location.href = 'index.html';
-            var portfolioSection = document.getElementById('portfolio');
-            if (portfolioSection) {
-                var topPosition = portfolioSection.offsetTop;
-                window.scrollTo({
-                    top: topPosition,
-                    behavior: 'smooth'
-                });
-            }
-        }
-
-        function loadProjects() {
-            location.href = 'portfolio.html';
-        }
-
-        function loadBlog() {
-            location.href = 'blog.html';
-        }
-
-        function loadAbout() {
-            location.href = 'omnie.html';
-        }
-
-        window.onscroll = function() {
-            toggleStickyHeader();
-            revealPhotos();
-        };
-
-        function toggleStickyHeader() {
-            var header = document.querySelector('.sticky-header');
-            var mainHeader = document.querySelector('.header');
-            var headerHeight = mainHeader.offsetHeight;
-
-            if (window.pageYOffset > headerHeight) {
-                header.style.display = "block";
-            } else {
-                header.style.display = "none";
-            }
-        }
     </script>
 </body>
 </html>
