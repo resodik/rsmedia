@@ -143,6 +143,10 @@ video {
     height: auto;
 }
 .photo-frame img[src*="gaz6"], 
+.photo-frame img[src*="gaz5"], 
+.photo-frame img[src*="gaz4"], 
+.photo-frame img[src*="gaz3"],
+.photo-frame img[src*="gaz2"], 
 .photo-frame img[src*="gaz1"], 
 .photo-frame img[src*="photo1"] {
     transform: none !important;
