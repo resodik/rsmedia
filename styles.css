@@ -392,8 +392,21 @@ footer {
 
 
 
-@media (max-width: 768px) {
-     .header {
+/* Media queries dla różnych rozmiarów ekranu */
+@media only screen and (max-width: 1024px) {
+    /* Stylowanie dla tabletów */
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(33.33%, 1fr));
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    /* Stylowanie dla tabletów i telefonów */
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .header {
         height: 500px;
     }
 
@@ -426,22 +439,10 @@ footer {
         margin-left: auto;
         margin-right: auto;
     }
-
-
-    .gallery {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
-
-    .photo-frame img {
-        width: 100%;
-        margin-left: 0;
-    }
-
-  
-    }
 }
 
-@media (max-width: 480px) {
+@media only screen and (max-width: 480px) {
+    /* Stylowanie dla telefonów */
     .header {
         height: 300px;
     }
@@ -488,15 +489,5 @@ footer {
         font-size: 15px;
         margin-left: auto;
         margin-right: auto;
-    }
-
-
-    .project-item {
-        width: 100%;
-    }
-
-    .pagination button {
-        padding: 5px 10px;
-        font-size: 14px;
     }
 }
