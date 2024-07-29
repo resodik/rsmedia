@@ -1,5 +1,6 @@
 
 
+
 /* Resetowanie domyślnych stylów */
 * {
     margin: 0;
@@ -168,16 +169,6 @@ video {
     justify-content: center;
     align-items: center;
     z-index: 1000;
-}
-
-.close-btn {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 30px;
-    color: white;
-    cursor: pointer;
-    z-index: 1001; /* Krzyżyk powinien być nad overlayem */
 }
 
 .expanded-img {
