@@ -142,6 +142,7 @@ video {
     width: 100%;
     height: auto;
 }
+.photo-frame img[src*="gazeta8"], 
 .photo-frame img[src*="gaz7"], 
 .photo-frame img[src*="gaz6"], 
 .photo-frame img[src*="gaz5"], 
