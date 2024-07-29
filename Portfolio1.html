@@ -47,6 +47,24 @@
             background-color: transparent;
             color: black;
         }
+
+        /* Style dla sticky-header aby wyrównać na środku */
+        .sticky-header {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            background-color: #333; /* Dodaj kolor tła, jeśli potrzebny */
+            padding: 10px 0; /* Dodaj padding, jeśli potrzebny */
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        .sticky-header a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+        }
     </style>
 </head>
 <body>
@@ -107,13 +125,6 @@
                 <p>Projekt 3</p>
             </div>
         </div>
-    </div>
-
-    <div class="overlay hidden" id="overlay">
-        <span class="prev-btn" onclick="changePhoto(-1)">&#10094;</span>
-        <img src="" class="expanded-img" id="expanded-img" alt="Powiększone zdjęcie">
-        <span class="next-btn" onclick="changePhoto(1)">&#10095;</span>
-        <div class="close-btn" onclick="closeOverlay()">✕</div>
     </div>
 
     <div id="portfolio" class="gallery">
@@ -201,27 +212,14 @@
             expandedImg.src = src;
             overlay.classList.remove('hidden');
 
-            var activePhoto = document.querySelector('.photo-frame.active');
+            var activePhoto = Array.from(photoFrames).find(function(frame) {
+                return frame.querySelector('img').src === src;
+            });
+
             if (activePhoto) {
-                activePhoto.classList.remove('active');
+                activePhoto.classList.add('active');
+                currentPhotoIndex = Array.from(photoFrames).indexOf(activePhoto);
             }
-
-            for (var i = 0; i < photoFrames.length; i++) {
-                if (photoFrames[i].querySelector('img').src === src) {
-                    photoFrames[i].classList.add('active');
-                }
-            }
-
-            expandedImg.onclick = function(event) {
-                if (event.target === this) {
-                    closeOverlay();
-                }
-            };
-
-            var closeBtn = overlay.querySelector('.close-btn');
-            closeBtn.onclick = function() {
-                closeOverlay();
-            };
         }
 
         function closeOverlay() {
