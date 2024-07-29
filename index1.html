@@ -161,6 +161,46 @@
             </div>
         </div>
     </section>
+
+       <div id="portfolio" class="container">
+        <div class="photo-frame">
+            <img src="gazety/gaz8.png" alt="Opis zdjęcia 0" width="300">
+        </div>
+    </div>
+
+    <div class="overlay hidden" id="overlay">
+        <span class="prev-btn" onclick="changeMedia(-1)">&#10094;</span>
+        <img src="" class="expanded-img" id="expanded-img" alt="Powiększone zdjęcie">
+        <video class="expanded-video" id="expanded-video" controls loop></video> <!-- Dodano loop -->
+        <span class="next-btn" onclick="changeMedia(1)">&#10095;</span>
+        <div class="close-btn" onclick="closeOverlay()">✕</div>
+    </div>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Moje Projekty</h2>
+            <div class="project-grid">
+                <div class="project-item" onclick="showMedia(this.querySelector('img').src)">
+                    <img src="images/photo28.png" alt="Project 2">
+                    <p>Projekt 2</p>
+                </div>
+                <div class="project-item" onclick="showMedia(this.querySelector('img').src)">
+                    <img src="images/photo27.png" alt="Project 3">
+                    <p>Projekt 3</p>
+                </div>
+                   <div class="project-item" onclick="showMedia(this.querySelector('img').src)">
+                    <img src="images/dom1.png" alt="Project 3">
+                    <p>Projekt 3</p>
+                </div>
+                 <div class="project-item" onclick="showMedia(this.querySelector('img').src)">
+                    <img src="gazety/dom.png" alt="Project 3">
+                    <p>Projekt 3</p>
+                </div>
+             
+            </div>
+        </div>
+    </section>
+    
     
     <div class="sticky-header">
         <a href="#" onclick="refreshPage()">ROGUE SYNTHESIS MEDIA</a>
