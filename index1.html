@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -8,13 +11,10 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Nowe style do płynnego pojawiania się zdjęć podczas przewijania */
-
         .photo-frame {
             opacity: 0;
             transform: translateY(50px);
             transition: opacity 1s ease-out, transform 1s ease-out;
-            position: relative;
-            overflow: hidden;
         }
         .photo-frame.visible {
             opacity: 1;
@@ -28,7 +28,7 @@
             right: 10px;
             font-size: 24px;
             cursor: pointer;
-            z-index: 1001;
+            z-index: 1001; /* Nad wszystkimi innymi elementami w overlayu */
             color: white;
         }
 
@@ -62,29 +62,15 @@
             max-width: 100%;
             height: auto;
         }
-
-        /* Stylizacja dla wideo */
-        .video-frame {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: cover;
-        }
-
-        .expanded-img, .expanded-video {
-            max-width: 90%;
-            max-height: 90%;
-            display: block;
-            margin: auto;
-        }
-
-        .expanded-video {
-            display: none; /* Na początku wideo jest ukryte */
-        }
     </style>
 </head>
 <body>
-    
+    <div class="header">
+        <div class="header-text">
+            <h1>ROGUE SYNTHESIS MEDIA</h1>
+            <h2>Twórca Nowego Świata</h2>
+        </div>
+    </div>
 
     <div class="tabs collapsed">
         <div class="tabs-left">
@@ -104,94 +90,93 @@
         </div>
     </div>
 
-   <div id="portfolio" class="container">
+    <div id="portfolio" class="container">
         <div class="photo-frame">
-            <img src="gazety/gaz2.png" alt="Opis zdjęcia 0" width="300">
+            <img src="gazety/gaz1.png" alt="Opis zdjęcia 0" width="300"> <!-- Zmniejszono obraz poprzez ustawienie width -->
         </div>
     </div>
 
     <div class="overlay hidden" id="overlay">
-        <span class="prev-btn" onclick="changeMedia(-1)">&#10094;</span>
+        <span class="prev-btn" onclick="changePhoto(-1)">&#10094;</span>
         <img src="" class="expanded-img" id="expanded-img" alt="Powiększone zdjęcie">
-        <video class="expanded-video" id="expanded-video" controls loop></video> <!-- Dodano loop -->
-        <span class="next-btn" onclick="changeMedia(1)">&#10095;</span>
-        <div class="close-btn" onclick="closeOverlay()">✕</div>
+        <span class="next-btn" onclick="changePhoto(1)">&#10095;</span>
+        <div class="close-btn" onclick="closeOverlay()">✕</div> <!-- Krzyżyk do zamknięcia overlaya -->
     </div>
 
     <section id="projects">
         <div class="container">
             <h2>Moje Projekty</h2>
             <div class="project-grid">
-                <div class="project-item" onclick="showMedia(this.querySelector('img').src)">
-                    <img src="images/photoa.png" alt="Project 2">
+                <div class="project-item" onclick="showImage(this.querySelector('img').src)">
+                    <img src="images/photo1.jpg" alt="Project 1">
+                    <p>Projekt 1</p>
+                </div>
+                <div class="project-item" onclick="showImage(this.querySelector('img').src)">
+                    <img src="images/photo2.jpg" alt="Project 2">
                     <p>Projekt 2</p>
                 </div>
-                <div class="project-item" onclick="showMedia(this.querySelector('img').src)">
-                    <img src="images/photob.png" alt="Project 3">
+                <div class="project-item" onclick="showImage(this.querySelector('img').src)">
+                    <img src="images/photo16.png" alt="Project 3">
                     <p>Projekt 3</p>
-                </div>
-                <div class="project-item" onclick="showMedia(this.querySelector('video').querySelector('source').src)">
-                    <video class="video-frame">
-                        <source src="gazety/domek.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <p>Projekt Wideo</p>
                 </div>
             </div>
         </div>
     </section>
 
-      <div id="portfolio" class="container">
-        <div class="photo-frame">
-            <img src="gazety/gaz3.png" alt="Opis zdjęcia 0" width="300">
-        </div>
-    </div>
-
-    <div class="overlay hidden" id="overlay">
-        <span class="prev-btn" onclick="changeMedia(-1)">&#10094;</span>
-        <img src="" class="expanded-img" id="expanded-img" alt="Powiększone zdjęcie">
-        <video class="expanded-video" id="expanded-video" controls loop></video> <!-- Dodano loop -->
-        <span class="next-btn" onclick="changeMedia(1)">&#10095;</span>
-        <div class="close-btn" onclick="closeOverlay()">✕</div>
-    </div>
-
-    <section id="projects">
+    <!-- Nowa sekcja z tymi samymi zdjęciami -->
+    <section id="additional-projects">
         <div class="container">
-            <h2>Moje Projekty</h2>
+            <h2>Dodatkowe Projekty</h2>
             <div class="project-grid">
-                <div class="project-item" onclick="showMedia(this.querySelector('img').src)">
-                    <img src="images/photo22.png" alt="Project 2">
+                <div class="project-item" onclick="showImage(this.querySelector('img').src)">
+                    <img src="images/photo17.png" alt="Project 1">
+                    <p>Projekt 1</p>
+                </div>
+                <div class="project-item" onclick="showImage(this.querySelector('img').src)">
+                    <img src="images/photo15.png" alt="Project 2">
                     <p>Projekt 2</p>
                 </div>
-                <div class="project-item" onclick="showMedia(this.querySelector('img').src)">
-                    <img src="gazety/photo30.jpg" alt="Project 3">
+                <div class="project-item" onclick="showImage(this.querySelector('img').src)">
+                    <img src="images/photo14.png" alt="Project 3">
                     <p>Projekt 3</p>
                 </div>
-                 <div class="project-item" onclick="showMedia(this.querySelector('img').src)">
-                    <img src="images/photo23.png" alt="Project 3">
-                    <p>Projekt 3</p>
-                </div>
-          
-              
             </div>
         </div>
     </section>
 
+   <!-- Nowa sekcja z tymi samymi zdjęciami -->
+    <section id="additional-projects">
+        <div class="container">
+            <h2>Dodatkowe Projekty</h2>
+            <div class="project-grid">
+                <div class="project-item" onclick="showImage(this.querySelector('img').src)">
+                    <img src="images/photo6.png" alt="Project 1">
+                    <p>Projekt 1</p>
+                </div>
+                <div class="project-item" onclick="showImage(this.querySelector('img').src)">
+                    <img src="images/photo7.jpg" alt="Project 2">
+                    <p>Projekt 2</p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
     <div class="sticky-header">
         <a href="#" onclick="refreshPage()">ROGUE SYNTHESIS MEDIA</a>
     </div>
-
+   <!-- Paginacja -->
     <div class="pagination">
-        <a href="index.html" class="active">1</a>
-        <a href="index1.html">2</a>
+        <a href="index.html" >1</a>
+        <a href="index1.html" class="active">2</a>
         <a href="index2.html">3</a>
-        <a href="index3.html">4</a>
+        <a href="index3.html"  >4</a>
         <a href="index4.html">5</a>
-        <a href="index5.html">6</a>
-        <a href="Portfolio1.html">7</a>
-        <a href="omnieRS.html">8</a>
+      <a href="index5.html">6</a>
+      <a href="Portfolio1.html">7</a>
+      <a href="#">8</a>
         <span>&hellip;</span>
-        <a href="#">10</a>
+        <a href="#">10</a> <!-- Przykładowo, gdy masz 10 stron -->
     </div>
 
     <footer>
@@ -200,17 +185,17 @@
         </div>
     </footer>
 
-    <script src="scripts.js"></script>
+    <script src="scripts.js"></script> <!-- Skrypty JavaScript -->
     <script>
-        var currentMediaIndex = 0;
-        var media = []; // Tablica na zdjęcia i wideo
+        var currentPhotoIndex = 0;
+        var photos = []; // Tablica na zdjęcia
 
         window.onload = function() {
-            initializeMedia(); // Inicjalizacja mediów po załadowaniu strony
+            initializePhotos(); // Inicjalizacja zdjęć po załadowaniu strony
         };
 
-        function initializeMedia() {
-            media = Array.from(document.querySelectorAll('.project-item img, .project-item video source')); // Zbieranie obrazków i źródeł wideo
+        function initializePhotos() {
+            photos = document.querySelectorAll('.project-item img'); // Aktualizacja selektora, aby działał dla zdjęć w projektach
         }
 
         window.onscroll = function() {
@@ -229,61 +214,44 @@
             }
         }
 
-        function showMedia(src) {
+        // Funkcja do pokazywania powiększonego zdjęcia w overlay
+        function showImage(src) {
             var overlay = document.getElementById('overlay');
             var expandedImg = document.getElementById('expanded-img');
-            var expandedVideo = document.getElementById('expanded-video');
 
-            var isVideo = src.endsWith('.mp4') || src.endsWith('.webm') || src.endsWith('.avi');
-
-            if (isVideo) {
-                expandedImg.style.display = 'none';
-                expandedVideo.style.display = 'block';
-                expandedVideo.src = src;
-                expandedVideo.loop = true; // Dodanie pętli do wideo
-            } else {
-                expandedImg.style.display = 'block';
-                expandedVideo.style.display = 'none';
-                expandedImg.src = src;
-                expandedVideo.src = ''; // Resetowanie źródła wideo, gdy nie jest używane
+            // Znajdź indeks zdjęcia
+            for (var i = 0; i < photos.length; i++) {
+                if (photos[i].src === src) {
+                    currentPhotoIndex = i;
+                    break;
+                }
             }
 
+            expandedImg.src = src;
             overlay.classList.remove('hidden');
         }
 
+        // Funkcja do zamykania overlaya
         function closeOverlay() {
             var overlay = document.getElementById('overlay');
             overlay.classList.add('hidden');
         }
 
-        function changeMedia(direction) {
-            currentMediaIndex += direction;
+        // Funkcja do zmiany zdjęcia w overlay (przyciski nawigacyjne)
+        function changePhoto(direction) {
+            currentPhotoIndex += direction;
 
-            if (currentMediaIndex >= media.length) {
-                currentMediaIndex = 0;
-            } else if (currentMediaIndex < 0) {
-                currentMediaIndex = media.length - 1;
+            if (currentPhotoIndex >= photos.length) {
+                currentPhotoIndex = 0;
+            } else if (currentPhotoIndex < 0) {
+                currentPhotoIndex = photos.length - 1;
             }
 
             var expandedImg = document.getElementById('expanded-img');
-            var expandedVideo = document.getElementById('expanded-video');
-
-            var currentMedia = media[currentMediaIndex].src;
-            var isVideo = currentMedia.endsWith('.mp4') || currentMedia.endsWith('.webm') || currentMedia.endsWith('.avi');
-
-            if (isVideo) {
-                expandedImg.style.display = 'none';
-                expandedVideo.style.display = 'block';
-                expandedVideo.src = currentMedia;
-                expandedVideo.loop = true; // Dodanie pętli do wideo
-            } else {
-                expandedImg.style.display = 'block';
-                expandedVideo.style.display = 'none';
-                expandedImg.src = currentMedia;
-                expandedVideo.src = ''; // Resetowanie źródła wideo, gdy nie jest używane
-            }
+            expandedImg.src = photos[currentPhotoIndex].src;
         }
 
+        // Pozostałe funkcje JavaScript
         function toggleTabs() {
             var tabs = document.querySelector('.tabs');
             tabs.classList.toggle('expanded');
