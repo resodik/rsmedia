@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -10,33 +7,112 @@
     <link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Nowe style do płynnego pojawiania się zdjęć podczas przewijania */
-        .photo-frame {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 1s ease-out, transform 1s ease-out;
-        }
-        .photo-frame.visible {
-            opacity: 1;
-            transform: translateY(0);
+        body {
+            font-family: 'Helvetica', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        /* Styl przycisku zamknięcia */
+        .header {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        .header h2 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: normal;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: space-between;
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+        }
+
+        .tabs a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        .tabs-left a:hover, .tabs-right a:hover {
+            background-color: #575757;
+            border-radius: 5px;
+        }
+
+        .social-icons img {
+            width: 24px;
+            margin-left: 10px;
+        }
+
+        .container {
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .photo-frame {
+            margin: 10px;
+            border: 2px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .photo-frame img {
+            max-width: 100%;
+            max-height: 300px;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .overlay.hidden {
+            display: none;
+        }
+
+        .expanded-img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+
         .close-btn {
             position: absolute;
             top: 10px;
             right: 10px;
             font-size: 24px;
             cursor: pointer;
-            z-index: 1001; /* Nad wszystkimi innymi elementami w overlayu */
+            z-index: 1001;
             color: white;
         }
 
-        /* Dodaj tutaj inne style, jeśli są potrzebne tylko dla głównej strony */
         .pagination {
             text-align: center;
             margin-top: 40px;
         }
+
         .pagination a {
             display: inline-block;
             padding: 8px 16px;
@@ -46,9 +122,81 @@
             text-decoration: none;
             border-radius: 5px;
         }
+
         .pagination a.active {
             background-color: transparent;
             color: black;
+        }
+
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            z-index: 999;
+        }
+
+        /* Media Queries for Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .header h2 {
+                font-size: 20px;
+            }
+
+            .tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tabs-left, .tabs-right {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tabs a {
+                padding: 5px;
+            }
+
+            .container {
+                padding: 10px;
+            }
+
+            .photo-frame img {
+                max-height: 200px;
+            }
+
+            .pagination a {
+                padding: 6px 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .header h2 {
+                font-size: 18px;
+            }
+
+            .tabs a {
+                padding: 3px;
+                font-size: 14px;
+            }
+
+            .photo-frame img {
+                max-height: 150px;
+            }
+
+            .pagination a {
+                padding: 4px 8px;
+            }
         }
     </style>
 </head>
@@ -60,7 +208,7 @@
         </div>
     </div>
 
-    <div class="tabs collapsed">
+    <div class="tabs">
         <div class="tabs-left">
             <a href="javascript:void(0);" onclick="loadProjects()">Portfolio</a>
             <a href="javascript:void(0);" onclick="loadAbout()">O Mnie</a>
@@ -71,9 +219,6 @@
             <div class="social-icons">
                 <a href="https://www.instagram.com/rogue.synthesis" target="_blank"><img src="images/instagram-icon.png" alt="Instagram"></a>
                 <a href="https://www.tiktok.com" target="_blank"><img src="images/tiktok-icon.png" alt="TikTok"></a>
-            </div>
-            <div class="expand-button" onclick="toggleTabs()">
-                <img src="images/expand-icon.png" alt="Expand Icon">
             </div>
         </div>
     </div>
@@ -97,18 +242,7 @@
         </div>
         <div class="photo-frame">
             <img src="images/MAPA3.jpg" alt="Opis zdjęcia 1" onclick="showImage(this.src)">
-            </div>
         </div>
-    </div>
-
-
-
-
-    <div class="overlay hidden" id="overlay">
-        <span class="prev-btn" onclick="changePhoto(-1)">&#10094;</span>
-        <img src="" class="expanded-img" id="expanded-img" alt="Powiększone zdjęcie">
-        <span class="next-btn" onclick="changePhoto(1)">&#10095;</span>
-        <div class="close-btn" onclick="closeOverlay()">✕</div> <!-- Krzyżyk do zamknięcia overlaya -->
     </div>
 
     <section id="projects">
@@ -127,13 +261,13 @@
                     <img src="gazety/Plansza4.jpg" alt="Project 3">
                     <p>Projekt 3</p>
                 </div>
-                 <div class="project-item" onclick="showImage(this.querySelector('img').src)">
-                    <img src="gazety/Plansza2.jpg" alt="Project 3">
-                    <p>Projekt 3</p>
+                <div class="project-item" onclick="showImage(this.querySelector('img').src)">
+                    <img src="gazety/Plansza2.jpg" alt="Project 4">
+                    <p>Projekt 4</p>
                 </div>
-                 <div class="project-item" onclick="showImage(this.querySelector('img').src)">
-                    <img src="images/photo5.jpg" alt="Project 3">
-                    <p>Projekt 3</p>
+                <div class="project-item" onclick="showImage(this.querySelector('img').src)">
+                    <img src="images/photo5.jpg" alt="Project 5">
+                    <p>Projekt 5</p>
                 </div>
             </div>
         </div>
@@ -143,7 +277,6 @@
         <a href="#" onclick="refreshPage()">ROGUE SYNTHESIS MEDIA</a>
     </div>
 
-   
     <div class="pagination">
         <a href="index.html" class="active">1</a>
         <a href="index1.html">2</a>
@@ -151,96 +284,43 @@
         <a href="index3.html">4</a>
         <a href="index4.html">5</a>
         <a href="index5.html">6</a>
-        <a href="Portfolio1.html" >7</a>
+        <a href="Portfolio1.html">7</a>
         <a href="omnieRS.html">8</a>
         <span>&hellip;</span>
         <a href="#">10</a>
     </div>
 
-    <div class="sticky-header">
-        <a href="#" onclick="refreshPage()">ROGUE SYNTHESIS MEDIA</a>
-    </div>
-
     <script>
-      var currentPhotoIndex = 0;
-        var photos = []; // Tablica na zdjęcia
+        var currentPhotoIndex = 0;
+        var photos = []; // Lista wszystkich zdjęć w galerii
 
-        window.onload = function() {
-            initializePhotos(); // Inicjalizacja zdjęć po załadowaniu strony
-        };
-
-        function initializePhotos() {
-            photos = document.querySelectorAll('.project-item img'); // Aktualizacja selektora, aby działał dla zdjęć w projektach
-        }
-
-        window.onscroll = function() {
-            revealPhotos();
-        };
-
-        function revealPhotos() {
-            var photoFrames = document.querySelectorAll('.photo-frame');
-            for (var i = 0; i < photoFrames.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = photoFrames[i].getBoundingClientRect().top;
-                var elementVisible = 150;
-                if (elementTop < windowHeight - elementVisible) {
-                    photoFrames[i].classList.add("visible");
-                }
-            }
-        }
-
-        // Funkcja do pokazywania powiększonego zdjęcia w overlay
         function showImage(src) {
             var overlay = document.getElementById('overlay');
             var expandedImg = document.getElementById('expanded-img');
-
-            // Znajdź indeks zdjęcia
-            for (var i = 0; i < photos.length; i++) {
-                if (photos[i].src === src) {
-                    currentPhotoIndex = i;
-                    break;
-                }
-            }
-
             expandedImg.src = src;
             overlay.classList.remove('hidden');
+            currentPhotoIndex = Array.from(document.querySelectorAll('.photo-frame img')).findIndex(img => img.src === src);
         }
 
-        // Funkcja do zamykania overlaya
         function closeOverlay() {
-            var overlay = document.getElementById('overlay');
-            overlay.classList.add('hidden');
+            document.getElementById('overlay').classList.add('hidden');
         }
 
-        // Funkcja do zmiany zdjęcia w overlay (przyciski nawigacyjne)
-        function changePhoto(direction) {
-            currentPhotoIndex += direction;
-
-            if (currentPhotoIndex >= photos.length) {
-                currentPhotoIndex = 0;
-            } else if (currentPhotoIndex < 0) {
-                currentPhotoIndex = photos.length - 1;
-            }
-
-            var expandedImg = document.getElementById('expanded-img');
-            expandedImg.src = photos[currentPhotoIndex].src;
+        function changePhoto(step) {
+            currentPhotoIndex = (currentPhotoIndex + step + photos.length) % photos.length;
+            document.getElementById('expanded-img').src = photos[currentPhotoIndex];
         }
 
-        // Pozostałe funkcje JavaScript
-        function toggleTabs() {
-            var tabs = document.querySelector('.tabs');
-            tabs.classList.toggle('expanded');
-        }
+        // Inicjalizacja galerii
+        document.addEventListener('DOMContentLoaded', function() {
+            photos = Array.from(document.querySelectorAll('.photo-frame img')).map(img => img.src);
+        });
 
-        function refreshPage() {
-            location.reload();
-        }
-
-        function loadPortfolio() {
-            location.href = 'index.html';
-            var portfolioSection = document.getElementById('portfolio');
-            if (portfolioSection) {
-                var topPosition = portfolioSection.offsetTop;
+        function loadProjects() {
+            location.href = 'Portfolio1.html';
+            var projectsSection = document.getElementById('projects');
+            if (projectsSection) {
+                var topPosition = projectsSection.offsetTop;
                 window.scrollTo({
                     top: topPosition,
                     behavior: 'smooth'
@@ -248,16 +328,28 @@
             }
         }
 
-        function loadProjects() {
-            location.href = 'portfolio.html';
+        function loadAbout() {
+            location.href = 'omnieRS.html';
+            var aboutSection = document.getElementById('about');
+            if (aboutSection) {
+                var topPosition = aboutSection.offsetTop;
+                window.scrollTo({
+                    top: topPosition,
+                    behavior: 'smooth'
+                });
+            }
         }
 
         function loadBlog() {
-            location.href = 'blog.html';
-        }
-
-        function loadAbout() {
-            location.href = 'omnie.html';
+            location.href = 'index5.html';
+            var blogSection = document.getElementById('blog');
+            if (blogSection) {
+                var topPosition = blogSection.offsetTop;
+                window.scrollTo({
+                    top: topPosition,
+                    behavior: 'smooth'
+                });
+            }
         }
     </script>
 </body>
