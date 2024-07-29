@@ -390,9 +390,10 @@ footer {
     }
 }
 
-/* Media Queries for responsiveness */
-@media (max-width: 1024px) {
-    .header {
+
+
+@media (max-width: 768px) {
+     .header {
         height: 500px;
     }
 
@@ -401,31 +402,31 @@ footer {
     }
 
     .header-text h2 {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .container {
         width: 90%;
-        padding: 20px 0;
     }
 
-    .project-item {
-        width: 45%;
-    }
-}
-
-@media (max-width: 768px) {
-    .header {
-        height: 400px;
+    .photo-frame {
+        margin-bottom: 10px;
     }
 
-    .header-text h1 {
-        font-size: 28px;
+    .tabs a {
+        font-size: 16px;
     }
 
-    .header-text h2 {
-        font-size: 18px;
+    .social-icons img {
+        width: 25px;
+        margin: 0 10px;
     }
+
+    .expand-button {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
 
     .gallery {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -436,18 +437,7 @@ footer {
         margin-left: 0;
     }
 
-    .tabs-left, .tabs-right {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .tabs-left a, .tabs-left button, .tabs a {
-        padding: 5px 10px;
-        font-size: 16px;
-    }
-
-    .expand-button {
-        margin-left: 0;
+  
     }
 }
 
@@ -457,22 +447,49 @@ footer {
     }
 
     .header-text h1 {
-        font-size: 24px;
+        font-size: 22px;
+        transform: translateY(20px);
     }
 
     .header-text h2 {
-        font-size: 16px;
+        font-size: 12px;
+        transform: translateY(20px);
+    }
+
+    .tabs a {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+
+    .social-icons {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-start;
+    }
+
+    .social-icons img {
+        width: 20px;
+        margin: -60px;
+        transform: translateX(34px);
     }
 
     .container {
-        width: 100%;
-        padding: 10px 0;
+        width: 90%;
+        margin: 0 auto;
     }
 
-    .tabs-left a, .tabs-left button, .tabs a {
-        font-size: 14px;
-        padding: 5px;
+    .expand-button {
+        margin-left: auto;
+        margin-right: auto;
     }
+
+    .sticky-header a {
+        font-size: 15px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
 
     .project-item {
         width: 100%;
