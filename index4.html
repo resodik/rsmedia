@@ -1,1 +1,322 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rogue Synthesis Media</title>
+    <link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Nowe style do płynnego pojawiania się zdjęć podczas przewijania */
 
+        .photo-frame {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+        .photo-frame.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Styl przycisku zamknięcia */
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1001;
+            color: white;
+        }
+
+        /* Stylizacja dla paginacji */
+        .pagination {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .pagination a {
+            display: inline-block;
+            padding: 8px 16px;
+            margin: 0 5px;
+            background-color: transparent;
+            color: black;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .pagination a.active {
+            background-color: transparent;
+            color: black;
+        }
+
+        /* Usunięcie stylowania dla obrazków */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Stylizacja dla projektu */
+        .project-item img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Stylizacja dla wideo */
+        .video-frame {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        .expanded-img, .expanded-video {
+            max-width: 90%;
+            max-height: 90%;
+            display: block;
+            margin: auto;
+        }
+
+        .expanded-video {
+            display: none; /* Na początku wideo jest ukryte */
+        }
+    </style>
+</head>
+<body>
+    
+
+    <div class="tabs collapsed">
+        <div class="tabs-left">
+            <a href="javascript:void(0);" onclick="loadProjects()">Portfolio</a>
+            <a href="javascript:void(0);" onclick="loadAbout()">O Mnie</a>
+            <a href="javascript:void(0);" onclick="loadPortfolio()">Projekty</a>
+            <a href="javascript:void(0);" onclick="loadBlog()">Blog</a>
+        </div>
+        <div class="tabs-right">
+            <div class="social-icons">
+                <a href="https://www.instagram.com/rogue.synthesis" target="_blank"><img src="images/instagram-icon.png" alt="Instagram"></a>
+                <a href="https://www.tiktok.com" target="_blank"><img src="images/tiktok-icon.png" alt="TikTok"></a>
+            </div>
+            <div class="expand-button" onclick="toggleTabs()">
+                <img src="images/expand-icon.png" alt="Expand Icon">
+            </div>
+        </div>
+    </div>
+
+   <div id="portfolio" class="container">
+        <div class="photo-frame">
+            <img src="gazety/gaz5.png" alt="Opis zdjęcia 0" width="300">
+        </div>
+    </div>
+
+    <div class="overlay hidden" id="overlay">
+        <span class="prev-btn" onclick="changeMedia(-1)">&#10094;</span>
+        <img src="" class="expanded-img" id="expanded-img" alt="Powiększone zdjęcie">
+        <video class="expanded-video" id="expanded-video" controls loop></video> <!-- Dodano loop -->
+        <span class="next-btn" onclick="changeMedia(1)">&#10095;</span>
+        <div class="close-btn" onclick="closeOverlay()">✕</div>
+    </div>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Moje Projekty</h2>
+            <div class="project-grid">
+                <div class="project-item" onclick="showMedia(this.querySelector('img').src)">
+                    <img src="images/photoa.png" alt="Project 2">
+                    <p>Projekt 2</p>
+                </div>
+                <div class="project-item" onclick="showMedia(this.querySelector('img').src)">
+                    <img src="images/photob.png" alt="Project 3">
+                    <p>Projekt 3</p>
+                </div>
+                <div class="project-item" onclick="showMedia(this.querySelector('video').querySelector('source').src)">
+                    <video class="video-frame">
+                        <source src="gazety/domek.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p>Projekt Wideo</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+      <div id="portfolio" class="container">
+        <div class="photo-frame">
+            <img src="gazety/gaz3.png" alt="Opis zdjęcia 0" width="300">
+        </div>
+    </div>
+
+    <div class="overlay hidden" id="overlay">
+        <span class="prev-btn" onclick="changeMedia(-1)">&#10094;</span>
+        <img src="" class="expanded-img" id="expanded-img" alt="Powiększone zdjęcie">
+        <video class="expanded-video" id="expanded-video" controls loop></video> <!-- Dodano loop -->
+        <span class="next-btn" onclick="changeMedia(1)">&#10095;</span>
+        <div class="close-btn" onclick="closeOverlay()">✕</div>
+    </div>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Moje Projekty</h2>
+            <div class="project-grid">
+                <div class="project-item" onclick="showMedia(this.querySelector('img').src)">
+                    <img src="images/photo22.png" alt="Project 2">
+                    <p>Projekt 2</p>
+                </div>
+                <div class="project-item" onclick="showMedia(this.querySelector('img').src)">
+                    <img src="gazety/photo30.jpg" alt="Project 3">
+                    <p>Projekt 3</p>
+                </div>
+                 <div class="project-item" onclick="showMedia(this.querySelector('img').src)">
+                    <img src="images/photo23.png" alt="Project 3">
+                    <p>Projekt 3</p>
+                </div>
+          
+              
+            </div>
+        </div>
+    </section>
+
+    <div class="sticky-header">
+        <a href="#" onclick="refreshPage()">ROGUE SYNTHESIS MEDIA</a>
+    </div>
+
+    <!-- Paginacja -->
+    <div class="pagination">
+        <a href="index.html" >1</a>
+        <a href="index1.html">2</a>
+        <a href="index2.html"class="active">3</a>
+        <a href="index3.html"  >4</a>
+        <a href="index4.html">5</a>
+      <a href="index5.html">6</a>
+      <a href="Portfolio1.html">7</a>
+      <a href="#">8</a>
+        <span>&hellip;</span>
+        <a href="#">10</a> <!-- Przykładowo, gdy masz 10 stron -->
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Renata Sobieniak</p>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+    <script>
+        var currentMediaIndex = 0;
+        var media = []; // Tablica na zdjęcia i wideo
+
+        window.onload = function() {
+            initializeMedia(); // Inicjalizacja mediów po załadowaniu strony
+        };
+
+        function initializeMedia() {
+            media = Array.from(document.querySelectorAll('.project-item img, .project-item video source')); // Zbieranie obrazków i źródeł wideo
+        }
+
+        window.onscroll = function() {
+            revealPhotos();
+        };
+
+        function revealPhotos() {
+            var photoFrames = document.querySelectorAll('.photo-frame');
+            for (var i = 0; i < photoFrames.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = photoFrames[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    photoFrames[i].classList.add("visible");
+                }
+            }
+        }
+
+        function showMedia(src) {
+            var overlay = document.getElementById('overlay');
+            var expandedImg = document.getElementById('expanded-img');
+            var expandedVideo = document.getElementById('expanded-video');
+
+            var isVideo = src.endsWith('.mp4') || src.endsWith('.webm') || src.endsWith('.avi');
+
+            if (isVideo) {
+                expandedImg.style.display = 'none';
+                expandedVideo.style.display = 'block';
+                expandedVideo.src = src;
+                expandedVideo.loop = true; // Dodanie pętli do wideo
+            } else {
+                expandedImg.style.display = 'block';
+                expandedVideo.style.display = 'none';
+                expandedImg.src = src;
+                expandedVideo.src = ''; // Resetowanie źródła wideo, gdy nie jest używane
+            }
+
+            overlay.classList.remove('hidden');
+        }
+
+        function closeOverlay() {
+            var overlay = document.getElementById('overlay');
+            overlay.classList.add('hidden');
+        }
+
+        function changeMedia(direction) {
+            currentMediaIndex += direction;
+
+            if (currentMediaIndex >= media.length) {
+                currentMediaIndex = 0;
+            } else if (currentMediaIndex < 0) {
+                currentMediaIndex = media.length - 1;
+            }
+
+            var expandedImg = document.getElementById('expanded-img');
+            var expandedVideo = document.getElementById('expanded-video');
+
+            var currentMedia = media[currentMediaIndex].src;
+            var isVideo = currentMedia.endsWith('.mp4') || currentMedia.endsWith('.webm') || currentMedia.endsWith('.avi');
+
+            if (isVideo) {
+                expandedImg.style.display = 'none';
+                expandedVideo.style.display = 'block';
+                expandedVideo.src = currentMedia;
+                expandedVideo.loop = true; // Dodanie pętli do wideo
+            } else {
+                expandedImg.style.display = 'block';
+                expandedVideo.style.display = 'none';
+                expandedImg.src = currentMedia;
+                expandedVideo.src = ''; // Resetowanie źródła wideo, gdy nie jest używane
+            }
+        }
+
+        function toggleTabs() {
+            var tabs = document.querySelector('.tabs');
+            tabs.classList.toggle('expanded');
+        }
+
+        function refreshPage() {
+            location.reload();
+        }
+
+        function loadPortfolio() {
+            location.href = 'index.html';
+            var portfolioSection = document.getElementById('portfolio');
+            if (portfolioSection) {
+                var topPosition = portfolioSection.offsetTop;
+                window.scrollTo({
+                    top: topPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        function loadProjects() {
+            location.href = 'portfolio.html';
+        }
+
+        function loadBlog() {
+            location.href = 'blog.html';
+        }
+
+        function loadAbout() {
+            location.href = 'omnie.html';
+        }
+    </script>
+</body>
+</html>
