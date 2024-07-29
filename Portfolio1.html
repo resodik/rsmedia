@@ -94,47 +94,39 @@
         </div>
     </div>
 
-    <div id="portfolio" class="container">
-        <h2>Moje Projekty</h2>
-        <div class="project-grid">
-            <div class="project-item" onclick="showImage(this.querySelector('img').src)">
-                <img src="images/photoa.png" alt="Project 2">
-                <p>Projekt 2</p>
-            </div>
-            <div class="project-item" onclick="showImage(this.querySelector('img').src)">
-                <img src="images/photob.png" alt="Project 3">
-                <p>Projekt 3</p>
-            </div>
-            <div class="project-item" onclick="showImage(this.querySelector('img').src)">
-                <img src="images/photob.png" alt="Project 3">
-                <p>Projekt 3</p>
-            </div>
+  <div id="portfolio" class="container">
+        <div class="photo-frame">
+            <img src="gazety/gaz1.png" alt="Opis zdjęcia 0" width="300"> <!-- Zmniejszono obraz poprzez ustawienie width -->
         </div>
+    </div>
+</div>
+
+    <div class="overlay hidden" id="overlay">
+        <span class="prev-btn" onclick="changePhoto(-1)">&#10094;</span>
+        <img src="" class="expanded-img" id="expanded-img" alt="Powiększone zdjęcie">
+        <span class="next-btn" onclick="changePhoto(1)">&#10095;</span>
+        <div class="close-btn" onclick="closeOverlay()">✕</div> <!-- Krzyżyk do zamknięcia overlaya -->
     </div>
 
-    <div id="portfolio" class="gallery">
-        <div class="photo-frame">
-            <img src="images/photo1.jpg" alt="Opis zdjęcia 0" onclick="showImage(this.src)">
+    <section id="projects">
+        <div class="container">
+            <h2>Moje Projekty</h2>
+            <div class="project-grid">
+                <div class="project-item" onclick="showImage(this.querySelector('img').src)">
+                    <img src="images/photo1.jpg" alt="Project 1">
+                    <p>Projekt 1</p>
+                </div>
+                <div class="project-item" onclick="showImage(this.querySelector('img').src)">
+                    <img src="images/photo2.jpg" alt="Project 2">
+                    <p>Projekt 2</p>
+                </div>
+                <div class="project-item" onclick="showImage(this.querySelector('img').src)">
+                    <img src="images/photo16.png" alt="Project 3">
+                    <p>Projekt 3</p>
+                </div>
+            </div>
         </div>
-        <div class="photo-frame">
-            <img src="images/photo2.jpg" alt="Opis zdjęcia 0" onclick="showImage(this.src)">
-        </div>
-        <div class="photo-frame">
-            <img src="images/photo16.png" alt="Opis zdjęcia 1" onclick="showImage(this.src)">
-        </div>
-        <div class="photo-frame">
-            <img src="images/photo3.jpg" alt="Opis zdjęcia 2" onclick="showImage(this.src)">
-        </div>
-        <div class="photo-frame">
-            <img src="images/photo5.jpg" alt="Opis zdjęcia 3" onclick="showImage(this.src)">
-        </div>
-        <div class="photo-frame">
-            <img src="images/photo6.jpg" alt="Opis zdjęcia 4" onclick="showImage(this.src)">
-        </div>
-        <div class="photo-frame">
-            <img src="images/photo7.jpg" alt="Opis zdjęcia 18" onclick="showImage(this.src)">
-        </div>
-    </div>
+    </section>
 
     <div class="sticky-header">
         <a href="#" onclick="refreshPage()">ROGUE SYNTHESIS MEDIA</a>
