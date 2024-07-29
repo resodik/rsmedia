@@ -1,5 +1,7 @@
 
 
+
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -31,7 +33,7 @@
             color: white;
         }
 
-        /* Dodaj tutaj inne style, jeśli są potrzebne tylko dla głównej strony */
+        /* Stylizacja dla paginacji */
         .pagination {
             text-align: center;
             margin-top: 40px;
@@ -48,6 +50,18 @@
         .pagination a.active {
             background-color: transparent;
             color: black;
+        }
+
+        /* Usunięcie stylowania dla obrazków */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Stylizacja dla projektu */
+        .project-item img {
+            max-width: 100%;
+            height: auto;
         }
     </style>
 </head>
@@ -77,25 +91,11 @@
         </div>
     </div>
 
-    <div class="overlay hidden" id="overlay">
-        <span class="prev-btn" onclick="changePhoto(-1)">&#10094;</span>
-        <img src="" class="expanded-img" id="expanded-img" alt="Powiększone zdjęcie">
-        <span class="next-btn" onclick="changePhoto(1)">&#10095;</span>
-        <div class="close-btn" onclick="closeOverlay()">✕</div>
-    </div>
-
     <div id="portfolio" class="container">
         <div class="photo-frame">
-            <img src="images/mapa.jpg" alt="Opis zdjęcia 0" onclick="showImage(this.src)">
-        </div>
-        <div class="photo-frame">
-            <img src="images/MAPA3.jpg" alt="Opis zdjęcia 1" onclick="showImage(this.src)">
-            </div>
+            <img src="gazety/gaz1.png" alt="Opis zdjęcia 0" width="300"> <!-- Zmniejszono obraz poprzez ustawienie width -->
         </div>
     </div>
-
-
-
 
     <div class="overlay hidden" id="overlay">
         <span class="prev-btn" onclick="changePhoto(-1)">&#10094;</span>
@@ -109,53 +109,87 @@
             <h2>Moje Projekty</h2>
             <div class="project-grid">
                 <div class="project-item" onclick="showImage(this.querySelector('img').src)">
-                    <img src="gazety/Plansza1.jpg" alt="Project 1">
+                    <img src="images/photo1.jpg" alt="Project 1">
                     <p>Projekt 1</p>
                 </div>
                 <div class="project-item" onclick="showImage(this.querySelector('img').src)">
-                    <img src="gazety/Plansza3.jpg" alt="Project 2">
+                    <img src="images/photo2.jpg" alt="Project 2">
                     <p>Projekt 2</p>
                 </div>
                 <div class="project-item" onclick="showImage(this.querySelector('img').src)">
-                    <img src="gazety/Plansza4.jpg" alt="Project 3">
-                    <p>Projekt 3</p>
-                </div>
-                 <div class="project-item" onclick="showImage(this.querySelector('img').src)">
-                    <img src="gazety/Plansza2.jpg" alt="Project 3">
-                    <p>Projekt 3</p>
-                </div>
-                 <div class="project-item" onclick="showImage(this.querySelector('img').src)">
-                    <img src="images/photo5.jpg" alt="Project 3">
+                    <img src="images/photo16.png" alt="Project 3">
                     <p>Projekt 3</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Nowa sekcja z tymi samymi zdjęciami -->
+    <section id="additional-projects">
+        <div class="container">
+            <h2>Dodatkowe Projekty</h2>
+            <div class="project-grid">
+                <div class="project-item" onclick="showImage(this.querySelector('img').src)">
+                    <img src="images/photo17.png" alt="Project 1">
+                    <p>Projekt 1</p>
+                </div>
+                <div class="project-item" onclick="showImage(this.querySelector('img').src)">
+                    <img src="images/photo15.png" alt="Project 2">
+                    <p>Projekt 2</p>
+                </div>
+                <div class="project-item" onclick="showImage(this.querySelector('img').src)">
+                    <img src="images/photo14.png" alt="Project 3">
+                    <p>Projekt 3</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Nowa sekcja z tymi samymi zdjęciami -->
+    <section id="additional-projects">
+        <div class="container">
+            <h2>Dodatkowe Projekty</h2>
+            <div class="project-grid">
+                <div class="project-item" onclick="showImage(this.querySelector('img').src)">
+                    <img src="images/photo6.png" alt="Project 1">
+                    <p>Projekt 1</p>
+                </div>
+                <div class="project-item" onclick="showImage(this.querySelector('img').src)">
+                    <img src="images/photo7.jpg" alt="Project 2">
+                    <p>Projekt 2</p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
     <div class="sticky-header">
         <a href="#" onclick="refreshPage()">ROGUE SYNTHESIS MEDIA</a>
     </div>
 
-   
+    <!-- Paginacja -->
     <div class="pagination">
-        <a href="index.html">1</a>
+        <a href="index.html" class="active">1</a>
         <a href="index1.html">2</a>
         <a href="index2.html">3</a>
         <a href="index3.html">4</a>
         <a href="index4.html">5</a>
         <a href="index5.html">6</a>
-        <a href="Portfolio1.html"  class="active">7</a>
+        <a href="Portfolio1.html">7</a>
         <a href="omnieRS.html">8</a>
         <span>&hellip;</span>
-        <a href="#">10</a>
+        <a href="#">10</a> <!-- Przykładowo, gdy masz 10 stron -->
     </div>
 
-    <div class="sticky-header">
-        <a href="#" onclick="refreshPage()">ROGUE SYNTHESIS MEDIA</a>
-    </div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Renata Sobieniak</p>
+        </div>
+    </footer>
 
+    <script src="scripts.js"></script> <!-- Skrypty JavaScript -->
     <script>
-      var currentPhotoIndex = 0;
+        var currentPhotoIndex = 0;
         var photos = []; // Tablica na zdjęcia
 
         window.onload = function() {
