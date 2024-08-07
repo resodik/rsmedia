@@ -1,3 +1,8 @@
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -29,48 +34,6 @@
             cursor: pointer;
             z-index: 1001; /* Nad wszystkimi innymi elementami w overlayu */
             color: white;
-        }
-
-        /* Style for the new horizontal scroll gallery */
-        .gallery-container {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-            white-space: nowrap;
-            margin-top: 20px;
-        }
-
-        .gallery {
-            display: inline-block;
-            white-space: nowrap;
-            transition: transform 0.3s ease;
-        }
-
-        .gallery img {
-            display: inline-block;
-            max-width: 100%;
-            height: auto;
-            cursor: pointer;
-        }
-
-        .scroll-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            z-index: 1000;
-        }
-
-        .left-button {
-            left: 0;
-        }
-
-        .right-button {
-            right: 0;
         }
     </style>
 </head>
@@ -181,107 +144,151 @@
         </div>
     </div>
 
-    <div class="gallery-container">
-        <button class="scroll-button left-button">&lt;</button>
-        <div class="gallery">
-            <img src="gazety/Plansza3.jpg" alt="Obraz 1" onclick="showImage(this.src)">
-            <img src="gazety/Plansza4.jpg" alt="Obraz 2" onclick="showImage(this.src)">
-            <img src="gazety/Plansza1.jpg" alt="Obraz 3" onclick="showImage(this.src)">
-            <img src="gazety/Plansza2.jpg" alt="Obraz 4" onclick="showImage(this.src)">
-            <img src="gazety/Plansza2.jpg" alt="Obraz 5" onclick="showImage(this.src)">
-            <img src="images/photo5.jpg" alt="Obraz 6" onclick="showImage(this.src)">
-            <!-- Dodaj więcej obrazów według potrzeb -->
-        </div>
-        <button class="scroll-button right-button">&gt;</button>
+    <div class="sticky-header">
+        <a href="#" onclick="refreshPage()">ROGUE SYNTHESIS MEDIA</a>
     </div>
 
+    <script src="scripts.js"></script> <!-- Skrypty JavaScript -->
     <script>
-        // Funkcja do przełączania zakładek
-        function toggleTabs() {
-            var tabs = document.querySelector('.tabs');
-            tabs.classList.toggle('collapsed');
+        // Skrypty JavaScript
+        var currentPhotoIndex = 0;
+        var photos = []; // Tablica na zdjęcia
+
+        window.onload = function() {
+            initializePhotos(); // Inicjalizacja zdjęć po załadowaniu strony
+        };
+
+        function initializePhotos() {
+            photos = document.querySelectorAll('.photo-frame img');
         }
 
-        // Funkcje do wczytywania zawartości poszczególnych zakładek
-        function loadProjects() {
-            // Kod do wczytywania sekcji Portfolio
+        window.onscroll = function() {
+            revealPhotos();
+        };
+
+        function revealPhotos() {
+            var photoFrames = document.querySelectorAll('.photo-frame');
+            for (var i = 0; i < photoFrames.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = photoFrames[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    photoFrames[i].classList.add("visible");
+                }
+            }
         }
 
-        function loadAbout() {
-            // Kod do wczytywania sekcji O Mnie
-        }
-
-        function loadPortfolio() {
-            // Kod do wczytywania sekcji Projekty
-        }
-
-        function loadBlog() {
-            // Kod do wczytywania sekcji Blog
-        }
-
-        // Funkcja do pokazywania obrazu w overlayu
+        // Funkcja do pokazywania powiększonego zdjęcia w overlay
         function showImage(src) {
             var overlay = document.getElementById('overlay');
-            var expandedImg = document.getElementById('expanded-img');
-            overlay.style.display = 'flex';
+            var expandedImg = overlay.querySelector('.expanded-img');
+            var photoFrames = document.querySelectorAll('.photo-frame');
+
             expandedImg.src = src;
+            overlay.classList.remove('hidden');
+
+            // Znajdź aktywne zdjęcie i usuń klasę active
+            var activePhoto = document.querySelector('.photo-frame.active');
+            if (activePhoto) {
+                activePhoto.classList.remove('active');
+            }
+
+            // Ustaw aktywne zdjęcie na to, które zostało kliknięte
+            for (var i = 0; i < photoFrames.length; i++) {
+                if (photoFrames[i].querySelector('img').src === src) {
+                    photoFrames[i].classList.add('active');
+                }
+            }
+
+            // Dodaj event listener do zdjęcia, aby można było kliknąć je, by je zamknąć
+            expandedImg.onclick = function(event) {
+                if (event.target === this) { // Sprawdź, czy kliknięto na zdjęcie
+                    closeOverlay();
+                }
+            };
+
+            // Obsługa kliknięcia na krzyżyku do zamknięcia overlaya
+            var closeBtn = overlay.querySelector('.close-btn');
+            closeBtn.onclick = function() {
+                closeOverlay();
+            };
         }
 
         // Funkcja do zamykania overlaya
         function closeOverlay() {
             var overlay = document.getElementById('overlay');
-            overlay.style.display = 'none';
+            overlay.classList.add('hidden');
+
+            // Usuń klasę active z aktywnego zdjęcia w galerii
+            var activePhoto = document.querySelector('.photo-frame.active');
+            if (activePhoto) {
+                activePhoto.classList.remove('active');
+            }
         }
 
-        // Funkcja do zmiany zdjęcia w overlayu
+        // Funkcja do zmiany zdjęcia w overlay (przyciski nawigacyjne)
         function changePhoto(direction) {
-            var images = document.querySelectorAll('.gallery img');
-            var expandedImg = document.getElementById('expanded-img');
-            var currentIndex = Array.from(images).findIndex(img => img.src === expandedImg.src);
-            var newIndex = currentIndex + direction;
+            var photoFrames = document.querySelectorAll('.photo-frame');
+            var activePhoto = document.querySelector('.photo-frame.active');
+            var index = Array.from(photoFrames).indexOf(activePhoto);
 
-            if (newIndex < 0) {
-                newIndex = images.length - 1;
-            } else if (newIndex >= images.length) {
-                newIndex = 0;
+            // Usuń klasę active z obecnego zdjęcia
+            if (activePhoto) {
+                activePhoto.classList.remove('active');
             }
 
-            expandedImg.src = images[newIndex].src;
+            // Zmiana indeksu zdjęcia
+            index += direction;
+            if (index >= photoFrames.length) {
+                index = 0;
+            } else if (index < 0) {
+                index = photoFrames.length - 1;
+            }
+
+            // Ustawienie klasy active dla nowego zdjęcia
+            var newPhoto = photoFrames[index];
+            newPhoto.classList.add('active');
+
+            // Aktualizacja zdjęcia w overlayu
+            var newSrc = newPhoto.querySelector('img').src;
+            var expandedImg = document.getElementById('expanded-img');
+            expandedImg.src = newSrc;
         }
 
-        // Płynne pojawianie się zdjęć podczas przewijania
-        var photoFrames = document.querySelectorAll('.photo-frame');
-        var observer = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        });
+        // Pozostałe funkcje JavaScript
+        function toggleTabs() {
+            var tabs = document.querySelector('.tabs');
+            tabs.classList.toggle('expanded');
+        }
 
-        photoFrames.forEach(function(photoFrame) {
-            observer.observe(photoFrame);
-        });
+        function refreshPage() {
+            location.reload();
+        }
 
-        // Scrollowanie galerii
-        var galleryContainer = document.querySelector('.gallery-container');
-        var gallery = document.querySelector('.gallery');
-        var leftButton = document.querySelector('.left-button');
-        var rightButton = document.querySelector('.right-button');
+        function loadPortfolio() {
+            location.href = 'index.html';
+            var portfolioSection = document.getElementById('portfolio');
+            if (portfolioSection) {
+                var topPosition = portfolioSection.offsetTop;
+                window.scrollTo({
+                    top: topPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
 
-        leftButton.addEventListener('click', function() {
-            galleryContainer.scrollBy({
-                left: -300,
-                behavior: 'smooth'
-            });
-        });
+        function loadProjects() {
+            location.href = 'portfolio.html';
+        }
 
-        rightButton.addEventListener('click', function() {
-            galleryContainer.scrollBy({
-                left: 300,
-                behavior: 'smooth'
-            });
-        });
+        function loadBlog() {
+            location.href = 'blog.html';
+        }
+
+        function loadAbout() {
+            location.href = 'omnie.html';
+        }
     </script>
 </body>
 </html>
+
