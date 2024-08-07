@@ -298,6 +298,25 @@
         function loadAbout() {
             location.href = 'omnie.html';
         }
+
+        // script.js
+document.addEventListener('DOMContentLoaded', function () {
+    const gallery = document.querySelector('.gallery');
+    const leftButton = document.querySelector('.left-button');
+    const rightButton = document.querySelector('.right-button');
+    
+    let scrollAmount = 0;
+    const scrollStep = 300; // Adjust scroll step as needed
+
+    leftButton.addEventListener('click', function () {
+        gallery.scrollBy({ left: -scrollStep, behavior: 'smooth' });
+    });
+
+    rightButton.addEventListener('click', function () {
+        gallery.scrollBy({ left: scrollStep, behavior: 'smooth' });
+    });
+});
+
     </script>
 </body>
 </html>
