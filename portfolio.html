@@ -144,20 +144,6 @@
         </div>
     </div>
 
-     <div class="gallery-container">
-        <button class="scroll-button left-button">&lt;</button>
-        <div class="gallery">
-            <img src="gazety/Plansza3.jpg" alt="Obraz 1" onclick="showImage(this.src)">>
-            <img src="gazety/Plansza4.jpg" alt="Obraz 2" onclick="showImage(this.src)">>
-            <img src="gazety/Plansza1.jpg" alt="Obraz 3" onclick="showImage(this.src)">>
-            <img src="gazety/Plansza2.jpg" alt="Obraz 3" onclick="showImage(this.src)">>
-            <img src="gazety/Plansza2.jpg" alt="Obraz 3" onclick="showImage(this.src)">>
-            <img src="images/photo5.jpg" alt="Obraz 3" onclick="showImage(this.src)">>
-            <!-- Dodaj więcej obrazów według potrzeb -->
-        </div>
-        <button class="scroll-button right-button">&gt;</button>
-    </div>
-
     <div class="sticky-header">
         <a href="#" onclick="refreshPage()">ROGUE SYNTHESIS MEDIA</a>
     </div>
@@ -302,25 +288,6 @@
         function loadAbout() {
             location.href = 'omnie.html';
         }
-
-        // script.js
-document.addEventListener('DOMContentLoaded', function () {
-    const gallery = document.querySelector('.gallery');
-    const leftButton = document.querySelector('.left-button');
-    const rightButton = document.querySelector('.right-button');
-    
-    let scrollAmount = 0;
-    const scrollStep = 300; // Adjust scroll step as needed
-
-    leftButton.addEventListener('click', function () {
-        gallery.scrollBy({ left: -scrollStep, behavior: 'smooth' });
-    });
-
-    rightButton.addEventListener('click', function () {
-        gallery.scrollBy({ left: scrollStep, behavior: 'smooth' });
-    });
-});
-
     </script>
 </body>
 </html>
