@@ -192,6 +192,39 @@ body, h1, h2, h3, h4, h5, h6, p, a, div, span, li, button {
     right: 20px;
 }
 
+.gallery-container {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.gallery img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.scroll-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.left-button {
+    left: 0;
+}
+
+.right-button {
+    right: 0;
+}
+
 
 /* Paski nawigacyjne */
 .tabs {
