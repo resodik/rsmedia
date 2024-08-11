@@ -1,12 +1,7 @@
 @import url(fontawesome-all.min.css);
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600,700,300i,600i,700i|Raleway:600,800");
 
-/*
-	Paradigm Shift by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
-
+/* Resetowanie stylów dla wszystkich elementów */
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
 pre, a, abbr, acronym, address, big, cite,
@@ -18,19 +13,21 @@ tfoot, thead, tr, th, td, article, aside,
 canvas, details, embed, figure, figcaption,
 footer, header, hgroup, menu, nav, output, ruby,
 section, summary, time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	width: 100%;
-	vertical-align: baseline;}
-        
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    width: 100%;
+    vertical-align: baseline;
+}
 
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-	display: block;}
+    display: block;
+}
 
+/* Sekcja wideo tła */
 .video-section {
     position: absolute;
     top: 0;
@@ -92,9 +89,9 @@ footer, header, hgroup, menu, nav, section {
     text-align: center;
     padding: 10px 0;
     z-index: 1000;
-    display: none;
-    background-color: transparent;
-    box-shadow: 0px 2px 5px rgba(0,0,0,0);
+    display: block; /* Zmieniamy na 'block', aby był widoczny */
+    background-color: rgba(255, 255, 255, 0.9); /* Jasne tło, zmień jeśli potrzebujesz */
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.2); /* Lekki cień */
 }
 
 .sticky-header a {
@@ -103,24 +100,23 @@ footer, header, hgroup, menu, nav, section {
     font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
     font-size: 28px;
     font-weight: bold;
-    opacity: 0.3;
+    opacity: 1; /* Ustawiamy na pełną widoczność */
     margin-right: 20px;
 }
 
 /* Paski nawigacyjne */
 .tabs {
-    position: absolute;
+    position: fixed; /* Ustawiamy na 'fixed' aby był zawsze widoczny */
     top: 0;
     left: 0;
     right: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color:black;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: rgba(255, 255, 255, 0.8); /* Jasne tło z przezroczystością */
     padding: 10px 20px;
     z-index: 1000;
-    transition: height 0.3s ease;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.2); /* Lekki cień */
 }
 
 .tabs-left {
@@ -136,13 +132,13 @@ footer, header, hgroup, menu, nav, section {
     padding: 10px 20px;
     margin-right: 10px;
     border: none;
-    background-color: none;
-    opacity: 0;
+    background-color: transparent;
+    opacity: 1;
     transition: opacity 0.3s ease;
 }
 
 .tabs-left a:hover, .tabs-left button:hover {
-    opacity: 0;
+    opacity: 0.8; /* Mniejsze zmiany przezroczystości przy najechaniu */
 }
 
 .tabs-right {
@@ -189,9 +185,9 @@ footer, header, hgroup, menu, nav, section {
     margin-right: 10px;
     border: none;
     background-color: transparent;
-    opacity: 0.5;
+    opacity: 0.7;
     transition: opacity 0.3s ease;
-    color:black;
+    color: black;
 }
 
 .tabs a:hover {
@@ -207,7 +203,7 @@ footer, header, hgroup, menu, nav, section {
 
 .social-icons img {
     width: 30px;
-    margin: 0 -30px;
+    margin: 0 10px;
 }
 
 .hidden {
@@ -217,6 +213,16 @@ footer, header, hgroup, menu, nav, section {
 .section {
     padding: 50px 0;
     text-align: center;
+}
+
+/* Animacja fadeIn dla header-text */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 body {
