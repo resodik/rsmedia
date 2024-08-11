@@ -67,6 +67,13 @@ footer, header, hgroup, menu, nav, section {
     font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
 }
 
+.header-image {
+    width: 100%;
+    max-width: 400px; /* Szerokość obrazu */
+    height: auto;
+    margin-top: 20px;
+}
+
 /* Nagłówek przyczepny */
 .sticky-header {
     position: fixed;
