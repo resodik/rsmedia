@@ -64,20 +64,21 @@ video {
     animation: fadeIn 2s ease-in-out;
 }
 
+
 .header-text h1 {
     margin: 0;
     font-size: 48px;
     font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
     letter-spacing: 5px;
     font-weight: bold;
-    color: white;
+      color: white; /* Kolor tekstu nagłówków na biały */
 }
 
 .header-text h2 {
     margin: 0;
     font-size: 24px;
     font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
-    color: white;
+      color: white; /* Kolor tekstu nagłówków na biały */
 }
 
 /* Nagłówek przyczepny */
@@ -218,6 +219,7 @@ video {
     padding: 10px 20px;
     z-index: 1000;
     transition: height 0.3s ease;
+      font-weight: bold; /* Pogrubienie tekstu zakładek */
 }
 
 .tabs-left {
@@ -289,6 +291,7 @@ video {
     opacity: 0.5;
     transition: opacity 0.3s ease;
     color:black;
+     color: white; /* Kolor tekstu zakładek na biały */
 }
 
 .tabs a:hover {
