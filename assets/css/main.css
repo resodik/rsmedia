@@ -2739,9 +2739,6 @@ input, select, textarea {
 
 /* Table */
 
-.wrapper {
-    background-color: #baffc4; /* Zamień #desiredColor na kolor, który chcesz użyć */
-}
 
 	.table-wrapper {
 		-webkit-overflow-scrolling: touch;
