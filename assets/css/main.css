@@ -41,7 +41,7 @@ footer, header, hgroup, menu, nav, section {
     z-index: -1;
 }
 
-.video-section div {
+.video-section img {
     width: 100%;
     height: 100%;
     object-fit: cover;
