@@ -67,23 +67,15 @@ footer, header, hgroup, menu, nav, section {
     font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
 }
 
-.header-image {
-    width: 100%;
-    max-width: 400px; /* Szerokość obrazu */
-    height: auto;
-    margin-top: 20px;
+.header {
+    background: url('images/main-image.jpg') no-repeat center center/cover;
+    height: 100vh; /* lub dowolna inna wysokość */
+    color: #ffffff; /* Upewnij się, że tekst będzie czytelny na tle obrazu */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.container {
-    width: 80%;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0);
-    position: relative;
-    z-index: 999;
-    text-align: center;
-}
 
 /* Nagłówek przyczepny */
 .sticky-header {
