@@ -70,12 +70,14 @@ video {
     font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
     letter-spacing: 5px;
     font-weight: bold;
+    color: white;
 }
 
 .header-text h2 {
     margin: 0;
     font-size: 24px;
     font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
+    color: white;
 }
 
 /* Nagłówek przyczepny */
