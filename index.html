@@ -1,40 +1,50 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="https://github.com/resodik/rsmedia/blob/main/images/main-image.jpg?raw=true">
+    <meta property="og:url" content="https://www.roguesynthesis.com/portfolio">
+    <title>Rogue Synthesis Media</title>
+    <link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="portfolio-styles.css">
+    <style>
+        /* Nowe style do płynnego pojawiania się zdjęć podczas przewijania */
+        .photo-frame {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+        .photo-frame.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-<!DOCTYPE HTML>
-<!--
-	Paradigm Shift by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Rogue Synthesis Media</title>
-		<meta charset="utf-8" />
-		<meta property="og:image" content="https://github.com/resodik/rsmedia/blob/main/images/main-image.jpg">
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	
-	<body>
-
-		 <div class="header">
-        <div class="background-section">
-                 <img src="images/main-image.jpg" alt="Opis zdjęcia 0">
-    
-            </div>
-  
+        /* Styl przycisku zamknięcia */
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1001; /* Nad wszystkimi innymi elementami w overlayu */
+            color: white;
+        }
+    </style>
+</head>
+<body>
     <div class="header">
-    <div class="main-image">
-        <div class="overlay">
-            <h1>RogueSynthesis Media</h1>
-            <p>Twórca Nowego Świata</p>
+        <div class="video-section">
+            <video autoplay muted loop>
+                <source src="images/Video1a.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="header-text">
+            <h1>ROGUE SYNTHESIS MEDIA</h1>
+            <h2>Twórca Nowego Świata</h2>
         </div>
     </div>
-		 <div class="sticky-header">
-        <a href="#" onclick="refreshPage()">ROGUE SYNTHESIS MEDIA</a>
-    </div>
-		  
 
     <div class="tabs collapsed">
         <div class="tabs-left">
@@ -42,18 +52,20 @@
             <a href="javascript:void(0);" onclick="loadAbout()">O Mnie</a>
             <a href="javascript:void(0);" onclick="loadPortfolio()">Projekty</a>
             <a href="javascript:void(0);" onclick="loadBlog()">Blog</a>
+            
         </div>
         <div class="tabs-right">
             <div class="social-icons">
-                <a href="https://www.instagram.com/te_ren_" target="_blank"><img src="images/instagram-icon.png" alt="Instagram"></a>
-                <a href="https://www.tiktok.com/@te_ren__?_t=8oSXpwrD70S&_r=1" target="_blank"><img src="images/tiktok-icon.png" alt="TikTok"></a>
+                <a href="https://www.instagram.com/rogue.synthesis" target="_blank"><img src="images/instagram-icon.png" alt="Instagram"></a>
+                <a href="https://www.tiktok.com" target="_blank"><img src="images/tiktok-icon.png" alt="TikTok"></a>
             </div>
             <div class="expand-button" onclick="toggleTabs()">
                 <img src="images/expand-icon.png" alt="Expand Icon">
             </div>
         </div>
     </div>
-		
+
+
 	<body class="is-preload">
 
 		
