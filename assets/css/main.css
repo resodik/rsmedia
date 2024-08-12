@@ -1853,7 +1853,7 @@ input, select, textarea {
 		input[type="button"]:hover,
 		button:hover,
 		.button:hover {
-			box-shadow: inset 0 0 0 2px #4EB494;
+			box-shadow: inset 0 0 0 2px #61E2BA;
 			color: #4EB494; !important;
 		}
 
@@ -2228,7 +2228,7 @@ input, select, textarea {
 		input[type="checkbox"]:focus + label:before,
 		input[type="radio"]:focus + label:before {
 			border-color: #4EB494;
-			box-shadow: 0 0 0 1px #4EB494;
+			box-shadow: 0 0 0 1px #61E2BA;
 		}
 
 	input[type="checkbox"] + label:before {
