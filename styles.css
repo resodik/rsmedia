@@ -45,7 +45,7 @@ video {
     position: relative;
     width: 100%;
     height: 700px;
-    background: url('images/main-image.jpg') no-repeat center center/cover;
+    background: url('images/photo24.png') no-repeat center center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
