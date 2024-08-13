@@ -121,7 +121,7 @@ body, h1, h2, h3, h4, h5, h6, p, a, div, span, li, button {
     max-width: 1200px;
     margin: auto;
     padding: 20px;
-    background-color: #111;
+    background-color: black;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
