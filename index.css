@@ -195,6 +195,24 @@ h2 {
     margin-bottom: 20px;
 }
 
+/* Stylowanie dla powiększonego obrazu */
+.zoomable {
+    transition: transform 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out;
+    z-index: 1;
+}
+
+.zoomed {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) scale(1.5) !important;
+    width: auto !important;
+    height: auto !important;
+    cursor: zoom-out !important;
+    z-index: 1000 !important;
+}
+
+
 /* Paski nawigacyjne */
 .tabs {
     position: absolute;
