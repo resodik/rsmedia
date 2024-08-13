@@ -192,6 +192,62 @@ thumbnails.forEach((thumb, index) => {
         updateMainImage(index);
     });
 });
+	    const mainImage = document.querySelector('.main-image img');
+const thumbnails = document.querySelectorAll('.thumb');
+let currentIndex = 0;
+let isZoomed = false;
+
+// Funkcja do aktualizacji głównego zdjęcia
+function updateMainImage(index) {
+    mainImage.src = thumbnails[index].src;
+    document.querySelector('.thumb.active').classList.remove('active');
+    thumbnails[index].classList.add('active');
+}
+
+// Funkcje do nawigacji pomiędzy zdjęciami
+document.querySelector('.prev').addEventListener('click', () => {
+    currentIndex = (currentIndex > 0) ? currentIndex - 1 : thumbnails.length - 1;
+    updateMainImage(currentIndex);
+});
+
+document.querySelector('.next').addEventListener('click', () => {
+    currentIndex = (currentIndex < thumbnails.length - 1) ? currentIndex + 1 : 0;
+    updateMainImage(currentIndex);
+});
+
+// Dodanie zdarzenia kliknięcia do miniatur
+thumbnails.forEach((thumb, index) => {
+    thumb.addEventListener('click', () => {
+        currentIndex = index;
+        updateMainImage(index);
+    });
+});
+
+// Funkcja do powiększania i pomniejszania zdjęcia
+mainImage.addEventListener('click', () => {
+    if (!isZoomed) {
+        mainImage.style.position = 'fixed';
+        mainImage.style.top = '50%';
+        mainImage.style.left = '50%';
+        mainImage.style.transform = 'translate(-50%, -50%)';
+        mainImage.style.width = '80%';
+        mainImage.style.height = 'auto';
+        mainImage.style.zIndex = '1000';
+        mainImage.style.cursor = 'zoom-out';
+        isZoomed = true;
+    } else {
+        mainImage.style.position = 'relative';
+        mainImage.style.top = 'initial';
+        mainImage.style.left = 'initial';
+        mainImage.style.transform = 'none';
+        mainImage.style.width = '100%';
+        mainImage.style.height = 'auto';
+        mainImage.style.zIndex = 'initial';
+        mainImage.style.cursor = 'zoom-in';
+        isZoomed = false;
+    }
+});
+
 
     </script>
 </body>
