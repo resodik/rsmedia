@@ -1,9 +1,3 @@
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -13,8 +7,8 @@
     <meta property="og:url" content="https://www.roguesynthesis.com">
     <title>Rogue Synthesis Media</title>
     <link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="index.css">
-
+    <link rel="stylesheet" href="index.css">
+</head>
 <body>
     <div class="header">
         <div class="header-text">
@@ -41,8 +35,7 @@
         </div>
     </div>
 
-
- <section class="content-section">
+    <section class="content-section">
         <div class="gallery">
             <div class="main-image">
                 <button class="nav prev">&#10094;</button>
@@ -53,10 +46,9 @@
                 <img src="images/RENDERroom1.jpg" alt="Zdjęcie 1" class="thumb active">
                 <img src="images/RENDERroom2.jpg" alt="Zdjęcie 2" class="thumb">
                 <img src="images/RENDERroom3.jpg" alt="Zdjęcie 3" class="thumb">
-		<img src="images/RENDERroom4.jpg" alt="Zdjęcie 3" class="thumb">
-	        <img src="images/RENDERroom5.jpg" alt="Zdjęcie 3" class="thumb">
-		<img src="images/RENDERroom6.jpg" alt="Zdjęcie 3" class="thumb">
-                <!-- Dodaj więcej miniatur według potrzeb -->
+                <img src="images/RENDERroom4.jpg" alt="Zdjęcie 4" class="thumb">
+                <img src="images/RENDERroom5.jpg" alt="Zdjęcie 5" class="thumb">
+                <img src="images/RENDERroom6.jpg" alt="Zdjęcie 6" class="thumb">
             </div>
         </div>
         <div class="text-content">
@@ -64,191 +56,63 @@
             <p>Przykładowy tekst. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.</p>
         </div>
     </section>
-	
-
 
     <script>
-      var currentPhotoIndex = 0;
-        var photos = []; // Tablica na zdjęcia
+        const mainImage = document.querySelector('.main-image img');
+        const thumbnails = document.querySelectorAll('.thumb');
+        let currentIndex = 0;
+        let isZoomed = false;
 
-        window.onload = function() {
-            initializePhotos(); // Inicjalizacja zdjęć po załadowaniu strony
-        };
-
-        function initializePhotos() {
-            photos = document.querySelectorAll('.project-item img'); // Aktualizacja selektora, aby działał dla zdjęć w projektach
+        // Funkcja do aktualizacji głównego zdjęcia
+        function updateMainImage(index) {
+            mainImage.src = thumbnails[index].src;
+            document.querySelector('.thumb.active').classList.remove('active');
+            thumbnails[index].classList.add('active');
         }
 
-        window.onscroll = function() {
-            revealPhotos();
-        };
+        // Funkcje do nawigacji pomiędzy zdjęciami
+        document.querySelector('.prev').addEventListener('click', () => {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : thumbnails.length - 1;
+            updateMainImage(currentIndex);
+        });
 
-        function revealPhotos() {
-            var photoFrames = document.querySelectorAll('.photo-frame');
-            for (var i = 0; i < photoFrames.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = photoFrames[i].getBoundingClientRect().top;
-                var elementVisible = 150;
-                if (elementTop < windowHeight - elementVisible) {
-                    photoFrames[i].classList.add("visible");
-                }
+        document.querySelector('.next').addEventListener('click', () => {
+            currentIndex = (currentIndex < thumbnails.length - 1) ? currentIndex + 1 : 0;
+            updateMainImage(currentIndex);
+        });
+
+        // Dodanie zdarzenia kliknięcia do miniatur
+        thumbnails.forEach((thumb, index) => {
+            thumb.addEventListener('click', () => {
+                currentIndex = index;
+                updateMainImage(index);
+            });
+        });
+
+        // Funkcja do powiększania i pomniejszania zdjęcia
+        mainImage.addEventListener('click', () => {
+            if (!isZoomed) {
+                mainImage.style.position = 'fixed';
+                mainImage.style.top = '50%';
+                mainImage.style.left = '50%';
+                mainImage.style.transform = 'translate(-50%, -50%) scale(1.5)';
+                mainImage.style.width = 'auto';
+                mainImage.style.height = 'auto';
+                mainImage.style.zIndex = '1000';
+                mainImage.style.cursor = 'zoom-out';
+                isZoomed = true;
+            } else {
+                mainImage.style.position = 'relative';
+                mainImage.style.top = 'initial';
+                mainImage.style.left = 'initial';
+                mainImage.style.transform = 'none';
+                mainImage.style.width = '100%';
+                mainImage.style.height = 'auto';
+                mainImage.style.zIndex = 'initial';
+                mainImage.style.cursor = 'zoom-in';
+                isZoomed = false;
             }
-        }
-
-        // Funkcja do pokazywania powiększonego zdjęcia w overlay
-        function showImage(src) {
-            var overlay = document.getElementById('overlay');
-            var expandedImg = document.getElementById('expanded-img');
-
-            // Znajdź indeks zdjęcia
-            for (var i = 0; i < photos.length; i++) {
-                if (photos[i].src === src) {
-                    currentPhotoIndex = i;
-                    break;
-                }
-            }
-
-            expandedImg.src = src;
-            overlay.classList.remove('hidden');
-        }
-
-        // Funkcja do zamykania overlaya
-        function closeOverlay() {
-            var overlay = document.getElementById('overlay');
-            overlay.classList.add('hidden');
-        }
-
-        // Funkcja do zmiany zdjęcia w overlay (przyciski nawigacyjne)
-        function changePhoto(direction) {
-            currentPhotoIndex += direction;
-
-            if (currentPhotoIndex >= photos.length) {
-                currentPhotoIndex = 0;
-            } else if (currentPhotoIndex < 0) {
-                currentPhotoIndex = photos.length - 1;
-            }
-
-            var expandedImg = document.getElementById('expanded-img');
-            expandedImg.src = photos[currentPhotoIndex].src;
-        }
-
-        // Pozostałe funkcje JavaScript
-        function toggleTabs() {
-            var tabs = document.querySelector('.tabs');
-            tabs.classList.toggle('expanded');
-        }
-
-        function refreshPage() {
-            location.reload();
-        }
-
-        function loadPortfolio() {
-            location.href = 'index.html';
-            var portfolioSection = document.getElementById('portfolio');
-            if (portfolioSection) {
-                var topPosition = portfolioSection.offsetTop;
-                window.scrollTo({
-                    top: topPosition,
-                    behavior: 'smooth'
-                });
-            }
-        }
-
-        function loadProjects() {
-            location.href = 'portfolio.html';
-        }
-
-        function loadBlog() {
-            location.href = 'blog.html';
-        }
-
-        function loadAbout() {
-            location.href = 'omnie.html';
-        }
-
-	    const mainImage = document.querySelector('.main-image img');
-const thumbnails = document.querySelectorAll('.thumb');
-let currentIndex = 0;
-
-function updateMainImage(index) {
-    mainImage.src = thumbnails[index].src;
-    document.querySelector('.thumb.active').classList.remove('active');
-    thumbnails[index].classList.add('active');
-}
-
-document.querySelector('.prev').addEventListener('click', () => {
-    currentIndex = (currentIndex > 0) ? currentIndex - 1 : thumbnails.length - 1;
-    updateMainImage(currentIndex);
-});
-
-document.querySelector('.next').addEventListener('click', () => {
-    currentIndex = (currentIndex < thumbnails.length - 1) ? currentIndex + 1 : 0;
-    updateMainImage(currentIndex);
-});
-
-thumbnails.forEach((thumb, index) => {
-    thumb.addEventListener('click', () => {
-        currentIndex = index;
-        updateMainImage(index);
-    });
-});
-	    const mainImage = document.querySelector('.main-image img');
-const thumbnails = document.querySelectorAll('.thumb');
-let currentIndex = 0;
-let isZoomed = false;
-
-// Funkcja do aktualizacji głównego zdjęcia
-function updateMainImage(index) {
-    mainImage.src = thumbnails[index].src;
-    document.querySelector('.thumb.active').classList.remove('active');
-    thumbnails[index].classList.add('active');
-}
-
-// Funkcje do nawigacji pomiędzy zdjęciami
-document.querySelector('.prev').addEventListener('click', () => {
-    currentIndex = (currentIndex > 0) ? currentIndex - 1 : thumbnails.length - 1;
-    updateMainImage(currentIndex);
-});
-
-document.querySelector('.next').addEventListener('click', () => {
-    currentIndex = (currentIndex < thumbnails.length - 1) ? currentIndex + 1 : 0;
-    updateMainImage(currentIndex);
-});
-
-// Dodanie zdarzenia kliknięcia do miniatur
-thumbnails.forEach((thumb, index) => {
-    thumb.addEventListener('click', () => {
-        currentIndex = index;
-        updateMainImage(index);
-    });
-});
-
-// Funkcja do powiększania i pomniejszania zdjęcia
-mainImage.addEventListener('click', () => {
-    if (!isZoomed) {
-        mainImage.style.position = 'fixed';
-        mainImage.style.top = '50%';
-        mainImage.style.left = '50%';
-        mainImage.style.transform = 'translate(-50%, -50%)';
-        mainImage.style.width = '80%';
-        mainImage.style.height = 'auto';
-        mainImage.style.zIndex = '1000';
-        mainImage.style.cursor = 'zoom-out';
-        isZoomed = true;
-    } else {
-        mainImage.style.position = 'relative';
-        mainImage.style.top = 'initial';
-        mainImage.style.left = 'initial';
-        mainImage.style.transform = 'none';
-        mainImage.style.width = '100%';
-        mainImage.style.height = 'auto';
-        mainImage.style.zIndex = 'initial';
-        mainImage.style.cursor = 'zoom-in';
-        isZoomed = false;
-    }
-});
-
-
+        });
     </script>
 </body>
 </html>
