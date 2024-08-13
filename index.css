@@ -114,10 +114,10 @@ body, h1, h2, h3, h4, h5, h6, p, a, div, span, li, button {
 
 .content-section {
     display: flex;
-    width: 80%;
     max-width: 1200px;
     background-color: #111;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: auto;
 }
 
 .gallery {
