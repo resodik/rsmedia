@@ -75,3 +75,31 @@ document.querySelectorAll('.section').forEach(section => {
        function loadBlog() {
             location.href = 'blog.html';
         }
+
+const mainImage = document.querySelector('.main-image img');
+const thumbnails = document.querySelectorAll('.thumb');
+let currentIndex = 0;
+
+function updateMainImage(index) {
+    mainImage.src = thumbnails[index].src;
+    document.querySelector('.thumb.active').classList.remove('active');
+    thumbnails[index].classList.add('active');
+}
+
+document.querySelector('.prev').addEventListener('click', () => {
+    currentIndex = (currentIndex > 0) ? currentIndex - 1 : thumbnails.length - 1;
+    updateMainImage(currentIndex);
+});
+
+document.querySelector('.next').addEventListener('click', () => {
+    currentIndex = (currentIndex < thumbnails.length - 1) ? currentIndex + 1 : 0;
+    updateMainImage(currentIndex);
+});
+
+thumbnails.forEach((thumb, index) => {
+    thumb.addEventListener('click', () => {
+        currentIndex = index;
+        updateMainImage(index);
+    });
+});
+
