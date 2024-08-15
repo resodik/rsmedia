@@ -135,10 +135,12 @@ body, h1, h2, h3, h4, h5, h6, p, a, div, span, li, button {
 
 .main-image {
     position: relative;
-    width: 50%;  /* Zdjęcie zajmuje połowę szerokości sekcji */
+    width: 50%; /* Zdjęcie zajmuje połowę szerokości sekcji */
     overflow: hidden;
-    margin-right:10px;
+    margin-right: 10px;
+    margin-left: 100px; /* Przesuwa główne zdjęcie w prawo */
 }
+
 
 .main-image img {
     width: 100%;
