@@ -117,10 +117,10 @@ body, h1, h2, h3, h4, h5, h6, p, a, div, span, li, button {
 .content-section {
     display: flex;
     justify-content: center;
-    align-items: center;
-    width: 100%;  /* Szerokość sekcji na całą szerokość strony */
-    margin: 0;    /* Usuń margines, aby sekcja zajmowała całą szerokość strony */
-    padding: 0;   /* Usuń padding, aby sekcja zajmowała całą szerokość strony */
+    align-items: flex-start;
+    width: 80%;
+    margin: 0;
+    padding: 0;
     background-color: black;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -130,16 +130,19 @@ body, h1, h2, h3, h4, h5, h6, p, a, div, span, li, button {
     flex: auto;
     align-items: center;
     padding: 20px; /* Dodaj padding, aby zdjęcia nie były przyklejone do krawędzi */
+    margin-right:-600px;
 }
 
 .main-image {
     position: relative;
     width: 50%;  /* Zdjęcie zajmuje połowę szerokości sekcji */
     overflow: hidden;
+    margin-right:10px;
 }
 
 .main-image img {
     width: 100%;
+    margin-right:20px;
     height: auto;
     object-fit: cover;
 }
@@ -185,16 +188,18 @@ body, h1, h2, h3, h4, h5, h6, p, a, div, span, li, button {
 }
 
 .text-content {
-    flex: 1;
+    flex: 1; /* Zajmuje 1/3 szerokości kontenera */
     padding: 40px;
     box-sizing: border-box;
     text-align: left;
     color: white;
+    
 }
 
 h2 {
     font-size: 24px;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
+    
 }
 
 /* Stylowanie dla powiększonego obrazu */
