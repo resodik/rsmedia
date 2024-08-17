@@ -235,7 +235,7 @@ h2 {
     /* width: 80%; */
     margin: 0;
     padding: 0;
-    background-color: white;
+    background-color: white !important;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
