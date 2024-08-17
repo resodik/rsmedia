@@ -228,6 +228,79 @@ h2 {
 }
 
 
+.content-section1 {
+    display: flex;
+    justify-content: space-between; /* Rozdziela tekst i galerię */
+    align-items: flex-start;
+    /* width: 80%; */
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.gallery1 {
+    display: flex;
+    flex: auto;
+    align-items: center;
+    padding: 20px; /* Dodaj padding, aby zdjęcia nie były przyklejone do krawędzi */
+    margin-right:-600px;
+}
+
+/* Kontener na zdjęcie główne */
+.main-image1 {
+    position: relative;
+    width: 800px; /* Stała szerokość */
+    height: 400px; /* Stała wysokość */
+    overflow: hidden;
+    margin-right: 10px;
+    margin-left: 100px; /* Przesuwa zdjęcie w prawo */
+}
+
+.main-image1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Dopasowuje zdjęcie do kontenera, zachowując proporcje */
+    display: block;
+}
+
+/* Kontener na tekst */
+.text-content1 {
+    flex: 1; /* Zajmuje pozostałą przestrzeń */
+    padding: 40px;
+    box-sizing: border-box;
+    text-align: left;
+    color: white;
+    max-width: 100%; /* Maksymalna szerokość, aby nie zajmował całej przestrzeni */
+    margin-right: -80px; /* Odstęp od galerii */
+    padding-right:200px;
+}
+h21 {
+    font-size: 24px;
+    margin-bottom: 50px;
+    
+}
+
+/* Stylowanie dla powiększonego obrazu */
+.zoomable1 {
+    transition: transform 0.3s ease-in-out, top 0.3s ease-in-out, left 0.3s ease-in-out;
+    z-index: 1;
+}
+
+.zoomed1 {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) scale(1.5) !important;
+    width: auto !important;
+    height: auto !important;
+    cursor: zoom-out !important;
+    z-index: 1000 !important;
+}
+
+
+
+
 /* Paski nawigacyjne */
 .tabs {
     position: absolute;
