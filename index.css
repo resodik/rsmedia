@@ -270,7 +270,7 @@ h2 {
     padding: 40px;
     box-sizing: border-box;
     text-align: left;
-    color: white;
+    color: black;
     max-width: 100%; /* Maksymalna szerokość, aby nie zajmował całej przestrzeni */
     margin-right: -80px; /* Odstęp od galerii */
     padding-right:200px;
