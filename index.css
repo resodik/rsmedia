@@ -538,14 +538,17 @@ h3 {
     .header {
         height: 300px; /* Dopasuj wysokość nagłówka */
     }
+     .header-text {
+        left: 45%; /* Dalsze przesunięcie dla bardzo małych ekranów */
+    }
 
     .header-text h1 {
-        font-size: 22px;
+       font-size: 8vw; /* Jeszcze większy rozmiar czcionki dla telefonów */
         transform: translateY(20px);
     }
 
     .header-text h2 {
-        font-size: 12px;
+        font-size: 4vw;
         transform: translateY(20px);
     }
 
