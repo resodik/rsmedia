@@ -136,7 +136,7 @@ body, h1, h2, h3, h4, h5, h6, p, a, div, span, li, button {
 /* Kontener na zdjęcie główne */
 .main-image {
     position: relative;
-    width: 800px; /* Stała szerokość */
+    width: 560px; /* Stała szerokość */
     height: 400px; /* Stała wysokość */
     overflow: hidden;
     margin-right: 10px;
