@@ -60,26 +60,29 @@ h3 {
     background: url('images/photo24.png') no-repeat center center/cover;
 }
 
+/* Przesunięcie nagłówków w prawo */
 .header-text {
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 55%; /* Przesunięcie bardziej w prawo */
     transform: translate(-50%, -50%);
     animation: fadeIn 2s ease-in-out;
+    text-align: right; /* Wyśrodkowanie tekstu w prawo */
 }
 
+/* Responsywność tekstu */
 .header-text h1 {
     margin: 0;
-    font-size: 48px;
-    font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
+    font-size: 4vw; /* Rozmiar czcionki zależny od szerokości okna */
+    font-family: 'Helvetica Neue', sans-serif;
     letter-spacing: 5px;
     font-weight: bold;
 }
 
 .header-text h2 {
     margin: 0;
-    font-size: 24px;
-    font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
+    font-size: 2vw; /* Rozmiar czcionki zależny od szerokości okna */
+    font-family: 'Helvetica Neue', sans-serif;
 }
 
 /* Nagłówek przyczepny */
@@ -126,6 +129,7 @@ h3 {
     padding: 0;
     background-color: black;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 150px;
 }
 
 .gallery {
@@ -443,16 +447,21 @@ h3 {
         height: 500px; /* Dopasuj wysokość nagłówka */
     }
 
-    .header-text h1 {
-        font-size: 36px;
+      .header-text {
+        left: 50%; /* Dopasowanie dla mniejszych ekranów */
     }
+
+    .header-text h1 {
+    font-size: 6vw; /* Większy rozmiar czcionki dla mniejszych ekranów */
+    }
+        
 
     .header-text h2 {
         font-size: 18px;
     }
 
     .container {
-        width: 90%; /* Dopasuj szerokość kontenera */
+        font-size: 3vw;
     }
 
     .tabs a {
