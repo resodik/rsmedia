@@ -25,6 +25,9 @@ body {
 body, h1, h2, h4, h5, h6, p, a, div, span, li, button {
     color: white !important;
 }
+h3 {
+    color: black !important;
+}
 
 /* Tło maski */
 .mask {
