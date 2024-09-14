@@ -60,15 +60,7 @@ h3 {
     background: url('images/photo24.png') no-repeat center center/cover;
 }
 
-/* Przesunięcie nagłówków w prawo */
-.header-text {
-    position: absolute;
-    top: 50%;
-    left: 55%; /* Przesunięcie bardziej w prawo */
-    transform: translate(-50%, -50%);
-    animation: fadeIn 2s ease-in-out;
-    text-align: right; /* Wyśrodkowanie tekstu w prawo */
-}
+
 
 /* Responsywność tekstu */
 .header-text h1 {
