@@ -3,14 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:image" content="https://github.com/resodik/rsmedia/blob/main/images/photo.png">
-    <meta property="og:url" content="https://www.roguesynthesis.com">
+    <meta property="og:image" content="https://github.com/resodik/rsmedia/blob/main/images/main-image.jpg?raw=true">
+    <meta property="og:url" content="https://www.roguesynthesis.com/portfolio">
     <title>Rogue Synthesis Media</title>
     <link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="portfolio-styles.css">
+    <style>
+        /* Nowe style do płynnego pojawiania się zdjęć podczas przewijania */
+        .photo-frame {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+        .photo-frame.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Styl przycisku zamknięcia */
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1001; /* Nad wszystkimi innymi elementami w overlayu */
+            color: white;
+        }
+    </style>
 </head>
 <body>
     <div class="header">
+        <div class="video-section">
+            <video autoplay muted loop>
+                <source src="images/Video1a.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
         <div class="header-text">
             <h1>ROGUE SYNTHESIS MEDIA</h1>
             <h2>Twórca Nowego Świata</h2>
@@ -23,17 +52,27 @@
             <a href="javascript:void(0);" onclick="loadAbout()">O Mnie</a>
             <a href="javascript:void(0);" onclick="loadPortfolio()">Projekty</a>
             <a href="javascript:void(0);" onclick="loadBlog()">Blog</a>
+            
         </div>
         <div class="tabs-right">
             <div class="social-icons">
-                <a href="https://www.instagram.com/te_ren_" target="_blank"><img src="images/instagram-icon.png" alt="Instagram"></a>
-                <a href="https://www.tiktok.com/@te_ren__?_t=8oSXpwrD70S&_r=1" target="_blank"><img src="images/tiktok-icon.png" alt="TikTok"></a>
+                <a href="https://www.instagram.com/rogue.synthesis" target="_blank"><img src="images/instagram-icon.png" alt="Instagram"></a>
+                <a href="https://www.tiktok.com" target="_blank"><img src="images/tiktok-icon.png" alt="TikTok"></a>
             </div>
             <div class="expand-button" onclick="toggleTabs()">
                 <img src="images/expand-icon.png" alt="Expand Icon">
             </div>
         </div>
     </div>
+
+    <div class="overlay hidden" id="overlay">
+        <span class="prev-btn" onclick="changePhoto(-1)">&#10094;</span>
+        <img src="" class="expanded-img" id="expanded-img" alt="Powiększone zdjęcie">
+        <span class="next-btn" onclick="changePhoto(1)">&#10095;</span>
+        <div class="close-btn" onclick="closeOverlay()">✕</div> <!-- Krzyżyk do zamknięcia overlaya -->
+    </div>
+
+    <div id="portfolio" class="gallery">
 
     <section class="content-section">
         <div class="gallery">
