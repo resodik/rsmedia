@@ -1,8 +1,3 @@
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -53,11 +48,10 @@
 
     <div class="tabs collapsed">
         <div class="tabs-left">
-            <a href="javascript:void(0);" onclick="loadProjects()">Portfolio</a>
-            <a href="javascript:void(0);" onclick="loadAbout()">O Mnie</a>
-            <a href="javascript:void(0);" onclick="loadPortfolio()">Projekty</a>
-            <a href="javascript:void(0);" onclick="loadBlog()">Blog</a>
-            
+            <a href="#portfolio">Portfolio</a>
+            <a href="#about">O Mnie</a>
+            <a href="#projects">Projekty</a>
+            <a href="#blog">Blog</a>
         </div>
         <div class="tabs-right">
             <div class="social-icons">
@@ -70,78 +64,38 @@
         </div>
     </div>
 
+    <div id="portfolio" class="gallery">
+        <!-- Zdjęcia w galerii -->
+        <h2>Portfolio</h2>
+        <div class="photo-frame">
+            <img src="images/main-image.jpg" alt="Opis zdjęcia 0" onclick="showImage(this.src)">
+        </div>
+        <!-- Kolejne zdjęcia -->
+    </div>
+
+    <!-- Sekcja O Mnie -->
+    <section id="about">
+        <h2>O Mnie</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec est nisi.</p>
+    </section>
+
+    <!-- Sekcja Projekty -->
+    <section id="projects">
+        <h2>Projekty</h2>
+        <p>Projekty będą tutaj opisane.</p>
+    </section>
+
+    <!-- Sekcja Blog -->
+    <section id="blog">
+        <h2>Blog</h2>
+        <p>Blogowe posty będą tutaj wyświetlane.</p>
+    </section>
+
     <div class="overlay hidden" id="overlay">
         <span class="prev-btn" onclick="changePhoto(-1)">&#10094;</span>
         <img src="" class="expanded-img" id="expanded-img" alt="Powiększone zdjęcie">
         <span class="next-btn" onclick="changePhoto(1)">&#10095;</span>
         <div class="close-btn" onclick="closeOverlay()">✕</div> <!-- Krzyżyk do zamknięcia overlaya -->
-    </div>
-
-    <div id="portfolio" class="gallery">
-        <!-- Zdjęcia w galerii -->
-        <div class="photo-frame">
-            <img src="images/main-image.jpg" alt="Opis zdjęcia 0" onclick="showImage(this.src)">
-        </div>
-        <div class="photo-frame">
-            <img src="images/photo1.jpg" alt="Opis zdjęcia 1" onclick="showImage(this.src)">
-        </div>
-        <div class="photo-frame">
-            <img src="images/photo2.jpg" alt="Opis zdjęcia 2" onclick="showImage(this.src)">
-        </div>
-        <div class="photo-frame">
-            <img src="images/photo8.png" alt="Opis zdjęcia 8" onclick="showImage(this.src)">
-        </div>
-        <div class="photo-frame">
-            <img src="images/photo9.png" alt="Opis zdjęcia 9" onclick="showImage(this.src)">
-        </div>
-        <div class="photo-frame">
-            <img src="images/photo10.png" alt="Opis zdjęcia 10" onclick="showImage(this.src)">
-        </div>
-        <div class="photo-frame">
-            <img src="images/photo18.png" alt="Opis zdjęcia 18" onclick="showImage(this.src)">
-        </div>
-        <div class="photo-frame">
-            <img src="images/photo19.png" alt="Opis zdjęcia 19" onclick="showImage(this.src)">
-        </div>
-        <div class="photo-frame">
-            <img src="images/photo20.png" alt="Opis zdjęcia 20" onclick="showImage(this.src)">
-        </div>
-        <div class="photo-frame">
-            <img src="images/photo21.png" alt="Opis zdjęcia 21" onclick="showImage(this.src)">
-        </div>
-        <div class="photo-frame">
-            <img src="images/photo22.png" alt="Opis zdjęcia 22" onclick="showImage(this.src)">
-        </div>
-        <div class="photo-frame">
-            <img src="images/photo24.png" alt="Opis zdjęcia 23" onclick="showImage(this.src)">
-        </div>
-        <div class="photo-frame">
-            <img src="images/photo23.png" alt="Opis zdjęcia 24" onclick="showImage(this.src)">
-        </div>
-        <div class="photo-frame">
-            <img src="images/photo25.png" alt="Opis zdjęcia 25" onclick="showImage(this.src)">
-        </div>
-        <div class="photo-frame">
-            <img src="images/photo26.png" alt="Opis zdjęcia 26" onclick="showImage(this.src)">
-        </div>
-        <div class="photo-frame">
-            <img src="images/photo27.png" alt="Opis zdjęcia 27" onclick="showImage(this.src)">
-        </div>
-        <div class="photo-frame">
-            <img src="images/photo28.png" alt="Opis zdjęcia 28" onclick="showImage(this.src)">
-        </div>
-        <div class="photo-frame">
-            <img src="images/photo33.png" alt="Opis zdjęcia 33" onclick="showImage(this.src)">
-        </div>
-        <div class="photo-frame">
-            <img src="images/photo29.png" alt="Opis zdjęcia 29" onclick="showImage(this.src)">
-        </div>
-        <div class="photo-frame">
-            <img src="images/photo30.png" alt="Opis zdjęcia 30" onclick="showImage(this.src)">
-        </div>
-        <div class="photo-frame">
-            <img src="images/photo31.png" alt="Opis zdjęcia 31" onclick="showImage(this.src)">
-        </div>
     </div>
 
     <div class="sticky-header">
@@ -150,7 +104,7 @@
 
     <script src="scripts.js"></script> <!-- Skrypty JavaScript -->
     <script>
-        // Skrypty JavaScript
+        // JavaScript from the original script
         var currentPhotoIndex = 0;
         var photos = []; // Tablica na zdjęcia
 
@@ -178,115 +132,10 @@
             }
         }
 
-        // Funkcja do pokazywania powiększonego zdjęcia w overlay
-        function showImage(src) {
-            var overlay = document.getElementById('overlay');
-            var expandedImg = overlay.querySelector('.expanded-img');
-            var photoFrames = document.querySelectorAll('.photo-frame');
-
-            expandedImg.src = src;
-            overlay.classList.remove('hidden');
-
-            // Znajdź aktywne zdjęcie i usuń klasę active
-            var activePhoto = document.querySelector('.photo-frame.active');
-            if (activePhoto) {
-                activePhoto.classList.remove('active');
-            }
-
-            // Ustaw aktywne zdjęcie na to, które zostało kliknięte
-            for (var i = 0; i < photoFrames.length; i++) {
-                if (photoFrames[i].querySelector('img').src === src) {
-                    photoFrames[i].classList.add('active');
-                }
-            }
-
-            // Dodaj event listener do zdjęcia, aby można było kliknąć je, by je zamknąć
-            expandedImg.onclick = function(event) {
-                if (event.target === this) { // Sprawdź, czy kliknięto na zdjęcie
-                    closeOverlay();
-                }
-            };
-
-            // Obsługa kliknięcia na krzyżyku do zamknięcia overlaya
-            var closeBtn = overlay.querySelector('.close-btn');
-            closeBtn.onclick = function() {
-                closeOverlay();
-            };
-        }
-
-        // Funkcja do zamykania overlaya
-        function closeOverlay() {
-            var overlay = document.getElementById('overlay');
-            overlay.classList.add('hidden');
-
-            // Usuń klasę active z aktywnego zdjęcia w galerii
-            var activePhoto = document.querySelector('.photo-frame.active');
-            if (activePhoto) {
-                activePhoto.classList.remove('active');
-            }
-        }
-
-        // Funkcja do zmiany zdjęcia w overlay (przyciski nawigacyjne)
-        function changePhoto(direction) {
-            var photoFrames = document.querySelectorAll('.photo-frame');
-            var activePhoto = document.querySelector('.photo-frame.active');
-            var index = Array.from(photoFrames).indexOf(activePhoto);
-
-            // Usuń klasę active z obecnego zdjęcia
-            if (activePhoto) {
-                activePhoto.classList.remove('active');
-            }
-
-            // Zmiana indeksu zdjęcia
-            index += direction;
-            if (index >= photoFrames.length) {
-                index = 0;
-            } else if (index < 0) {
-                index = photoFrames.length - 1;
-            }
-
-            // Ustawienie klasy active dla nowego zdjęcia
-            var newPhoto = photoFrames[index];
-            newPhoto.classList.add('active');
-
-            // Aktualizacja zdjęcia w overlayu
-            var newSrc = newPhoto.querySelector('img').src;
-            var expandedImg = document.getElementById('expanded-img');
-            expandedImg.src = newSrc;
-        }
-
-        // Pozostałe funkcje JavaScript
-        function toggleTabs() {
-            var tabs = document.querySelector('.tabs');
-            tabs.classList.toggle('expanded');
-        }
-
-        function refreshPage() {
-            location.reload();
-        }
-
-        function loadPortfolio() {
-            location.href = 'index.html';
-            var portfolioSection = document.getElementById('portfolio');
-            if (portfolioSection) {
-                var topPosition = portfolioSection.offsetTop;
-                window.scrollTo({
-                    top: topPosition,
-                    behavior: 'smooth'
-                });
-            }
-        }
-
-        function loadProjects() {
-            location.href = 'portfolio.html';
-        }
-
-        function loadBlog() {
-            location.href = 'blog.html';
-        }
-
-        function loadAbout() {
-            location.href = 'omnie.html';
+        // Add functions to scroll to sections
+        function scrollToSection(id) {
+            const section = document.getElementById(id);
+            section.scrollIntoView({ behavior: "smooth" });
         }
     </script>
 </body>
