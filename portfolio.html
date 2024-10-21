@@ -288,6 +288,117 @@
         function loadAbout() {
             location.href = 'omnie.html';
         }
+
+        <body>
+    <div class="tabs collapsed">
+        <div class="tabs-left">
+           <a href="javascript:void(0);" onclick="loadProjects()">Portfolio</a>
+           <a href="javascript:void(0);" onclick="loadAbout()">O Mnie</a>
+           <a href="javascript:void(0);" onclick="loadPortfolio()">Projekty</a>
+           <a href="javascript:void(0);" onclick="loadBlog()">Blog</a>
+        </div>
+        <div class="tabs-right">
+            <div class="social-icons">
+                <a href="https://www.instagram.com/rogue.synthesis" target="_blank"><img src="images/instagram-icon.png" alt="Instagram"></a>
+                <a href="https://www.tiktok.com" target="_blank"><img src="images/tiktok-icon.png" alt="TikTok"></a>
+            </div>
+            <div class="expand-button" onclick="toggleTabs()">
+                <img src="images/expand-icon.png" alt="Expand Icon">
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="header-text">
+            <h1>Rogue Synthesis Media</h1>
+            <h2>Tworzenie gier i modeli 3D</h2>
+        </div>
+        <div class="mask"></div>
+    </header>
+
+    <div class="sticky-header">
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="omnie.html">O Mnie</a>
+        <a href="blog.html">Blog</a>
+    </div>
+
+    <section class="home" id="home">
+        <div class="home-content">
+            <h1><span>Renata Sobieniak</span></h1>
+            <h3 class="text-animation">3D designer</span></h3>
+            <p>Nazywam się Renata Sobieniak i specjalizuję się w dziedzinie grafiki 3D oraz level designu. Ukończyłam studia z zakresu projektowania gier komputerowych i aplikacji, gdzie miałam okazję zrealizować swój projekt dyplomowy – eksploracyjno-zręcznościową grę wideo.</p>
+
+            <div class="social-icons">
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+            </div>
+            <div class="btn-group">
+                <a href="#" class="btn">Kontakt</a>
+            </div>
+        </div>
+        <div class="home-img">
+            <img src="images/ja.jpg" alt="">
+        </div>
+    </section>
+
+    <section class="services">
+        <h2>Moje Usługi</h2>
+        <div class="services-container">
+            <div class="service-box">
+                <div class="service-info">
+                    <h4>Modelowanie 3D</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium tempore rerum beatae autem consectetur, ipsum aut, ut neque molestiae veniam necessitatibus quisquam explicabo natus minima quas vel incidunt, unde perferendis!</p>
+                </div>
+            </div>
+            <div class="service-box">
+                <div class="service-info">
+                    <h4>Projektowanie Gier</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium tempore rerum beatae autem consectetur, ipsum aut, ut neque molestiae veniam necessitatibus quisquam explicabo natus minima quas vel incidunt, unde perferendis!</p>
+                </div>
+            </div>
+            <div class="service-box">
+                <div class="service-info">
+                    <h4>Skany 3D</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium tempore rerum beatae autem consectetur, ipsum aut, ut neque molestiae veniam necessitatibus quisquam explicabo natus minima quas vel incidunt, unde perferendis!</p>
+                </div>
+            </div>
+            <div class="service-box">
+                <div class="service-info">
+                    <h4>Fotogrametria</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium tempore rerum beatae autem consectetur, ipsum aut, ut neque molestiae veniam necessitatibus quisquam explicabo natus minima quas vel incidunt, unde perferendis!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects" id="portfolio">
+        <h2>Projekty</h2>
+        <div class="projects-container">
+            <!-- Przykładowe projekty -->
+            <div class="project-box">
+                <div class="project-info">
+                    <h4>Latarnia Morska</h4>
+                    <p>Model latarni morskiej stworzony w Blenderze oraz zaimplementowany w Unreal Engine 5. Projekt obejmuje modelowanie, teksturowanie oraz rendering.</p>
+                    <img src="images/latarnia.jpg" alt="Latarnia Morska">
+                </div>
+            </div>
+            <div class="project-box">
+                <div class="project-info">
+                    <h4>Projekt Gry</h4>
+                    <p>Projekt gry eksploracyjno-zręcznościowej stworzony jako projekt dyplomowy. Gra wykorzystuje zaawansowane techniki level designu oraz grafiki 3D.</p>
+                    <img src="images/projekt-gry.jpg" alt="Projekt Gry">
+                </div>
+            </div>
+            <!-- Dodaj więcej projektów według potrzeby -->
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+
+
     </script>
 </body>
 </html>
