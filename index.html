@@ -1,166 +1,72 @@
-
 <!DOCTYPE html>
 <html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:image" content="https://github.com/resodik/rsmedia/blob/main/images/photo.png">
-    <meta property="og:url" content="https://www.roguesynthesis.com">
-    <title>Rogue Synthesis Media</title>
-    <link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="index.css">
-</head>
-<body>
-    <div class="header">
-        <div class="header-text">
-            <h1>ROGUE SYNTHESIS MEDIA</h1>
-            <h2>Twórca Nowego Świata</h2>
-        </div>
-    </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Techwear Demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        background: linear-gradient(180deg, #0a0a2a, #000);
+        color: white;
+      }
+    </style>
+  </head>
+  <body class="font-sans">
+    <!-- Navbar -->
+    <nav class="flex justify-between items-center px-10 py-6 text-sm uppercase tracking-wide">
+      <div class="text-xl font-bold">Techwear</div>
+      <ul class="flex gap-6">
+        <li><a href="#" class="hover:text-blue-400">Explore</a></li>
+        <li><a href="#" class="hover:text-blue-400">Marketplace</a></li>
+        <li><a href="#" class="hover:text-blue-400">Resources</a></li>
+        <li><a href="#" class="hover:text-blue-400">FAQ</a></li>
+      </ul>
+    </nav>
 
-    <div class="tabs collapsed">
-        <div class="tabs-left">
-            <a href="javascript:void(0);" onclick="loadProjects()">Portfolio</a>
-            <a href="javascript:void(0);" onclick="loadAbout()">O Mnie</a>
-            <a href="javascript:void(0);" onclick="loadPortfolio()">Projekty</a>
-            <a href="javascript:void(0);" onclick="loadBlog()">Blog</a>
-        </div>
-        <div class="tabs-right">
-            <div class="social-icons">
-                <a href="https://www.instagram.com/te_ren_" target="_blank"><img src="images/instagram-icon.png" alt="Instagram"></a>
-                <a href="https://www.tiktok.com/@te_ren__?_t=8oSXpwrD70S&_r=1" target="_blank"><img src="images/tiktok-icon.png" alt="TikTok"></a>
-            </div>
-            <div class="expand-button" onclick="toggleTabs()">
-                <img src="images/expand-icon.png" alt="Expand Icon">
-            </div>
-        </div>
-    </div>
-
-    <section class="content-section">
-        <div class="gallery">
-            <div class="main-image">
-                <button class="nav prev">&#10094;</button>
-                <img src="images/RENDERroom1.jpg" alt="Zdjęcie 1" class="zoomable">
-                <button class="nav next">&#10095;</button>
-            </div>
-            <div class="thumbnails">
-                <img src="images/RENDERroom1.jpg" alt="Zdjęcie 1" class="thumb active">
-                <img src="images/RENDERroom2.jpg" alt="Zdjęcie 2" class="thumb">
-                <img src="images/RENDERroom3.jpg" alt="Zdjęcie 3" class="thumb">
-                <img src="images/RENDERroom4.jpg" alt="Zdjęcie 4" class="thumb">
-                <img src="images/RENDERroom5.jpg" alt="Zdjęcie 5" class="thumb">
-                <img src="images/RENDERroom6.jpg" alt="Zdjęcie 6" class="thumb">
-            </div>
-        </div>
-        <div class="text-content">
-            <h2>DESIGN 3D</h2>
-            <p>Przykładowy tekst. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.</p>
-        </div>
+    <!-- Hero Section -->
+    <section class="text-center py-20 relative overflow-hidden">
+      <h1 class="text-[10vw] font-black leading-none text-white opacity-10 absolute top-10 left-1/2 transform -translate-x-1/2 z-0">ROAD</h1>
+      <img src="https://i.ibb.co/yRzYhrX/cyber-character.png" alt="Hero" class="w-72 mx-auto relative z-10" />
+      <h2 class="text-3xl font-semibold z-10 relative">SLAMTHINGS</h2>
+      <button class="mt-4 px-6 py-2 bg-blue-500 rounded-full font-bold hover:bg-blue-600">Discover</button>
     </section>
 
-    <section class="content-section1">
-        <div class="gallery1">
-            <div class="main-image1">
-       
-            
-            </div>
-        </div>
-        <div class="text-content1">
-            <h3>Skany 3D i fotogrametria</h3>
-            <p>Przykładowy tekst. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.</p>
-        </div>
+    <!-- Mission Section -->
+    <section class="py-20 text-center max-w-3xl mx-auto">
+      <h3 class="text-4xl font-bold mb-4 text-blue-400">Our Mission is Simple</h3>
+      <p class="text-gray-300 text-lg leading-relaxed">
+        We want to impact <strong>(A Billion+)</strong> people around the world in a positive way. We help market and advertise companies & individuals that also share the same mission.
+      </p>
+      <button class="mt-6 px-6 py-2 bg-blue-500 rounded-full font-bold hover:bg-blue-600">Discover</button>
     </section>
 
-    <script>
-        const mainImage = document.querySelector('.main-image img, .main-image1 img');
-        const thumbnails = document.querySelectorAll('.thumb');
-        let currentIndex = 0;
-        let isZoomed = false;
+    <!-- Product Teaser Section -->
+    <section class="py-20 text-center">
+      <h4 class="text-2xl font-semibold mb-6">+ Product Types</h4>
+      <div class="flex justify-center gap-10 flex-wrap">
+        <div>
+          <img src="https://i.ibb.co/kBJY7yP/futuristic-jacket.png" class="w-40 mx-auto mb-2" />
+          <p>Futuristic Jacket</p>
+        </div>
+        <div>
+          <img src="https://i.ibb.co/jLTw7PR/futuristic-backpack.png" class="w-40 mx-auto mb-2" />
+          <p>Backpack Gear</p>
+        </div>
+      </div>
+    </section>
 
-        // Funkcja do aktualizacji głównego zdjęcia
-        function updateMainImage(index) {
-            mainImage.src = thumbnails[index].src;
-            document.querySelector('.thumb.active').classList.remove('active');
-            thumbnails[index].classList.add('active');
-        }
-
-        // Funkcje do nawigacji pomiędzy zdjęciami
-        document.querySelector('.prev').addEventListener('click', () => {
-            currentIndex = (currentIndex > 0) ? currentIndex - 1 : thumbnails.length - 1;
-            updateMainImage(currentIndex);
-        });
-
-        document.querySelector('.next').addEventListener('click', () => {
-            currentIndex = (currentIndex < thumbnails.length - 1) ? currentIndex + 1 : 0;
-            updateMainImage(currentIndex);
-        });
-
-        // Dodanie zdarzenia kliknięcia do miniatur
-        thumbnails.forEach((thumb, index) => {
-            thumb.addEventListener('click', () => {
-                currentIndex = index;
-                updateMainImage(index);
-            });
-        });
-
-        // Funkcja do powiększania i pomniejszania zdjęcia
-        mainImage.addEventListener('click', () => {
-            if (!isZoomed) {
-                mainImage.style.position = 'fixed';
-                mainImage.style.top = '50%';
-                mainImage.style.left = '50%';
-                mainImage.style.transform = 'translate(-50%, -50%) scale(1)';
-                mainImage.style.width = 'auto';
-                mainImage.style.height = '70%';
-                mainImage.style.zIndex = '1000';
-                mainImage.style.cursor = 'zoom-out';
-                isZoomed = true;
-            } else {
-                mainImage.style.position = 'relative';
-                mainImage.style.top = 'initial';
-                mainImage.style.left = 'initial';
-                mainImage.style.transform = 'none';
-                mainImage.style.width = '100%';
-                mainImage.style.height = 'auto';
-                mainImage.style.zIndex = 'initial';
-                mainImage.style.cursor = 'zoom-in';
-                isZoomed = false;
-            }
-        });
-
-            // Pozostałe funkcje JavaScript
-        function toggleTabs() {
-            var tabs = document.querySelector('.tabs');
-            tabs.classList.toggle('expanded');
-        }
-
-        function refreshPage() {
-            location.reload();
-        }
-
-        function loadPortfolio() {
-            location.href = 'index.html';
-            var portfolioSection = document.getElementById('portfolio');
-            if (portfolioSection) {
-                var topPosition = portfolioSection.offsetTop;
-                window.scrollTo({
-                    top: topPosition,
-                    behavior: 'smooth'
-                });
-            }
-        }
-
-        function loadProjects() {
-            location.href = 'portfolio.html';
-        }
-
-        function loadBlog() {
-            location.href = 'blog.html';
-        }
-
-        function loadAbout() {
-            location.href = 'omnie.html';
-        }
-    </script>
-</body>
+    <!-- 3D Character Showcase -->
+    <section class="py-20 text-center bg-[#111122]">
+      <h3 class="text-3xl font-bold text-blue-300 mb-6">Meet Our Avatars</h3>
+      <p class="text-gray-400 mb-10 max-w-xl mx-auto">
+        Our virtual characters are designed to explore new dimensions of identity, techwear and immersive experiences.
+      </p>
+      <img
+        src="https://i.ibb.co/ZM14zZJ/3d-avatar.png"
+        alt="3D Avatar"
+        class="w-60 mx-auto rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
+      />
+    </section>
+  </body>
 </html>
