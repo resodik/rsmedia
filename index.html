@@ -1,166 +1,705 @@
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:image" content="https://github.com/resodik/rsmedia/blob/main/images/photo.png">
-    <meta property="og:url" content="https://www.roguesynthesis.com">
-    <title>Rogue Synthesis Media</title>
-    <link href="https://fonts.googleapis.com/css2?family=Helvetica:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="index.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Moje Portfolio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at center, #1a3bff 0%, #0a1a52 60%, #000010 100%);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: none;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 50px 70px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo img {
+      height: 40px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 35px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 120px 20px 80px;
+    }
+
+    .hero h1 {
+      font-size: 150px;
+      margin: 0;
+      letter-spacing: -3px;
+      z-index: 1;
+      position: relative;
+    }
+
+    .hero img {
+      width: 500px;
+      max-width: 100%;
+      margin-top: -250px;
+      border-radius: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .scrolling-logos {
+      overflow: hidden;
+      background: radial-gradient(circle at center, #000010, #0a1a52);
+      padding: 20px 0;
+    }
+
+    .logos-track {
+      display: flex;
+      width: max-content;
+      animation: scroll 20s linear infinite;
+      gap: 100px;
+    }
+
+    .logos-track img {
+      height: 40px;
+      opacity: 0.9;
+      transition: transform 0.3s ease;
+    }
+
+    .logos-track img:hover {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+
+    @keyframes scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .section-heading {
+      background: radial-gradient(circle at center, #0a1a52 0%, #000010 100%);
+      text-align: center;
+      padding: 60px 20px 30px;
+    }
+.section-heading1 {
+      background: black;
+      text-align: center;
+      padding: 60px 20px 30px;
+    }
+
+.section-heading2 {
+      background: radial-gradient(circle at center, #0a1a52 0%, #000010 100%);
+      text-align: center;
+      padding: 60px 20px 30px;
+    }
+
+.section-heading3 {
+      background: linear-gradient(#0c0b12, #07093D  );
+      text-align: center;
+      padding: 60px 20px 30px;
+    }
+
+
+
+    .section-heading h2 {
+      font-size: 48px;
+      margin: 0;
+      color: #ffffff;
+      letter-spacing: 2px;
+    }
+
+    .section-heading p {
+      font-size: 18px;
+      color: #cccccc;
+      max-width: 800px;
+      margin: 20px auto 0;
+      line-height: 1.5;
+    }
+
+    .gallery {
+      padding: 5px 20px;
+      display: grid;
+      gap: 10px;
+      background: #000010;
+    }
+
+    .gallery-3 {
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: auto;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+.full-image-section {
+  margin-top: 0px;
+  text-align: center;
+background: white;
+}
+
+.full-width-image {
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  transition: transform 0.3s ease;
+  
+}
+
+.full-width-image:hover {
+  transform: scale(1.01);
+}
+
+
+
+.fullscreen-img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  cursor: default; /* Usuwa „lupkę” */
+}
+
+.fullscreen-img img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+}
+    .video-section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    video, .gif {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+.highlight-section {
+  background-color: #0c0b12;
+  color: white;
+  padding: 80px 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.highlight-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.highlight-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 60px;
+}
+
+.highlight-header h2 {
+  flex: 1 1 50%;
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.highlight-header p {
+  flex: 1 1 45%;
+  font-size: 16px;
+  color: #cccccc;
+  line-height: 1.6;
+}
+
+.highlight-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.highlight-card {
+  background: linear-gradient(to bottom right, #1a0d1f, #120c18);
+  border: 1px solid #3a003c;
+  padding: 30px;
+  border-radius: 15px;
+  flex: 1 1 250px;
+  max-width: 280px;
+  transition: transform 0.3s ease;
+}
+
+.highlight-card:hover {
+  transform: translateY(-5px);
+}
+
+.highlight-card .icon {
+  font-size: 40px;
+  color: #ff4fc4;
+  margin-bottom: 15px;
+}
+
+.highlight-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.highlight-card p {
+  font-size: 14px;
+  color: #aaa;
+  line-height: 1.5;
+}
+
+
+    /* Nowoczesna sekcja gallery-5 */
+    .gallery-5.modern-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px 20px;
+      background: #000010;
+    }
+
+    .gallery-5.modern-gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery-5.modern-gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(255,255,255,0.3);
+    }
+
+    /* Styl dla nowej sekcji overlay-slider */
+  .overlay-slider {
+  padding: 40px 20px;
+  background: none;
+  max-width: 600px;
+  margin-bottom: 60px;
+  text-align: left;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 70px;
+}
+
+
+    .overlay-slider .images-container {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      max-height: 400px;
+      overflow: hidden;
+      border-radius: 15px;
+     
+    }
+
+    .overlay-slider .images-container img {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 15px;
+      opacity: 0;
+      transition: opacity 0.7s ease;
+      pointer-events: none;
+    }
+
+    .overlay-slider .images-container img.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Slider input styl */
+    .overlay-slider input[type=range] {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 8px;
+      background: none;
+      border-radius: 5px;
+      outline: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      margin-top: 15px;
+    }
+
+    .overlay-slider input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 24px;
+      height: 24px;
+      background: none;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      margin-top: -8px;
+      box-shadow: 0 0 8px rgba(51, 90, 255, 0.7);
+    }
+
+    .overlay-slider input[type=range]:hover {
+      background:none;
+    }
+
+    .overlay-slider input[type=range]::-moz-range-thumb {
+      width: 24px;
+      height: 24px;
+      background: none;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 0 8px rgba(51, 90, 255, 0.7);
+      transition: background 0.3s ease;
+    }
+
+    /* Kontrolki przycisków */
+    .overlay-slider .controls {
+      margin-top: 10px;
+
+    }
+
+    .overlay-slider button {
+      background: none;
+      border: none;
+      color: none;
+      font-size: 20px;
+      padding: 6px 14px;
+      margin: 0 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      user-select: none;
+    }
+
+    .overlay-slider button:hover {
+      background: none;
+
+    }
+
+    @media (max-width: 1200px) {
+      .gallery-3 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 60px;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .gallery-3 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .gallery-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .overlay-slider .images-container {
+        height: 250px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="header">
-        <div class="header-text">
-            <h1>ROGUE SYNTHESIS MEDIA</h1>
-            <h2>Twórca Nowego Świata</h2>
-        </div>
+
+<header>
+  <div class="logo">
+    <img src="images/logo.png" alt="Moje Logo">
+
+  </div>
+
+<!-- Lightbox / Fullscreen -->
+<div class="fullscreen-img" id="fullscreen">
+  <img id="fullscreen-img" src="" alt="Powiększone zdjęcie">
+</div>
+
+
+  <nav>
+    <a href="#">Explore</a>
+    <a href="#">Marketplace</a>
+    <a href="#">Resources</a>
+    <a href="#">FAQ</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>PORTFOLIO</h1>
+  <img src="images/1tlo.png" alt="">
+</section>
+
+<section class="scrolling-logos">
+  <div class="logos-track">
+    <img src="logo/ps1.png" alt="Photoshop">
+    <img src="logo/ai1.png" alt="Illustrator">
+    <img src="logo/premiere1.png" alt="Premiere">
+    <img src="logo/polycam.png" alt="Polycam">
+    <img src="logo/rokoko.png" alt="Rokoko">
+    <img src="logo/metahuman1.png" alt="Metahuman">
+    <img src="logo/unreal2.png" alt="Unreal Engine">
+    <img src="logo/blender1.png" alt="Blender">
+    <img src="logo/o.png" alt="">
+    <img src="logo/o.png" alt="">
+    <img src="logo/ps1.png" alt="Photoshop">
+    <img src="logo/ai1.png" alt="Illustrator">
+    <img src="logo/premiere1.png" alt="Premiere">
+    <img src="logo/polycam.png" alt="Polycam">
+    <img src="logo/rokoko.png" alt="Rokoko">
+    <img src="logo/metahuman1.png" alt="Metahuman">
+    <img src="logo/unreal2.png" alt="Unreal Engine">
+    <img src="logo/blender1.png" alt="Blender">
+  </div>
+</section>
+
+<section class="section-heading">
+  <h2>Game Environments</h2>
+  <p>Wizualizacje i rendery 3D przedstawiające światy gier stworzone w moim portfolio — od koncepcji po finalny render.</p>
+</section>
+
+<section class="gallery gallery-3">
+  <img src="galeria/1.png" alt="">
+  <img src="galeria/2.png" alt="">
+  <img src="galeria/3.png" alt="">
+  <img src="galeria/6.png" alt="">
+  <img src="galeria/5.png" alt="">
+  <img src="galeria/4.png" alt="">
+  <img src="galeria/12.png" alt="">
+  <img src="galeria/10.png" alt="">
+  <img src="galeria/11.png" alt="">
+  <img src="galeria/9.png" alt="">
+  <img src="galeria/7.png" alt="">
+  <img src="galeria/8.png" alt="">
+  <img src="galeria/13.png" alt="">
+  <img src="galeria/14.png" alt="">
+  <img src="galeria/15.png" alt="">
+  <img src="galeria/16.png" alt="">
+  <img src="galeria/17.png" alt="">
+  <img src="galeria/18.png" alt="">
+  <img src="galeria/19.png" alt="">
+  <img src="galeria/20.png" alt="">
+  <img src="galeria/21.png" alt="">
+  <img src="galeria/22.png" alt="">
+  <img src="galeria/23.png" alt="">
+  <img src="galeria/24.png" alt="">
+</section>
+
+<section class="section-heading1">
+  <h2>Level Design</h2>
+  <p>Wizualizacje i rendery 3D przedstawiające światy gier stworzone w moim portfolio — od koncepcji po finalny render.</p>
+
+</section>
+
+<!-- Nowoczesna wersja sekcji gallery-5 -->
+<section class="gallery gallery-5 modern-gallery">
+  <img src="portfolio/Plansza5.jpg" alt="">
+  <img src="portfolio/Plansza1.jpg" alt="">
+  <img src="portfolio/Plansza3.jpg" alt="">
+  <img src="portfolio/Plansza4.jpg" alt="">
+  <img src="portfolio/Plansza2.jpg" alt="">
+</section>
+
+<section class="full-image-section">
+  <img src="images/mapa1.png" alt="Dodatkowa plansza" class="full-width-image">
+</section>
+
+
+<section class="highlight-section">
+  <div class="highlight-container">
+    <div class="highlight-header">
+      <h2>DLACZEGO NASZA PRACOWNIA TO STRZAŁ W DZIESIĄTKĘ?</h2>
+      <p>Zespół specjalistów z pasją do detalu i innowacji. Łączymy kreatywność, technologię i doświadczenie, by tworzyć niepowtarzalne rozwiązania dopasowane do Twoich potrzeb.</p>
     </div>
 
-    <div class="tabs collapsed">
-        <div class="tabs-left">
-            <a href="javascript:void(0);" onclick="loadProjects()">Portfolio</a>
-            <a href="javascript:void(0);" onclick="loadAbout()">O Mnie</a>
-            <a href="javascript:void(0);" onclick="loadPortfolio()">Projekty</a>
-            <a href="javascript:void(0);" onclick="loadBlog()">Blog</a>
-        </div>
-        <div class="tabs-right">
-            <div class="social-icons">
-                <a href="https://www.instagram.com/te_ren_" target="_blank"><img src="images/instagram-icon.png" alt="Instagram"></a>
-                <a href="https://www.tiktok.com/@te_ren__?_t=8oSXpwrD70S&_r=1" target="_blank"><img src="images/tiktok-icon.png" alt="TikTok"></a>
-            </div>
-            <div class="expand-button" onclick="toggleTabs()">
-                <img src="images/expand-icon.png" alt="Expand Icon">
-            </div>
-        </div>
+    <div class="highlight-cards">
+      <div class="highlight-card">
+        <div class="icon">🎯</div>
+        <h3>INDYWIDUALNE PODEJŚCIE</h3>
+        <p>Każdy projekt traktujemy unikalnie. Słuchamy, doradzamy i dostosowujemy działania do Twojej wizji.</p>
+      </div>
+      <div class="highlight-card">
+        <div class="icon">🧠</div>
+        <h3>DOŚWIADCZENIE I WIEDZA</h3>
+        <p>Lata praktyki i setki realizacji pozwalają nam działać szybko, sprawnie i skutecznie.</p>
+      </div>
+      <div class="highlight-card">
+        <div class="icon">🛡️</div>
+        <h3>PEWNOŚĆ I BEZPIECZEŃSTWO</h3>
+        <p>Z nami masz gwarancję przejrzystości, terminowości i poufności – na każdym etapie współpracy.</p>
+      </div>
+      <div class="highlight-card">
+        <div class="icon">🚀</div>
+        <h3>NOWOCZESNE TECHNOLOGIE</h3>
+        <p>Wykorzystujemy aktualne trendy i narzędzia, by Twoje projekty były funkcjonalne i atrakcyjne.</p>
+      </div>
     </div>
+  </div>
+</section>
 
-    <section class="content-section">
-        <div class="gallery">
-            <div class="main-image">
-                <button class="nav prev">&#10094;</button>
-                <img src="images/RENDERroom1.jpg" alt="Zdjęcie 1" class="zoomable">
-                <button class="nav next">&#10095;</button>
-            </div>
-            <div class="thumbnails">
-                <img src="images/RENDERroom1.jpg" alt="Zdjęcie 1" class="thumb active">
-                <img src="images/RENDERroom2.jpg" alt="Zdjęcie 2" class="thumb">
-                <img src="images/RENDERroom3.jpg" alt="Zdjęcie 3" class="thumb">
-                <img src="images/RENDERroom4.jpg" alt="Zdjęcie 4" class="thumb">
-                <img src="images/RENDERroom5.jpg" alt="Zdjęcie 5" class="thumb">
-                <img src="images/RENDERroom6.jpg" alt="Zdjęcie 6" class="thumb">
-            </div>
-        </div>
-        <div class="text-content">
-            <h2>DESIGN 3D</h2>
-            <p>Przykładowy tekst. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.</p>
-        </div>
-    </section>
 
-    <section class="content-section1">
-        <div class="gallery1">
-            <div class="main-image1">
-       
-            
-            </div>
-        </div>
-        <div class="text-content1">
-            <h3>Skany 3D i fotogrametria</h3>
-            <p>Przykładowy tekst. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.</p>
-        </div>
-    </section>
 
-    <script>
-        const mainImage = document.querySelector('.main-image img, .main-image1 img');
-        const thumbnails = document.querySelectorAll('.thumb');
-        let currentIndex = 0;
-        let isZoomed = false;
+<section class="section-heading3">
+  <h2>Game Character</h2>
+  <p>Wizualizacje i rendery 3D przedstawiające światy gier stworzone w moim portfolio — od koncepcji po finalny render.</p>
+</section>
 
-        // Funkcja do aktualizacji głównego zdjęcia
-        function updateMainImage(index) {
-            mainImage.src = thumbnails[index].src;
-            document.querySelector('.thumb.active').classList.remove('active');
-            thumbnails[index].classList.add('active');
-        }
 
-        // Funkcje do nawigacji pomiędzy zdjęciami
-        document.querySelector('.prev').addEventListener('click', () => {
-            currentIndex = (currentIndex > 0) ? currentIndex - 1 : thumbnails.length - 1;
-            updateMainImage(currentIndex);
-        });
+<!-- NOWA SEKCJA overlay-slider -->
+<section class="overlay-slider">
+  <div class="images-container">
+    <img src="overlay/mesh1.png" alt="Mesh 1" class="active">
+    <img src="overlay/mesh3.png" alt="Mesh 3">
+    <img src="overlay/mesh5.png" alt="Mesh 5">
 
-        document.querySelector('.next').addEventListener('click', () => {
-            currentIndex = (currentIndex < thumbnails.length - 1) ? currentIndex + 1 : 0;
-            updateMainImage(currentIndex);
-        });
 
-        // Dodanie zdarzenia kliknięcia do miniatur
-        thumbnails.forEach((thumb, index) => {
-            thumb.addEventListener('click', () => {
-                currentIndex = index;
-                updateMainImage(index);
-            });
-        });
+  </div>
+  <input type="range" id="imageRange" min="0" max="2" value="0" step="1">
+  <div class="controls">
+    <button id="prev-btn">&lt;</button>
+    <button id="next-btn">&gt;</button>
+  </div>
+</section>
 
-        // Funkcja do powiększania i pomniejszania zdjęcia
-        mainImage.addEventListener('click', () => {
-            if (!isZoomed) {
-                mainImage.style.position = 'fixed';
-                mainImage.style.top = '50%';
-                mainImage.style.left = '50%';
-                mainImage.style.transform = 'translate(-50%, -50%) scale(1)';
-                mainImage.style.width = 'auto';
-                mainImage.style.height = '70%';
-                mainImage.style.zIndex = '1000';
-                mainImage.style.cursor = 'zoom-out';
-                isZoomed = true;
-            } else {
-                mainImage.style.position = 'relative';
-                mainImage.style.top = 'initial';
-                mainImage.style.left = 'initial';
-                mainImage.style.transform = 'none';
-                mainImage.style.width = '100%';
-                mainImage.style.height = 'auto';
-                mainImage.style.zIndex = 'initial';
-                mainImage.style.cursor = 'zoom-in';
-                isZoomed = false;
-            }
-        });
 
-            // Pozostałe funkcje JavaScript
-        function toggleTabs() {
-            var tabs = document.querySelector('.tabs');
-            tabs.classList.toggle('expanded');
-        }
+<section class="video-section">
+  <h2>Film i GIF</h2>
+  <video src="images/final.mp4" controls loop></video>
+  <video src="images/final2.mp4" controls loop></video>
+  <img class="gif" src="images/rez.gif" alt="Animowany GIF" />
+</section>
 
-        function refreshPage() {
-            location.reload();
-        }
+<script>
+  // Kod do overlay-slidera
+  const images = document.querySelectorAll('.overlay-slider .images-container img');
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+  const slider = document.getElementById('imageRange');
 
-        function loadPortfolio() {
-            location.href = 'index.html';
-            var portfolioSection = document.getElementById('portfolio');
-            if (portfolioSection) {
-                var topPosition = portfolioSection.offsetTop;
-                window.scrollTo({
-                    top: topPosition,
-                    behavior: 'smooth'
-                });
-            }
-        }
+  let currentIndex = 0;
+  let autoSlideInterval;
+  let isUserControlling = false;
+  let resumeTimeout;
 
-        function loadProjects() {
-            location.href = 'portfolio.html';
-        }
+  function showImage(index) {
+    currentIndex = index;
+    images.forEach((img, i) => {
+      img.classList.toggle('active', i === index);
+    });
+    slider.value = index;
+  }
 
-        function loadBlog() {
-            location.href = 'blog.html';
-        }
+  function nextImage() {
+    let nextIndex = (currentIndex + 1) % images.length;
+    showImage(nextIndex);
+  }
 
-        function loadAbout() {
-            location.href = 'omnie.html';
-        }
-    </script>
+  function prevImage() {
+    let prevIndex = (currentIndex - 1 + images.length) % images.length;
+    showImage(prevIndex);
+  }
+
+  prevBtn.addEventListener('click', () => {
+    prevImage();
+    pauseAutoSlide();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    nextImage();
+    pauseAutoSlide();
+  });
+
+  slider.addEventListener('input', (e) => {
+    showImage(parseInt(e.target.value));
+    pauseAutoSlide();
+  });
+
+  function startAutoSlide() {
+    autoSlideInterval = setInterval(() => {
+      if (!isUserControlling) {
+        nextImage();
+      }
+    }, 1500);
+  }
+
+  function pauseAutoSlide() {
+    isUserControlling = true;
+    clearInterval(autoSlideInterval);
+    clearTimeout(resumeTimeout);
+    resumeTimeout = setTimeout(() => {
+      isUserControlling = false;
+      startAutoSlide();
+    }, 2000);
+  }
+
+  // Start animacji automatycznej
+  showImage(currentIndex);
+  startAutoSlide();
+
+// Obsługa kliknięcia na obrazek z galerii (zarówno gallery-3, jak i gallery-5)
+document.querySelectorAll('.gallery img').forEach(img => {
+  img.addEventListener('click', () => {
+    document.getElementById('fullscreen-img').src = img.src;
+    document.getElementById('fullscreen').style.display = 'flex';
+  });
+});
+
+// Zamknięcie lightboxa po kliknięciu poza obrazek
+document.getElementById('fullscreen').addEventListener('click', () => {
+  document.getElementById('fullscreen').style.display = 'none';
+});
+
+</script>
+
 </body>
 </html>
