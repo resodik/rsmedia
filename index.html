@@ -707,8 +707,8 @@ nav {
 <section class="highlight-section">
   <div class="highlight-container">
     <div class="highlight-header">
-      <h2>technologie</h2>
-      <p>fotogram, motion capture.</p>
+      <h2>DLACZEGO NASZA PRACOWNIA TO STRZAŁ W DZIESIĄTKĘ?</h2>
+      <p>Zespół specjalistów z pasją do detalu i innowacji. Łączymy kreatywność, technologię i doświadczenie, by tworzyć niepowtarzalne rozwiązania dopasowane do Twoich potrzeb.</p>
     </div>
 
     <div class="highlight-cards">
@@ -770,6 +770,76 @@ nav {
   </div>
 </section>
 
+<section style="background-color: #0d0b11; color: white; font-family: Arial, sans-serif; padding: 60px 20px;">
+  <div style="max-width: 1200px; margin: auto;">
+    <h2 style="font-size: 40px; text-align: center; margin-bottom: 40px;">Nasze Realizacje</h2>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; gap: 20px;">
+      
+      <!-- Lewy górny róg: Zdjęcie -->
+      <div>
+        <img src="fotogrametria/mht.png" alt="Projekt 1" style="width: 100%; border-radius: 12px;">
+      </div>
+
+      <!-- Prawy górny róg: Opis -->
+      <div style="display: flex; align-items: center; background-color: #141218; border-radius: 12px; padding: 20px;">
+        <p style="font-size: 16px; line-height: 1.6;">
+          Realizujemy kompleksowe projekty z zakresu grafiki 2D i 3D, animacji oraz pełnych gier. Nasze zespoły łączą kreatywność i technologię, aby dostarczać unikalne wizje w każdej produkcji.
+        </p>
+      </div>
+
+      <!-- Lewy dolny róg: Zdjęcie -->
+      <div>
+        <img src="galeria/obrazek2.jpg" alt="Projekt 2" style="width: 100%; border-radius: 12px;">
+      </div>
+
+      <!-- Prawy dolny róg: Zdjęcie -->
+      <div>
+        <img src="galeria/obrazek3.jpg" alt="Projekt 3" style="width: 100%; border-radius: 12px;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background-color: #0d0b11; color: white; font-family: Arial, sans-serif; padding: 60px 20px;">
+  <div style="max-width: 1200px; margin: auto;">
+   
+    <!-- Górna ramka z 2 obrazkami i tytułem po środku -->
+    <div style="flex: 1; min-width: 250px; display: flex; justify-content: center;">       
+      
+      <!-- Środek: tytuł -->
+      <div style="flex: 1; min-width: 250px; text-align: center;">
+        <h2 style="font-size: 28px; font-weight: bold; margin: 0;">FOTOGRAMETRIA</h2>
+<p style="font-size: 16px; line-height: 1.6;">
+          Realizujemy kompleksowe projekty z zakresu grafiki 2D i 3D, animacji oraz pełnych gier. Nasze zespoły łączą kreatywność i technologię, aby dostarczać unikalne wizje w każdej produkcji.
+        </p>
+
+      </div>
+
+      <!-- Prawy obrazek -->
+      <div style="flex: 1; min-width: 250px; display: flex; justify-content: center;">
+        <img src="fotogrametria/mht.png" alt="Right Top" style="max-width: 100%; height: auto; border-radius: 8px;">
+      </div>
+
+    </div>
+
+  
+      
+
+<!-- DOLNA SEKCJA Z VIDEO I PNG -->
+<div style="display: flex; flex-wrap: wrap; margin-top: 30px; background-color: TRANSPARENT; border-radius: 12px; overflow: hidden; padding: 20px; gap: 20px; justify-content: space-between; align-items: center;">
+
+  <!-- Lewy dolny (video) -->
+  <div style="flex: 1; min-width: 250px; display: flex; justify-content: center;">
+    <video src="video/mhc4.mp4" autoplay muted loop playsinline style="max-width: 100%; height: auto; border-radius: 8px;"></video>
+  </div>
+
+  <!-- Prawy dolny (PNG) -->
+  <div style="flex: 1; min-width: 250px; display: flex; justify-content: center;">
+    <img src="fotogrametria/SCAN3.png" alt="Right Top" style="max-width: 100%; height: auto; max-height: 200px; border-radius: 8px;">
+  </div>
+
+</div>
 
 <section style="background-color: #0d0b11; color: white; font-family: Arial, sans-serif; padding: 60px 20px;">
   <div style="max-width: 1200px; margin: auto;">
@@ -966,6 +1036,29 @@ document.getElementById('fullscreen').addEventListener('click', () => {
       fullscreenImage.src = "";
     });
   });
+<script>
+  // LIGHTBOX – kliknięcie powiększające obrazek
+  document.addEventListener("DOMContentLoaded", function () {
+    const fullscreenContainer = document.getElementById("fullscreen");
+    const fullscreenImage = document.getElementById("fullscreen-img");
+
+    // Nasłuchiwanie kliknięć na obrazki z klasami galerii
+    document.querySelectorAll(".gallery img, .gallery-5 img, .modern-gallery img, .right-images img, .full-width-image").forEach((img) => {
+      img.addEventListener("click", function () {
+        fullscreenImage.src = this.src;
+        fullscreenContainer.style.display = "flex";
+      });
+    });
+
+    // Kliknięcie poza obrazek zamyka fullscreen
+    fullscreenContainer.addEventListener("click", function () {
+      fullscreenContainer.style.display = "none";
+      fullscreenImage.src = "";
+    });
+  });
+</script>
+
+
 </script>
 
 
