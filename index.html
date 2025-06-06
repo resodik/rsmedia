@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Moje Portfolio</title>
+
   <style>
     * {
       box-sizing: border-box;
@@ -45,17 +46,52 @@
       font-weight: 500;
     }
 
-    .hero {
-      text-align: center;
-      padding: 120px 20px 80px;
-    }
+   .hero {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* pełna wysokość okna przeglądarki */
+  overflow: hidden;
+}
+
+.hero video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5); /* opcjonalne przyciemnienie */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
 
     .hero h1 {
-      font-size: 150px;
+      font-size: 50px;
       margin: 0;
-      letter-spacing: -3px;
+      letter-spacing: 0px;
       z-index: 1;
       position: relative;
+margin-top: 250px;
     }
 
     .hero img {
@@ -163,7 +199,7 @@
 .full-image-section {
   margin-top: 0px;
   text-align: center;
-background: white;
+background: #000010;
 }
 
 .full-width-image {
@@ -203,10 +239,11 @@ background: white;
     .video-section {
       padding: 60px 20px;
       text-align: center;
+
     }
 
     video, .gif {
-      max-width: 100%;
+      max-width: 30%;
       border-radius: 10px;
       margin-bottom: 20px;
     }
@@ -309,111 +346,199 @@ background: white;
       box-shadow: 0 0 15px rgba(255,255,255,0.3);
     }
 
-    /* Styl dla nowej sekcji overlay-slider */
-  .overlay-slider {
-  padding: 40px 20px;
-  background: none;
-  max-width: 600px;
-  margin-bottom: 60px;
-  text-align: left;
-  user-select: none;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-left: 70px;
+   
+/* Responsywność */
+@media (max-width: 900px) {
+  .overlay-flex-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .overlay-slider,
+  .right-images {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .right-images {
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .right-images img {
+    width: 48%;
+  }
 }
 
+.projects-section {
+  background-color: #0a0a14;
+  padding: 80px 5vw;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+}
 
-    .overlay-slider .images-container {
-      position: relative;
-      width: 100%;
-      height: 400px;
-      max-height: 400px;
-      overflow: hidden;
-      border-radius: 15px;
-     
-    }
+.projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+}
 
-    .overlay-slider .images-container img {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      border-radius: 15px;
-      opacity: 0;
-      transition: opacity 0.7s ease;
-      pointer-events: none;
-    }
+.project-description {
+  flex: 1 1 300px;
+  max-width: 400px;
+}
 
-    .overlay-slider .images-container img.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
+.project-description h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
 
-    /* Slider input styl */
-    .overlay-slider input[type=range] {
-      -webkit-appearance: none;
-      width: 100%;
-      height: 8px;
-      background: none;
-      border-radius: 5px;
-      outline: none;
-      cursor: pointer;
-      transition: background 0.3s ease;
-      margin-top: 15px;
-    }
+.project-info h3 {
+  font-size: 24px;
+  color: #00ffe1;
+}
 
-    .overlay-slider input[type=range]::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 24px;
-      height: 24px;
-      background: none;
-      border-radius: 50%;
-      cursor: pointer;
-      transition: background 0.3s ease;
-      margin-top: -8px;
-      box-shadow: 0 0 8px rgba(51, 90, 255, 0.7);
-    }
+.project-info ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 20px 0;
+}
 
-    .overlay-slider input[type=range]:hover {
-      background:none;
-    }
+.project-info ul li {
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 24px;
+}
 
-    .overlay-slider input[type=range]::-moz-range-thumb {
-      width: 24px;
-      height: 24px;
-      background: none;
-      border-radius: 50%;
-      cursor: pointer;
-      box-shadow: 0 0 8px rgba(51, 90, 255, 0.7);
-      transition: background 0.3s ease;
-    }
+.project-info ul li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #00ffe1;
+}
 
-    /* Kontrolki przycisków */
-    .overlay-slider .controls {
-      margin-top: 10px;
+.project-button {
+  display: inline-block;
+  background-color: #00ffe1;
+  color: #000;
+  text-decoration: none;
+  padding: 12px 20px;
+  font-weight: bold;
+  border-radius: 4px;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
 
-    }
+.project-button:hover {
+  background-color: #00c9b3;
+}
 
-    .overlay-slider button {
-      background: none;
-      border: none;
-      color: none;
-      font-size: 20px;
-      padding: 6px 14px;
-      margin: 0 8px;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-      user-select: none;
-    }
+.project-cards {
+  flex: 2 1 600px;
+  display: flex;
+  gap: 20px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
 
-    .overlay-slider button:hover {
-      background: none;
+.project-card {
+  background-color: #111;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  width: 200px;
+  transform: skewY(-2deg);
+  transition: border 0.3s ease;
+}
 
-    }
+.project-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+.project-card p {
+  text-align: center;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.project-card .project-label {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #000;
+  color: white;
+  border: 2px solid white;
+  font-size: 12px;
+  padding: 4px 6px;
+}
+
+.project-card.selected {
+  border: 2px solid #ff2de8;
+}
+
+.custom-section {
+  background-color: #0d0b11;
+  color: white;
+  font-family: Arial, sans-serif;
+  padding: 60px 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.section-title {
+  font-size: 48px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 20px;
+}
+
+.grid-item {
+  border-radius: 12px;
+  overflow: hidden;
+  min-height: 250px;
+}
+
+.text-box {
+  background-color: #141218;
+  padding: 30px;
+}
+
+.text-box h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.text-box p {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px;
+}
 
     @media (max-width: 1200px) {
       .gallery-3 {
@@ -450,6 +575,23 @@ background: white;
       .overlay-slider .images-container {
         height: 250px;
       }
+
+@keyframes slideDownNav {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+nav {
+  animation: slideDownNav 1s ease-out forwards;
+  opacity: 0;
+}
+
     }
   </style>
 </head>
@@ -466,19 +608,25 @@ background: white;
   <img id="fullscreen-img" src="" alt="Powiększone zdjęcie">
 </div>
 
-
   <nav>
     <a href="#">Explore</a>
     <a href="#">Marketplace</a>
     <a href="#">Resources</a>
     <a href="#">FAQ</a>
+
   </nav>
 </header>
 
 <section class="hero">
-  <h1>PORTFOLIO</h1>
-  <img src="images/1tlo.png" alt="">
+  <video autoplay muted loop playsinline>
+    <source src="video/mhc3.mp4" type="video/mp4">
+  </video>
+  <div class="hero-content">
+    <h1>PORTFOLIO</h1>
+    <p>Opis lub przycisk CTA</p>
+  </div>
 </section>
+
 
 <section class="scrolling-logos">
   <div class="logos-track">
@@ -505,7 +653,7 @@ background: white;
 
 <section class="section-heading">
   <h2>Game Environments</h2>
-  <p>opis</p>
+  <p>Wizualizacje i rendery 3D przedstawiające światy gier stworzone w moim portfolio — od koncepcji po finalny render.</p>
 </section>
 
 <section class="gallery gallery-3">
@@ -535,9 +683,10 @@ background: white;
   <img src="galeria/24.png" alt="">
 </section>
 
+
 <section class="section-heading1">
   <h2>Level Design</h2>
-  <p>opis</p>
+  <p>Wizualizacje i rendery 3D przedstawiające światy gier stworzone w moim portfolio — od koncepcji po finalny render.</p>
 
 </section>
 
@@ -551,37 +700,37 @@ background: white;
 </section>
 
 <section class="full-image-section">
-  <img src="images/mapa1.png" alt="Dodatkowa plansza" class="full-width-image">
+  <img src="images/mapa.png" alt="Dodatkowa plansza" class="full-width-image">
 </section>
 
 
 <section class="highlight-section">
   <div class="highlight-container">
     <div class="highlight-header">
-      <h2>opis</h2>
-      <p>opis</p>
+      <h2>DLACZEGO NASZA PRACOWNIA TO STRZAŁ W DZIESIĄTKĘ?</h2>
+      <p>Zespół specjalistów z pasją do detalu i innowacji. Łączymy kreatywność, technologię i doświadczenie, by tworzyć niepowtarzalne rozwiązania dopasowane do Twoich potrzeb.</p>
     </div>
 
     <div class="highlight-cards">
       <div class="highlight-card">
         <div class="icon">🎯</div>
-        <h3> opis </h3>
-        <p>opis</p>
+        <h3>INDYWIDUALNE PODEJŚCIE</h3>
+        <p>Każdy projekt traktujemy unikalnie. Słuchamy, doradzamy i dostosowujemy działania do Twojej wizji.</p>
       </div>
       <div class="highlight-card">
         <div class="icon">🧠</div>
-        <h3>opis</h3>
-        <p>opis</p>
+        <h3>DOŚWIADCZENIE I WIEDZA</h3>
+        <p>Lata praktyki i setki realizacji pozwalają nam działać szybko, sprawnie i skutecznie.</p>
       </div>
       <div class="highlight-card">
         <div class="icon">🛡️</div>
-        <h3>opis</h3>
-        <p>opis</p>
+        <h3>PEWNOŚĆ I BEZPIECZEŃSTWO</h3>
+        <p>Z nami masz gwarancję przejrzystości, terminowości i poufności – na każdym etapie współpracy.</p>
       </div>
       <div class="highlight-card">
         <div class="icon">🚀</div>
-        <h3>opis</h3>
-        <p>opis</p>
+        <h3>NOWOCZESNE TECHNOLOGIE</h3>
+        <p>Wykorzystujemy aktualne trendy i narzędzia, by Twoje projekty były funkcjonalne i atrakcyjne.</p>
       </div>
     </div>
   </div>
@@ -589,34 +738,109 @@ background: white;
 
 
 
-<section class="section-heading3">
-  <h2>Game Character</h2>
-  <p>Wizualizacje i rendery 3D przedstawiające światy gier stworzone w moim portfolio — od koncepcji po finalny render.</p>
+<section class="custom-section">
+  <div class="container">
+    <h1 class="section-title">Full-Cycle Game Development Services</h1>
+
+    <div class="grid-container">
+      <!-- Lewy GÓRA: Opis -->
+      <div class="grid-item text-box">
+        <h2>Game Development</h2>
+        <p>
+          From concept and design to development and launch, our team creates engaging,
+          visually stunning games using Unity and Unreal Engine.
+        </p>
+      </div>
+
+      <!-- Prawy GÓRA: Zdjęcie -->
+      <div class="grid-item image-box">
+        <img src="wlosy/hair.png" alt="Fortnite">
+      </div>
+
+      <!-- Lewy DÓŁ: Zdjęcie -->
+      <div class="grid-item image-box">
+        <img src="wlosy/HairAlphaa3.png" alt="Cyberpunk">
+      </div>
+
+      <!-- Prawy DÓŁ: Zdjęcie -->
+      <div class="grid-item image-box">
+        <img src="wlosy/mat.png" alt="Apex Legends">
+      </div>
+    </div>
+  </div>
 </section>
 
 
-<!-- NOWA SEKCJA overlay-slider -->
-<section class="overlay-slider">
-  <div class="images-container">
-    <img src="overlay/mesh1.png" alt="Mesh 1" class="active">
-    <img src="overlay/mesh3.png" alt="Mesh 3">
-    <img src="overlay/mesh5.png" alt="Mesh 5">
+<section style="background-color: #0d0b11; color: white; font-family: Arial, sans-serif; padding: 60px 20px;">
+  <div style="max-width: 1200px; margin: auto;">
+    <h1 style="font-size: 48px; font-weight: bold; text-transform: uppercase;">Full-Cycle Game<br>Development Services</h1>
+    <p style="max-width: 600px; margin-top: 20px; font-size: 16px; line-height: 1.6;">
+      From your idea to soft-launch, Kevuru Games supports your project at any stage. Our team contains professionals of all profiles who deliver top quality work.
+    </p>
 
-
+    <div style="display: flex; flex-wrap: wrap; margin-top: 60px; background-color: #141218; border-radius: 12px; overflow: hidden;">
+      <div style="flex: 1; padding: 40px;">
+        <h2 style="font-size: 28px; font-weight: bold;">Game Development</h2>
+        <p style="margin-top: 20px; font-size: 15px; line-height: 1.6;">
+          From concept and design to development and launch, our team specializes in creating engaging and visually stunning games across platforms. With expertise in Unity, Unreal Engine, and a wide range of genres, we deliver high-quality solutions.
+        </p>
+        <a href="#" style="display: inline-block; margin-top: 30px; padding: 12px 24px; background-color: #00ffc3; color: black; text-decoration: none; border-radius: 6px; font-weight: bold;">SEE MORE →</a>
+      </div>
+      <div style="flex: 1; background-image: url('your-image.jpg'); background-size: cover; background-position: center; min-height: 300px;"></div>
+    </div>
   </div>
-  <input type="range" id="imageRange" min="0" max="2" value="0" step="1">
-  <div class="controls">
-    <button id="prev-btn">&lt;</button>
-    <button id="next-btn">&gt;</button>
+</section>
+
+
+<section class="projects-section">
+  <div class="projects-container">
+    <!-- Left: Project Details -->
+    <div class="project-description">
+      <h2>PROJECTS</h2>
+      <div class="project-info">
+        <h3>STAR WARS</h3>
+        <ul>
+          <li>VR-based action-adventure game based on the legendary franchise</li>
+          <li>Creating 3D characters with texture variations</li>
+        </ul>
+        <a href="#" class="project-button">VIEW PROJECT <span>↗</span></a>
+      </div>
+    </div>
+
+    <!-- Right: Project Cards -->
+    <div class="project-cards">
+      <!-- Card 1 -->
+      <div class="project-card selected">
+        <div class="project-label">LUCASFILM</div>
+        <img src="galeria/starwars.jpg" alt="Star Wars">
+        <p>STAR WARS</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="project-card">
+        <div class="project-label">EPIC GAMES</div>
+        <img src="galeria/fortnite.jpg" alt="Fortnite">
+        <p>FORTNITE</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="project-card">
+        <div class="project-label">BYTRO</div>
+        <img src="galeria/ironorder.jpg" alt="Iron Order 1919">
+        <p>IRON ORDER 1919</p>
+      </div>
+    </div>
   </div>
 </section>
 
 
 <section class="video-section">
+
   <h2>Film i GIF</h2>
-  <video src="images/final.mp4" controls loop></video>
-  <video src="images/final2.mp4" controls loop></video>
-  <img class="gif" src="images/rez.gif" alt="Animowany GIF" />
+  <video src="video/video1.mp4"  <video autoplay muted loop playsinline></video>
+  <video src="video/video2.mov"  <video autoplay muted loop playsinline></video>
+
+
 </section>
 
 <script>
@@ -699,7 +923,53 @@ document.getElementById('fullscreen').addEventListener('click', () => {
   document.getElementById('fullscreen').style.display = 'none';
 });
 
+  window.addEventListener("load", () => {
+    document.querySelector("nav").style.opacity = "1";
+  });
+
+
+  // Pobierz elementy lightboxa
+  const fullscreen = document.getElementById('fullscreen');
+  const fullscreenImg = document.getElementById('fullscreen-img');
+
+  // Funkcja do otwierania lightboxa
+  function openFullscreen(src) {
+    fullscreenImg.src = src;
+    fullscreen.style.display = 'flex';
+  }
+
+  // Funkcja do zamykania lightboxa po kliknięciu
+  fullscreen.addEventListener('click', () => {
+    fullscreen.style.display = 'none';
+    fullscreenImg.src = ''; // Czyści obrazek
+  });
+
+  // Dodaj nasłuchiwanie kliknięć na wszystkie obrazki z klasą 'gallery'
+  document.querySelectorAll('.gallery img, .modern-gallery img, .right-images img, .full-width-image').forEach(img => {
+    img.addEventListener('click', () => openFullscreen(img.src));
+  });
+
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const fullscreenContainer = document.getElementById("fullscreen");
+    const fullscreenImage = document.getElementById("fullscreen-img");
+
+    document.querySelectorAll(".gallery img, .gallery-5 img, .right-images img").forEach((img) => {
+      img.addEventListener("click", function () {
+        fullscreenImage.src = this.src;
+        fullscreenContainer.style.display = "flex";
+      });
+    });
+
+    fullscreenContainer.addEventListener("click", function () {
+      fullscreenContainer.style.display = "none";
+      fullscreenImage.src = "";
+    });
+  });
 </script>
 
+
+
+</section>
 </body>
 </html>
