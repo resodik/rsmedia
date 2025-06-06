@@ -540,6 +540,22 @@ background: #000010;
   border-radius: 12px;
 }
 
+.responsive-image {
+  max-width: 100%;
+  height: auto;
+  max-height: 300px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+/* 📱 Media Query dla małych ekranów (np. telefonów) */
+@media (max-width: 600px) {
+  .responsive-image {
+    max-height: 180px; /* zmniejszamy wysokość */
+  }
+}
+
+
     @media (max-width: 1200px) {
       .gallery-3 {
         grid-template-columns: repeat(2, 1fr);
