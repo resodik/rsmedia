@@ -536,6 +536,36 @@ background: #000010;
   border-radius: 12px;
 }
 
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+<nav id="nav-menu" class="nav">
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
+.nav {
+    display: none;
+}
+
+.hamburger {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 30px;
+}
+
+@media (max-width: 768px) {
+    .nav {
+        display: block;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
+
     @media (max-width: 1200px) {
       .gallery-3 {
         grid-template-columns: repeat(2, 1fr);
@@ -730,6 +760,11 @@ nav {
           visually stunning games using Unity and Unreal Engine.
         </p>
       </div>
+<picture>
+    <source media="(max-width: 600px)" srcset="img-small.jpg">
+    <source media="(max-width: 1200px)" srcset="img-medium.jpg">
+    <img src="img-large.jpg" alt="Opis obrazu">
+</picture>
 
       <!-- Prawy GÓRA: Zdjęcie -->
       <div class="grid-item image-box">
@@ -1073,6 +1108,14 @@ document.getElementById('fullscreen').addEventListener('click', () => {
       fullscreenImage.src = "";
     });
   });
+
+  
+function toggleMenu() {
+    var nav = document.getElementById('nav-menu');
+    nav.style.display = (nav.style.display === 'block') ? 'none' : 'block';
+}
+
+
 </script>
 
 
