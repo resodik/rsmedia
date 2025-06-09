@@ -366,11 +366,11 @@ background: #000010;
     gap: 20px;
     flex-wrap: wrap;
   }
-}
+
   .right-images img {
     width: 48%;
   }
-
+}
 
 .projects-section {
   display: flex;
@@ -530,9 +530,10 @@ background: #000010;
 
 .image-box img {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover;
-  display: block;
+   display: flex;
+  flex-wrap: wrap;
   border-radius: 12px;
 }
 
@@ -619,7 +620,7 @@ nav {
   </video>
   <div class="hero-content">
     <h1>PORTFOLIO</h1>
-    <p>Opis lub przycisk CTA</p>
+    <p></p>
   </div>
 </section>
 
@@ -715,7 +716,7 @@ nav {
 
       <!-- Prawy GÓRA: Zdjęcie -->
       <div class="grid-item image-box">
-       <video src="video/video2.mp4" autoplay muted loop playsinline style="max-width: 100%; height: auto; border-radius: 8px;"></video>
+       <video src="video/video2.mov" autoplay muted loop playsinline style="max-width: 100%; height: auto; border-radius: 8px;"></video>
 
       </div>
 
@@ -732,11 +733,9 @@ nav {
     <div class="grid-container">
       <!-- Lewy GÓRA: Opis -->
       <div class="grid-item text-box">
-        <h2>Game Development</h2>
+        <h2></h2>
         <p>
-          From concept and design to development and launch, our team creates engaging,
-          visually stunning games using Unity and Unreal Engine.
-        </p>
+                  </p>
       </div>
 
       <!-- Prawy GÓRA: Zdjęcie -->
@@ -771,7 +770,7 @@ nav {
       <!-- Prawy górny róg: Opis -->
       <div style="display: flex; align-items: center; background-color: #141218; border-radius: 12px; padding: 20px;">
         <p style="font-size: 16px; line-height: 1.6;">
-          Realizujemy kompleksowe projekty z zakresu grafiki 2D i 3D, animacji oraz pełnych gier. Nasze zespoły łączą kreatywność i technologię, aby dostarczać unikalne wizje w każdej produkcji.
+        
         </p>
       </div>
 
@@ -781,8 +780,11 @@ nav {
       </div>
 
       <!-- Prawy dolny róg: Zdjęcie -->
-      <div>
-   
+<div>
+        <img src="mesh/set5.png" alt="Projekt 2" style="width: 100%; border-radius: 12px;">
+      </div>
+
+      
       </div>
     </div>
   </div>
@@ -795,11 +797,14 @@ nav {
     <div style="flex: 1; min-width: 250px; display: flex; justify-content: center;">       
       
       <!-- Środek: tytuł -->
-      <div style="flex: 1; min-width: 250px; text-align: center;">
+      <div style="flex: 1; min-width: 250px; text-align: left;">
         <h2 style="font-size: 28px; font-weight: bold; margin: 0;">FOTOGRAMETRIA</h2>
 <p style="font-size: 16px; line-height: 1.6;">
-          Realizujemy kompleksowe projekty z zakresu grafiki 2D i 3D, animacji oraz pełnych gier. Nasze zespoły łączą kreatywność i technologię, aby dostarczać unikalne wizje w każdej produkcji.
-        </p>
+                 </p>
+
+<div style="display: flex; flex-wrap: wrap; margin-top: 60px; background-color: #141218; border-radius: 12px; overflow: hidden;">
+      <div style="flex: 1; padding: 40px;">
+        <h2 style="font-size: 28px; font-weight: bold;"></h2>
 
       </div>
 
@@ -830,17 +835,15 @@ nav {
 
 <section style="background-color: #0d0b11; color: white; font-family: Arial, sans-serif; padding: 60px 20px;">
   <div style="max-width: 1200px; margin: auto;">
-    <h1 style="font-size: 48px; font-weight: bold; text-transform: uppercase;">Full-Cycle Game<br>Development Services</h1>
+    <h1 style="font-size: 48px; font-weight: bold; text-transform: uppercase;">MOTION CAPTURE<br></h1>
     <p style="max-width: 600px; margin-top: 20px; font-size: 16px; line-height: 1.6;">
-      From your idea to soft-launch, Kevuru Games supports your project at any stage. Our team contains professionals of all profiles who deliver top quality work.
-    </p>
+         </p>
 
     <div style="display: flex; flex-wrap: wrap; margin-top: 60px; background-color: #141218; border-radius: 12px; overflow: hidden;">
       <div style="flex: 1; padding: 40px;">
-        <h2 style="font-size: 28px; font-weight: bold;">Game Development</h2>
+        <h2 style="font-size: 28px; font-weight: bold;"></h2>
         <p style="margin-top: 20px; font-size: 15px; line-height: 1.6;">
-          From concept and design to development and launch, our team specializes in creating engaging and visually stunning games across platforms. With expertise in Unity, Unreal Engine, and a wide range of genres, we deliver high-quality solutions.
-        </p>
+                </p>
         <a href="#" style="display: inline-block; margin-top: 30px; padding: 12px 24px; background-color: #00ffc3; color: black; text-decoration: none; border-radius: 6px; font-weight: bold;">SEE MORE →</a>
       </div>
       <div style="flex: 1; background-image: url('your-image.jpg'); background-size: cover; background-position: center; min-height: 300px;"></div>
