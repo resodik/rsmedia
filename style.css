@@ -584,6 +584,24 @@ nav {
 }
 
     }
+.learn-more-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #1e1e1e;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.learn-more-btn:hover {
+  background-color: #fff;
+  color: #1e1e1e;
+}
+
   </style>
 </head>
 <body>
