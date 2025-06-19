@@ -1,370 +1,589 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-  <meta charset="UTF-8" />
-  <link rel="stylesheet" href="style.css" />
-  <script src="script.js" defer></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Moje Portfolio</title>
+<style>
+    * {
+      box-sizing: border-box;
+    }
 
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at center, #1a3bff 0%, #0a1a52 60%, #000010 100%);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: none;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 50px 70px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo img {
+      height: 40px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 35px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+   .hero {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* pełna wysokość okna przeglądarki */
+  overflow: hidden;
+}
+
+.hero video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 0;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5); /* opcjonalne przyciemnienie */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+    .hero h1 {
+      font-size: 50px;
+      margin: 0;
+      letter-spacing: 0px;
+      z-index: 1;
+      position: relative;
+margin-top: 250px;
+    }
+
+    .hero img {
+      width: 500px;
+      max-width: 100%;
+      margin-top: -250px;
+      border-radius: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .scrolling-logos {
+      overflow: hidden;
+      background: radial-gradient(circle at center, #000010, #0a1a52);
+      padding: 20px 0;
+    }
+
+    .logos-track {
+      display: flex;
+      width: max-content;
+      animation: scroll 20s linear infinite;
+      gap: 100px;
+    }
+
+    .logos-track img {
+      height: 40px;
+      opacity: 0.9;
+      transition: transform 0.3s ease;
+    }
+
+    .logos-track img:hover {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+
+    @keyframes scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .section-heading {
+      background: radial-gradient(circle at center, #0a1a52 0%, #000010 100%);
+      text-align: center;
+      padding: 60px 20px 30px;
+    }
+.section-heading1 {
+      background: black;
+      text-align: center;
+      padding: 60px 20px 30px;
+    }
+
+.section-heading2 {
+      background: radial-gradient(circle at center, #0a1a52 0%, #000010 100%);
+      text-align: center;
+      padding: 60px 20px 30px;
+    }
+
+.section-heading3 {
+      background: linear-gradient(#0c0b12, #07093D  );
+      text-align: center;
+      padding: 60px 20px 30px;
+    }
+
+
+
+    .section-heading h2 {
+      font-size: 48px;
+      margin: 0;
+      color: #ffffff;
+      letter-spacing: 2px;
+    }
+
+    .section-heading p {
+      font-size: 18px;
+      color: #cccccc;
+      max-width: 800px;
+      margin: 20px auto 0;
+      line-height: 1.5;
+    }
+
+    .gallery {
+      padding: 5px 20px;
+      display: grid;
+      gap: 10px;
+      background: #000010;
+    }
+
+    .gallery-3 {
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: auto;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+.full-image-section {
+  margin-top: 0px;
+  text-align: center;
+background: #000010;
+}
+
+.full-width-image {
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  transition: transform 0.3s ease;
   
-<header>
-  <div class="logo">
-    <img src="images/logo.png" alt="Moje Logo">
+}
 
-  </div>
-
-<!-- Lightbox / Fullscreen -->
-<div class="fullscreen-img" id="fullscreen">
-  <img id="fullscreen-img" src="" alt="Powiększone zdjęcie">
-</div>
-
-  <nav>
-  <a href="gear.html">My Gear</a>
-  <a href="tech.html">Tech Stack</a>
-  <a href="about.html">About Me</a>
-  <a href="projects.html">Projects</a>
-  <a href="index.html">Portfolio</a>
-</nav>
-
-</header>
-
-<section class="hero">
-  <video autoplay muted loop playsinline>
-    <source src="video/mhc3.mp4" type="video/mp4">
-  </video>
-  <div class="hero-content">
-    <h1>PORTFOLIO</h1>
-    <p></p>
-  </div>
-</section>
-
-
-<section class="scrolling-logos">
-  <div class="logos-track">
-    <img src="logo/ps1.png" alt="Photoshop">
-    <img src="logo/ai1.png" alt="Illustrator">
-    <img src="logo/premiere1.png" alt="Premiere">
-    <img src="logo/polycam.png" alt="Polycam">
-    <img src="logo/rokoko.png" alt="Rokoko">
-    <img src="logo/metahuman1.png" alt="Metahuman">
-    <img src="logo/unreal2.png" alt="Unreal Engine">
-    <img src="logo/blender1.png" alt="Blender">
-    <img src="logo/o.png" alt="">
-    <img src="logo/o.png" alt="">
-    <img src="logo/ps1.png" alt="Photoshop">
-    <img src="logo/ai1.png" alt="Illustrator">
-    <img src="logo/premiere1.png" alt="Premiere">
-    <img src="logo/polycam.png" alt="Polycam">
-    <img src="logo/rokoko.png" alt="Rokoko">
-    <img src="logo/metahuman1.png" alt="Metahuman">
-    <img src="logo/unreal2.png" alt="Unreal Engine">
-    <img src="logo/blender1.png" alt="Blender">
-  </div>
-</section>
-
-<section class="section-heading">
-  <h2>Game Environments</h2>
-  <p>Wizualizacje i rendery 3D przedstawiające światy gier stworzone w moim portfolio — od koncepcji po finalny render.</p>
-</section>
-
-<section class="gallery gallery-3">
-  <img src="galeria/1.png" alt="">
-  <img src="galeria/2.png" alt="">
-  <img src="galeria/3.png" alt="">
-  <img src="galeria/6.png" alt="">
-  <img src="galeria/5.png" alt="">
-  <img src="galeria/4.png" alt="">
-  <img src="galeria/12.png" alt="">
-  <img src="galeria/10.png" alt="">
-  <img src="galeria/11.png" alt="">
-  <img src="galeria/9.png" alt="">
-  <img src="galeria/7.png" alt="">
-  <img src="galeria/8.png" alt="">
-  <img src="galeria/13.png" alt="">
-  <img src="galeria/14.png" alt="">
-  <img src="galeria/15.png" alt="">
-  <img src="galeria/16.png" alt="">
-  <img src="galeria/17.png" alt="">
-  <img src="galeria/18.png" alt="">
-  <img src="galeria/19.png" alt="">
-  <img src="galeria/20.png" alt="">
-  <img src="galeria/21.png" alt="">
-  <img src="galeria/22.png" alt="">
-  <img src="galeria/23.png" alt="">
-  <img src="galeria/24.png" alt="">
-<img src="galeria/34.png" alt="">
-<img src="galeria/35.png" alt="">
-<img src="galeria/36.png" alt="">
-<img src="galeria/38.png" alt="">
-<img src="galeria/39.png" alt="">
-
-<img src="galeria/37.png" alt="">
-</section>
-
-
-<section class="section-heading1">
-  <h2>Level Design</h2>
-  <p>Wizualizacje i rendery 3D przedstawiające światy gier stworzone w moim portfolio — od koncepcji po finalny render.</p>
-
-</section>
-
-<!-- Nowoczesna wersja sekcji gallery-5 -->
-<section class="gallery gallery-5 modern-gallery">
-  <img src="portfolio/Plansza5.jpg" alt="">
-  <img src="portfolio/Plansza1.jpg" alt="">
-  <img src="portfolio/Plansza3.jpg" alt="">
-  <img src="portfolio/Plansza4.jpg" alt="">
-  <img src="portfolio/Plansza2.jpg" alt="">
-</section>
-
-<section class="custom-section">
-  <div class="container">
-  
-
-    <div class="grid-container">
-      <!-- Lewy GÓRA: Opis -->
-      <div class="grid-item image-box">
-        <img src="images/mapa.png" alt="Fortnite">
-      </div>
-
-
-      <!-- Prawy GÓRA: Zdjęcie -->
-      <div class="grid-item image-box">
-       <video src="video/video2.mp4" autoplay muted loop playsinline style="max-width: 100%; height: auto; border-radius: 8px;"></video>
-
-      </div>
-
-
-        </div>
-  </div>
-</section>
+.full-width-image:hover {
+  transform: scale(1.01);
+}
 
 
 
+.fullscreen-img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  cursor: default; /* Usuwa „lupkę” */
+}
 
-<section class="custom-section">
-  <div class="container">
-    <h1 class="section-title">GAME-READY HAIR</h1>
+.fullscreen-img img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+}
+    .video-section {
+      padding: 60px 20px;
+      text-align: center;
 
-    <div class="grid-container">
-      <!-- Lewy GÓRA: Opis -->
-      <div class="grid-item text-box">
-        <h2></h2>
-        <p>
-                  </p>
-      </div>
+    }
 
-      <!-- Prawy GÓRA: Zdjęcie -->
-      <div class="grid-item image-box">
-        <img src="wlosy/hair.png" alt="Fortnite">
-      </div>
+    video, .gif {
+      max-width: 30%;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
 
-      <!-- Lewy DÓŁ: Zdjęcie -->
-      <div class="grid-item image-box">
-        <img src="wlosy/HairAlphaa3.png" alt="Cyberpunk">
-      </div>
+.highlight-section {
+  background-color: #0c0b12;
+  color: white;
+  padding: 80px 20px;
+  font-family: 'Arial', sans-serif;
+}
 
-      <!-- Prawy DÓŁ: Zdjęcie -->
-      <div class="grid-item image-box">
-        <img src="wlosy/mat.png" alt="Apex Legends">
-      </div>
-    </div>
-  </div>
-</section>
+.highlight-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-<section style="background-color: #0d0b11; color: white; font-family: Arial, sans-serif; padding: 60px 20px;">
-  <div style="max-width: 1200px; margin: auto;">
-    
+.highlight-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 60px;
+}
 
-    <div style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; gap: 20px;">
-      
-      <!-- Lewy górny róg: Zdjęcie -->
-      <div>
-        <img src="mesh/postac.png" alt="Projekt 1" style="width: 100%; border-radius: 12px;">
-      </div>
+.highlight-header h2 {
+  flex: 1 1 50%;
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0;
+}
 
-      <!-- Prawy górny róg: Opis -->
-      <div style="display: flex; align-items: center; background-color: #141218; border-radius: 12px; padding: 20px;">
-        <p style="font-size: 16px; line-height: 1.6;">
-        
-        </p>
-      </div>
+.highlight-header p {
+  flex: 1 1 45%;
+  font-size: 16px;
+  color: #cccccc;
+  line-height: 1.6;
+}
 
-      <!-- Lewy dolny róg: Zdjęcie -->
-      <div>
-        <img src="mesh/set6.png" alt="Projekt 2" style="width: 100%; border-radius: 12px;">
-      </div>
+.highlight-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
 
-      <!-- Prawy dolny róg: Zdjęcie -->
-<div>
-        <img src="mesh/set5.png" alt="Projekt 2" style="width: 100%; border-radius: 12px;">
-      </div>
+.highlight-card {
+  background: linear-gradient(to bottom right, #1a0d1f, #120c18);
+  border: 1px solid #3a003c;
+  padding: 30px;
+  border-radius: 15px;
+  flex: 1 1 250px;
+  max-width: 280px;
+  transition: transform 0.3s ease;
+}
 
-      
-      </div>
-    </div>
-  </div>
-</section>
+.highlight-card:hover {
+  transform: translateY(-5px);
+}
 
-<section style="background-color: #0d0b11; color: white; font-family: Arial, sans-serif; padding: 60px 20px;">
-  <div style="max-width: 1200px; margin: auto;">
+.highlight-card .icon {
+  font-size: 40px;
+  color: #ff4fc4;
+  margin-bottom: 15px;
+}
+
+.highlight-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.highlight-card p {
+  font-size: 14px;
+  color: #aaa;
+  line-height: 1.5;
+}
+
+
+    /* Nowoczesna sekcja gallery-5 */
+    .gallery-5.modern-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px 20px;
+      background: #000010;
+    }
+
+    .gallery-5.modern-gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery-5.modern-gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(255,255,255,0.3);
+    }
+
    
-    <!-- Górna ramka z 2 obrazkami i tytułem po środku -->
-    <div style="flex: 1; min-width: 250px; display: flex; justify-content: center;">       
-      
-      <!-- Środek: tytuł -->
-      <div style="flex: 1; min-width: 250px; text-align: left;">
-        <h2 style="font-size: 28px; font-weight: bold; margin: 0;">FOTOGRAMETRIA</h2>
-<p style="font-size: 16px; line-height: 1.6;">
-                 </p>
+/* Responsywność */
+@media (max-width: 900px) {
+  .overlay-flex-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
 
-<div style="display: flex; flex-wrap: wrap; margin-top: 60px; background-color: #141218; border-radius: 12px; overflow: hidden;">
-      <div style="flex: 1; padding: 40px;">
-        <h2 style="font-size: 28px; font-weight: bold;"></h2>
+  .overlay-slider,
+  .right-images {
+    max-width: 100%;
+    width: 100%;
+  }
 
-      </div>
+  .right-images {
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
 
-      <!-- Prawy obrazek -->
-      <div style="flex: 1; min-width: 250px; display: flex; justify-content: center;">
-        <img src="fotogrametria/mht.png" alt="Right Top" style="max-width: 100%; height: auto; border-radius: 8px;">
-      </div>
+  .right-images img {
+    width: 48%;
+  }
+}
 
-    </div>
+.projects-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  padding: 5rem 2rem;
+  background: #0e0e12;
+  color: white;
+  align-items: center;
+  justify-content: center;
+}
 
-  
-      
+.projects-text {
+  flex: 1 1 300px;
+  max-width: 500px;
+}
 
-<!-- DOLNA SEKCJA Z VIDEO I PNG -->
-<div style="display: flex; flex-wrap: wrap; margin-top: 30px; background-color: TRANSPARENT; border-radius: 12px; overflow: hidden; padding: 20px; gap: 20px; justify-content: space-between; align-items: center;">
+.projects-text h2 {
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
 
-  <!-- Lewy dolny (video) -->
-  <div style="flex: 1; min-width: 250px; display: flex; justify-content: center;">
-    <video src="video/mhc4.mp4" autoplay muted loop playsinline style="max-width: 100%; height: auto; border-radius: 8px;"></video>
-  </div>
+.projects-text .highlighted {
+  color: #00f7ff;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
 
-  <!-- Prawy dolny (PNG) -->
-  <div style="flex: 1; min-width: 250px; display: flex; justify-content: center;">
-    <img src="fotogrametria/SCAN3.png" alt="Right Top" style="max-width: 100%; height: auto; max-height: 200px; border-radius: 8px;">
-  </div>
+.projects-text ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
 
-</div>
+.projects-text li {
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+}
 
-<section style="background-color: #0d0b11; color: white; font-family: Arial, sans-serif; padding: 60px 20px;">
-  <div style="max-width: 1200px; margin: auto;">
-    <h1 style="font-size: 48px; font-weight: bold; text-transform: uppercase;">MOTION CAPTURE<br></h1>
-    <p style="max-width: 600px; margin-top: 20px; font-size: 16px; line-height: 1.6;">
-         </p>
+.project-btn {
+  display: inline-block;
+  background: #00f7ff;
+  color: black;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
 
-    <div style="display: flex; flex-wrap: wrap; margin-top: 60px; background-color: #141218; border-radius: 12px; overflow: hidden;">
-      <div style="flex: 1; padding: 40px;">
-        <h2 style="font-size: 28px; font-weight: bold;"></h2>
-        <p style="margin-top: 20px; font-size: 15px; line-height: 1.6;">
-                </p>
-        <a href="#" style="display: inline-block; margin-top: 30px; padding: 12px 24px; background-color: #00ffc3; color: black; text-decoration: none; border-radius: 6px; font-weight: bold;">SEE MORE →</a>
-      </div>
-      <div style="flex: 1; background-image: url('your-image.jpg'); background-size: cover; background-position: center; min-height: 300px;"></div>
-    </div>
-  </div>
-</section>
+.project-btn:hover {
+  background: #00c7cc;
+}
 
+.projects-gallery {
+  flex: 1 1 500px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.5rem;
+}
 
-<section class="projects-section">
-  <div class="projects-text">
-    <h2>PROJECTS</h2>
-    <h3 class="highlighted"></h3>
-    <ul>
-      <li></li>
-      <li></li>
-    </ul>
-    <a href="#" class="project-btn">VIEW PROJECT ↗</a>
-  </div>
+.project-card {
+  position: relative;
+  background: #1a1a1f;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.3s ease, border 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+  border: 2px solid transparent;
+}
 
-  <div class="projects-gallery">
-       <div class="project-card">
-      <img src="gra/1.png" alt="">
+.project-card.active {
+  border-color: #ff00f7;
+}
 
-      <p></p>
-    </div>
+.project-card:hover {
+  transform: translateY(-5px);
+  border-color: #00f7ff;
+}
 
-    <div class="project-card">
-      <img src="gra/2.png" alt="">
-    
-      <p></p>
-    </div>
+.project-card img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+}
 
-    <div class="project-card">
-      <img src="gra/3.png" alt="">
+.project-card .tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: black;
+  color: white;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border-radius: 4px;
+}
 
-      <p></p>
-    </div>
-  </div>
-</section>
+.project-card p {
+  margin-top: 1rem;
+  font-weight: 600;
+  color: white;
+}
 
+.custom-section {
+  background-color: #0d0b11;
+  color: white;
+  font-family: Arial, sans-serif;
+  padding: 60px 20px;
+}
 
-<section class="custom-section">
-  <div class="container">
-  
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
 
-    <div class="grid-container">
-      <!-- Lewy GÓRA: Opis -->
-      <div class="grid-item image-box">
-
-       <video src="video/video1.mp4" autoplay muted loop playsinline style="max-width: 100%; height: auto; border-radius: 8px;"></video>
-
-  
-      </div>
-
-
-   
- <!-- Prawy GÓRA: Zdjęcie -->
-      <div class="grid-item image-box">
-       <video src="video/pokoj1.mp4" autoplay muted loop playsinline style="max-width: 100%; height: auto; border-radius: 8px; margin-top:30px;"></video>
-
-     
-
-      </div>
-
-  </div>
-</section>
-
-
-
-<section class="highlight-section">
-  <div class="highlight-container">
-    <div class="highlight-header">
-      <h2></h2>
-      <p></p>
-    </div>
-
-    <div class="highlight-cards">
-      <div class="highlight-card">
-        <div class="icon">🎯</div>
-        <h3></h3>
-        <p>.</p>
-      </div>
-      <div class="highlight-card">
-        <div class="icon">🧠</div>
-        <h3></h3>
-        <p>.</p>
-      </div>
-      <div class="highlight-card">
-        <div class="icon">🛡️</div>
-        <h3></h3>
-        <p></p>
-      </div>
-      <div class="highlight-card">
-        <div class="icon">🚀</div>
-        <h3></h3>
-        <p></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
+.section-title {
+  font-size: 48px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  text-align: center;
+}
 
 
-</section>
-</body>
-</html>
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 20px;
+}
+
+.grid-item {
+  border-radius: 12px;
+  overflow: hidden;
+  min-height: 250px;
+}
+
+.text-box {
+  background-color: #141218;
+  padding: 30px;
+}
+
+.text-box h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.text-box p {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.image-box img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+   display: flex;
+  flex-wrap: wrap;
+  border-radius: 12px;
+}
+
+    @media (max-width: 1200px) {
+      .gallery-3 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 60px;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .gallery-3 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .gallery-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .overlay-slider .images-container {
+        height: 250px;
+      }
+
+@keyframes slideDownNav {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+nav {
+  animation: slideDownNav 1s ease-out forwards;
+  opacity: 0;
+}
+
+    }
+  </style>
+</head>
+<body>
