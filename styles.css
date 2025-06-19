@@ -1,497 +1,370 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Moje Portfolio</title>
+
+  
+<header>
+  <div class="logo">
+    <img src="images/logo.png" alt="Moje Logo">
+
+  </div>
+
+<!-- Lightbox / Fullscreen -->
+<div class="fullscreen-img" id="fullscreen">
+  <img id="fullscreen-img" src="" alt="Powiększone zdjęcie">
+</div>
+
+  <nav>
+  <a href="gear.html">My Gear</a>
+  <a href="tech.html">Tech Stack</a>
+  <a href="about.html">About Me</a>
+  <a href="projects.html">Projects</a>
+  <a href="index.html">Portfolio</a>
+</nav>
+
+</header>
+
+<section class="hero">
+  <video autoplay muted loop playsinline>
+    <source src="video/mhc3.mp4" type="video/mp4">
+  </video>
+  <div class="hero-content">
+    <h1>PORTFOLIO</h1>
+    <p></p>
+  </div>
+</section>
+
+
+<section class="scrolling-logos">
+  <div class="logos-track">
+    <img src="logo/ps1.png" alt="Photoshop">
+    <img src="logo/ai1.png" alt="Illustrator">
+    <img src="logo/premiere1.png" alt="Premiere">
+    <img src="logo/polycam.png" alt="Polycam">
+    <img src="logo/rokoko.png" alt="Rokoko">
+    <img src="logo/metahuman1.png" alt="Metahuman">
+    <img src="logo/unreal2.png" alt="Unreal Engine">
+    <img src="logo/blender1.png" alt="Blender">
+    <img src="logo/o.png" alt="">
+    <img src="logo/o.png" alt="">
+    <img src="logo/ps1.png" alt="Photoshop">
+    <img src="logo/ai1.png" alt="Illustrator">
+    <img src="logo/premiere1.png" alt="Premiere">
+    <img src="logo/polycam.png" alt="Polycam">
+    <img src="logo/rokoko.png" alt="Rokoko">
+    <img src="logo/metahuman1.png" alt="Metahuman">
+    <img src="logo/unreal2.png" alt="Unreal Engine">
+    <img src="logo/blender1.png" alt="Blender">
+  </div>
+</section>
+
+<section class="section-heading">
+  <h2>Game Environments</h2>
+  <p>Wizualizacje i rendery 3D przedstawiające światy gier stworzone w moim portfolio — od koncepcji po finalny render.</p>
+</section>
+
+<section class="gallery gallery-3">
+  <img src="galeria/1.png" alt="">
+  <img src="galeria/2.png" alt="">
+  <img src="galeria/3.png" alt="">
+  <img src="galeria/6.png" alt="">
+  <img src="galeria/5.png" alt="">
+  <img src="galeria/4.png" alt="">
+  <img src="galeria/12.png" alt="">
+  <img src="galeria/10.png" alt="">
+  <img src="galeria/11.png" alt="">
+  <img src="galeria/9.png" alt="">
+  <img src="galeria/7.png" alt="">
+  <img src="galeria/8.png" alt="">
+  <img src="galeria/13.png" alt="">
+  <img src="galeria/14.png" alt="">
+  <img src="galeria/15.png" alt="">
+  <img src="galeria/16.png" alt="">
+  <img src="galeria/17.png" alt="">
+  <img src="galeria/18.png" alt="">
+  <img src="galeria/19.png" alt="">
+  <img src="galeria/20.png" alt="">
+  <img src="galeria/21.png" alt="">
+  <img src="galeria/22.png" alt="">
+  <img src="galeria/23.png" alt="">
+  <img src="galeria/24.png" alt="">
+<img src="galeria/34.png" alt="">
+<img src="galeria/35.png" alt="">
+<img src="galeria/36.png" alt="">
+<img src="galeria/38.png" alt="">
+<img src="galeria/39.png" alt="">
+
+<img src="galeria/37.png" alt="">
+</section>
+
+
+<section class="section-heading1">
+  <h2>Level Design</h2>
+  <p>Wizualizacje i rendery 3D przedstawiające światy gier stworzone w moim portfolio — od koncepcji po finalny render.</p>
+
+</section>
+
+<!-- Nowoczesna wersja sekcji gallery-5 -->
+<section class="gallery gallery-5 modern-gallery">
+  <img src="portfolio/Plansza5.jpg" alt="">
+  <img src="portfolio/Plansza1.jpg" alt="">
+  <img src="portfolio/Plansza3.jpg" alt="">
+  <img src="portfolio/Plansza4.jpg" alt="">
+  <img src="portfolio/Plansza2.jpg" alt="">
+</section>
+
+<section class="custom-section">
+  <div class="container">
+  
+
+    <div class="grid-container">
+      <!-- Lewy GÓRA: Opis -->
+      <div class="grid-item image-box">
+        <img src="images/mapa.png" alt="Fortnite">
+      </div>
+
+
+      <!-- Prawy GÓRA: Zdjęcie -->
+      <div class="grid-item image-box">
+       <video src="video/video2.mp4" autoplay muted loop playsinline style="max-width: 100%; height: auto; border-radius: 8px;"></video>
+
+      </div>
+
+
+        </div>
+  </div>
+</section>
 
 
 
 
-/* Resetowanie domyślnych stylów */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+<section class="custom-section">
+  <div class="container">
+    <h1 class="section-title">GAME-READY HAIR</h1>
 
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
-    background-color: black;
-    color: white;
-    overflow-x: hidden;
-    text-align: center;
-    font-weight: 700; /* Ustawienie wagi na bold */
-}
+    <div class="grid-container">
+      <!-- Lewy GÓRA: Opis -->
+      <div class="grid-item text-box">
+        <h2></h2>
+        <p>
+                  </p>
+      </div>
 
-/* Tło maski */
-.mask {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 998;
-    background: url('images/mask-image.jpg') no-repeat center center/cover;
-}
+      <!-- Prawy GÓRA: Zdjęcie -->
+      <div class="grid-item image-box">
+        <img src="wlosy/hair.png" alt="Fortnite">
+      </div>
 
-/* Styl dla wideo */
-video {
+      <!-- Lewy DÓŁ: Zdjęcie -->
+      <div class="grid-item image-box">
+        <img src="wlosy/HairAlphaa3.png" alt="Cyberpunk">
+      </div>
+
+      <!-- Prawy DÓŁ: Zdjęcie -->
+      <div class="grid-item image-box">
+        <img src="wlosy/mat.png" alt="Apex Legends">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background-color: #0d0b11; color: white; font-family: Arial, sans-serif; padding: 60px 20px;">
+  <div style="max-width: 1200px; margin: auto;">
     
-    height: auto; /* Automatyczna wysokość zachowująca proporcje */
-    display: block; /* Blokowy wyświetlanie */
-    margin: 0 auto; /* Wyśrodkowanie wideo */
-    object-fit: cover; /* Dopasowanie wideo do kontenera */
-}
-
-/* Główny nagłówek */
-.header {
-    position: relative;
-    width: 100%;
-    height: 700px;
-    background: url('images/photo24.png') no-repeat center center/cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-align: center;
-    padding-top: 20px;
-    z-index: 999;
-    margin-bottom: 100px;
-}
-
-.header-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation: fadeIn 2s ease-in-out;
-}
-
-
-.header-text h1 {
-    margin: 0;
-    font-size: 48px;
-    font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
-    letter-spacing: 5px;
-    font-weight: bold;
-      color: white; /* Kolor tekstu nagłówków na biały */
-}
-
-.header-text h2 {
-    margin: 0;
-    font-size: 24px;
-    font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
-      color: white; /* Kolor tekstu nagłówków na biały */
-}
-
-/* Nagłówek przyczepny */
-.sticky-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    text-align: center;
-    padding: 10px 0;
-    z-index: 1000;
-    display: none;
-    background-color: transparent;
-    box-shadow: 0px 2px 5px rgba(0,0,0,0);
-}
-
-.sticky-header a {
-    color: black;
-    text-decoration: none;
-    font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
-    font-size: 28px;
-    font-weight: bold;
-    opacity: 0.3;
-    margin: auto;
-}
-
-/* Kontener na zawartość */
-.container {
-    width: 80%;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0);
-    position: relative;
-    z-index: 999;
-    text-align: center;
-}
-
-/* Galeria zdjęć */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    grid-gap: 10px;
-    margin-top: 20px;
-}
-
-.photo-frame {
-    position: relative;
-    overflow: hidden;
-    opacity: 1;
-    transform: translateY(50px);
-    transition: opacity 1s ease-out, transform 1s ease-out;
-    padding: 10px;
-    margin-bottom: 40px;
-}
-
-.photo-frame img {
-    width: 80%;
-    margin-left: 80px;
-    height: auto;
-    display: block;
-    transition: transform 0.5s ease;
-}
-
-.photo-frame video {
-    width: 100%;
-    height: auto;
-}
-.photo-frame img[src*="gaz8"], 
-.photo-frame img[src*="gaz7"], 
-.photo-frame img[src*="gaz6"], 
-.photo-frame img[src*="gaz5"], 
-.photo-frame img[src*="gaz4"], 
-.photo-frame img[src*="gaz3"],
-.photo-frame img[src*="gaz2"], 
-.photo-frame img[src*="gaz1"], 
-.photo-frame img[src*="photo1"] {
-    transform: none !important;
-    transition: none !important;
-}
-
-.photo-frame:hover img {
-    transform: scale(1.1);
-}
-
-.photo-frame.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.expanded-img {
-    max-width: 90%;
-    max-height: 90%;
-    cursor: pointer;
-}
-
-.prev-btn,
-.next-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    color: white;
-    font-size: 30px;
-    cursor: pointer;
-}
-
-.prev-btn {
-    left: 20px;
-}
-
-.next-btn {
-    right: 20px;
-}
-
-/* Paski nawigacyjne */
-.tabs {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color:black;
-    background-color: rgba(0, 0, 0, 0);
-    padding: 10px 20px;
-    z-index: 1000;
-    transition: height 0.3s ease;
-      font-weight: bold; /* Pogrubienie tekstu zakładek */
-}
-
-.tabs-left {
-    display: flex;
-    align-items: center;
-}
-
-.tabs-left a, .tabs-left button {
-    text-decoration: none;
-    font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
-    color: black;
-    font-size: 18px;
-    padding: 10px 20px;
-    margin-right: 10px;
-    border: none;
-    background-color: none;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.tabs-left a:hover, .tabs-left button:hover {
-    opacity: 0;
-}
-
-.tabs-right {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
-
-.expand-button {
-    width: 30px;
-    height: 50px;
-    cursor: pointer;
-    margin-left: 10px;
-}
-
-.expand-button img {
-    width: 100%;
-    margin-top: 18%;
-    object-fit: contain;
-}
-
-/* Rozwijane menu */
-.tabs.expanded .expand-button {
-    visibility: visible;
-}
-
-.tabs.expanded .tabs-left,
-.tabs.expanded .tabs-right {
-    visibility: hidden;
-    display: flex;
-}
-
-.tabs.expanded {
-    height: auto;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-.tabs a {
-    text-decoration: none;
-    font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
-    font-size: 18px;
-    padding: 10px 20px;
-    margin-right: 10px;
-    border: none;
-    background-color: transparent;
-    opacity: 0.5;
-    transition: opacity 0.3s ease;
-    color:black;
-     color: white; /* Kolor tekstu zakładek na biały */
-}
-
-.tabs a:hover {
-    opacity: 1;
-}
-
-.social-icons {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    margin-left: 10px;
-}
-
-.social-icons img {
-    width: 30px;
-    margin: 0 -30px;
-}
-
-.hidden {
-    display: none;
-}
-
-.section {
-    padding: 50px 0;
-    text-align: center;
-}
-
-/* Dodatkowe style dla paginacji */
-.pagination {
-    margin-top: 100px;
-    display: flex;
-    justify-content: center;
-}
-
-.pagination button {
-    padding: 8px 16px;
-    margin: 0 5px;
-    font-family: 'Helvetica Neue', sans-serif; /* Użyj Helvetica Bold */
-    font-size: 16px;
-    color: transparent;
-    background-color: transparent;
-    border: 1px solid #ccc;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.pagination button:hover {
-    background-color: transparent;
-    color: black;
-}
-
-.container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 40px 0;
-}
-
-#about p {
-    font-size: 18px;
-    line-height: 1.6;
-}
-
-#projects h2,
-#contact h2 {
-    text-align: center;
-    margin-bottom: -110px;
-}
-
-.project-grid {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.project-item {
-    width: 30%;
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.project-item img {
-    width: 100%;
-    height: auto;
-}
-
-footer {
-    background-color: white;
-    color: black;
-    text-align: center;
-    padding: 20px 0;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-/* Media queries dla różnych rozmiarów ekranu */
-@media only screen and (max-width: 1024px) {
-    /* Stylowanie dla tabletów */
-    .gallery {
-        grid-template-columns: repeat(auto-fit, minmax(33.33%, 1fr));
-    }
-}
-
-@media only screen and (max-width: 768px) {
-    /* Stylowanie dla tabletów i telefonów */
-    .gallery {
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    }
-
-    .header {
-        height: 500px;
-    }
-
-    .header-text h1 {
-        font-size: 36px;
-    }
-
-    .header-text h2 {
-        font-size: 18px;
-    }
-
-    .container {
-        width: 90%;
-    }
-
-    .photo-frame {
-        margin-bottom: 10px;
-    }
-
-    .tabs a {
-        font-size: 16px;
-    }
-
-    .social-icons img {
-        width: 25px;
-        margin: 0 10px;
-    }
-
-    .expand-button {
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
-
-@media only screen and (max-width: 480px) {
-    /* Stylowanie dla telefonów */
-    .header {
-        height: 300px;
-    }
-
-    .header-text h1 {
-        font-size: 22px;
-        transform: translateY(20px);
-    }
-
-    .header-text h2 {
-        font-size: 12px;
-        transform: translateY(20px);
-    }
-
-    .tabs a {
-        font-size: 14px;
-        padding: 5px 10px;
-    }
-
-    .social-icons {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        justify-content: flex-start;
-    }
-
-    .social-icons img {
-        width: 20px;
-        margin: -60px;
-        transform: translateX(34px);
-    }
-
-    .container {
-        width: 90%;
-        margin: 0 auto;
-    }
-
-    .expand-button {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .sticky-header a {
-        font-size: 15px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; gap: 20px;">
+      
+      <!-- Lewy górny róg: Zdjęcie -->
+      <div>
+        <img src="mesh/postac.png" alt="Projekt 1" style="width: 100%; border-radius: 12px;">
+      </div>
+
+      <!-- Prawy górny róg: Opis -->
+      <div style="display: flex; align-items: center; background-color: #141218; border-radius: 12px; padding: 20px;">
+        <p style="font-size: 16px; line-height: 1.6;">
+        
+        </p>
+      </div>
+
+      <!-- Lewy dolny róg: Zdjęcie -->
+      <div>
+        <img src="mesh/set6.png" alt="Projekt 2" style="width: 100%; border-radius: 12px;">
+      </div>
+
+      <!-- Prawy dolny róg: Zdjęcie -->
+<div>
+        <img src="mesh/set5.png" alt="Projekt 2" style="width: 100%; border-radius: 12px;">
+      </div>
+
+      
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background-color: #0d0b11; color: white; font-family: Arial, sans-serif; padding: 60px 20px;">
+  <div style="max-width: 1200px; margin: auto;">
+   
+    <!-- Górna ramka z 2 obrazkami i tytułem po środku -->
+    <div style="flex: 1; min-width: 250px; display: flex; justify-content: center;">       
+      
+      <!-- Środek: tytuł -->
+      <div style="flex: 1; min-width: 250px; text-align: left;">
+        <h2 style="font-size: 28px; font-weight: bold; margin: 0;">FOTOGRAMETRIA</h2>
+<p style="font-size: 16px; line-height: 1.6;">
+                 </p>
+
+<div style="display: flex; flex-wrap: wrap; margin-top: 60px; background-color: #141218; border-radius: 12px; overflow: hidden;">
+      <div style="flex: 1; padding: 40px;">
+        <h2 style="font-size: 28px; font-weight: bold;"></h2>
+
+      </div>
+
+      <!-- Prawy obrazek -->
+      <div style="flex: 1; min-width: 250px; display: flex; justify-content: center;">
+        <img src="fotogrametria/mht.png" alt="Right Top" style="max-width: 100%; height: auto; border-radius: 8px;">
+      </div>
+
+    </div>
+
+  
+      
+
+<!-- DOLNA SEKCJA Z VIDEO I PNG -->
+<div style="display: flex; flex-wrap: wrap; margin-top: 30px; background-color: TRANSPARENT; border-radius: 12px; overflow: hidden; padding: 20px; gap: 20px; justify-content: space-between; align-items: center;">
+
+  <!-- Lewy dolny (video) -->
+  <div style="flex: 1; min-width: 250px; display: flex; justify-content: center;">
+    <video src="video/mhc4.mp4" autoplay muted loop playsinline style="max-width: 100%; height: auto; border-radius: 8px;"></video>
+  </div>
+
+  <!-- Prawy dolny (PNG) -->
+  <div style="flex: 1; min-width: 250px; display: flex; justify-content: center;">
+    <img src="fotogrametria/SCAN3.png" alt="Right Top" style="max-width: 100%; height: auto; max-height: 200px; border-radius: 8px;">
+  </div>
+
+</div>
+
+<section style="background-color: #0d0b11; color: white; font-family: Arial, sans-serif; padding: 60px 20px;">
+  <div style="max-width: 1200px; margin: auto;">
+    <h1 style="font-size: 48px; font-weight: bold; text-transform: uppercase;">MOTION CAPTURE<br></h1>
+    <p style="max-width: 600px; margin-top: 20px; font-size: 16px; line-height: 1.6;">
+         </p>
+
+    <div style="display: flex; flex-wrap: wrap; margin-top: 60px; background-color: #141218; border-radius: 12px; overflow: hidden;">
+      <div style="flex: 1; padding: 40px;">
+        <h2 style="font-size: 28px; font-weight: bold;"></h2>
+        <p style="margin-top: 20px; font-size: 15px; line-height: 1.6;">
+                </p>
+        <a href="#" style="display: inline-block; margin-top: 30px; padding: 12px 24px; background-color: #00ffc3; color: black; text-decoration: none; border-radius: 6px; font-weight: bold;">SEE MORE →</a>
+      </div>
+      <div style="flex: 1; background-image: url('your-image.jpg'); background-size: cover; background-position: center; min-height: 300px;"></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="projects-section">
+  <div class="projects-text">
+    <h2>PROJECTS</h2>
+    <h3 class="highlighted"></h3>
+    <ul>
+      <li></li>
+      <li></li>
+    </ul>
+    <a href="#" class="project-btn">VIEW PROJECT ↗</a>
+  </div>
+
+  <div class="projects-gallery">
+       <div class="project-card">
+      <img src="gra/1.png" alt="">
+
+      <p></p>
+    </div>
+
+    <div class="project-card">
+      <img src="gra/2.png" alt="">
+    
+      <p></p>
+    </div>
+
+    <div class="project-card">
+      <img src="gra/3.png" alt="">
+
+      <p></p>
+    </div>
+  </div>
+</section>
+
+
+<section class="custom-section">
+  <div class="container">
+  
+
+    <div class="grid-container">
+      <!-- Lewy GÓRA: Opis -->
+      <div class="grid-item image-box">
+
+       <video src="video/video1.mp4" autoplay muted loop playsinline style="max-width: 100%; height: auto; border-radius: 8px;"></video>
+
+  
+      </div>
+
+
+   
+ <!-- Prawy GÓRA: Zdjęcie -->
+      <div class="grid-item image-box">
+       <video src="video/pokoj1.mp4" autoplay muted loop playsinline style="max-width: 100%; height: auto; border-radius: 8px; margin-top:30px;"></video>
+
+     
+
+      </div>
+
+  </div>
+</section>
+
+
+
+<section class="highlight-section">
+  <div class="highlight-container">
+    <div class="highlight-header">
+      <h2></h2>
+      <p></p>
+    </div>
+
+    <div class="highlight-cards">
+      <div class="highlight-card">
+        <div class="icon">🎯</div>
+        <h3></h3>
+        <p>.</p>
+      </div>
+      <div class="highlight-card">
+        <div class="icon">🧠</div>
+        <h3></h3>
+        <p>.</p>
+      </div>
+      <div class="highlight-card">
+        <div class="icon">🛡️</div>
+        <h3></h3>
+        <p></p>
+      </div>
+      <div class="highlight-card">
+        <div class="icon">🚀</div>
+        <h3></h3>
+        <p></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+</section>
+</body>
+</html>
