@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Galeria - kliknięcia na obrazki (lightbox)
-  document.querySelectorAll('.gallery img, .gallery-5 img, .modern-gallery img, .right-images img, .full-width-image').forEach(img => {
+  document.querySelectorAll('.gallery img, .gallery-5 img, .modern-gallery img, .right-images img, .full-width-image, .image-box img').forEach(img => {
     img.addEventListener('click', () => {
       fullscreenImg.src = img.src;
       fullscreen.style.display = 'flex';
