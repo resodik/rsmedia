@@ -1,105 +1,112 @@
-document.querySelectorAll('.section').forEach(section => {
-    section.addEventListener('wheel', (e) => {
-        if (e.deltaY > 0) {
-            const next = section.nextElementSibling;
-            if (next) {
-                next.scrollIntoView({ behavior: 'smooth' });
-            }
-        } else {
-            const prev = section.previousElementSibling;
-            if (prev) {
-                prev.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
+document.addEventListener("DOMContentLoaded", () => {
+  const images = document.querySelectorAll('.overlay-slider .images-container img');
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+  const slider = document.getElementById('imageRange');
+  const fullscreen = document.getElementById('fullscreen');
+  const fullscreenImg = document.getElementById('fullscreen-img');
+
+  let currentIndex = 0;
+  let autoSlideInterval;
+  let isUserControlling = false;
+  let resumeTimeout;
+
+  function showImage(index) {
+    currentIndex = index;
+    images.forEach((img, i) => {
+      img.classList.toggle('active', i === index);
     });
-});
-    // Skrypty JavaScript, jakie masz obecnie
-        window.onscroll = function() {toggleStickyHeader(), revealPhotos()};
+    if (slider) slider.value = index;
+  }
 
-        function toggleStickyHeader() {
-            var header = document.querySelector('.sticky-header');
-            var mainHeader = document.querySelector('.header');
-            var headerHeight = mainHeader.offsetHeight;
+  function nextImage() {
+    let nextIndex = (currentIndex + 1) % images.length;
+    showImage(nextIndex);
+  }
 
-            if (window.pageYOffset > headerHeight) {
-                header.style.display = "block";
-            } else {
-                header.style.display = "none";
-            }
-        }
+  function prevImage() {
+    let prevIndex = (currentIndex - 1 + images.length) % images.length;
+    showImage(prevIndex);
+  }
 
-        function revealPhotos() {
-            var photoFrames = document.querySelectorAll('.photo-frame');
-            for (var i = 0; i < photoFrames.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = photoFrames[i].getBoundingClientRect().top;
-                var elementVisible = 150;
-                if (elementTop < windowHeight - elementVisible) {
-                    photoFrames[i].classList.add("visible");
-                }
-            }
-        }
+  function startAutoSlide() {
+    autoSlideInterval = setInterval(() => {
+      if (!isUserControlling) {
+        nextImage();
+      }
+    }, 1500);
+  }
 
-        // Pozostałe funkcje JavaScript
-        function toggleTabs() {
-            var tabs = document.querySelector('.tabs');
-            tabs.classList.toggle('expanded');
-        }
+  function pauseAutoSlide() {
+    isUserControlling = true;
+    clearInterval(autoSlideInterval);
+    clearTimeout(resumeTimeout);
+    resumeTimeout = setTimeout(() => {
+      isUserControlling = false;
+      startAutoSlide();
+    }, 2000);
+  }
 
-      function loadProjects() {
-            location.href = 'portfolio.html';
-        }
+  prevBtn?.addEventListener('click', () => {
+    prevImage();
+    pauseAutoSlide();
+  });
 
-      
+  nextBtn?.addEventListener('click', () => {
+    nextImage();
+    pauseAutoSlide();
+  });
 
-        function loadAbout() {
-            location.href = 'omnie.html';
-        }
+  slider?.addEventListener('input', (e) => {
+    showImage(parseInt(e.target.value));
+    pauseAutoSlide();
+  });
 
-          function refreshPage() {
-            location.reload();
-        }
-
-        function loadPortfolio() {
-             location.href = 'index.html';
-            var portfolioSection = document.getElementById('portfolio');
-            if (portfolioSection) {
-                var topPosition = portfolioSection.offsetTop;
-                window.scrollTo({
-                    top: topPosition,
-                    behavior: 'smooth'
-                });
-            }
-        }
-
-       function loadBlog() {
-            location.href = 'blog.html';
-        }
-
-const mainImage = document.querySelector('.main-image img');
-const thumbnails = document.querySelectorAll('.thumb');
-let currentIndex = 0;
-
-function updateMainImage(index) {
-    mainImage.src = thumbnails[index].src;
-    document.querySelector('.thumb.active').classList.remove('active');
-    thumbnails[index].classList.add('active');
-}
-
-document.querySelector('.prev').addEventListener('click', () => {
-    currentIndex = (currentIndex > 0) ? currentIndex - 1 : thumbnails.length - 1;
-    updateMainImage(currentIndex);
-});
-
-document.querySelector('.next').addEventListener('click', () => {
-    currentIndex = (currentIndex < thumbnails.length - 1) ? currentIndex + 1 : 0;
-    updateMainImage(currentIndex);
-});
-
-thumbnails.forEach((thumb, index) => {
-    thumb.addEventListener('click', () => {
-        currentIndex = index;
-        updateMainImage(index);
+  // Galeria - kliknięcia na obrazki (lightbox)
+  document.querySelectorAll('.gallery img, .gallery-5 img, .modern-gallery img, .right-images img, .full-width-image').forEach(img => {
+    img.addEventListener('click', () => {
+      fullscreenImg.src = img.src;
+      fullscreen.style.display = 'flex';
     });
-});
+  });
 
+  fullscreen.addEventListener('click', () => {
+    fullscreen.style.display = 'none';
+    fullscreenImg.src = '';
+  });
+
+  // Obsługa linków w <nav>
+  document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const index = link.getAttribute('data-index');
+      const href = link.getAttribute('href');
+
+      // Jeśli jest data-index, przełącz slider i zapobiegaj przeładowaniu
+      if (index !== null) {
+        e.preventDefault();
+        showImage(parseInt(index));
+        pauseAutoSlide();
+        return;
+      }
+
+      // Jeśli href to link do obrazka, otwórz lightbox i zapobiegaj przeładowaniu
+      if (href && href.match(/\.(jpeg|jpg|gif|png|svg)$/i)) {
+        e.preventDefault();
+        fullscreenImg.src = href;
+        fullscreen.style.display = 'flex';
+        return;
+      }
+
+      // W pozostałych przypadkach (np. str.html) nie blokujemy domyślnego działania linku
+      // — pozwól przejść do innej strony normalnie
+    });
+  });
+
+  showImage(currentIndex);
+  startAutoSlide();
+
+  window.addEventListener("load", () => {
+    const nav = document.querySelector("nav");
+    if (nav) nav.style.opacity = "1";
+  });
+});
