@@ -131,15 +131,17 @@
       </div>
 
 
-      <!-- Prawy GÓRA: Zdjęcie -->
-      <div class="grid-item image-box">
-       <video src="video/video2.mp4" autoplay muted loop playsinline style="max-width: 100%; height: auto; border-radius: 8px;"></video>
+<div class="carousel-wrapper video-carousel-wrapper">
+  <button class="nav-button1 nav-left" onclick="scrollCarousel(-600)">⟵</button>
+  <button class="nav-button1 nav-right" onclick="scrollCarousel(600)">⟶</button>
 
-      </div>
+  <div class="carousel video-carousel"  id="video-carousel">
 
-
-        </div>
+    <video src="video/video2.mp4" autoplay muted loop playsinline style="max-width: 100%; height: auto; border-radius: 8px;"></video>
+    <video src="video/video1.mp4" autoplay muted loop playsinline style="max-width: 100%; height: auto; border-radius: 8px;"></video>
   </div>
+</div>
+
 </section>
 
 <section style="background-color: #0d0b11; color: white; font-family: Arial, sans-serif; padding: 60px 20px;">
@@ -286,31 +288,6 @@
 
 
 
-<section class="custom-section">
-  <div class="container">
-  
-
-    <div class="grid-container">
-      <!-- Lewy GÓRA: Opis -->
-      <div class="grid-item image-box">
-
-       <video src="video/video1.mp4" autoplay muted loop playsinline style="max-width: 100%; height: auto; border-radius: 8px;"></video>
-
-  
-      </div>
-
-
-   
- <!-- Prawy GÓRA: Zdjęcie -->
-      <div class="grid-item image-box">
-       <video src="video/pokoj1.mp4" autoplay muted loop playsinline style="max-width: 100%; height: auto; border-radius: 8px; margin-top:30px;"></video>
-
-     
-
-      </div>
-
-  </div>
-</section>
 
 
 
@@ -323,26 +300,19 @@
 
     <div class="highlight-cards">
       <div class="highlight-card">
-        <div class="icon">🎯</div>
-        <h3></h3>
-        <p>.</p>
+         <div>
+           <img src="lowpoly.jpg" alt="Projekt 2" style="width: 100%; border-radius: 12px;">
       </div>
-      <div class="highlight-card">
-        <div class="icon">🧠</div>
-        <h3></h3>
-        <p>.</p>
-      </div>
-      <div class="highlight-card">
-        <div class="icon">🛡️</div>
+
         <h3></h3>
         <p></p>
       </div>
       <div class="highlight-card">
-        <div class="icon">🚀</div>
-        <h3></h3>
-        <p></p>
+       <div>
+           <img src="pojazd.jpeg" alt="Projekt 2" style="width: 100%; border-radius: 12px;">
       </div>
-    </div>
+
+            </div>
   </div>
 </section>
 
@@ -368,6 +338,8 @@
     <img src="" alt="Powiększone" id="modal-img">
   </div>
 
+
 </section>
+
 </body>
 </html>
