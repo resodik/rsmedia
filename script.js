@@ -158,7 +158,16 @@ document.addEventListener("DOMContentLoaded", () => {
       modal.style.display = 'none';
     }
 
-    // Autoplay scroll
-    setInterval(() => {
-      carousel.scrollBy({ left: 300, behavior: 'smooth' });
-    }, 4000); // co 4 sekundy
+   // Autoplay scroll (z zatrzymaniem na końcu)
+const autoScrollInterval = setInterval(() => {
+  const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
+
+  // Sprawdź, czy już jesteśmy na końcu
+  if (carousel.scrollLeft + 10 >= maxScrollLeft) {
+    clearInterval(autoScrollInterval); // zatrzymaj automatyczne przewijanie
+    return;
+  }
+
+  // przewijaj tylko jeśli nie osiągnięto końca
+  carousel.scrollBy({ left: 300, behavior: 'smooth' });
+}, 4000);
