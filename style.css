@@ -613,26 +613,26 @@ nav {
       aspect-ratio: 4 / 3;
       object-fit: cover;
       border-radius: 16px;
-      border: 2px solid rgba(0, 255, 231, 0.2);
+      border: 2px solid rgba(255, 0, 212, 0.2);
       transition: 0.3s ease;
-      box-shadow: 0 0 20px rgba(0, 255, 231, 0.2);
+      box-shadow: 0 0 20px rgba(255, 0, 212, 0.2);
       scroll-snap-align: start;
       cursor: pointer;
     }
 
     .carousel img:hover {
       transform: scale(1.05) rotate(1deg);
-      border-color: #00ffe7;
-      box-shadow: 0 0 30px #00ffe7;
+      border-color: #ff00d4;
+      box-shadow: 0 0 30px #ff00d4;
     }
 
     .nav-button {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(0, 255, 231, 0.1);
-      border: 1px solid #00ffe7;
-      color: #00ffe7;
+      border: 1px solid #ff00d4;
+      color: #ff00d4;
+      background: rgba(255, 0, 212, 0.1);
       padding: 10px;
       cursor: pointer;
       z-index: 10;
@@ -641,9 +641,26 @@ nav {
       transition: background 0.3s;
     }
 
-    .nav-button:hover {
-      background: rgba(0, 255, 231, 0.3);
+ .nav-button1 {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      border: 0px solid #ff00d4;
+      color: #ff00d4;
+      background: rgba(255, 0, 212, 0.1);
+      padding: 10px;
+      cursor: pointer;
+      z-index: 10;
+      border-radius: 50%;
+     
+      transition: background 0.3s;
     }
+
+
+    .nav-button:hover {
+      background: rgba(255, 0, 212, 0.3);
+    }
+
 
     .nav-left {
       left: 10px;
@@ -669,8 +686,8 @@ nav {
       max-width: 90%;
       max-height: 90%;
       border-radius: 12px;
-      border: 2px solid #00ffe7;
-      box-shadow: 0 0 40px #00ffe7;
+      border: 2px solid #ff00d4;
+      box-shadow: 0 0 40px #ff00d4;
     }
 
     @keyframes flicker {
@@ -692,6 +709,44 @@ nav {
         width: 90vw;
       }
     }
+
+.video-carousel-wrapper {
+  background: transparent !important;
+}
+
+.video-carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+margin-top: -50px;
+  gap: 16px;
+  padding: 10px 0;
+}
+
+.video-carousel video {
+  flex: 0 0 auto;
+  width: 110%;
+  max-width: 100%;
+  scroll-snap-align: center;
+  border-radius: 8px;
+}
+
+.learn-more-btn {
+  display: inline-block;
+  background-color: white;
+  color: #000; /* czarny tekst */
+  padding: 10px 25px;
+  border-radius: 25px; /* owalny kształt */
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.learn-more-btn:hover {
+  background-color: #f0f0f0;
+  color: #333;
+}
 
   </style>
 </head>
