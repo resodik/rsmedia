@@ -110,3 +110,55 @@ document.addEventListener("DOMContentLoaded", () => {
     if (nav) nav.style.opacity = "1";
   });
 });
+
+  const carousel = document.getElementById('carousel');
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-img');
+
+    // Scroll via buttons
+    function scrollCarousel(offset) {
+      carousel.scrollBy({ left: offset, behavior: 'smooth' });
+    }
+
+    // Drag to scroll
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    carousel.addEventListener('mousedown', (e) => {
+      isDown = true;
+      carousel.classList.add('active');
+      startX = e.pageX - carousel.offsetLeft;
+      scrollLeft = carousel.scrollLeft;
+    });
+
+    carousel.addEventListener('mouseleave', () => {
+      isDown = false;
+    });
+
+    carousel.addEventListener('mouseup', () => {
+      isDown = false;
+    });
+
+    carousel.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - carousel.offsetLeft;
+      const walk = (x - startX) * 2;
+      carousel.scrollLeft = scrollLeft - walk;
+    });
+
+    // Modal functions
+    function openModal(src) {
+      modal.style.display = 'flex';
+      modalImg.src = src;
+    }
+
+    function closeModal() {
+      modal.style.display = 'none';
+    }
+
+    // Autoplay scroll
+    setInterval(() => {
+      carousel.scrollBy({ left: 300, behavior: 'smooth' });
+    }, 4000); // co 4 sekundy
