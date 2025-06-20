@@ -348,6 +348,25 @@
 
 
 
+   <div class="carousel-wrapper">
+    <button class="nav-button nav-left" onclick="scrollCarousel(-300)">⟵</button>
+    <button class="nav-button nav-right" onclick="scrollCarousel(300)">⟶</button>
+
+    <div class="carousel" id="carousel">
+      <img src="render/room1.png" alt="Cyberpunk 1" onclick="openModal(this.src)" /> 
+      <img src="render/room2.png" alt="Cyberpunk 2" onclick="openModal(this.src)" /> 
+      <img src="render/room3.png" alt="Cyberpunk 3" onclick="openModal(this.src)" /> 
+      <img src="render/room4.png" alt="Cyberpunk 4" onclick="openModal(this.src)" /> 
+      <img src="render/room5.png" alt="Cyberpunk 5" onclick="openModal(this.src)" /> 
+      <img src="render/room6.png" alt="Cyberpunk 6" onclick="openModal(this.src)" />
+
+    </div>
+  </div>
+
+  <!-- Modal powiększający -->
+  <div class="modal" id="modal" onclick="closeModal()">
+    <img src="" alt="Powiększone" id="modal-img">
+  </div>
 
 </section>
 </body>
