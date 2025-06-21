@@ -192,11 +192,26 @@ function scrollCarousel(offset) {
   }, 600); // Czas na zakończenie scrollowania (dostosuj do szybkości animacji)
 }
 
+let modalImages = [];
+let modalCurrentIndex = 0;
+
 function openModal(src) {
+  modalImages = Array.from(document.querySelectorAll('#carousel img'));
+  modalCurrentIndex = modalImages.findIndex(img => img.src.includes(src));
+
   const modal = document.getElementById("modal");
   const modalImg = document.getElementById("modal-img");
   modal.style.display = "flex";
-  modalImg.src = src;
+  modalImg.src = modalImages[modalCurrentIndex].src;
+}
+
+function scrollModalImage(direction, e) {
+  e.stopPropagation(); // nie zamykaj modala
+
+  if (!modalImages.length) return;
+
+  modalCurrentIndex = (modalCurrentIndex + direction + modalImages.length) % modalImages.length;
+  document.getElementById("modal-img").src = modalImages[modalCurrentIndex].src;
 }
 
 function closeModal() {
@@ -204,3 +219,22 @@ function closeModal() {
   modal.style.display = "none";
 }
 
+function scrollImageCarousel(offset) {
+  const carousel = document.getElementById("carousel");
+  if (!carousel) return;
+
+  carousel.scrollBy({
+    left: offset,
+    behavior: "smooth"
+  });
+}
+
+function scrollCarouselById(id, amount) {
+  const carousel = document.getElementById(id);
+  if (carousel) {
+    carousel.scrollBy({
+      left: amount,
+      behavior: "smooth"
+    });
+  }
+}
