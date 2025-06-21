@@ -294,7 +294,7 @@
     <div class="highlight-cards">
       <div class="highlight-card">
          <div>
-           <img src="render/lowpoly.jpg" alt="Projekt 2" style="width: 100%; border-radius: 12px;">
+           <img src="lowpoly.jpg" alt="Projekt 2" style="width: 100%; border-radius: 12px;">
       </div>
 
         <h3></h3>
@@ -302,7 +302,7 @@
       </div>
       <div class="highlight-card">
        <div>
-           <img src="render/pojazd.jpeg" alt="Projekt 2" style="width: 100%; border-radius: 12px;">
+           <img src="pojazd.jpeg" alt="Projekt 2" style="width: 100%; border-radius: 12px;">
       </div>
 
             </div>
@@ -311,9 +311,9 @@
 
 
 
-   <div class="carousel-wrapper">
-    <button class="nav-button nav-left" onclick="scrollCarousel(-300)">⟵</button>
-    <button class="nav-button nav-right" onclick="scrollCarousel(300)">⟶</button>
+       <div class="carousel-wrapper video-carousel-wrapper">
+   <button class="nav-button nav-left" onclick="scrollImageCarousel(-300)">⟵</button>
+<button class="nav-button nav-right" onclick="scrollImageCarousel(300)">⟶</button>
 
     <div class="carousel" id="carousel">
       <img src="render/room1.png" alt="Cyberpunk 1" onclick="openModal(this.src)" /> 
@@ -327,9 +327,12 @@
   </div>
 
   <!-- Modal powiększający -->
-  <div class="modal" id="modal" onclick="closeModal()">
-    <img src="" alt="Powiększone" id="modal-img">
-  </div>
+ <div class="modal" id="modal" onclick="closeModal()">
+  <button class="nav-button nav-left" onclick="scrollModalImage(-1, event)">⟵</button>
+  <img src="" alt="Powiększone" id="modal-img">
+  <button class="nav-button nav-right" onclick="scrollModalImage(1, event)">⟶</button>
+</div>
+
 
 
 </section>
