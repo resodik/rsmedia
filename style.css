@@ -748,7 +748,34 @@ margin-top: -50px;
   color: #333;
 }
 
+/* Kontener mapy + karuzeli */
+.responsive-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  padding: 40px 20px;
+}
 
+/* Mobilna wersja */
+@media (max-width: 768px) {
+  .responsive-grid-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .video-carousel-wrapper {
+    flex-direction: column;
+  }
+
+  .nav-button1 {
+    order: -1; /* strzałki nad karuzelą */
+  }
+
+  .video-carousel {
+    padding: 0;
+  }
+}
 
   </style>
 </head>
