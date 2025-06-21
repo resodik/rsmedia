@@ -121,27 +121,24 @@
 </section>
 
 <section class="custom-section">
-  <div class="container">
-  
+  <div class="responsive-grid-container">
 
-    <div class="grid-container">
-      <!-- Lewy GÓRA: Opis -->
-      <div class="grid-item image-box">
-        <img src="images/mapa.png" alt="">
+    <!-- Mapa -->
+    <div class="image-box">
+      <img src="images/mapa.png" alt="Mapa" />
+    </div>
+
+    <!-- Karuzela wideo -->
+    <div class="carousel-wrapper video-carousel-wrapper">
+      <button class="nav-button1 nav-left" onclick="scrollCarouselById('video-carousel', -300)">⟵</button>
+      <div class="carousel video-carousel" id="video-carousel">
+        <video src="video/video2.mp4" autoplay muted loop playsinline></video>
+        <video src="video/video1.mp4" autoplay muted loop playsinline></video>
       </div>
+      <button class="nav-button1 nav-right" onclick="scrollCarouselById('video-carousel', 300)">⟶</button>
+    </div>
 
-
-<div class="carousel-wrapper video-carousel-wrapper">
-  <button class="nav-button1 nav-left" onclick="scrollCarousel(-600)">⟵</button>
-  <button class="nav-button1 nav-right" onclick="scrollCarousel(600)">⟶</button>
-
-  <div class="carousel video-carousel"  id="video-carousel">
-
-    <video src="video/video2.mp4" autoplay muted loop playsinline style="max-width: 100%; height: auto; border-radius: 8px;"></video>
-    <video src="video/video1.mp4" autoplay muted loop playsinline style="max-width: 100%; height: auto; border-radius: 8px;"></video>
   </div>
-</div>
-
 </section>
 
 <section style="background-color: #0d0b11; color: white; font-family: Arial, sans-serif; padding: 60px 20px;">
