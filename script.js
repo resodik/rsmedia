@@ -238,3 +238,26 @@ function scrollCarouselById(id, amount) {
     });
   }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  const arrow = document.querySelector('.scroll-arrow');
+  if (arrow) {
+    arrow.addEventListener('click', () => {
+      const target = document.querySelector('.section-heading');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+
+    arrow.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        const target = document.querySelector('.section-heading');
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    });
+  }
+});
+
