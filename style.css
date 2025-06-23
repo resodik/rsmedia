@@ -830,8 +830,50 @@ margin-top: -50px;
   }
 }
 
+.scroll-arrow {
+  font-size: 2.5rem;
+  color: white;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 130px;
+  height: 42px;
+  cursor: pointer;
+  border-radius: 30px;
+  background: transparent;
+  user-select: none;
+  margin: 20px auto 0 auto; /* wycentrowanie i odstęp od góry */
+  transition: background 0.3s ease, color 0.3s ease;
+  text-align: center;
+}
+
+.scroll-arrow:hover,
+.scroll-arrow:focus {
+  background: transparent;
+  color: white;
+  outline: none;
+}
+
+ footer {
+      background: #0d0d0d;
+      color: white;
+      text-align: center;
+      padding: 25px 0;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        height: auto;
+        gap: 30px;
+        padding: 40px 20px;
+      }
+      header .right img { max-width: 200px; }
+    }
 
 
   </style>
 </head>
-<body>
+</body>
