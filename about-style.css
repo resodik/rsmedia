@@ -24,7 +24,7 @@
       z-index: 1000;
       background: #000;
     height: 100px; /* lub mniej */
-      border-bottom: 2px solid #FF0000;
+      border-bottom: 2px solid #0a1a52;
     }
 
    .top-nav-container {
@@ -40,7 +40,7 @@ z-index: 1000;
 
     .top-nav .logo {
       font-weight: 500;
-      color: #FF0000;
+      color: #0a1a52;
       letter-spacing: 2px;
     }
 
@@ -66,7 +66,7 @@ z-index: 1000;
   font-weight: bold;
 }
     .top-nav-links a:hover {
-      color: #FF0000;
+   
       transform: scale(1.05);
     }
 
@@ -80,7 +80,7 @@ z-index: 1000;
         right: 20px;
         background: #111;
         padding: 15px;
-        border: 1px solid #FF0000;
+        border: 1px solid #0a1a52;
         border-radius: 10px;
       }
       .top-nav-links.open { display: flex; }
@@ -89,7 +89,7 @@ z-index: 1000;
 
     header {
       height: 80vh;
-      background: linear-gradient(90deg, #FF0000 50%, #000 50%);
+      background: linear-gradient(90deg, #0a1a52 50%, #000 50%);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -103,7 +103,7 @@ z-index: 1000;
       letter-spacing: 2px;
       text-transform: uppercase;
     }
-    header .left h1 .red { color: #FF0000; }
+    header .left h1 .red { color: #0a1a52; }
     header .left p {
       margin-top: 1rem;
       font-size: 1.2rem;
@@ -112,7 +112,7 @@ z-index: 1000;
     }
     .btn {
       margin-top: 2rem;
-      background: #FF0000;
+      background: #0a1a52;
       padding: 12px 30px;
       font-weight: bold;
       font-size: 1rem;
@@ -129,7 +129,7 @@ z-index: 1000;
     }
     header .right img {
       max-width: 300px;
-      filter: drop-shadow(0 0 10px blue);
+      filter: drop-shadow(0 0 10px bl);
       animation: float 5s ease-in-out infinite;
     }
     @keyframes float {
@@ -138,7 +138,7 @@ z-index: 1000;
     }
 
     section#about {
-      background: #FF0000;
+      background: #0a1a52;
       color: black;
       padding: 60px 15px;
       text-align: center;
@@ -168,13 +168,13 @@ z-index: 1000;
       background: #222;
       border-radius: 15px;
       text-align: center;
-      box-shadow: 0 0 10px #FF0000;
+      box-shadow: 0 0 10px #0a1a52;
       cursor: pointer;
       transition: transform 0.3s ease;
     }
     .figure-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 0 20px #FF0000;
+      box-shadow: 0 0 20px #0a1a52;
     }
     .figure-card img {
       width: 100%;
@@ -187,11 +187,11 @@ z-index: 1000;
       font-size: 0.9rem;
       padding-bottom: 10px;
       font-weight: 600;
-      color: #FF0000;
+      color: #0a1a52;
     }
 
     .btn-buy {
-      background: #FF0000;
+      background: #0a1a52;
       color: white;
       font-weight: bold;
       padding: 8px 20px;
@@ -204,7 +204,7 @@ z-index: 1000;
     .btn-buy:hover { background: #b30000; }
 
     section#community {
-      background: #FF0000;
+      background: #0a1a52;
       color: black;
       padding: 50px 15px;
       text-align: center;
@@ -217,11 +217,11 @@ z-index: 1000;
     }
     #community .btn {
       background: black;
-      color: #FF0000;
+      color: #0a1a52;
       border: 2px solid black;
     }
     #community .btn:hover {
-      background: #FF0000;
+      background: #0a1a52;
       color: black;
     }
 
@@ -233,7 +233,7 @@ z-index: 1000;
       font-size: 3rem;
       text-align: center;
       margin-bottom: 3rem;
-      color: #FF0000;
+      color: #0a1a52;
     }
     .phases {
       display: grid;
@@ -246,12 +246,12 @@ z-index: 1000;
       background: #222;
       padding: 20px;
       border-radius: 15px;
-      box-shadow: 0 0 10px #FF0000;
+      box-shadow: 0 0 10px #0a1a52;
       color: white;
     }
 
     footer {
-      background: #FF0000;
+      background: #0a1a52;
       color: black;
       text-align: center;
       padding: 25px 0;
@@ -299,7 +299,7 @@ z-index: 1000;
 
 .community-btn {
   background: black;
-  color: #FF0000;
+  color: #0a1a52;
   border: 2px solid black;
   padding: 10px 25px;
   border-radius: 30px;
@@ -313,7 +313,7 @@ z-index: 1000;
 
 .community-btn:hover,
 .community-btn:focus {
-  background: #FF0000;
+  background: #0a1a52;
   color: black;
   outline: none;
 }
@@ -353,7 +353,7 @@ z-index: 1000;
     right: 20px;
     background: #111;
     padding: 15px;
-    border: 1px solid #FF0000;
+    border: 1px solid #0a1a52;
     border-radius: 10px;
     width: 180px;
     z-index: 999;
