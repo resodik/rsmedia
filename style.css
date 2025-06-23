@@ -262,11 +262,14 @@ background: #000010;
 }
 
 .highlight-header h2 {
-  flex: 1 1 50%;
+justify-content: center;
+    display: flex;
+ align-items: flex-start;
+  flex-wrap: wrap;
   font-size: 36px;
   font-weight: 800;
   line-height: 1.2;
-  margin: 0;
+  margin-left: 150px;
 }
 
 .highlight-header p {
@@ -688,6 +691,7 @@ nav {
       border-radius: 12px;
       border: 2px solid #ff00d4;
       box-shadow: 0 0 40px #ff00d4;
+
     }
 
     @keyframes flicker {
@@ -873,6 +877,94 @@ margin-top: -50px;
       header .right img { max-width: 200px; }
     }
 
+----------------------------------------------------------------------------------
+
+.about-me-section {
+  background-color: #0d0b11;
+  color: white;
+  padding: 80px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.about-me-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 40px;
+}
+
+.about-me-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.about-me-text h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.about-me-text p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.about-me-image {
+  flex: 1;
+  min-width: 300px;
+  position: relative;
+  clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 20% fill="#0d0b11");
+  /* Nieregularny techno styl – można edytować */
+}
+
+.about-me-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+}
+
+---------------------------------------------------------------------------------------------------
+
+.updates-section {
+  background-color: white;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.updates-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.updates-section p {
+  font-size: 1.125rem;
+  max-width: 700px;
+  margin: 0 auto;
+  color: white;
+  line-height: 1.6;
+}
+
+
+.updates-button {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 1rem;
+  text-decoration: none;
+  color: white;
+  border: 1px solid white;
+  border-radius: 999px;
+  transition: background-color 0.3s, color 0.3s;
+margin-top:20px;
+}
+
+.updates-button:hover {
+  background: linear-gradient(to bottom right, #1a0d1f, #120c18);
+  border: 1px solid #3a003c;
+
+}
 
   </style>
 </head>
