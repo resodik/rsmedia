@@ -47,16 +47,20 @@
 
 /* MOBILE - max-width: 768px */
 @media screen and (max-width: 768px) {
-  .nav-links{
-    flex-direction: column;
+.nav-links {
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  right: 0; /* <-- ważne */
+  background-color: #111;
+  width: 200px; /* <-- konkretna szerokość */
+  display: none;
+  padding: 20px 0;
+  border: 1px solid #007BFF;
+  border-radius: 10px;
+  z-index: 999;
+}
 
-    top: 100%;
-    right: 0;
-    background-color: transparent;
-    width: 100%;
-    display: none; /* domyślnie ukryte */
-    padding: 20px 0;
-     marhin-left:300px;
 
 
   }
@@ -66,11 +70,12 @@
     display: block;
   }
 
-  .hamburger {
-    display: block;
-     margin-left:300px;
-     margin-top:-80px;
-  }
+.hamburger {
+  display: block;
+  font-size: 1.8rem;
+  cursor: pointer;
+  margin-left: auto; /* automatycznie ustawi hamburger po prawej */
+}
        .logo img {
       height: 40px;
           margin-right: 300px;
