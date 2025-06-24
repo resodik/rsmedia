@@ -49,13 +49,14 @@
 @media screen and (max-width: 768px) {
   .nav-links{
     flex-direction: column;
-    position: relative;
+    position: fixed;
     top: 100%;
     right: 0;
     background-color: transparent;
     width: 100%;
     display: none; /* domyślnie ukryte */
     padding: 20px 0;
+     right:0;
 
 
   }
