@@ -38,12 +38,7 @@
       text-decoration: none;
       font-weight: 500;
     }
-/* Hamburger tylko na telefonie */
-.hamburger {
-  display: none;
-  font-size: 1.8rem;
-  cursor: pointer;
-}
+
 
 /* MOBILE - max-width: 768px */
 @media screen and (max-width: 768px) {
