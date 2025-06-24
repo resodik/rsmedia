@@ -27,7 +27,7 @@
       height: 40px;
     }
 
-    nav {
+    nav{
       display: flex;
       flex-wrap: wrap;
       gap: 35px;
@@ -47,7 +47,7 @@
 
 /* MOBILE - max-width: 768px */
 @media screen and (max-width: 768px) {
-  .nav {
+  .nav-links{
     flex-direction: column;
     position: absolute;
     top: 100%;
@@ -58,7 +58,7 @@
     padding: 20px 0;
   }
 
-  .nav a {
+  .nav-links a {
     padding: 10px 25px;
     display: block;
   }
