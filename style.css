@@ -38,6 +38,35 @@
       text-decoration: none;
       font-weight: 500;
     }
+/* Hamburger tylko na telefonie */
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* MOBILE - max-width: 768px */
+@media screen and (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #222;
+    width: 100%;
+    display: none; /* domyślnie ukryte */
+    padding: 20px 0;
+  }
+
+  .nav a {
+    padding: 10px 25px;
+    display: block;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
 
    .hero {
   position: relative;
