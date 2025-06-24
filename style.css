@@ -52,7 +52,7 @@
     position: absolute;
     top: 100%;
     right: 0;
-    background-color: #222;
+    background-color: transparent;
     width: 100%;
     display: none; /* domyślnie ukryte */
     padding: 20px 0;
@@ -67,6 +67,10 @@
   .hamburger {
     display: block;
   }
+       .logo img {
+      height: 40px;
+          margin-right: 200px;
+    }
 }
 
    .hero {
