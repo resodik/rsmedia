@@ -27,7 +27,7 @@
       height: 40px;
     }
 
-    nav{
+    nav {
       display: flex;
       flex-wrap: wrap;
       gap: 35px;
@@ -38,44 +38,6 @@
       text-decoration: none;
       font-weight: 500;
     }
-
-
-/* MOBILE - max-width: 768px */
-@media screen and (max-width: 768px) {
-.nav-links {
-  flex-direction: column;
-  position: absolute;
-  top: 100%;
-  right: 0; /* <-- ważne */
-  background-color: #111;
-  width: 200px; /* <-- konkretna szerokość */
-  display: none;
-  padding: 20px 0;
-  border: 1px solid #007BFF;
-  border-radius: 10px;
-  z-index: 999;
-}
-
-
-
-  }
-
-  .nav-links a {
-    padding: 10px 25px;
-    display: block;
-  }
-
-.hamburger {
-  display: block;
-  font-size: 1.8rem;
-  cursor: pointer;
-  margin-left: auto; /* automatycznie ustawi hamburger po prawej */
-}
-       .logo img {
-      height: 40px;
-          margin-right: 300px;
-    }
-}
 
    .hero {
   position: relative;
