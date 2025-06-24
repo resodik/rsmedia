@@ -66,10 +66,11 @@
 
   .hamburger {
     display: block;
+     margin-left:300px;
   }
        .logo img {
       height: 40px;
-          margin-right: 200px;
+          margin-right: 300px;
     }
 }
 
