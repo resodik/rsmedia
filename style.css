@@ -6,7 +6,7 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: radial-gradient(circle at center, #1a3bff 0%, #0a1a52 60%, #000010 100%);
+      background: #010215;
       color: white;
       overflow-x: hidden;
     }
@@ -96,9 +96,55 @@ margin-top: 250px;
       z-index: 1;
     }
 
+/* ========== PODSTAWOWE USTAWIENIA ========= */
+header { display:flex; justify-content:space-between; align-items:center; flex-wrap:nowrap; }
+nav  { display:flex; gap:35px; }
+nav a{ color:white; text-decoration:none; font-weight:500; }
+
+/* ========== HAMBURGER ========== */
+.menu-toggle{
+  display:none;          /* widoczny tylko w mobile */
+  width:32px; height:24px;
+  background:none; border:none; cursor:pointer;
+  position:relative;     /* dla pseudo-animacji */
+}
+.menu-toggle .bar{
+  display:block;
+  height:3px; width:100%;
+  background:white;
+  border-radius:2px;
+  position:absolute; left:0;
+  transition:.3s;        /* płynne przejścia */
+}
+.menu-toggle .bar:nth-child(1){ top:0;        }
+.menu-toggle .bar:nth-child(2){ top:10px;     }
+.menu-toggle .bar:nth-child(3){ top:20px;     }
+
+/* ==== Po kliknięciu hamburgera – animacja w X ==== */
+.menu-toggle.open .bar:nth-child(1){ transform:translateY(10px) rotate(45deg); }
+.menu-toggle.open .bar:nth-child(2){ opacity:0; }
+.menu-toggle.open .bar:nth-child(3){ transform:translateY(-10px) rotate(-45deg); }
+
+/* ========== WERSJA MOBILNA ========== */
+@media(max-width:768px){
+  .menu-toggle{ display:block; margin-top:-70px; margin-left:auto; }
+
+  nav#nav-menu{
+    display:none;
+    flex-direction:column;
+    position:absolute; right:0; left:0; top:100%;
+    background:rgba(0,0,0,.92);
+    gap:20px; padding:25px 30px;
+    text-align:left;
+  }
+  nav#nav-menu.active{ display:flex; }
+  nav#nav-menu a{ font-size:1rem; }
+}
+
+
     .scrolling-logos {
       overflow: hidden;
-      background: radial-gradient(circle at center, #000010, #0a1a52);
+      background: radial-gradient(circle at center , #000010 80%, #0a1a52 );
       padding: 20px 0;
     }
 
@@ -126,7 +172,7 @@ margin-top: 250px;
     }
 
     .section-heading {
-      background: radial-gradient(circle at center, #0a1a52 0%, #000010 100%);
+      background: #010215;
       text-align: center;
       padding: 60px 20px 30px;
     }
@@ -137,7 +183,7 @@ margin-top: 250px;
     }
 
 .section-heading2 {
-      background: radial-gradient(circle at center, #0a1a52 0%, #000010 100%);
+      background: #010215;
       text-align: center;
       padding: 60px 20px 30px;
     }
@@ -262,16 +308,15 @@ background: #000010;
 }
 
 .highlight-header h2 {
-justify-content: center;
-    display: flex;
- align-items: flex-start;
-  flex-wrap: wrap;
-  font-size: 36px;
-  font-weight: 800;
+  font-size: 2.5rem;
+  font-weight: 600;
   line-height: 1.2;
-  margin-left: 150px;
+  text-align: center;
+  word-wrap: break-word;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
-
 .highlight-header p {
   flex: 1 1 45%;
   font-size: 16px;
@@ -319,6 +364,17 @@ justify-content: center;
   line-height: 1.5;
 }
 
+@media (max-width: 768px) {
+  .highlight-header h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .highlight-header h2 {
+    font-size: 1.4rem;
+  }
+}
 
     /* Nowoczesna sekcja gallery-5 */
     .gallery-5.modern-gallery {
@@ -925,6 +981,59 @@ margin-top: -50px;
   display: block;
 }
 
+/* RESPONSYWNOŚĆ – dopasowanie do mniejszych ekranów */
+@media (max-width: 1024px) {
+  .about-me-text p {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .about-me-text h2 {
+    font-size: 28px;
+  }
+
+  .about-me-container {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-me-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 0 10px;
+  }
+
+  .about-me-text {
+    width: 100%;
+  }
+
+  .about-me-text p {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 15px;
+  }
+
+  .about-me-text h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  .about-me-image {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-me-text p {
+    font-size: 15px;
+  }
+
+  .about-me-text h2 {
+    font-size: 20px;
+  }
+}
+
 ---------------------------------------------------------------------------------------------------
 
 .updates-section {
@@ -965,6 +1074,17 @@ margin-top:20px;
   border: 1px solid #3a003c;
 
 }
+
+.no-underline {
+  text-decoration: none;
+  color: violet; /* jeśli chcesz, żeby miał kolor jak reszta tekstu */
+}
+
+.no-underline:hover {
+  text-decoration: none;
+}
+
+
 
   </style>
 </head>
