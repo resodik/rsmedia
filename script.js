@@ -262,3 +262,20 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+  const btn  = document.getElementById('menu-toggle');
+  const menu = document.getElementById('nav-menu');
+
+  // otwieranie / zamykanie
+  btn.addEventListener('click', () => {
+    menu.classList.toggle('active');   // pokaż/ukryj nav
+    btn.classList.toggle('open');      // animuj ikonę
+  });
+
+  // zamknij menu po kliknięciu w link
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      menu.classList.remove('active');
+      btn.classList.remove('open');
+    });
+  });
+
