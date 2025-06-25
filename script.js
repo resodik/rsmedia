@@ -278,4 +278,38 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.classList.remove('open');
     });
   });
+const videoCarousel = document.getElementById('video-carousel');
+const videos = videoCarousel.querySelectorAll('video');
+
+function playVisibleVideo() {
+  const carouselRect = videoCarousel.getBoundingClientRect();
+
+  let bestVisibleVideo = null;
+  let maxVisibleWidth = 0;
+
+  videos.forEach(video => {
+    const rect = video.getBoundingClientRect();
+    // Liczymy widoczną szerokość video w obszarze karuzeli
+    const visibleWidth = Math.min(rect.right, carouselRect.right) - Math.max(rect.left, carouselRect.left);
+
+    if (visibleWidth > maxVisibleWidth && visibleWidth > 0) {
+      maxVisibleWidth = visibleWidth;
+      bestVisibleVideo = video;
+    }
+  });
+
+  // Pauzujemy wszystkie
+  videos.forEach(video => video.pause());
+
+  // Odtwarzamy najbardziej widoczne
+  if (bestVisibleVideo) {
+    bestVisibleVideo.play();
+  }
+}
+
+// Podpinamy do scrolla karuzeli
+videoCarousel.addEventListener('scroll', () => {
+  // Debounce lub throttle można tu dodać, jeśli scroll jest zbyt częsty
+  playVisibleVideo();
+});
 
