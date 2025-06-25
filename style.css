@@ -981,58 +981,6 @@ margin-top: -50px;
   display: block;
 }
 
-/* RESPONSYWNOŚĆ – dopasowanie do mniejszych ekranów */
-@media (max-width: 1024px) {
-  .about-me-text p {
-    font-size: 15px;
-    line-height: 1.7;
-  }
-
-  .about-me-text h2 {
-    font-size: 28px;
-  }
-
-  .about-me-container {
-    gap: 30px;
-  }
-}
-
-@media (max-width: 768px) {
-  .about-me-container {
-    flex-direction: column;
-    text-align: center;
-    padding: 0 10px;
-  }
-
-  .about-me-text {
-    width: 100%;
-  }
-
-  .about-me-text p {
-    font-size: 16px;
-    line-height: 1.8;
-    margin-bottom: 15px;
-  }
-
-  .about-me-text h2 {
-    font-size: 24px;
-    margin-bottom: 15px;
-  }
-
-  .about-me-image {
-    width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .about-me-text p {
-    font-size: 15px;
-  }
-
-  .about-me-text h2 {
-    font-size: 20px;
-  }
-}
 
 ---------------------------------------------------------------------------------------------------
 
@@ -1084,7 +1032,32 @@ margin-top:20px;
   text-decoration: none;
 }
 
+  footer {
+background:transparent;
+    font-size: 0.9rem;
+    padding: 20px 10px;
+margin-top: 100px;
+  }
+}
 
+.contact-info {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-item {
+  text-decoration: none;
+  color: violet; /* LinkedIn blue */
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.contact-item:hover {
+  color: #005582;
+}
 
   </style>
 </head>
