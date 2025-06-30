@@ -921,7 +921,7 @@ margin-top: -50px;
       padding: 25px 0;
       font-weight: 700;
       text-transform: uppercase;
-      line-height: 1.1;
+      line-height: 1px;
     }
 
     @media (max-width: 768px) {
