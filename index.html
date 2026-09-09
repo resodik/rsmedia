@@ -1,471 +1,774 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-M06TYVXB3L"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-M06TYVXB3L');
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Rogue Synthesis</title>
+
+  <!-- FONTS -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Inter:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- CSS -->
+
+  <link rel="stylesheet" href="style.css">
+
+<script
+  type="module"
+  src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
 </script>
-  <meta charset="UTF-8" />
-  <link rel="stylesheet" href="style.css" />
-  <script src="script.js" defer></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Portfolio</title>
 
-  
-<header>
-  <div class="logo">
-    <div class="logo">
- <img src="images/logo.png" alt="Moje Logo">
+</head>
 
+
+<body>
+
+
+<div class="page">
+
+
+  <!-- ======================================
+       NAVIGATION
+  ======================================= -->
+
+  <header class="nav">
+
+    <a href="index.html" class="logo">
+
+      <img
+        src="rs/logo1.1.png"
+        alt="Rogue Synthesis"
+      >
+
+    </a>
+
+
+    <nav class="nav-links">
+
+      <a href="#shop">SKLEP</a>
+
+      <a href="#fragrances">
+        PERFUMY
+      </a>
+
+      <a href="#jewelry">
+        BIŻUTERIA
+      </a>
+
+      <a href="#world">
+        NASZ ŚWIAT
+      </a>
+
+      <a href="#contact">
+        KONTAKT
+      </a>
+
+    </nav>
+
+
+    <div class="nav-actions">
+
+      <span>WYSZUKAJ</span>
+
+      <span class="cart-counter">
+        KOSZYK (0)
+      </span>
+
+      <span>☰</span>
+
+    </div>
+
+  </header>
+
+
+
+  <!-- ======================================
+       HERO
+  ======================================= -->
+
+  <section class="hero">
+
+  <!-- TŁO HERO -->
+  <div class="hero-image-right">
+    <img src="rs/hero-right.png" alt="">
+  </div>
+
+  <!-- CENTRALNE ZDJĘCIE -->
+  <div class="hero-image-center">
+    <img src="rs/hero-center.png" alt="">
+  </div>
+
+  <div class="hero-content">
+
+    <div class="eyebrow">
+      ZAPACH<br>
+      PRZENOSZĄCY W INNĄ<br>
+      RZECZYWISTOŚĆ
+    </div>
+
+    <h1>
+  <span class="rogue-word">ROGUE</span>
+  <span class="synthesis-word">SYNTHESIS</span>
+    </h1>
+
+    <div class="hero-meta">
+      <span>ZAPACHY</span>
+      <span>BIŻUTERIA</span>
+      <span>MODA</span>
+    </div>
+
+    <a class="hero-btn" href="#shop">
+      PO WIĘCEJ Z KOLEKCJI
+      <span>→</span>
+    </a>
 
   </div>
 
-
-  </div>
-
-<!-- Lightbox / Fullscreen -->
-<div class="fullscreen-img" id="fullscreen">
-  <img id="fullscreen-img" src="" alt="Powiększone zdjęcie">
-</div>
-
- <!-- Ikona hamburgera -->
-  <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
-    <span class="bar"></span>
-    <span class="bar"></span>
-    <span class="bar"></span>
-  </button>
-
-  <nav id="nav-menu">
-
- <a href="#about-me">About Me</a>
-
-  <a href="#my-gear">My Gear</a>
-
-  
- 
-  <!-- <a href="projects.html">Projects</a> -->
-  <a href="index.html">Portfolio</a>
-</nav>
-
-</header>
+</section>
 
 
 
+  <!-- ======================================
+       CATEGORY GRID
+  ======================================= -->
 
-<section id="about-me" class="about-me-section">
-  <div class="about-me-container">
-    <div class="about-me-text">
-      <h2>About Me</h2>
+  <section
+    class="categories"
+    id="shop"
+  >
 
-<!--<p>My name is <strong>Renata Sobieniak</strong> and I’m a graduate of Design studies with a specialization in Game Development. I’ve always been passionate about video games — not only as a player, but as someone deeply fascinated by the technical and artistic process of creating game worlds. </p> -->
+
+    <!-- FRAGRANCES -->
+
+    <a
+      class="category-card"
+      href="#fragrances"
+    >
+
+  <img src="rs/zapach.png" alt="">
+
+
+      <div class="category-overlay">
+
+        <h3>
+          ZAPACHY
+        </h3>
+
+        <span>
+          Discover →
+        </span>
+
+      </div>
+
+    </a>
+
+
+
+    <!-- JEWELRY -->
+
+    <a
+      class="category-card"
+      href="#jewelry"
+    >
+
+     <img src="rs/kolczyki.png" alt="">
+
+      <div class="category-overlay">
+
+        <h3>
+          BIŻUTERIA
+        </h3>
+
+        <span>
+          Explore →
+        </span>
+
+      </div>
+
+    </a>
+
+
+
+    <!-- OBJECTS -->
+
+    <div class="category-card">
+
+      <img src="rs/tamagotchi.png" alt="">
+
+      <div class="category-overlay">
+
+        <h3>
+          KOLEKCJA
+        </h3>
+
+        <span>
+          Explore →
+        </span>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- WORLD -->
+
+    <div class="category-card">
+
+           <img src="rs/swiat.png" alt="">
+
+      <div class="category-overlay">
+
+        <h3>
+          NASZ ŚWIAT
+        </h3>
+
+        <span>
+          Read →
+        </span>
+
+      </div>
+
+    </div>
+
+
+  </section>
+
+
+
+  <!-- ======================================
+       FEATURED PERFUME
+  ======================================= -->
+
+  <section
+    class="featured"
+    id="fragrances"
+  >
+
+
+    <div class="featured-image">
+
+    <img src="rs/kwiat.png" 
+        alt="Rogue Synthesis perfume"
+      >
+
+    </div>
+
+
+
+    <div class="featured-copy">
+
+
+      <div class="section-kicker">
+
+        Featured
+
+      </div>
+
+
+      <h2>
+        SOMA
+      </h2>
+
+
+      <div class="product-type">
+
+        Extrait de Parfum
+
+      </div>
+
+
+      <p class="product-desc">
+
+        A fragment of another reality.
+        A scent that lingers between
+        the known and the unknown.
+
+      </p>
+
+
+      <div class="notes">
+
+        Notes
+
+        <br><br>
+
+        Metallic blossom /
+        black fig /
+        amber skin
+
+      </div>
+
+
+      <div class="buy-row">
+
+        <button
+          class="buy-btn"
+          onclick="addToCart()"
+        >
+
+          Add to cart
+          &nbsp;&nbsp; | &nbsp;&nbsp;
+          490 PLN
+
+        </button>
+
+      </div>
+
+
+    </div>
+
+
+
+    <div class="featured-art">
+
+
+   <img src="rs/perfum.png" alt="">
+
+
 
       <p>
-My name is Renata, and I’m developing my skills in creating game environments and animations, combining storytelling with hands-on work in tools like Blender and Unreal Engine 5. I’m inspired by everyday life - because it’s people, their experiences, and imagination that make it possible to create worlds that truly draw others in.
 
+        Floral<br>
+        Metallic<br>
+        Sensual<br>
+        Otherworldly
+
+      </p>
+
+
+    </div>
+
+
+  </section>
+
+
+
+  <!-- ======================================
+       CAMPAIGN
+  ======================================= -->
+
+  <!-- CAMPAIGN -->
+<section class="campaign" id="world">
+
+  <img
+    class="campaign-img"
+    src="rs/kampania.png"
+    alt="Rogue Synthesis Æthera campaign"
+  >
+
+</section>
+
+
+<!-- ======================================
+     INTERACTIVE 3D OBJECT
+======================================= -->
+
+<section class="featured featured-reversed">
+
+  <!-- MAŁY VISUAL PO LEWEJ -->
+  <div class="featured-art">
+
+    <img
+      src="rs/kwiat1.png"
+      alt="Rogue Synthesis 3D Object Detail"
+    >
+
+    <p>
+      ORGANIC<br>
+      DIGITAL<br>
+      SCULPTURAL<br>
+      SYNTHETIC
     </p>
 
- <p>I began my journey with Blender, and later moved into Unreal Engine 5, where I built my own environment and narrative from scratch in the form of a game. This became my graduation project, which I completed with distinction - and at the same time, it marked the beginning of something bigger.  </a>
-
-      <p>I’m especially interested in blending the real and digital worlds. I work with photogrammetry and document spaces during activities like running, which allows me to create more authentic and immersive environments.   <a href="https://drive.google.com/file/d/19ElFPte5Cxd9u2OWuEdSOCgeGqZrarLG/view?usp=sharing" target="_blank" class="contact-item">
-      🔗 Photogrammetry
-    </a> </p> </a>
-
-      <p>After graduating, I received funding for a motion capture suit and started developing further in animation. Movement is very important to me - alongside running and horse riding, I train Brazilian jiu-jitsu. I aim to translate real, physical motion into believable character animation. I treat training and physical activity as an essential part of developing my animation skills and body awareness.  </a>.
-   <p>I’m currently looking for opportunities to work within a team where I can continue growing and contribute to larger - scale projects. I’m highly motivated to keep learning and to constantly improve the quality of my work.    </a>.
-
-<p>    <a href="mailto:renata@roguesynthesis.com" class="contact-item">
-      📧 renata@roguesynthesis.com
-    </a>
-    <a href="https://www.linkedin.com/in/renata-sobieniak-0a8007321/" target="_blank" class="contact-item">
-      🔗 LinkedIn Profile
-    </a> </p>
-
-
-    </div>
-    <div class="about-me-image">
-      <img src="images/me2.png" alt="My Photo">
-    </div>
   </div>
-</section>
 
 
-<section class="section-heading">
-  <h2>Level Design & Game Environments</h2>
-  <p>A collection of 3D visualizations presenting the creative journey of building game worlds — from concept to final render</p>
-</section>
+  <!-- TEKST W ŚRODKU -->
+  <div class="featured-copy">
 
-<section class="gallery gallery-3">
-  <img src="galeria/1.png" alt="">
-
-  <img src="galeria/3.png" alt="">
-
-  
-  <img src="galeria/4.png" alt="">
-
-  
-  <img src="galeria/11.png" alt="">
-  <img src="galeria/9.png" alt="">
-  <img src="galeria/7.png" alt="">
-  <img src="galeria/8.png" alt="">
-  <img src="galeria/13.png" alt="">
-
-  
-  <img src="galeria/16.png" alt="">
-  <img src="galeria/17.png" alt="">
- 
-  <img src="galeria/19.png" alt="">
-
-  <img src="galeria/21.png" alt="">
-
-  <img src="galeria/23.png" alt="">
-  <img src="galeria/24.png" alt="">
-<img src="galeria/34.png" alt="">
-
-<img src="galeria/36.png" alt="">
-
-<img src="galeria/39.png" alt="">
-
-<img src="galeria/37.png" alt="">
-</section>
-
-
-<section class="section-heading1">
- <h2>Building My Own Game – From Thesis to Full Production</h2>
-  <p>What started as my design thesis has grown into a full-scale independent game development journey...</p>
-  <a href="#updates" class="learn-more-btn">Learn more</a>
-
-
-</section>
-
-<section class="gallery gallery-5 modern-gallery">
-  <img src="portfolio/Plansza5.jpg" alt="" class="zoomable">
-  <img src="portfolio/Plansza1.jpg" alt="" class="zoomable">
-  <img src="portfolio/Plansza3.jpg" alt="" class="zoomable">
-  <img src="portfolio/Plansza4.jpg" alt="" class="zoomable">
-  <img src="portfolio/Plansza2.jpg" alt="" class="zoomable">
-</section>
-
-<section class="custom-section">
-  <div class="responsive-grid-container">
-
-    <!-- Mapa -->
-    <div class="image-box">
-      <img src="images/mapa.png" alt="Mapa"
- />
+    <div class="section-kicker">
+      DIGITAL OBJECT
     </div>
 
-    <!-- Karuzela wideo -->
-    <div class="carousel-wrapper video-carousel-wrapper">
-      <button class="nav-button1 nav-left" onclick="scrollCarouselById('video-carousel', -300)">⟵</button>
-      <div class="carousel video-carousel" id="video-carousel">
-        <video src="video/video2.mp4" autoplay muted loop playsinline></video>
-        <video src="video/video1.mp4" autoplay muted loop playsinline></video>
-      </div>
-      <button class="nav-button1 nav-right" onclick="scrollCarouselById('video-carousel', 300)">⟶</button>
+    <h2>
+      FORM / 01
+    </h2>
+
+    <div class="product-type">
+      INTERACTIVE 3D EXPERIENCE
+    </div>
+
+    <p class="product-desc">
+      A digital object developed as an extension
+      of the Rogue Synthesis visual language.
+      Organic structure meets synthetic form.
+    </p>
+
+    <div class="notes">
+      3D MODELING / MATERIAL DESIGN / DIGITAL OBJECT
+      <br><br>
+      DRAG TO ROTATE
     </div>
 
   </div>
+
+
+  <!-- INTERAKTYWNY MODEL 3D PO PRAWEJ -->
+  <div class="featured-image featured-model">
+
+    <model-viewer
+      id="rogueModel"
+      src="rs/model.glb"
+      alt="Rogue Synthesis interactive 3D object"
+      camera-controls
+      auto-rotate
+      rotation-per-second="12deg"
+      shadow-intensity="1"
+      exposure="1"
+      interaction-prompt="none">
+    </model-viewer>
+
+  </div>
+
 </section>
 
- 
+<!-- ======================================
+     ROGUE SYNTHESIS — COLLECTION LINKS
+======================================= -->
 
-<section style="background-color: #0d0b11; color: white; font-family: Arial, sans-serif; padding: 60px 20px;">
-  <div style="max-width: 1200px; margin: auto;">
-   
-    <!-- Górna ramka z 2 obrazkami i tytułem po środku -->
-    <div style="flex: 1; min-width: 250px; display: flex; justify-content: center;">       
-      
-      <!-- Środek: tytuł -->
-      <div style="flex: 1; min-width: 250px; text-align: left;">
-        <h2 style="font-size: 28px; font-weight: bold; margin: 0;">Photogrammetry-Based Character Creation Workflow</h2>
-<p style="font-size: 16px; line-height: 1.6;"> 
-                 </p>
+<section class="collection-showcase">
 
-<div style="display: flex; flex-wrap: wrap; margin-top: 60px; background-color: #141218; border-radius: 12px; overflow: hidden;">
-      <div style="flex: 1; padding: 40px;">
-        <h2 style="font-size: 28px; font-weight: bold;"></h2>
-<p style="font-size: 16px; line-height: 1.6;"> Using photogrammetry techniques, I captured a series of facial images to generate a high-resolution 3D scan of my own face. The model was processed and refined for use in Metahuman Creator, allowing the creation of a fully rigged digital character.
-                 </p>
+  <div class="collection-grid">
 
-      </div>
+    <!-- LEWA KOLUMNA -->
+    <div class="collection-box collection-product">
 
-      <!-- Prawy obrazek -->
-      <div style="flex: 1; min-width: 250px; display: flex; justify-content: center;">
-        <img src="fotogrametria/mht.png" alt="Right Top" style="max-width: 100%; height: auto; border-radius: 8px;">
-      </div>
+      <img
+        src="rs/perfum.png"
+        alt="Rogue Synthesis SOMA perfume"
+      >
 
     </div>
 
-  
-      
 
-<!-- DOLNA SEKCJA Z VIDEO I PNG  -->
-<div style="display: flex; flex-wrap: wrap; margin-top: 30px; background-color: TRANSPARENT; border-radius: 12px; overflow: hidden; padding: 20px; gap: 20px; justify-content: space-between; align-items: center;">
+    <!-- ŚRODEK -->
+    <div class="collection-box collection-about">
 
-  <!-- Lewy dolny (video) -->
-  <div style="flex: 1; min-width: 250px; display: flex; justify-content: center;">
-    <video src="video/mhc4.mp4" autoplay muted loop playsinline style="max-width: 100%; height: auto; border-radius: 8px;"></video>
-  </div>
-
-  <!-- Prawy dolny (PNG) -->
-  <div style="flex: 1; min-width: 250px; display: flex; justify-content: center;">
-    <img src="fotogrametria/SCAN3.png" alt="Right Top" style="max-width: 100%; height: auto; max-height: 200px; border-radius: 8px;">
-  </div>
-
-</div>
-
-<section style="background-color: #0d0b11; color: white; font-family: Arial, sans-serif; padding: 60px 20px;">
-  <div style="max-width: 1200px; margin: auto;">
-
-
-    
-    <!-- Górna ramka z 2 obrazkami i tytułem po środku 
-    <div style="flex: 1; min-width: 250px; display: flex; justify-content: center;">        
-      
-      <!-- Środek: tytuł
-      <div style="flex: 1; min-width: 250px; text-align: center;">
-        <h2 style="font-size: 28px; font-weight: bold; margin: 0;">Game Model Preparation – Retopology and Optimization</h2>
-<p style="font-size: 16px; line-height: 1.6;"> 
-                 </p>
-
-<!--    
-
-<section class="retopology-section">
-  <div class="retopology-container">
-
-    <!-- Lewy: Obrazek 
-    <div class="retopology-image">
-      <img src="mesh/set6.png" alt="Projekt 2">
-    </div>
-
-    <!-- Prawy: Opis w ramce 
-      <div class="retopology-description">
       <p>
-        Retopology was performed on the model to optimize it for gameplay and performance. This results in a reduced polygon count, significantly lowering memory and CPU load during rendering. Such optimization preserves high visual quality while ensuring smooth and stable gameplay.
+        Opracowany język formy przez firmę<br>
+        Rogue Synthesis<br>
+        zostaje przeniesiony na biżuterię, akcesoria<br>
+        i przedmioty kolekcjonerskie,<br>
+        tworząc spójny system obiektów<br>
+        należących do jednego świata.
       </p>
-    </div>
-
- 
-  </div>
-</section>  -->
-
-   <!--  <section class="hero">
- <video autoplay muted loop playsinline>
-    <source src="video/mhc3-3.webm" type="video/webm">
-  </video> 
-  <div class="hero-content">
-    <h1>PORTFOLIO</h1>
-    <p></p>
-    <div class="scroll-arrow btn" title="Scroll to Level Design & Game Environments" role="button" tabindex="0" aria-label="Scroll to Level Design & Game Environments">
-      &#x25BC;
-    </div>
-  </div>
-</section>  -->
-
-        <!--  <div style="display: flex; flex-wrap: wrap; margin-top: 30px; background-color: TRANSPARENT; border-radius: 12px; overflow: hidden; padding: 20px; gap: 20px; justify-content: space-between; align-items: center;">
-
-  <!-- Lewy dolny (video) 
-  <div style="flex: 1; min-width: 250px; display: flex; justify-content: center;"> 
-    <img src="mesh/postac.png"  style="max-width: 100%; height: auto; border-radius: 8px;"> 
-  </div> 
-
-  <!-- Prawy dolny (PNG) 
-  <div style="flex: 1; min-width: 250px; display: flex; justify-content: center;"> 
-    <img src="mesh/set5.png" alt="Right Top"  style="max-width: 100%; height: auto; border-radius: 8px;"> 
-
-  </div> 
-
-</section> -->
-
-
-<section style="background-color: #0d0b11; color: white; font-family: Arial, sans-serif; padding: 60px 20px;">
-  <div style="max-width: 1200px; margin: auto;">
-   
-    <!-- Górna ramka z 2 obrazkami i tytułem po środku -->
-    <div style="flex: 1; min-width: 250px; display: flex; justify-content: center;">       
-      
-      <!-- Środek: tytuł -->
-      <div style="flex: 1; min-width: 250px; text-align: center; ">
-        <h2 style="font-size: 28px; font-weight: bold; margin: 0;">Game-Ready Hair</h2>
-<p style="font-size: 16px; line-height: 1.6;"> 
-                 </p>
-
-<div style="display: flex; flex-wrap: wrap; margin-top: 60px; background-color:#141218; border-radius: 12px; overflow: hidden;">
-      <div style="flex: 1; padding: 40px;">
-        <h2 style="font-size: 20px; font-weight: bold;">Hair created using hair cards</h2>
-<p style="font-size: 16px; line-height: 1.6;margin-top:60px;"> Hair model optimized for game performance. Diffuse, normal, and alpha textures baked specifically for this model, ready for use in the game engine.
-
-                 </p>
-
-      </div>
-
-      <!-- Prawy obrazek -->
-      <div style="flex: 1; min-width: 250px; display: flex; justify-content: center;">
-        <img src="wlosy/mat.png" alt="Right Top" style="max-width: 100%; height: auto; border-radius: 8px;">
-      </div>
 
     </div>
 
 
-<!-- DOLNA SEKCJA Z VIDEO I PNG -->
-<div style="display: flex; flex-wrap: wrap; margin-top: 30px; background-color: TRANSPARENT; border-radius: 12px; overflow: hidden; padding: 20px; gap: 20px; justify-content: space-between; align-items: center;">
+    <!-- PRAWA KOLUMNA -->
+    <div class="collection-box collection-product">
 
-  <!-- Lewy dolny (video) -->
-  <div style="flex: 1; min-width: 250px; display: flex; justify-content: center;">
-    <img src="wlosy/HairAlphaa4.png"  style="max-width: 100%; height: auto; border-radius: 8px;">
-  </div>
-
-  <!-- Prawy dolny (PNG) -->
-  <div style="flex: 1; min-width: 250px; display: flex; justify-content: center;">
-    <img src="wlosy/hair.png" alt="Right Top"  style="max-width: 100%; height: auto; border-radius: 8px;">
-
-  </div>
-
-</div>
-
-    
-   
-
-
-<section class="highlight-section">
-  <div class="highlight-container">
-    <div class="highlight-header">
-      <h2></h2>
-      <p></p>
-    </div>
-
-    <div class="highlight-cards">
-      <div class="highlight-card">
-         <div>
-           <img src="render/lowpoly.jpg" alt="Projekt 2" style="width: 100%; border-radius: 12px;">
-      </div>
-
-        <h3></h3>
-        <p></p>
-      </div>
-      <div class="highlight-card">
-       <div>
-           <img src="render/pojazd.jpeg" alt="Projekt 2" style="width: 100%; border-radius: 12px;">
-      </div>
-
-            </div>
-  </div>
-</section>
-
-
-
-       <div class="carousel-wrapper video-carousel-wrapper">
-   <button class="nav-button nav-left" onclick="scrollImageCarousel(-300)">⟵</button>
-<button class="nav-button nav-right" onclick="scrollImageCarousel(300)">⟶</button>
-
-    <div class="carousel" id="carousel">
-      <img src="render/room1.png" alt="Cyberpunk 1" onclick="openModal(this.src)" /> 
-      <img src="render/room2.png" alt="Cyberpunk 2" onclick="openModal(this.src)" /> 
-      <img src="render/room3.png" alt="Cyberpunk 3" onclick="openModal(this.src)" /> 
-      <img src="render/room4.png" alt="Cyberpunk 4" onclick="openModal(this.src)" /> 
-      <img src="render/room5.png" alt="Cyberpunk 5" onclick="openModal(this.src)" /> 
-      <img src="render/room6.png" alt="Cyberpunk 6" onclick="openModal(this.src)" />
+      <img
+        src="rs/tamagotchi1.png"
+        alt="Rogue Synthesis digital object"
+      >
 
     </div>
-  </div>
-
-  <!-- Modal powiększający -->
- <div class="modal" id="modal" onclick="closeModal()">
-  <button class="nav-button nav-left" onclick="scrollModalImage(-1, event)">⟵</button>
-  <img src="" alt="Powiększone" id="modal-img">
-  <button class="nav-button nav-right" onclick="scrollModalImage(1, event)">⟶</button>
-</div>
-
-
-
-<section id="my-gear" class="highlight-section"> 
-
-  <div class="highlight-container">
-    <div class="highlight-header">
-      <h2>After graduating, I decided to keep going</h2>
-      <p>I successfully applied for a startup grant, which allowed me to invest in professional tools such as a motion capture suit, a resin and filament 3D printer, a new graphic tablet, and upgraded hardware.</p>
-    </div>
-
-    <div class="highlight-cards">
-      <div class="highlight-card">
-       
-
-        <h3>Rokoko Smartsuit Pro II</h3>
-        <p>I use the Rokoko Smartsuit Pro II with Rokoko Studio Pro, along with a headrig and mocap gloves. This setup allows for full-body, facial, and hand motion capture for use in game, film, and 3D animation workflows.</p>
-      </div>
-      <div class="highlight-card">
-       
- <h3>Advanced Computer Hardware</h3>
-        <p>I work on a high-performance PC equipped with a latest-generation GPU, AMD Ryzen 7 processor, and an advanced cooling system to ensure stable performance during demanding real-time 3D workflows and rendering tasks.</p>
-      </div>
-      
-<div class="highlight-card">
-       
- <h3>ANYCUBIC Photon Mono M5s Pro 14K & ANYCUBIC Kobra 2 Neo</h3>
-        <p>A resin 3D printer equipped with WiFi and an air heater and a filament printer — for precise printing of figurines, parts, and prototypes. They deliver high quality, accuracy, and reliability for creating detailed models.</p>
-      </div>
 
   </div>
 
- <!--  <section class="highlight-section">
-        <p>and more...</p>
-    </div>
+
+  <!-- DOLNY RZĄD -->
+  <div class="collection-navigation">
+
+    <a href="#fragrances" class="collection-button">
+      PO WIĘCEJ ZAPACHÓW
+    </a>
+
+
+    <div class="collection-line"></div>
+
+
+    <a href="#collection" class="collection-button">
+      PO WIĘCEJ Z KOLEKCJI
+    </a>
+
+  </div>
 
 </section>
 
- <section id="updates" class="updates-section">
-  <div class="container">
-    <h2>Building My Own Game – From Thesis to Full Production</h2>
-    <p>Currently, I’m developing my own game in Unreal Engine 5, which allows me to grow across every aspect of game creation. I'm building custom assets in Blender and implementing gameplay mechanics — creating everything from scratch to maintain full creative control. </p>
-  </div>
-</section> 
+  <!-- ======================================
+       EDITORIAL
+  ======================================= -->
 
-<section id="updates" class="updates-section">
-  <div class="container">
-        <a href="projects.html" class="updates-button">Stay tuned</a>
-  </div>
-</section> -->
-
-    
-<!--<section class="scrolling-logos">
-  <div class="logos-track">
-    <img src="logo/ps1.png" alt="Photoshop">
-    <img src="logo/ai1.png" alt="Illustrator">
-    <img src="logo/premiere1.png" alt="Premiere">
-    <img src="logo/polycam.png" alt="Polycam">
-    <img src="logo/rokoko.png" alt="Rokoko">
-    <img src="logo/metahuman1.png" alt="Metahuman">
-    <img src="logo/unreal2.png" alt="Unreal Engine">
-    <img src="logo/blender1.png" alt="Blender">
-    <img src="logo/o.png" alt="">
-    <img src="logo/o.png" alt="">
-    <img src="logo/ps1.png" alt="Photoshop">
-    <img src="logo/ai1.png" alt="Illustrator">
-    <img src="logo/premiere1.png" alt="Premiere">
-    <img src="logo/polycam.png" alt="Polycam">
-    <img src="logo/rokoko.png" alt="Rokoko">
-    <img src="logo/metahuman1.png" alt="Metahuman">
-    <img src="logo/unreal2.png" alt="Unreal Engine">
-    <img src="logo/blender1.png" alt="Blender">
-  </div>
-</section> -->
+  <section
+    class="editorial-grid"
+    id="jewelry"
+  >
 
 
-<footer class="site-footer">
-  <p class="footer-line">Website Designed &amp; Built by Renata Sobieniak</p>
-  <p class="footer-line">Rogue Synthesis&nbsp;© 2025</p>
-</footer>
+    <article class="editorial-card">
+
+
+       <img src="rs/bizu1.png" alt="">
 
 
 
+      <div class="editorial-text">
 
+        <h3>
+          Wear Another Reality
+        </h3>
+
+        <span>
+          Shop Jewelry →
+        </span>
+
+      </div>
+
+
+    </article>
+
+
+
+    <article class="editorial-card">
+
+
+        <img src="rs/swiat.png" alt="">
+
+
+
+      <div class="editorial-text">
+
+        <h3>
+          Rogue Synthesis
+        </h3>
+
+        <span>
+          Join The New Reality
+        </span>
+
+      </div>
+
+
+    </article>
+
+
+
+    <article class="editorial-card">
+
+
+             <img src="rs/opakowanie.png" alt="">
+
+
+      <div class="editorial-text">
+
+
+        <h3>
+
+          Not Just A Fragrance.<br>
+
+          A State Of Mind.
+
+        </h3>
+
+
+        <span>
+          Explore →
+        </span>
+
+
+      </div>
+
+
+    </article>
+
+
+  </section>
+
+
+
+  <!-- ======================================
+       FOOTER
+  ======================================= -->
+
+  <footer id="contact">
+
+
+    <div>
+
+      <div class="footer-logo">
+
+        ROGUE
+
+        <span>
+          SYNTHESIS
+        </span>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="footer-links">
+
+      <a href="#">
+        Shop
+      </a>
+
+      <a href="#">
+        Fragrances
+      </a>
+
+      <a href="#">
+        Jewelry
+      </a>
+
+      <a href="#">
+        Our World
+      </a>
+
+      <a href="#">
+        Contact
+      </a>
+
+      <a href="#">
+        Privacy
+      </a>
+
+      <a href="#">
+        Terms
+      </a>
+
+      <a href="#">
+        Shipping
+      </a>
+
+      <a href="#">
+        FAQ
+      </a>
+
+    </div>
+
+
+
+    <div class="newsletter">
+
+
+      <label>
+
+        Join our universe
+
+      </label>
+
+
+      <div class="newsletter-box">
+
+
+        <input
+          type="email"
+          placeholder="YOUR EMAIL"
+        >
+
+
+        <button>
+          →
+        </button>
+
+
+      </div>
+
+
+    </div>
+
+
+  </footer>
+
+
+</div>
+
+
+
+<!-- ======================================
+     JAVASCRIPT
+======================================= -->
+
+<script>
+let cart = 0;
+
+function addToCart() {
+  cart++;
+
+  const cartLabel = document.querySelector(".cart-counter");
+
+  if (cartLabel) {
+    cartLabel.textContent = `KOSZYK (${cart})`;
+  }
+}
+
+const heroImage =
+  document.querySelector(".hero-image-center");
+
+const heroRight =
+  document.querySelector(".hero-image-right img");
+
+let introFinished = false;
+
+
+window.addEventListener("load", function () {
+
+  if (!heroImage) return;
+
+  setTimeout(function () {
+
+    /* CENTER IMAGE */
+    heroImage.classList.add("hero-loaded");
+
+
+    /* RIGHT IMAGE */
+    if (heroRight) {
+      heroRight.style.opacity = "0.8";
+    }
+
+  }, 100);
+
+
+  setTimeout(function () {
+    introFinished = true;
+  }, 1700);
+
+});
+
+
+window.addEventListener("scroll", function () {
+
+  if (!heroImage || !introFinished) return;
+
+  const scrollY = window.scrollY;
+
+  let scale =
+    1.18 - scrollY * 0.00055;
+
+  scale = Math.max(0.76, scale);
+
+  heroImage.style.transform =
+    `translate(-50%, -50%) scale(${scale})`;
+
+}, { passive: true });
+</script>
 
 </body>
 
-
-
+</html>
