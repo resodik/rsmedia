@@ -795,6 +795,42 @@ mobileMenu.querySelectorAll('a').forEach(link => {
   });
 });
 
+  
+const viewer = document.querySelector('.featured-model model-viewer');
+
+let startX = 0;
+let startY = 0;
+let mode = null;
+
+viewer.addEventListener('touchstart', (e) => {
+  const t = e.touches[0];
+  startX = t.clientX;
+  startY = t.clientY;
+  mode = null;
+}, { passive: true });
+
+viewer.addEventListener('touchmove', (e) => {
+  const t = e.touches[0];
+
+  const dx = t.clientX - startX;
+  const dy = t.clientY - startY;
+
+  if (mode === null) {
+    if (Math.abs(dx) < 8 && Math.abs(dy) < 8) return;
+
+    if (Math.abs(dx) > Math.abs(dy)) {
+      mode = 'rotate';
+    } else {
+      mode = 'scroll';
+    }
+  }
+
+  if (mode === 'scroll') {
+    e.stopImmediatePropagation();
+  }
+
+}, { passive: true, capture: true });
+
 </script>
 
 </body>
