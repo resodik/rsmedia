@@ -2247,5 +2247,13 @@ footer {
     touch-action: pan-y;
   }
 }
+@media (max-width: 700px) {
+  .logo {
+    display: none !important;
+  }
 
+  .nav {
+    justify-content: flex-end;
+  }
 }
+
