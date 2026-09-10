@@ -805,41 +805,19 @@ mobileMenu.querySelectorAll('a').forEach(link => {
   });
 });
 
-  
-const viewer = document.querySelector('.featured-model model-viewer');
+  const rogueModel = document.getElementById('rogueModel');
 
-let startX = 0;
-let startY = 0;
-let mode = null;
-
-viewer.addEventListener('touchstart', (e) => {
-  const t = e.touches[0];
-  startX = t.clientX;
-  startY = t.clientY;
-  mode = null;
-}, { passive: true });
-
-viewer.addEventListener('touchmove', (e) => {
-  const t = e.touches[0];
-
-  const dx = t.clientX - startX;
-  const dy = t.clientY - startY;
-
-  if (mode === null) {
-    if (Math.abs(dx) < 8 && Math.abs(dy) < 8) return;
-
-    if (Math.abs(dx) > Math.abs(dy)) {
-      mode = 'rotate';
-    } else {
-      mode = 'scroll';
-    }
+function updateModelTouch() {
+  if (window.matchMedia('(max-width: 1100px)').matches) {
+    rogueModel.setAttribute('touch-action', 'pan-y');
+  } else {
+    rogueModel.removeAttribute('touch-action');
   }
+}
 
-  if (mode === 'scroll') {
-    e.stopImmediatePropagation();
-  }
+updateModelTouch();
 
-}, { passive: true, capture: true });
+window.addEventListener('resize', updateModelTouch);
 
 </script>
 
