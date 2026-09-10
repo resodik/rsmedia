@@ -83,13 +83,18 @@
         KOSZYK (0)
       </span>
 
-      <span>☰</span>
+      <span class="menu-toggle">☰</span>
 
     </div>
 
   </header>
 
-
+<div class="mobile-menu">
+  <a href="#shop">Shop</a>
+  <a href="#fragrances">Fragrances</a>
+  <a href="#jewellery">Jewellery</a>
+  <a href="#world">Our World</a>
+</div>
 
   <!-- ======================================
        HERO
@@ -428,7 +433,7 @@
 
     <model-viewer
       id="rogueModel"
-      src="rs/model7.glb"
+      src="rs/model.glb"
       alt="Rogue Synthesis interactive 3D object"
       camera-controls
       auto-rotate
@@ -767,6 +772,28 @@ window.addEventListener("scroll", function () {
     `translate(-50%, -50%) scale(${scale})`;
 
 }, { passive: true });
+
+
+const menuToggle = document.querySelector('.menu-toggle');
+const mobileMenu = document.querySelector('.mobile-menu');
+
+menuToggle.addEventListener('click', () => {
+  mobileMenu.classList.toggle('open');
+
+  if (mobileMenu.classList.contains('open')) {
+    menuToggle.textContent = '×';
+  } else {
+    menuToggle.textContent = '☰';
+  }
+});
+
+mobileMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    menuToggle.textContent = '☰';
+  });
+});
+
 </script>
 
 </body>
