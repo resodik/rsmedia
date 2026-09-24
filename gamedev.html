@@ -38,6 +38,15 @@
   src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
 </script>
 
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+  }
+}
+</script>
+
 </head>
 
 
@@ -524,18 +533,25 @@
     <div class="model-showcase-head">
         <div>
             <p class="section-number">02 / INTERACTIVE ASSET</p>
-            <h3>3D MODEL<br>BREAKDOWN</h3>
+            <h3>3D MODEL BREAKDOWN</h3>
         </div>
 
         <p>
-            Interactive 3D asset. Rotate the model and zoom in to explore the details.
+            Rotate, zoom and inspect the asset. Switch between the original
+            material, a neutral clay preview and triangulated wireframe.
         </p>
     </div>
 
-    <div class="featured-model">
+    <div class="model-stage">
+
+        <div class="model-stage-top">
+            <span>CHAIR / INTERACTIVE 3D ASSET</span>
+            <span>DRAG TO ROTATE · SCROLL TO ZOOM</span>
+        </div>
+
         <model-viewer
             id="gameModel"
-            src="gamedev/chair.glb"
+            src="gamedev/models/chair.glb"
             alt="Interactive chair 3D model"
             camera-controls
             auto-rotate
@@ -544,10 +560,29 @@
             exposure="1"
             interaction-prompt="none">
         </model-viewer>
+
+        <div id="wireframeViewer" class="wireframe-viewer" aria-hidden="true"></div>
+
+        <div class="model-controls" aria-label="3D model controls">
+            <div class="model-control-group">
+                <span class="control-label">DISPLAY</span>
+                <button type="button" class="model-btn active" data-display="material">MATERIAL</button>
+                <button type="button" class="model-btn" data-display="clay">CLAY</button>
+                <button type="button" class="model-btn" data-display="wireframe">WIREFRAME</button>
+            </div>
+
+            <div class="model-control-group">
+                <span class="control-label">VIEW</span>
+                <button type="button" class="model-btn" data-view="front">FRONT</button>
+                <button type="button" class="model-btn" data-view="side">SIDE</button>
+                <button type="button" class="model-btn" data-view="back">BACK</button>
+                <button type="button" class="model-btn" data-view="perspective">3/4</button>
+            </div>
+        </div>
+
     </div>
 
 </section>
-
 
 <!-- ==================================================
      FOOTER
@@ -587,49 +622,194 @@
 
 
 
-<script>
-
+<script type="module">
 const menuButton = document.querySelector(".menu-button");
 const navLinks = document.querySelector(".nav-links");
 
-menuButton.addEventListener("click", () => {
-
-    navLinks.classList.toggle("open");
-    menuButton.classList.toggle("open");
-
-});
-
-document.querySelectorAll(".nav-links a").forEach(link => {
-
-    link.addEventListener("click", () => {
-
-        navLinks.classList.remove("open");
-        menuButton.classList.remove("open");
-
+if (menuButton && navLinks) {
+    menuButton.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+        menuButton.classList.toggle("open");
     });
 
-
-
-});
-
-
-
-const gameModel = document.getElementById('gameModel');
-
-if (gameModel) {
-  function updateModelTouch() {
-    if (window.matchMedia('(max-width: 1100px)').matches) {
-      gameModel.setAttribute('touch-action', 'pan-y');
-    } else {
-      gameModel.removeAttribute('touch-action');
-    }
-  }
-
-  updateModelTouch();
-  window.addEventListener('resize', updateModelTouch);
+    document.querySelectorAll(".nav-links a").forEach(link => {
+        link.addEventListener("click", () => {
+            navLinks.classList.remove("open");
+            menuButton.classList.remove("open");
+        });
+    });
 }
 
+const gameModel = document.getElementById('gameModel');
+const wireframeViewer = document.getElementById('wireframeViewer');
+const displayButtons = document.querySelectorAll('[data-display]');
+const viewButtons = document.querySelectorAll('[data-view]');
 
+let originalMaterials = [];
+let currentDisplay = 'material';
+
+function updateModelTouch() {
+    if (!gameModel) return;
+    if (window.matchMedia('(max-width: 1100px)').matches) {
+        gameModel.setAttribute('touch-action', 'pan-y');
+    } else {
+        gameModel.removeAttribute('touch-action');
+    }
+}
+
+updateModelTouch();
+window.addEventListener('resize', updateModelTouch);
+
+if (gameModel) {
+    gameModel.addEventListener('load', () => {
+        originalMaterials = gameModel.model.materials.map(material => ({
+            material,
+            baseColor: [...material.pbrMetallicRoughness.baseColorFactor],
+            metallic: material.pbrMetallicRoughness.metallicFactor,
+            roughness: material.pbrMetallicRoughness.roughnessFactor
+        }));
+    });
+}
+
+function setMaterialMode(mode) {
+    if (!gameModel || !gameModel.model || !originalMaterials.length) return;
+
+    originalMaterials.forEach(item => {
+        const pbr = item.material.pbrMetallicRoughness;
+        if (mode === 'clay') {
+            pbr.setBaseColorFactor([0.72, 0.72, 0.70, 1]);
+            pbr.setMetallicFactor(0);
+            pbr.setRoughnessFactor(0.88);
+        } else {
+            pbr.setBaseColorFactor(item.baseColor);
+            pbr.setMetallicFactor(item.metallic);
+            pbr.setRoughnessFactor(item.roughness);
+        }
+    });
+}
+
+displayButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const mode = button.dataset.display;
+        currentDisplay = mode;
+        displayButtons.forEach(btn => btn.classList.toggle('active', btn === button));
+
+        if (mode === 'wireframe') {
+            gameModel.classList.add('is-hidden');
+            wireframeViewer.classList.add('is-visible');
+        } else {
+            wireframeViewer.classList.remove('is-visible');
+            gameModel.classList.remove('is-hidden');
+            setMaterialMode(mode);
+        }
+    });
+});
+
+const cameraViews = {
+    front: '0deg 75deg auto',
+    side: '90deg 75deg auto',
+    back: '180deg 75deg auto',
+    perspective: '45deg 68deg auto'
+};
+
+viewButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const view = button.dataset.view;
+        viewButtons.forEach(btn => btn.classList.toggle('active', btn === button));
+        if (currentDisplay === 'wireframe' && window.setWireframeView) {
+            window.setWireframeView(view);
+        } else if (gameModel) {
+            gameModel.cameraOrbit = cameraViews[view];
+            gameModel.jumpCameraToGoal();
+        }
+    });
+});
+
+try {
+    const THREE = await import('three');
+    const { GLTFLoader } = await import('three/addons/loaders/GLTFLoader.js');
+    const { OrbitControls } = await import('three/addons/controls/OrbitControls.js');
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(35, 1, 0.01, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setClearColor(0x000000, 0);
+    wireframeViewer.appendChild(renderer.domElement);
+
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.06;
+    controls.enablePan = false;
+
+    const root = new THREE.Group();
+    scene.add(root);
+
+    new GLTFLoader().load('gamedev/models/chair.glb', gltf => {
+        const box = new THREE.Box3().setFromObject(gltf.scene);
+        const center = box.getCenter(new THREE.Vector3());
+        const size = box.getSize(new THREE.Vector3());
+        const maxDim = Math.max(size.x, size.y, size.z);
+
+        gltf.scene.traverse(child => {
+            if (!child.isMesh || !child.geometry) return;
+            const wire = new THREE.LineSegments(
+                new THREE.WireframeGeometry(child.geometry),
+                new THREE.LineBasicMaterial({ color: 0xd8d8d8, transparent: true, opacity: 0.72 })
+            );
+            wire.position.copy(child.position);
+            wire.quaternion.copy(child.quaternion);
+            wire.scale.copy(child.scale);
+            root.add(wire);
+        });
+
+        root.position.sub(center);
+        const distance = maxDim * 2.1;
+        camera.position.set(distance * 0.75, distance * 0.45, distance);
+        controls.target.set(0, 0, 0);
+        controls.update();
+
+        window.setWireframeView = view => {
+            const d = distance;
+            const positions = {
+                front: [0, 0.25 * d, d],
+                side: [d, 0.25 * d, 0],
+                back: [0, 0.25 * d, -d],
+                perspective: [0.75 * d, 0.45 * d, d]
+            };
+            const p = positions[view] || positions.perspective;
+            camera.position.set(...p);
+            controls.target.set(0, 0, 0);
+            controls.update();
+        };
+    });
+
+    function resizeWireframe() {
+        const width = wireframeViewer.clientWidth || 1;
+        const height = wireframeViewer.clientHeight || 1;
+        renderer.setSize(width, height, false);
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+    }
+
+    const observer = new ResizeObserver(resizeWireframe);
+    observer.observe(wireframeViewer);
+    resizeWireframe();
+
+    function animate() {
+        requestAnimationFrame(animate);
+        controls.update();
+        renderer.render(scene, camera);
+    }
+    animate();
+} catch (error) {
+    console.error('Wireframe viewer error:', error);
+    const wireButton = document.querySelector('[data-display="wireframe"]');
+    if (wireButton) {
+        wireButton.disabled = true;
+        wireButton.title = 'Wireframe viewer could not be loaded';
+    }
+}
 </script>
 
 </body>
