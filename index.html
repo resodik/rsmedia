@@ -31,7 +31,7 @@
 
   <!-- CSS -->
 
-  <link rel="stylesheet" href="gamedev.css">
+  <link rel="stylesheet" href="style.css">
 
 <script
   type="module"
@@ -47,590 +47,780 @@
 <div class="page">
 
 
-<!-- ==================================================
-     NAVIGATION
-================================================== -->
+  <!-- ======================================
+       NAVIGATION
+  ======================================= -->
 
-<header class="nav">
+  <header class="nav">
 
     <a href="index.html" class="logo">
-        <img src="rs/logo1.1.png" alt="Rogue Synthesis">
+
+      <img
+        src="rs/logo1.1.png"
+        alt="Rogue Synthesis"
+      >
+
     </a>
+
 
     <nav class="nav-links">
-        <a href="#home" class="active">GAMEDEV</a>
-        <a href="#projects">PROJECTS</a>
-        <a href="#worlds">3D</a>
-        <a href="#about">ABOUT</a>
-        <a href="#contact">CONTACT</a>
+
+      <a href="#shop">SKLEP</a>
+
+      <a href="#fragrances">
+        PERFUMY
+      </a>
+
+      <a href="#jewelry">
+        BIŻUTERIA
+      </a>
+
+      <a href="#world">
+        NASZ ŚWIAT
+      </a>
+
+      <a href="#contact">
+        KONTAKT
+      </a>
+
     </nav>
 
-    <a href="index.html" class="back-link">
-        BACK TO MAIN SITE →
+
+    <div class="nav-actions">
+
+      <span>WYSZUKAJ</span>
+
+      <span class="cart-counter">
+        KOSZYK (0)
+      </span>
+
+<!-- <span class="menu-toggle">☰</span> -->
+
+    </div>
+
+  </header>
+
+  <!-- <div class="mobile-menu">
+  <a href="#shop">Shop</a>
+  <a href="#fragrances">Fragrances</a>
+  <a href="#jewellery">Jewellery</a>
+  <a href="#world">Our World</a>
+</div>  -->
+
+  <!-- ======================================
+       HERO
+  ======================================= -->
+
+  <section class="hero">
+
+  <!-- TŁO HERO -->
+  <div class="hero-image-right">
+    <img src="rs/hero-right.png" alt="">
+  </div>
+
+  <!-- CENTRALNE ZDJĘCIE -->
+  <div class="hero-image-center">
+    <img src="rs/hero-center.png" alt="">
+  </div>
+
+  <div class="hero-content">
+
+    <div class="eyebrow">
+      ZAPACH<br>
+      PRZENOSZĄCY W INNĄ<br>
+      RZECZYWISTOŚĆ
+    </div>
+
+    <h1>
+  <span class="rogue-word">ROGUE</span>
+  <span class="synthesis-word">SYNTHESIS</span>
+    </h1>
+
+    <div class="hero-meta">
+      <span>ZAPACHY</span>
+      <span>BIŻUTERIA</span>
+      <span>MODA</span>
+    </div>
+
+    <a class="hero-btn" href="#shop">
+      PO WIĘCEJ Z KOLEKCJI
+      <span>→</span>
     </a>
 
-    <button class="menu-button" aria-label="Open menu">
-        <span></span>
-        <span></span>
-    </button>
+  </div>
 
-</header>
+</section>
 
 
-<!-- ==================================================
-     HERO
-================================================== -->
 
-<main>
+  <!-- ======================================
+       CATEGORY GRID
+  ======================================= -->
 
-<section class="hero" id="home">
+  <section
+    class="categories"
+    id="shop"
+  >
 
-    <img
-        src="gamedev/lighthouse-fog.png"
-        alt="Terrain Odyssey environment"
-        class="hero-image"
+
+    <!-- FRAGRANCES -->
+
+    <a
+      class="category-card"
+      href="#fragrances"
     >
 
-    <div class="hero-overlay"></div>
+  <img src="rs/zapach.png" alt="">
 
 
-    <div class="hero-left-meta">
+      <div class="category-overlay">
 
-        <span>WORLDS</span>
-        <span>ENVIRONMENTS</span>
-        <span>ATMOSPHERE</span>
+        <h3>
+          ZAPACHY
+        </h3>
 
-    </div>
+        <span>
+          Discover →
+        </span>
 
+      </div>
 
-    <div class="hero-content">
-
-        <p class="eyebrow">
-            GAMEDEV PORTFOLIO
-        </p>
-
-        <h1>
-            RENATA<br>
-            SOBIENIAK
-        </h1>
-
-        <p class="hero-role">
-            3D ENVIRONMENT / LEVEL DESIGN
-        </p>
-
-        <p class="hero-description">
-            Creating immersive worlds,<br>
-            spaces that tell a story.
-        </p>
-
-        <a href="#projects" class="outline-button">
-            EXPLORE PROJECTS
-            <span>→</span>
-        </a>
-
-    </div>
-
-
-    <div class="hero-tools">
-
-        <span>UNREAL ENGINE 5</span>
-        <span>BLENDER</span>
-        <span>PHOTOGRAMMETRY</span>
-
-    </div>
-
-
-    <div class="scroll-indicator">
-
-        <span>SCROLL</span>
-
-        <div class="scroll-line"></div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ==================================================
-     PROJECT INTRO
-================================================== -->
-
-<section class="project-intro" id="projects">
-
-    <div class="project-copy">
-
-        <p class="section-number">
-            01 / ENVIRONMENT DESIGN
-        </p>
-
-        <h2>
-            TERRAIN ODYSSEY
-        </h2>
-
-        <p class="project-category">
-            EXPLORATION / ENVIRONMENT / LEVEL DESIGN
-        </p>
-
-        <p class="project-description">
-            An exploration-focused environment created in Unreal Engine 5.
-            The project combines natural landscapes, abandoned architecture
-            and atmospheric lighting to build a world designed around
-            discovery and environmental storytelling.
-        </p>
-
-        <div class="tags">
-
-            <span>UNREAL ENGINE 5</span>
-            <span>BLENDER</span>
-            <span>PHOTOGRAMMETRY</span>
-
-        </div>
-
-    </div>
-
-
-    <figure class="project-feature">
-
-        <img
-            src="gamedev/lighthouse-way.png"
-            alt="Terrain Odyssey environment"
-        >
-
-        <figcaption>
-            / 01
-        </figcaption>
-
-    </figure>
-
-</section>
-
-
-
-<!-- ==================================================
-     KEY LOCATIONS
-================================================== -->
-
-<section class="portfolio-section" id="worlds">
-
-    <div class="section-heading">
-
-        <h3>KEY LOCATIONS</h3>
-
-        <p>
-            EXPLORATION / NATURE / ABANDONED PLACES
-        </p>
-
-    </div>
-
-
-    <div class="location-grid">
-
-
-        <article class="location-card">
-
-            <div class="image-wrap">
-                <img src="gamedev/fishing-hut1.png" alt="Fishing hut">
-            </div>
-
-            <p>FISHING HUT</p>
-
-        </article>
-
-
-        <article class="location-card">
-
-            <div class="image-wrap">
-                <img src="gamedev/hotel.png" alt="Abandoned hotel">
-            </div>
-
-            <p>FONTELLA HOTEL</p>
-
-        </article>
-
-
-        <article class="location-card">
-
-            <div class="image-wrap">
-                <img src="gamedev/dom.png" alt="Forest cabin">
-            </div>
-
-            <p>FOREST CABIN</p>
-
-        </article>
-
-
-        <article class="location-card">
-
-            <div class="image-wrap">
-                <img src="gamedev/bar1.png" alt="Mountain bar">
-            </div>
-
-            <p>MOUNTAIN BAR</p>
-
-        </article>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- ==================================================
-     ATMOSPHERE
-================================================== -->
-
-<section class="portfolio-section atmosphere">
-
-    <div class="section-heading">
-
-        <h3>ENVIRONMENT & ATMOSPHERE</h3>
-
-        <p>
-            DIFFERENT MOODS, SAME WORLD
-        </p>
-
-    </div>
-
-
-    <div class="atmosphere-grid">
-
-
-        <article>
-
-            <div class="image-wrap">
-                <img
-                    src="gamedev/lighthouse-day.jpg"
-                    alt="Lighthouse during the day"
-                >
-            </div>
-
-            <p>DAY</p>
-
-        </article>
-
-
-        <article>
-
-            <div class="image-wrap">
-                <img
-                    src="gamedev/lighthouse-sunset.jpg"
-                    alt="Lighthouse at sunset"
-                >
-            </div>
-
-            <p>SUNSET</p>
-
-        </article>
-
-
-        <article>
-
-            <div class="image-wrap">
-                <img
-                    src="gamedev/lighthouse-fog1.png"
-                    alt="Lighthouse in fog"
-                >
-            </div>
-
-            <p>FOG</p>
-
-        </article>
-
-
-        <article>
-
-            <div class="image-wrap">
-                <img
-                    src="gamedev/lighthouse-night.jpg"
-                    alt="Lighthouse at night"
-                >
-            </div>
-
-            <p>NIGHT</p>
-
-        </article>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- ==================================================
-     PROCESS
-================================================== -->
-
-<section class="process-section">
-
-    <div class="section-heading">
-
-        <h3>PROCESS</h3>
-
-    </div>
-
-
-    <div class="process-layout">
-
-
-        <div class="process-images">
-
-            <article>
-                <img src="gamedev/lighthouse-day.jpg" alt="">
-                <p>1. BLOCKOUT</p>
-            </article>
-
-            <article>
-                <img src="gamedev/lighthouse-fog.jpg" alt="">
-                <p>2. ENVIRONMENT</p>
-            </article>
-
-            <article>
-                <img src="gamedev/lighthouse-sunset.jpg" alt="">
-                <p>3. LIGHTING</p>
-            </article>
-
-            <article>
-                <img src="gamedev/hero-lighthouse.jpg" alt="">
-                <p>4. FINAL RESULT</p>
-            </article>
-
-        </div>
-
-
-        <div class="project-info">
-
-            <div>
-
-                <h4>ROLE</h4>
-
-                <p>
-                    Environment Design<br>
-                    Level Design<br>
-                    Lighting<br>
-                    World Building
-                </p>
-
-            </div>
-
-
-            <div>
-
-                <h4>TOOLS</h4>
-
-                <p>
-                    Unreal Engine 5<br>
-                    Blender<br>
-                    Photogrammetry
-                </p>
-
-            </div>
-
-
-            <div>
-
-                <h4>FOCUS</h4>
-
-                <p>
-                    Exploration<br>
-                    Atmosphere<br>
-                    Composition<br>
-                    Environmental Storytelling
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ==================================================
-     ABOUT
-================================================== -->
-
-<section class="about" id="about">
-
-    <p class="section-number">
-        ABOUT
-    </p>
-
-    <div class="about-grid">
-
-        <h2>
-            BUILDING WORLDS<br>
-            THROUGH DESIGN<br>
-            & TECHNOLOGY.
-        </h2>
-
-        <div>
-
-            <p>
-                I'm Renata Sobieniak, a 3D artist and level designer
-                focused on environments, world building and atmospheric
-                visual storytelling.
-            </p>
-
-            <p>
-                My workflow combines Blender and Unreal Engine 5,
-                with a particular interest in photogrammetry,
-                lighting and cinematic environment design.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ==================================================
-     NEXT PROJECT
-================================================== -->
-
-<section class="next-project">
-
-    <div class="next-overlay"></div>
-
-    <div>
-
-        <p>NEXT PROJECT</p>
-
-        <h2>
-            MORE WORLDS<br>
-            TO EXPLORE.
-        </h2>
-
-    </div>
-
-    <a href="#projects">
-        VIEW ALL PROJECTS →
     </a>
 
-</section>
 
-<!-- ==================================================
-     INTERACTIVE 3D MODEL
-================================================== -->
 
-<section class="model-showcase" id="model3d">
+    <!-- JEWELRY -->
 
-    <div class="model-showcase-head">
-        <div>
-            <p class="section-number">02 / INTERACTIVE ASSET</p>
-            <h3>3D MODEL<br>BREAKDOWN</h3>
-        </div>
+    <a
+      class="category-card"
+      href="#jewelry"
+    >
 
-        <p>
-            Interactive 3D asset. Rotate the model and zoom in to explore the details.
-        </p>
+     <img src="rs/kolczyki.png" alt="">
+
+      <div class="category-overlay">
+
+        <h3>
+          BIŻUTERIA
+        </h3>
+
+        <span>
+          Explore →
+        </span>
+
+      </div>
+
+    </a>
+
+
+
+    <!-- OBJECTS -->
+
+    <div class="category-card">
+
+      <img src="rs/tamagotchi.png" alt="">
+
+      <div class="category-overlay">
+
+        <h3>
+          KOLEKCJA
+        </h3>
+
+        <span>
+          Explore →
+        </span>
+
+      </div>
+
     </div>
 
-    <div class="featured-model">
-        <model-viewer
-            id="gameModel"
-            src="gamedev/models/chair.glb"
-            alt="Interactive chair 3D model"
-            camera-controls
-            auto-rotate
-            rotation-per-second="8deg"
-            shadow-intensity="1"
-            exposure="1"
-            interaction-prompt="none">
-        </model-viewer>
+
+
+    <!-- WORLD -->
+
+    <div class="category-card">
+
+           <img src="rs/swiat.png" alt="">
+
+      <div class="category-overlay">
+
+        <h3>
+          NASZ ŚWIAT
+        </h3>
+
+        <span>
+          Read →
+        </span>
+
+      </div>
+
     </div>
+
+
+  </section>
+
+
+
+  <!-- ======================================
+       FEATURED PERFUME
+  ======================================= -->
+
+  <section
+    class="featured"
+    id="fragrances"
+  >
+
+
+    <div class="featured-image">
+
+    <img src="rs/kwiat.png" 
+        alt="Rogue Synthesis perfume"
+      >
+
+    </div>
+
+
+
+    <div class="featured-copy">
+
+
+      <div class="section-kicker">
+
+        Featured
+
+      </div>
+
+
+      <h2>
+        SOMA
+      </h2>
+
+
+      <div class="product-type">
+
+        Extrait de Parfum
+
+      </div>
+
+
+      <p class="product-desc">
+
+        A fragment of another reality.
+        A scent that lingers between
+        the known and the unknown.
+
+      </p>
+
+
+      <div class="notes">
+
+        Notes
+
+        <br><br>
+
+        Metallic blossom /
+        black fig /
+        amber skin
+
+      </div>
+
+
+      <div class="buy-row">
+
+        <button
+          class="buy-btn"
+          onclick="addToCart()"
+        >
+
+          Add to cart
+          &nbsp;&nbsp; | &nbsp;&nbsp;
+          490 PLN
+
+        </button>
+
+      </div>
+
+
+    </div>
+
+
+
+    <div class="featured-art">
+
+
+   <img src="rs/perfum.png" alt="">
+
+
+
+      <p>
+
+        Floral<br>
+        Metallic<br>
+        Sensual<br>
+        Otherworldly
+
+      </p>
+
+
+    </div>
+
+
+  </section>
+
+
+
+  <!-- ======================================
+       CAMPAIGN
+  ======================================= -->
+
+  <!-- CAMPAIGN -->
+<section class="campaign" id="world">
+
+  <img
+    class="campaign-img"
+    src="rs/kampania.png"
+    alt="Rogue Synthesis Æthera campaign"
+  >
 
 </section>
 
 
-<!-- ==================================================
-     FOOTER
-================================================== -->
+<!-- ======================================
+     INTERACTIVE 3D OBJECT
+======================================= -->
 
-<footer id="contact">
+<section class="featured featured-reversed">
+
+  <!-- MAŁY VISUAL PO LEWEJ -->
+  <div class="featured-art">
+
+    <img
+      src="rs/kwiat1.png"
+      alt="Rogue Synthesis 3D Object Detail"
+    >
+
+    <p>
+      ORGANIC<br>
+      DIGITAL<br>
+      SCULPTURAL<br>
+      SYNTHETIC
+    </p>
+
+  </div>
+
+
+  <!-- TEKST W ŚRODKU -->
+  <div class="featured-copy">
+
+    <div class="section-kicker">
+      DIGITAL OBJECT
+    </div>
+
+    <h2>
+      FORM / 01
+    </h2>
+
+    <div class="product-type">
+      INTERACTIVE 3D EXPERIENCE
+    </div>
+
+    <p class="product-desc">
+      A digital object developed as an extension
+      of the Rogue Synthesis visual language.
+      Organic structure meets synthetic form.
+    </p>
+
+    <div class="notes">
+      3D MODELING / MATERIAL DESIGN / DIGITAL OBJECT
+      <br><br>
+      DRAG TO ROTATE
+    </div>
+
+  </div>
+
+
+  <!-- INTERAKTYWNY MODEL 3D PO PRAWEJ -->
+  <div class="featured-image featured-model">
+
+<model-viewer
+  id="rogueModel"
+  src="rs/model7.glb"
+  alt="Rogue Synthesis interactive 3D object"
+  camera-controls
+  auto-rotate
+  rotation-per-second="12deg"
+  shadow-intensity="1"
+  exposure="1"
+  interaction-prompt="none">
+</model-viewer>
+
+  </div>
+
+</section>
+
+<!-- ======================================
+     ROGUE SYNTHESIS — COLLECTION LINKS
+======================================= -->
+
+<section class="collection-showcase">
+
+  <div class="collection-grid">
+
+    <!-- LEWA KOLUMNA -->
+    <div class="collection-box collection-product">
+
+      <img
+        src="rs/perfum.png"
+        alt="Rogue Synthesis SOMA perfume"
+      >
+
+    </div>
+
+
+    <!-- ŚRODEK -->
+    <div class="collection-box collection-about">
+
+      <p>
+        Opracowany język formy przez firmę<br>
+        Rogue Synthesis<br>
+        zostaje przeniesiony na biżuterię, akcesoria<br>
+        i przedmioty kolekcjonerskie,<br>
+        tworząc spójny system obiektów<br>
+        należących do jednego świata.
+      </p>
+
+    </div>
+
+
+    <!-- PRAWA KOLUMNA -->
+    <div class="collection-box collection-product">
+
+      <img
+        src="rs/tamagotchi1.png"
+        alt="Rogue Synthesis digital object"
+      >
+
+    </div>
+
+  </div>
+
+
+  <!-- DOLNY RZĄD -->
+  <div class="collection-navigation">
+
+    <a href="#fragrances" class="collection-button">
+      PO WIĘCEJ ZAPACHÓW
+    </a>
+
+
+    <div class="collection-line"></div>
+
+
+    <a href="#collection" class="collection-button">
+      PO WIĘCEJ Z KOLEKCJI
+    </a>
+
+  </div>
+
+</section>
+
+  <!-- ======================================
+       EDITORIAL
+  ======================================= -->
+
+  <section
+    class="editorial-grid"
+    id="jewelry"
+  >
+
+
+    <article class="editorial-card">
+
+
+       <img src="rs/bizu1.png" alt="">
+
+
+
+      <div class="editorial-text">
+
+        <h3>
+          Wear Another Reality
+        </h3>
+
+        <span>
+          Shop Jewelry →
+        </span>
+
+      </div>
+
+
+    </article>
+
+
+
+    <article class="editorial-card">
+
+
+        <img src="rs/swiat.png" alt="">
+
+
+
+      <div class="editorial-text">
+
+        <h3>
+          Rogue Synthesis
+        </h3>
+
+        <span>
+          Join The New Reality
+        </span>
+
+      </div>
+
+
+    </article>
+
+
+
+    <article class="editorial-card">
+
+
+             <img src="rs/opakowanie.png" alt="">
+
+
+      <div class="editorial-text">
+
+
+        <h3>
+
+          Not Just A Fragrance.<br>
+
+          A State Of Mind.
+
+        </h3>
+
+
+        <span>
+          Explore →
+        </span>
+
+
+      </div>
+
+
+    </article>
+
+
+  </section>
+
+
+
+  <!-- ======================================
+       FOOTER
+  ======================================= -->
+
+  <footer id="contact">
+
 
     <div>
 
-        <p>ROGUE SYNTHESIS</p>
+      <div class="footer-logo">
 
-        <h2>
-            LET'S CREATE<br>
-            SOMETHING NEW.
-        </h2>
+        ROGUE
+
+        <span>
+          SYNTHESIS
+        </span>
+
+      </div>
 
     </div>
+
 
 
     <div class="footer-links">
 
-        <a href="mailto:yourmail@email.com">
-            EMAIL
-        </a>
+      <a href="#">
+        Shop
+      </a>
 
-        <a href="#">
-            INSTAGRAM
-        </a>
+      <a href="#">
+        Fragrances
+      </a>
 
-        <a href="#">
-            YOUTUBE
-        </a>
+      <a href="#">
+        Jewelry
+      </a>
+
+      <a href="#">
+        Our World
+      </a>
+
+      <a href="#">
+        Contact
+      </a>
+
+      <a href="#">
+        Privacy
+      </a>
+
+      <a href="#">
+        Terms
+      </a>
+
+      <a href="#">
+        Shipping
+      </a>
+
+      <a href="#">
+        FAQ
+      </a>
 
     </div>
 
-</footer>
 
 
+    <div class="newsletter">
+
+
+      <label>
+
+        Join our universe
+
+      </label>
+
+
+      <div class="newsletter-box">
+
+
+        <input
+          type="email"
+          placeholder="YOUR EMAIL"
+        >
+
+
+        <button>
+          →
+        </button>
+
+
+      </div>
+
+
+    </div>
+
+
+  </footer>
+
+
+</div>
+
+
+
+<!-- ======================================
+     JAVASCRIPT
+======================================= -->
 
 <script>
+let cart = 0;
 
-const menuButton = document.querySelector(".menu-button");
-const navLinks = document.querySelector(".nav-links");
+function addToCart() {
+  cart++;
 
-menuButton.addEventListener("click", () => {
+  const cartLabel = document.querySelector(".cart-counter");
 
-    navLinks.classList.toggle("open");
-    menuButton.classList.toggle("open");
-
-});
-
-document.querySelectorAll(".nav-links a").forEach(link => {
-
-    link.addEventListener("click", () => {
-
-        navLinks.classList.remove("open");
-        menuButton.classList.remove("open");
-
-    });
-
-
-
-});
-
-
-
-const gameModel = document.getElementById('gameModel');
-
-if (gameModel) {
-  function updateModelTouch() {
-    if (window.matchMedia('(max-width: 1100px)').matches) {
-      gameModel.setAttribute('touch-action', 'pan-y');
-    } else {
-      gameModel.removeAttribute('touch-action');
-    }
+  if (cartLabel) {
+    cartLabel.textContent = `KOSZYK (${cart})`;
   }
-
-  updateModelTouch();
-  window.addEventListener('resize', updateModelTouch);
 }
 
+const heroImage =
+  document.querySelector(".hero-image-center");
+
+const heroRight =
+  document.querySelector(".hero-image-right img");
+
+let introFinished = false;
+
+
+window.addEventListener("load", function () {
+
+  if (!heroImage) return;
+
+  setTimeout(function () {
+
+    /* CENTER IMAGE */
+    heroImage.classList.add("hero-loaded");
+
+
+    /* RIGHT IMAGE */
+    if (heroRight) {
+      heroRight.style.opacity = "0.8";
+    }
+
+  }, 100);
+
+
+  setTimeout(function () {
+    introFinished = true;
+  }, 1700);
+
+});
+
+
+window.addEventListener("scroll", function () {
+
+  if (!heroImage || !introFinished) return;
+
+  const scrollY = window.scrollY;
+
+  let scale =
+    1.18 - scrollY * 0.00055;
+
+  scale = Math.max(0.76, scale);
+
+  heroImage.style.transform =
+    `translate(-50%, -50%) scale(${scale})`;
+
+}, { passive: true });
+
+
+const menuToggle = document.querySelector('.menu-toggle');
+const mobileMenu = document.querySelector('.mobile-menu');
+
+menuToggle.addEventListener('click', () => {
+  mobileMenu.classList.toggle('open');
+
+  if (mobileMenu.classList.contains('open')) {
+    menuToggle.textContent = '×';
+  } else {
+    menuToggle.textContent = '☰';
+  }
+});
+
+mobileMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    menuToggle.textContent = '☰';
+  });
+});
+
+  const rogueModel = document.getElementById('rogueModel');
+
+function updateModelTouch() {
+  if (window.matchMedia('(max-width: 1100px)').matches) {
+    rogueModel.setAttribute('touch-action', 'pan-y');
+  } else {
+    rogueModel.removeAttribute('touch-action');
+  }
+}
+
+updateModelTouch();
+
+window.addEventListener('resize', updateModelTouch);
 
 </script>
 
 </body>
+
 </html>
