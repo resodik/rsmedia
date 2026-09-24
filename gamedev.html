@@ -606,7 +606,6 @@
 </footer>
 
 
-
 <script type="module">
 const menuButton = document.querySelector(".menu-button");
 const navLinks = document.querySelector(".nav-links");
@@ -636,166 +635,503 @@ const displayButtons = document.querySelectorAll('[data-display]');
 const viewButtons = document.querySelectorAll('[data-view]');
 
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(35, 1, 0.01, 5000);
-const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+
+const camera = new THREE.PerspectiveCamera(
+    35,
+    1,
+    0.01,
+    5000
+);
+
+const renderer = new THREE.WebGLRenderer({
+    canvas,
+    antialias: true,
+    alpha: true
+});
+
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.setClearColor(0x000000, 0);
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 1.15;
 
+
+// ============================================
+// CONTROLS
+// ============================================
+
 const controls = new OrbitControls(camera, canvas);
+
 controls.enableDamping = true;
 controls.dampingFactor = 0.06;
 controls.enablePan = false;
 controls.minDistance = 0.1;
 controls.maxDistance = 1000;
 
-scene.add(new THREE.HemisphereLight(0xffffff, 0x222222, 2.2));
+
+// ============================================
+// LIGHTS
+// ============================================
+
+scene.add(
+    new THREE.HemisphereLight(
+        0xffffff,
+        0x222222,
+        2.2
+    )
+);
+
 const key = new THREE.DirectionalLight(0xffffff, 3.2);
 key.position.set(4, 7, 6);
 scene.add(key);
+
 const fill = new THREE.DirectionalLight(0xbfd5ff, 1.4);
 fill.position.set(-5, 3, 2);
 scene.add(fill);
+
 const rim = new THREE.DirectionalLight(0xffffff, 1.8);
 rim.position.set(1, 4, -6);
 scene.add(rim);
 
+
+// ============================================
+// MODELS
+// ============================================
+
 let model = null;
+let wireframeModel = null;
+
 let modelCenter = new THREE.Vector3();
 let modelSize = 1;
-let currentMode = 'material';
+
 const meshData = [];
+
+const loader = new GLTFLoader();
+
+
+// ============================================
+// CLAY MATERIAL
+// ============================================
 
 const clayMaterial = new THREE.MeshStandardMaterial({
     color: 0xb9b7b0,
     roughness: 0.82,
-    metalness: 0.0
+    metalness: 0
 });
 
+
 function cloneMaterial(material) {
-    if (Array.isArray(material)) return material.map(m => m.clone());
+
+    if (Array.isArray(material)) {
+        return material.map(m => m.clone());
+    }
+
     return material.clone();
 }
 
-function makeWireMaterial() {
-    return new THREE.MeshBasicMaterial({
-        color: 0xe8e8e8,
-        wireframe: true,
-        transparent: true,
-        opacity: 0.9
-    });
-}
+
+// ============================================
+// MATERIAL / CLAY / WIREFRAME
+// ============================================
 
 function applyDisplayMode(mode) {
-    if (!model) return;
-    currentMode = mode;
 
-    meshData.forEach(({ mesh, original }) => {
-        if (mode === 'material') {
+    if (!model) return;
+
+
+    // --------------------------
+    // MATERIAL
+    // --------------------------
+
+    if (mode === 'material') {
+
+        model.visible = true;
+
+        if (wireframeModel) {
+            wireframeModel.visible = false;
+        }
+
+        meshData.forEach(({ mesh, original }) => {
             mesh.material = original;
-        } else if (mode === 'clay') {
+        });
+
+    }
+
+
+    // --------------------------
+    // CLAY
+    // --------------------------
+
+    else if (mode === 'clay') {
+
+        model.visible = true;
+
+        if (wireframeModel) {
+            wireframeModel.visible = false;
+        }
+
+        meshData.forEach(({ mesh, original }) => {
+
             mesh.material = Array.isArray(original)
                 ? original.map(() => clayMaterial)
                 : clayMaterial;
-        } else {
-            mesh.material = Array.isArray(original)
-                ? original.map(() => makeWireMaterial())
-                : makeWireMaterial();
-        }
-    });
 
-    displayButtons.forEach(btn =>
-        btn.classList.toggle('active', btn.dataset.display === mode)
-    );
-}
-
-function setView(view, instant = false) {
-    if (!model) return;
-    const d = modelSize * 2.15;
-    const positions = {
-        front:      [0, modelSize * 0.12, d],
-        side:       [d, modelSize * 0.12, 0],
-        back:       [0, modelSize * 0.12, -d],
-        perspective:[d * 0.72, d * 0.42, d * 0.82]
-    };
-    const p = positions[view] || positions.perspective;
-    camera.position.set(modelCenter.x + p[0], modelCenter.y + p[1], modelCenter.z + p[2]);
-    controls.target.copy(modelCenter);
-    controls.update();
-    if (instant) camera.lookAt(modelCenter);
-
-    viewButtons.forEach(btn =>
-        btn.classList.toggle('active', btn.dataset.view === view)
-    );
-}
-
-function fitModel() {
-    const box = new THREE.Box3().setFromObject(model);
-    modelCenter = box.getCenter(new THREE.Vector3());
-    const size = box.getSize(new THREE.Vector3());
-    modelSize = Math.max(size.x, size.y, size.z) || 1;
-    controls.minDistance = modelSize * 0.35;
-    controls.maxDistance = modelSize * 8;
-    camera.near = Math.max(modelSize / 1000, 0.001);
-    camera.far = modelSize * 100;
-    camera.updateProjectionMatrix();
-    setView('perspective', true);
-}
-
-new GLTFLoader().load(
-    'gamedev/chair.glb',
-    gltf => {
-        model = gltf.scene;
-        scene.add(model);
-
-        model.traverse(child => {
-            if (!child.isMesh) return;
-            child.castShadow = true;
-            child.receiveShadow = true;
-            const original = cloneMaterial(child.material);
-            child.material = original;
-            meshData.push({ mesh: child, original });
         });
 
-        fitModel();
-        applyDisplayMode('material');
-        if (loading) loading.classList.add('is-hidden');
-    },
-    undefined,
-    error => {
-        console.error('GLB loading error:', error);
-        if (loading) loading.textContent = 'MODEL COULD NOT BE LOADED';
     }
+
+
+    // --------------------------
+    // WIREFRAME
+    // --------------------------
+
+    else if (mode === 'wireframe') {
+
+        model.visible = false;
+
+        if (wireframeModel) {
+            wireframeModel.visible = true;
+        }
+
+    }
+
+
+    // ACTIVE BUTTON
+
+    displayButtons.forEach(btn => {
+
+        btn.classList.toggle(
+            'active',
+            btn.dataset.display === mode
+        );
+
+    });
+}
+
+
+// ============================================
+// CAMERA VIEWS
+// ============================================
+
+function setView(view, instant = false) {
+
+    if (!model) return;
+
+    const d = modelSize * 2.15;
+
+    const positions = {
+
+        front: [
+            0,
+            modelSize * 0.12,
+            d
+        ],
+
+        side: [
+            d,
+            modelSize * 0.12,
+            0
+        ],
+
+        back: [
+            0,
+            modelSize * 0.12,
+            -d
+        ],
+
+        perspective: [
+            d * 0.72,
+            d * 0.42,
+            d * 0.82
+        ]
+
+    };
+
+    const p =
+        positions[view] ||
+        positions.perspective;
+
+    camera.position.set(
+        modelCenter.x + p[0],
+        modelCenter.y + p[1],
+        modelCenter.z + p[2]
+    );
+
+    controls.target.copy(modelCenter);
+    controls.update();
+
+    if (instant) {
+        camera.lookAt(modelCenter);
+    }
+
+
+    viewButtons.forEach(btn => {
+
+        btn.classList.toggle(
+            'active',
+            btn.dataset.view === view
+        );
+
+    });
+}
+
+
+// ============================================
+// FIT CAMERA
+// ============================================
+
+function fitModel() {
+
+    const box =
+        new THREE.Box3()
+        .setFromObject(model);
+
+    modelCenter =
+        box.getCenter(
+            new THREE.Vector3()
+        );
+
+    const size =
+        box.getSize(
+            new THREE.Vector3()
+        );
+
+    modelSize =
+        Math.max(
+            size.x,
+            size.y,
+            size.z
+        ) || 1;
+
+
+    controls.minDistance =
+        modelSize * 0.35;
+
+    controls.maxDistance =
+        modelSize * 8;
+
+    camera.near =
+        Math.max(
+            modelSize / 1000,
+            0.001
+        );
+
+    camera.far =
+        modelSize * 100;
+
+    camera.updateProjectionMatrix();
+
+    setView(
+        'perspective',
+        true
+    );
+}
+
+
+// ============================================
+// LOAD NORMAL CHAIR
+// ============================================
+
+loader.load(
+
+    'gamedev/chair.glb',
+
+    gltf => {
+
+        model = gltf.scene;
+
+        scene.add(model);
+
+
+        model.traverse(child => {
+
+            if (!child.isMesh) return;
+
+            child.castShadow = true;
+            child.receiveShadow = true;
+
+            const original =
+                cloneMaterial(
+                    child.material
+                );
+
+            child.material = original;
+
+            meshData.push({
+                mesh: child,
+                original
+            });
+
+        });
+
+
+        fitModel();
+
+        applyDisplayMode(
+            'material'
+        );
+
+
+        if (loading) {
+            loading.classList.add(
+                'is-hidden'
+            );
+        }
+
+    },
+
+    undefined,
+
+    error => {
+
+        console.error(
+            'Chair GLB loading error:',
+            error
+        );
+
+        if (loading) {
+            loading.textContent =
+                'MODEL COULD NOT BE LOADED';
+        }
+
+    }
+
 );
 
+
+// ============================================
+// LOAD WIREFRAME CHAIR
+// ============================================
+
+loader.load(
+
+    'gamedev/chair_wireframe.glb',
+
+    gltf => {
+
+        wireframeModel = gltf.scene;
+
+        wireframeModel.visible = false;
+
+        scene.add(wireframeModel);
+
+        console.log(
+            'Wireframe model loaded'
+        );
+
+    },
+
+    undefined,
+
+    error => {
+
+        console.error(
+            'Wireframe GLB loading error:',
+            error
+        );
+
+    }
+
+);
+
+
+// ============================================
+// BUTTONS
+// ============================================
+
 displayButtons.forEach(button => {
-    button.addEventListener('click', () => applyDisplayMode(button.dataset.display));
+
+    button.addEventListener(
+        'click',
+        () => {
+
+            applyDisplayMode(
+                button.dataset.display
+            );
+
+        }
+    );
+
 });
+
 
 viewButtons.forEach(button => {
-    button.addEventListener('click', () => setView(button.dataset.view));
+
+    button.addEventListener(
+        'click',
+        () => {
+
+            setView(
+                button.dataset.view
+            );
+
+        }
+    );
+
 });
 
+
+// ============================================
+// RESIZE
+// ============================================
+
 function resizeRenderer() {
+
     if (!stage) return;
-    const width = Math.max(stage.clientWidth, 1);
-    const height = Math.max(stage.clientHeight, 1);
-    renderer.setSize(width, height, false);
-    camera.aspect = width / height;
+
+    const width =
+        Math.max(
+            stage.clientWidth,
+            1
+        );
+
+    const height =
+        Math.max(
+            stage.clientHeight,
+            1
+        );
+
+    renderer.setSize(
+        width,
+        height,
+        false
+    );
+
+    camera.aspect =
+        width / height;
+
     camera.updateProjectionMatrix();
 }
 
-new ResizeObserver(resizeRenderer).observe(stage);
+
+new ResizeObserver(
+    resizeRenderer
+).observe(stage);
+
 resizeRenderer();
 
+
+// ============================================
+// RENDER
+// ============================================
+
 function animate() {
-    requestAnimationFrame(animate);
+
+    requestAnimationFrame(
+        animate
+    );
+
     controls.update();
-    renderer.render(scene, camera);
+
+    renderer.render(
+        scene,
+        camera
+    );
+
 }
+
 animate();
+
 </script>
 
 </body>
