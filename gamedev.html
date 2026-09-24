@@ -42,6 +42,12 @@
 }
 </script>
 
+
+<style>
+.model-scene-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:12;width:64px;height:96px;border:0;background:transparent;color:#fff;font:300 64px/1 Inter,sans-serif;cursor:pointer;opacity:.72;transition:opacity .2s ease,transform .2s ease;text-shadow:0 2px 20px rgba(0,0,0,.55)}
+.model-scene-arrow:hover{opacity:1}.model-scene-prev{left:18px}.model-scene-next{right:18px}.model-stage{position:relative}.model-stage canvas{touch-action:pan-y}
+@media(max-width:700px){.model-scene-arrow{width:44px;height:72px;font-size:48px}.model-scene-prev{left:4px}.model-scene-next{right:4px}}
+</style>
 </head>
 
 
@@ -532,19 +538,22 @@
         </div>
 
         <p>
-            Rotate, zoom and inspect the asset. Switch between the original
-            material, a neutral clay preview and triangulated wireframe.
+            Rotate and inspect the asset. Switch between the original
+            material, a neutral clay preview and the exported wireframe model.
         </p>
     </div>
 
     <div class="model-stage">
 
         <div class="model-stage-top">
-            <span>CHAIR / INTERACTIVE 3D ASSET</span>
-            <span>DRAG TO ROTATE · SCROLL TO ZOOM</span>
+            <span id="modelTitle">CHAIR / INTERACTIVE 3D ASSET</span>
+            <span>DRAG TO ROTATE · SCROLL PAGE</span>
         </div>
 
-        <canvas id="gameModel" aria-label="Interactive chair 3D model"></canvas>
+        <button type="button" class="model-scene-arrow model-scene-prev" id="modelPrev" aria-label="Previous 3D scene">‹</button>
+        <button type="button" class="model-scene-arrow model-scene-next" id="modelNext" aria-label="Next 3D scene">›</button>
+
+        <canvas id="gameModel" aria-label="Interactive 3D model"></canvas>
 
         <div class="model-loading" id="modelLoading">LOADING 3D MODEL...</div>
 
@@ -607,531 +616,38 @@
 
 
 <script type="module">
-const menuButton = document.querySelector(".menu-button");
-const navLinks = document.querySelector(".nav-links");
-
-if (menuButton && navLinks) {
-    menuButton.addEventListener("click", () => {
-        navLinks.classList.toggle("open");
-        menuButton.classList.toggle("open");
-    });
-
-    document.querySelectorAll(".nav-links a").forEach(link => {
-        link.addEventListener("click", () => {
-            navLinks.classList.remove("open");
-            menuButton.classList.remove("open");
-        });
-    });
-}
-
-const THREE = await import('three');
-const { GLTFLoader } = await import('three/addons/loaders/GLTFLoader.js');
-const { OrbitControls } = await import('three/addons/controls/OrbitControls.js');
-
-const canvas = document.getElementById('gameModel');
-const stage = document.querySelector('.model-stage');
-const loading = document.getElementById('modelLoading');
-const displayButtons = document.querySelectorAll('[data-display]');
-const viewButtons = document.querySelectorAll('[data-view]');
-
-const scene = new THREE.Scene();
-
-const camera = new THREE.PerspectiveCamera(
-    35,
-    1,
-    0.01,
-    5000
-);
-
-const renderer = new THREE.WebGLRenderer({
-    canvas,
-    antialias: true,
-    alpha: true
-});
-
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-renderer.setClearColor(0x000000, 0);
-renderer.outputColorSpace = THREE.SRGBColorSpace;
-renderer.toneMapping = THREE.ACESFilmicToneMapping;
-renderer.toneMappingExposure = 1.15;
-
-
-// ============================================
-// CONTROLS
-// ============================================
-
-const controls = new OrbitControls(camera, canvas);
-
-controls.enableDamping = true;
-controls.dampingFactor = 0.06;
-controls.enablePan = false;
-controls.minDistance = 0.1;
-controls.maxDistance = 1000;
-
-
-// ============================================
-// LIGHTS
-// ============================================
-
-scene.add(
-    new THREE.HemisphereLight(
-        0xffffff,
-        0x222222,
-        2.2
-    )
-);
-
-const key = new THREE.DirectionalLight(0xffffff, 3.2);
-key.position.set(4, 7, 6);
-scene.add(key);
-
-const fill = new THREE.DirectionalLight(0xbfd5ff, 1.4);
-fill.position.set(-5, 3, 2);
-scene.add(fill);
-
-const rim = new THREE.DirectionalLight(0xffffff, 1.8);
-rim.position.set(1, 4, -6);
-scene.add(rim);
-
-
-// ============================================
-// MODELS
-// ============================================
-
-let model = null;
-let wireframeModel = null;
-
-let modelCenter = new THREE.Vector3();
-let modelSize = 1;
-
-const meshData = [];
-
-const loader = new GLTFLoader();
-
-
-// ============================================
-// CLAY MATERIAL
-// ============================================
-
-const clayMaterial = new THREE.MeshStandardMaterial({
-    color: 0xb9b7b0,
-    roughness: 0.82,
-    metalness: 0
-});
-
-
-function cloneMaterial(material) {
-
-    if (Array.isArray(material)) {
-        return material.map(m => m.clone());
-    }
-
-    return material.clone();
-}
-
-
-// ============================================
-// MATERIAL / CLAY / WIREFRAME
-// ============================================
-
-function applyDisplayMode(mode) {
-
-    if (!model) return;
-
-
-    // --------------------------
-    // MATERIAL
-    // --------------------------
-
-    if (mode === 'material') {
-
-        model.visible = true;
-
-        if (wireframeModel) {
-            wireframeModel.visible = false;
-        }
-
-        meshData.forEach(({ mesh, original }) => {
-            mesh.material = original;
-        });
-
-    }
-
-
-    // --------------------------
-    // CLAY
-    // --------------------------
-
-    else if (mode === 'clay') {
-
-        model.visible = true;
-
-        if (wireframeModel) {
-            wireframeModel.visible = false;
-        }
-
-        meshData.forEach(({ mesh, original }) => {
-
-            mesh.material = Array.isArray(original)
-                ? original.map(() => clayMaterial)
-                : clayMaterial;
-
-        });
-
-    }
-
-
-    // --------------------------
-    // WIREFRAME
-    // --------------------------
-
-    else if (mode === 'wireframe') {
-
-        model.visible = false;
-
-        if (wireframeModel) {
-            wireframeModel.visible = true;
-        }
-
-    }
-
-
-    // ACTIVE BUTTON
-
-    displayButtons.forEach(btn => {
-
-        btn.classList.toggle(
-            'active',
-            btn.dataset.display === mode
-        );
-
-    });
-}
-
-
-// ============================================
-// CAMERA VIEWS
-// ============================================
-
-function setView(view, instant = false) {
-
-    if (!model) return;
-
-    const d = modelSize * 2.15;
-
-    const positions = {
-
-        front: [
-            0,
-            modelSize * 0.12,
-            d
-        ],
-
-        side: [
-            d,
-            modelSize * 0.12,
-            0
-        ],
-
-        back: [
-            0,
-            modelSize * 0.12,
-            -d
-        ],
-
-        perspective: [
-            d * 0.72,
-            d * 0.42,
-            d * 0.82
-        ]
-
-    };
-
-    const p =
-        positions[view] ||
-        positions.perspective;
-
-    camera.position.set(
-        modelCenter.x + p[0],
-        modelCenter.y + p[1],
-        modelCenter.z + p[2]
-    );
-
-    controls.target.copy(modelCenter);
-    controls.update();
-
-    if (instant) {
-        camera.lookAt(modelCenter);
-    }
-
-
-    viewButtons.forEach(btn => {
-
-        btn.classList.toggle(
-            'active',
-            btn.dataset.view === view
-        );
-
-    });
-}
-
-
-// ============================================
-// FIT CAMERA
-// ============================================
-
-function fitModel() {
-
-    const box =
-        new THREE.Box3()
-        .setFromObject(model);
-
-    modelCenter =
-        box.getCenter(
-            new THREE.Vector3()
-        );
-
-    const size =
-        box.getSize(
-            new THREE.Vector3()
-        );
-
-    modelSize =
-        Math.max(
-            size.x,
-            size.y,
-            size.z
-        ) || 1;
-
-
-    controls.minDistance =
-        modelSize * 0.35;
-
-    controls.maxDistance =
-        modelSize * 8;
-
-    camera.near =
-        Math.max(
-            modelSize / 1000,
-            0.001
-        );
-
-    camera.far =
-        modelSize * 100;
-
-    camera.updateProjectionMatrix();
-
-    setView(
-        'perspective',
-        true
-    );
-}
-
-
-// ============================================
-// LOAD NORMAL CHAIR
-// ============================================
-
-loader.load(
-
-    'gamedev/chair.glb',
-
-    gltf => {
-
-        model = gltf.scene;
-
-        scene.add(model);
-
-
-        model.traverse(child => {
-
-            if (!child.isMesh) return;
-
-            child.castShadow = true;
-            child.receiveShadow = true;
-
-            const original =
-                cloneMaterial(
-                    child.material
-                );
-
-            child.material = original;
-
-            meshData.push({
-                mesh: child,
-                original
-            });
-
-        });
-
-
-        fitModel();
-
-        applyDisplayMode(
-            'material'
-        );
-
-
-        if (loading) {
-            loading.classList.add(
-                'is-hidden'
-            );
-        }
-
-    },
-
-    undefined,
-
-    error => {
-
-        console.error(
-            'Chair GLB loading error:',
-            error
-        );
-
-        if (loading) {
-            loading.textContent =
-                'MODEL COULD NOT BE LOADED';
-        }
-
-    }
-
-);
-
-
-// ============================================
-// LOAD WIREFRAME CHAIR
-// ============================================
-
-loader.load(
-
-    'gamedev/chair_wireframe.glb',
-
-    gltf => {
-
-        wireframeModel = gltf.scene;
-
-        wireframeModel.visible = false;
-
-        scene.add(wireframeModel);
-
-        console.log(
-            'Wireframe model loaded'
-        );
-
-    },
-
-    undefined,
-
-    error => {
-
-        console.error(
-            'Wireframe GLB loading error:',
-            error
-        );
-
-    }
-
-);
-
-
-// ============================================
-// BUTTONS
-// ============================================
-
-displayButtons.forEach(button => {
-
-    button.addEventListener(
-        'click',
-        () => {
-
-            applyDisplayMode(
-                button.dataset.display
-            );
-
-        }
-    );
-
-});
-
-
-viewButtons.forEach(button => {
-
-    button.addEventListener(
-        'click',
-        () => {
-
-            setView(
-                button.dataset.view
-            );
-
-        }
-    );
-
-});
-
-
-// ============================================
-// RESIZE
-// ============================================
-
-function resizeRenderer() {
-
-    if (!stage) return;
-
-    const width =
-        Math.max(
-            stage.clientWidth,
-            1
-        );
-
-    const height =
-        Math.max(
-            stage.clientHeight,
-            1
-        );
-
-    renderer.setSize(
-        width,
-        height,
-        false
-    );
-
-    camera.aspect =
-        width / height;
-
-    camera.updateProjectionMatrix();
-}
-
-
-new ResizeObserver(
-    resizeRenderer
-).observe(stage);
-
-resizeRenderer();
-
-
-// ============================================
-// RENDER
-// ============================================
-
-function animate() {
-
-    requestAnimationFrame(
-        animate
-    );
-
-    controls.update();
-
-    renderer.render(
-        scene,
-        camera
-    );
-
-}
-
-animate();
-
+const menuButton=document.querySelector(".menu-button"),navLinks=document.querySelector(".nav-links");
+if(menuButton&&navLinks){menuButton.addEventListener("click",()=>{navLinks.classList.toggle("open");menuButton.classList.toggle("open")});document.querySelectorAll(".nav-links a").forEach(a=>a.addEventListener("click",()=>{navLinks.classList.remove("open");menuButton.classList.remove("open")}));}
+const THREE=await import('three');
+const {GLTFLoader}=await import('three/addons/loaders/GLTFLoader.js');
+const {OrbitControls}=await import('three/addons/controls/OrbitControls.js');
+const canvas=document.getElementById('gameModel'),stage=document.querySelector('.model-stage'),loading=document.getElementById('modelLoading'),modelTitle=document.getElementById('modelTitle'),prevButton=document.getElementById('modelPrev'),nextButton=document.getElementById('modelNext'),displayButtons=document.querySelectorAll('[data-display]'),viewButtons=document.querySelectorAll('[data-view]');
+const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(35,1,.01,5000),renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.setClearColor(0x000000,0);renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.15;
+const controls=new OrbitControls(camera,canvas);controls.enableDamping=true;controls.dampingFactor=.06;controls.enablePan=false;controls.enableZoom=false;
+scene.add(new THREE.HemisphereLight(0xffffff,0x222222,2.2));
+const key=new THREE.DirectionalLight(0xffffff,3.2);key.position.set(4,7,6);scene.add(key);const fill=new THREE.DirectionalLight(0xbfd5ff,1.4);fill.position.set(-5,3,2);scene.add(fill);const rim=new THREE.DirectionalLight(0xffffff,1.8);rim.position.set(1,4,-6);scene.add(rim);
+const loader=new GLTFLoader(),clayMaterial=new THREE.MeshStandardMaterial({color:0xb9b7b0,roughness:.82,metalness:0});
+// DOPISUJ KOLEJNE SCENY/MODELE TUTAJ:
+const modelScenes=[
+ {title:'CHAIR / INTERACTIVE 3D ASSET',model:'gamedev/chair.glb',wireframe:'gamedev/chair_wireframe.glb'},
+ // {title:'MODEL 02 / INTERACTIVE 3D ASSET',model:'gamedev/model02.glb',wireframe:'gamedev/model02_wireframe.glb'},
+ // {title:'MODEL 03 / INTERACTIVE 3D ASSET',model:'gamedev/model03.glb',wireframe:'gamedev/model03_wireframe.glb'}
+];
+let sceneIndex=0,model=null,wireframeModel=null,modelCenter=new THREE.Vector3(),modelSize=1,currentDisplay='material',currentView='perspective',loadToken=0,meshData=[];
+function cloneMaterial(m){return Array.isArray(m)?m.map(x=>x.clone()):m.clone()}
+function removeObject(o){if(!o)return;scene.remove(o)}
+function clearModels(){removeObject(model);removeObject(wireframeModel);model=null;wireframeModel=null;meshData=[]}
+function setView(view,instant=false){if(!model)return;currentView=view;const d=modelSize*2.15,p={front:[0,modelSize*.12,d],side:[d,modelSize*.12,0],back:[0,modelSize*.12,-d],perspective:[d*.72,d*.42,d*.82]}[view]||[d*.72,d*.42,d*.82];camera.position.set(modelCenter.x+p[0],modelCenter.y+p[1],modelCenter.z+p[2]);controls.target.copy(modelCenter);controls.update();if(instant)camera.lookAt(modelCenter);viewButtons.forEach(b=>b.classList.toggle('active',b.dataset.view===view))}
+function fitModel(){const box=new THREE.Box3().setFromObject(model);modelCenter=box.getCenter(new THREE.Vector3());const s=box.getSize(new THREE.Vector3());modelSize=Math.max(s.x,s.y,s.z)||1;controls.minDistance=modelSize*.35;controls.maxDistance=modelSize*8;camera.near=Math.max(modelSize/1000,.001);camera.far=modelSize*100;camera.updateProjectionMatrix();setView(currentView,true)}
+function applyDisplayMode(mode){if(!model)return;currentDisplay=mode;if(mode==='material'){model.visible=true;if(wireframeModel)wireframeModel.visible=false;meshData.forEach(({mesh,original})=>mesh.material=original)}else if(mode==='clay'){model.visible=true;if(wireframeModel)wireframeModel.visible=false;meshData.forEach(({mesh,original})=>mesh.material=Array.isArray(original)?original.map(()=>clayMaterial):clayMaterial)}else if(mode==='wireframe'){model.visible=!wireframeModel;if(wireframeModel)wireframeModel.visible=true}displayButtons.forEach(b=>b.classList.toggle('active',b.dataset.display===mode))}
+function loadScene(index){const cfg=modelScenes[index];if(!cfg)return;const token=++loadToken;clearModels();if(modelTitle)modelTitle.textContent=cfg.title;if(loading){loading.textContent='LOADING 3D MODEL...';loading.classList.remove('is-hidden')}
+ loader.load(cfg.model,g=>{if(token!==loadToken)return;model=g.scene;scene.add(model);model.traverse(c=>{if(!c.isMesh)return;c.castShadow=true;c.receiveShadow=true;const original=cloneMaterial(c.material);c.material=original;meshData.push({mesh:c,original})});fitModel();applyDisplayMode(currentDisplay);if(loading)loading.classList.add('is-hidden')},undefined,e=>{console.error('GLB loading error:',e);if(loading)loading.textContent='MODEL COULD NOT BE LOADED'});
+ if(cfg.wireframe)loader.load(cfg.wireframe,g=>{if(token!==loadToken)return;wireframeModel=g.scene;wireframeModel.visible=false;scene.add(wireframeModel);if(currentDisplay==='wireframe')applyDisplayMode('wireframe')},undefined,e=>console.warn('Wireframe GLB could not be loaded:',e));}
+function changeScene(dir){if(modelScenes.length<2)return;sceneIndex=(sceneIndex+dir+modelScenes.length)%modelScenes.length;loadScene(sceneIndex)}
+displayButtons.forEach(b=>b.addEventListener('click',()=>applyDisplayMode(b.dataset.display)));viewButtons.forEach(b=>b.addEventListener('click',()=>setView(b.dataset.view)));if(prevButton)prevButton.addEventListener('click',()=>changeScene(-1));if(nextButton)nextButton.addEventListener('click',()=>changeScene(1));
+function resizeRenderer(){if(!stage)return;const w=Math.max(stage.clientWidth,1),h=Math.max(stage.clientHeight,1);renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix()}new ResizeObserver(resizeRenderer).observe(stage);resizeRenderer();
+function animate(){requestAnimationFrame(animate);controls.update();renderer.render(scene,camera)}loadScene(sceneIndex);animate();
 </script>
 
 </body>
