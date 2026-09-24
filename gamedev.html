@@ -1,19 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>GameDev — Rogue Synthesis</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>Rogue Synthesis</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Inter:wght@300;400;500&display=swap"
-          rel="stylesheet">
+  <meta property="og:title" content="Rogue Synthesis">
+<meta property="og:description" content="Fragrance, jewelry and digital objects from another reality.">
+<meta property="og:type" content="website">
 
-    <link rel="stylesheet" href="gamedev.css">
+<meta property="og:image" content="https://TWOJA-DOMENA.pl/rs/link-preview.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://TWOJA-DOMENA.pl/rs/link-preview.jpg">
+
+  <!-- FONTS -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Inter:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- CSS -->
+
+  <link rel="stylesheet" href="gamedev.css">
 
 <script
   type="module"
@@ -23,40 +41,11 @@
 </head>
 
 
-    <style>
-        /* MODEL-VIEWER — 3D MODEL BREAKDOWN */
-        .model-viewer-shell {
-            position: relative;
-            overflow: hidden;
-        }
-
-        #gameModel {
-            display: block;
-            width: 100%;
-            height: 100%;
-            min-height: 520px;
-            background: transparent;
-            --poster-color: transparent;
-        }
-
-        .model-viewer-shell .viewer-topline,
-        .model-viewer-shell .viewer-status {
-            position: absolute;
-            z-index: 5;
-            pointer-events: none;
-        }
-
-        @media (max-width: 800px) {
-            #gameModel {
-                min-height: 500px;
-            }
-        }
-    </style>
-
-</head>
-
-
 <body>
+
+
+<div class="page">
+
 
 <!-- ==================================================
      NAVIGATION
@@ -533,53 +522,31 @@
 <section class="model-showcase" id="model3d">
 
     <div class="model-showcase-head">
-
         <div>
             <p class="section-number">02 / INTERACTIVE ASSET</p>
-
-            <h3>
-                3D MODEL<br>
-                BREAKDOWN
-            </h3>
+            <h3>3D MODEL<br>BREAKDOWN</h3>
         </div>
 
         <p>
-            Rotate the model and zoom in to inspect the asset directly
-            in the browser.
+            Interactive 3D asset. Rotate the model and zoom in to explore the details.
         </p>
-
     </div>
 
-
-    <div class="viewer-shell model-viewer-shell">
-
-        <div class="viewer-topline">
-            <span>INTERACTIVE MODEL</span>
-            <span>GLB / MODEL VIEWER</span>
-        </div>
-
-       <model-viewer
-  id="rogueModel"
-  src="gamedev/chair.glb"
-  alt="Rogue Synthesis interactive 3D object"
-  camera-controls
-  auto-rotate
-  rotation-per-second="12deg"
-  shadow-intensity="1"
-  exposure="1"
-  interaction-prompt="none">
-</model-viewer>
-
-        <div class="viewer-status">
-            DRAG TO ROTATE / SCROLL TO ZOOM
-        </div>
-
+    <div class="featured-model">
+        <model-viewer
+            id="gameModel"
+            src="gamedev/models/chair.glb"
+            alt="Interactive chair 3D model"
+            camera-controls
+            auto-rotate
+            rotation-per-second="8deg"
+            shadow-intensity="1"
+            exposure="1"
+            interaction-prompt="none">
+        </model-viewer>
     </div>
 
 </section>
-
-</main>
-
 
 
 <!-- ==================================================
@@ -647,24 +614,22 @@ document.querySelectorAll(".nav-links a").forEach(link => {
 
 
 
-</script>
+const gameModel = document.getElementById('gameModel');
 
-
-<script>
-const gameModel = document.getElementById("gameModel");
-
-function updateGameModelTouch() {
-    if (!gameModel) return;
-
-    if (window.matchMedia("(max-width: 1100px)").matches) {
-        gameModel.setAttribute("touch-action", "pan-y");
+if (gameModel) {
+  function updateModelTouch() {
+    if (window.matchMedia('(max-width: 1100px)').matches) {
+      gameModel.setAttribute('touch-action', 'pan-y');
     } else {
-        gameModel.removeAttribute("touch-action");
+      gameModel.removeAttribute('touch-action');
     }
+  }
+
+  updateModelTouch();
+  window.addEventListener('resize', updateModelTouch);
 }
 
-updateGameModelTouch();
-window.addEventListener("resize", updateGameModelTouch);
+
 </script>
 
 </body>
