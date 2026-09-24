@@ -690,5 +690,48 @@ function buildWireframe() {
 
 </script>
 
+
+<script>
+
+const menuButton = document.querySelector(".menu-button");
+const navLinks = document.querySelector(".nav-links");
+
+menuButton.addEventListener("click", () => {
+    navLinks.classList.toggle("open");
+    menuButton.classList.toggle("open");
+});
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuButton.classList.remove("open");
+    });
+});
+
+</script>
+
+
+<!-- ==========================
+     MODEL 3D
+========================== -->
+
+<script type="module">
+
+// import Three.js itd. tutaj
+
+
+// ↓↓↓ TUTAJ PODAJESZ SWÓJ MODEL ↓↓↓
+
+const MODEL_URL = "gamedev/models/chair.glb";
+
+
+// reszta kodu Three.js...
+
+</script>
+
+
+</body>
+</html>
+
 </body>
 </html>
