@@ -962,276 +962,179 @@ a {
    MODEL 3D
 ======================================== */
 
-.featured-model {
-  position: relative;
-  min-height: 760px;
-  overflow: hidden;
-  background: #050505;
+.model-showcase {
+    width: 100%;
+    padding: 90px var(--side) 70px;
+    border-bottom: 1px solid var(--line);
+    background: #050505;
 }
-
-.featured-model model-viewer {
-  width: 100%;
-  height: 100%;
-  min-height: 760px;
-
-  display: block;
-
-  background: #050505;
-
-  --poster-color: transparent;
-}
-
-
-/* HEADER SEKCJI */
 
 .model-showcase-head {
+    width: 100%;
     display: flex;
+    align-items: end;
     justify-content: space-between;
     gap: 40px;
-    align-items: end;
-    margin-bottom: 34px;
+    margin-bottom: 32px;
 }
 
 .model-showcase-head h3 {
     margin: 0;
-
-    font-family: "Bodoni Moda", serif;
-    font-size: clamp(38px, 5vw, 76px);
+    font-family: var(--serif);
+    font-size: clamp(40px, 5vw, 76px);
     font-weight: 400;
     line-height: .95;
-
     color: #f2f2f2;
 }
 
-.model-showcase-head p {
-    max-width: 440px;
-
-    color: #777;
-
+.model-showcase-head > p {
+    max-width: 430px;
+    color: #888;
     font-size: 11px;
     line-height: 1.8;
     letter-spacing: .08em;
 }
 
-
-/* =========================================
-   VIEWER
-========================================= */
-
-.viewer-shell {
+.model-stage {
     position: relative;
-
-    height: min(72vh, 760px);
-    min-height: 520px;
-
+    width: 100%;
+    height: 780px;
+    min-height: 620px;
     overflow: hidden;
-
-    border: 1px solid rgba(255,255,255,.14);
-
-    background:
-        radial-gradient(
-            circle at 50% 42%,
-            #202020 0%,
-            #101010 48%,
-            #080808 78%
-        );
+    border-top: 1px solid rgba(255,255,255,.14);
+    border-bottom: 1px solid rgba(255,255,255,.14);
+    background: radial-gradient(circle at 50% 43%, #202020 0%, #101010 46%, #070707 78%);
 }
 
-
-/* THREE.JS CANVAS */
-
-#threeViewer {
+#gameModel,
+.wireframe-viewer {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
+}
 
+#gameModel {
     display: block;
+    --poster-color: transparent;
+    transition: opacity .2s ease;
+}
 
+#gameModel.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.wireframe-viewer {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .2s ease;
+}
+
+.wireframe-viewer.is-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.wireframe-viewer canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
     cursor: grab;
 }
 
-#threeViewer:active {
-    cursor: grabbing;
-}
+.wireframe-viewer canvas:active { cursor: grabbing; }
 
-
-/* =========================================
-   TOP INFORMATION
-========================================= */
-
-.viewer-topline {
+.model-stage-top {
     position: absolute;
-
-    z-index: 5;
-
+    z-index: 10;
     top: 20px;
-    left: 22px;
-    right: 22px;
-
+    left: 24px;
+    right: 24px;
     display: flex;
     justify-content: space-between;
-
-    pointer-events: none;
-
-    color: rgba(255,255,255,.48);
-
+    gap: 20px;
+    color: rgba(255,255,255,.46);
     font-size: 9px;
+    letter-spacing: .17em;
+    pointer-events: none;
+}
+
+.model-controls {
+    position: absolute;
+    z-index: 12;
+    left: 50%;
+    bottom: 24px;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 28px;
+    width: calc(100% - 48px);
+    pointer-events: none;
+}
+
+.model-control-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 7px;
+    pointer-events: auto;
+}
+
+.control-label {
+    margin-right: 5px;
+    color: rgba(255,255,255,.38);
+    font-size: 8px;
     letter-spacing: .18em;
 }
 
-
-/* =========================================
-   CONTROLS
-========================================= */
-
-.viewer-controls {
-    position: absolute;
-
-    z-index: 6;
-
-    left: 50%;
-    bottom: 24px;
-
-    transform: translateX(-50%);
-
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    gap: 7px;
-
-    width: calc(100% - 36px);
-}
-
-
-/* BUTTON */
-
-.viewer-btn {
+.model-btn {
     appearance: none;
-
     border: 1px solid rgba(255,255,255,.24);
-
-    background: rgba(5,5,5,.68);
-
+    background: rgba(5,5,5,.72);
     backdrop-filter: blur(10px);
-
     color: #aaa;
-
-    padding: 10px 15px;
-
-    font-family: Inter, sans-serif;
+    padding: 10px 14px;
+    font-family: var(--sans);
     font-size: 9px;
     font-weight: 500;
-
-    letter-spacing: .15em;
-
+    letter-spacing: .13em;
     cursor: pointer;
-
-    transition: .2s ease;
+    transition: background .2s, color .2s, border-color .2s;
 }
 
-
-/* HOVER */
-
-.viewer-btn:hover {
+.model-btn:hover,
+.model-btn.active {
     background: #ededed;
-
     border-color: #ededed;
-
     color: #090909;
 }
 
-
-/* ACTIVE BUTTON */
-
-.viewer-btn.active {
-    background: #ededed;
-
-    border-color: #ededed;
-
-    color: #090909;
+.model-btn:disabled {
+    opacity: .35;
+    cursor: not-allowed;
 }
-
-
-/* DIVIDER */
-
-.viewer-divider {
-    width: 1px;
-    height: 32px;
-
-    background: rgba(255,255,255,.18);
-
-    margin: 0 5px;
-}
-
-
-/* =========================================
-   STATUS / LOADING
-========================================= */
-
-.viewer-status {
-    position: absolute;
-
-    z-index: 5;
-
-    left: 22px;
-    bottom: 24px;
-
-    color: rgba(255,255,255,.35);
-
-    font-size: 8px;
-    letter-spacing: .15em;
-
-    pointer-events: none;
-}
-
-
-/* =========================================
-   MOBILE
-========================================= */
 
 @media (max-width: 800px) {
-
-    .model-showcase {
-        padding: 75px 20px;
-    }
-
-
-    .model-showcase-head {
-        display: block;
-    }
-
-
-    .model-showcase-head p {
-        margin-top: 20px;
-    }
-
-
-    .viewer-shell {
-        min-height: 500px;
-        height: 65vh;
-    }
-
-
-    .viewer-status {
-        display: none;
-    }
-
-
-    .viewer-divider {
-        display: none;
-    }
-
-
-    .viewer-controls {
+    .model-showcase { padding: 70px var(--side) 50px; }
+    .model-showcase-head { display: block; }
+    .model-showcase-head > p { margin-top: 20px; }
+    .model-stage { height: 620px; min-height: 540px; }
+    .model-stage-top { left: 16px; right: 16px; }
+    .model-stage-top span:last-child { display: none; }
+    .model-controls {
         bottom: 16px;
+        width: calc(100% - 24px);
+        gap: 10px;
+        flex-direction: column;
+        align-items: center;
     }
-
-
-    .viewer-btn {
-        padding: 9px 10px;
-
-        font-size: 8px;
-    }
+    .control-label { display: none; }
+    .model-btn { padding: 9px 10px; font-size: 8px; }
 }
 
 /* ==================================================
