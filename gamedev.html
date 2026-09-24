@@ -33,11 +33,6 @@
 
   <link rel="stylesheet" href="gamedev.css">
 
-<script
-  type="module"
-  src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
-</script>
-
 <script type="importmap">
 {
   "imports": {
@@ -549,19 +544,9 @@
             <span>DRAG TO ROTATE · SCROLL TO ZOOM</span>
         </div>
 
-        <model-viewer
-            id="gameModel"
-            src="gamedev/chair.glb"
-            alt="Interactive chair 3D model"
-            camera-controls
-            auto-rotate
-            rotation-per-second="8deg"
-            shadow-intensity="1"
-            exposure="1"
-            interaction-prompt="none">
-        </model-viewer>
+        <canvas id="gameModel" aria-label="Interactive chair 3D model"></canvas>
 
-        <div id="wireframeViewer" class="wireframe-viewer" aria-hidden="true"></div>
+        <div class="model-loading" id="modelLoading">LOADING 3D MODEL...</div>
 
         <div class="model-controls" aria-label="3D model controls">
             <div class="model-control-group">
@@ -640,176 +625,177 @@ if (menuButton && navLinks) {
     });
 }
 
-const gameModel = document.getElementById('gameModel');
-const wireframeViewer = document.getElementById('wireframeViewer');
+const THREE = await import('three');
+const { GLTFLoader } = await import('three/addons/loaders/GLTFLoader.js');
+const { OrbitControls } = await import('three/addons/controls/OrbitControls.js');
+
+const canvas = document.getElementById('gameModel');
+const stage = document.querySelector('.model-stage');
+const loading = document.getElementById('modelLoading');
 const displayButtons = document.querySelectorAll('[data-display]');
 const viewButtons = document.querySelectorAll('[data-view]');
 
-let originalMaterials = [];
-let currentDisplay = 'material';
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(35, 1, 0.01, 5000);
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.setClearColor(0x000000, 0);
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.15;
 
-function updateModelTouch() {
-    if (!gameModel) return;
-    if (window.matchMedia('(max-width: 1100px)').matches) {
-        gameModel.setAttribute('touch-action', 'pan-y');
-    } else {
-        gameModel.removeAttribute('touch-action');
-    }
-}
+const controls = new OrbitControls(camera, canvas);
+controls.enableDamping = true;
+controls.dampingFactor = 0.06;
+controls.enablePan = false;
+controls.minDistance = 0.1;
+controls.maxDistance = 1000;
 
-updateModelTouch();
-window.addEventListener('resize', updateModelTouch);
+scene.add(new THREE.HemisphereLight(0xffffff, 0x222222, 2.2));
+const key = new THREE.DirectionalLight(0xffffff, 3.2);
+key.position.set(4, 7, 6);
+scene.add(key);
+const fill = new THREE.DirectionalLight(0xbfd5ff, 1.4);
+fill.position.set(-5, 3, 2);
+scene.add(fill);
+const rim = new THREE.DirectionalLight(0xffffff, 1.8);
+rim.position.set(1, 4, -6);
+scene.add(rim);
 
-if (gameModel) {
-    gameModel.addEventListener('load', () => {
-        originalMaterials = gameModel.model.materials.map(material => ({
-            material,
-            baseColor: [...material.pbrMetallicRoughness.baseColorFactor],
-            metallic: material.pbrMetallicRoughness.metallicFactor,
-            roughness: material.pbrMetallicRoughness.roughnessFactor
-        }));
-    });
-}
+let model = null;
+let modelCenter = new THREE.Vector3();
+let modelSize = 1;
+let currentMode = 'material';
+const meshData = [];
 
-function setMaterialMode(mode) {
-    if (!gameModel || !gameModel.model || !originalMaterials.length) return;
-
-    originalMaterials.forEach(item => {
-        const pbr = item.material.pbrMetallicRoughness;
-        if (mode === 'clay') {
-            pbr.setBaseColorFactor([0.72, 0.72, 0.70, 1]);
-            pbr.setMetallicFactor(0);
-            pbr.setRoughnessFactor(0.88);
-        } else {
-            pbr.setBaseColorFactor(item.baseColor);
-            pbr.setMetallicFactor(item.metallic);
-            pbr.setRoughnessFactor(item.roughness);
-        }
-    });
-}
-
-displayButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const mode = button.dataset.display;
-        currentDisplay = mode;
-        displayButtons.forEach(btn => btn.classList.toggle('active', btn === button));
-
-        if (mode === 'wireframe') {
-            gameModel.classList.add('is-hidden');
-            wireframeViewer.classList.add('is-visible');
-        } else {
-            wireframeViewer.classList.remove('is-visible');
-            gameModel.classList.remove('is-hidden');
-            setMaterialMode(mode);
-        }
-    });
+const clayMaterial = new THREE.MeshStandardMaterial({
+    color: 0xb9b7b0,
+    roughness: 0.82,
+    metalness: 0.0
 });
 
-const cameraViews = {
-    front: '0deg 75deg auto',
-    side: '90deg 75deg auto',
-    back: '180deg 75deg auto',
-    perspective: '45deg 68deg auto'
-};
+function cloneMaterial(material) {
+    if (Array.isArray(material)) return material.map(m => m.clone());
+    return material.clone();
+}
 
-viewButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        const view = button.dataset.view;
-        viewButtons.forEach(btn => btn.classList.toggle('active', btn === button));
-        if (currentDisplay === 'wireframe' && window.setWireframeView) {
-            window.setWireframeView(view);
-        } else if (gameModel) {
-            gameModel.cameraOrbit = cameraViews[view];
-            gameModel.jumpCameraToGoal();
+function makeWireMaterial() {
+    return new THREE.MeshBasicMaterial({
+        color: 0xe8e8e8,
+        wireframe: true,
+        transparent: true,
+        opacity: 0.9
+    });
+}
+
+function applyDisplayMode(mode) {
+    if (!model) return;
+    currentMode = mode;
+
+    meshData.forEach(({ mesh, original }) => {
+        if (mode === 'material') {
+            mesh.material = original;
+        } else if (mode === 'clay') {
+            mesh.material = Array.isArray(original)
+                ? original.map(() => clayMaterial)
+                : clayMaterial;
+        } else {
+            mesh.material = Array.isArray(original)
+                ? original.map(() => makeWireMaterial())
+                : makeWireMaterial();
         }
     });
-});
 
-try {
-    const THREE = await import('three');
-    const { GLTFLoader } = await import('three/addons/loaders/GLTFLoader.js');
-    const { OrbitControls } = await import('three/addons/controls/OrbitControls.js');
+    displayButtons.forEach(btn =>
+        btn.classList.toggle('active', btn.dataset.display === mode)
+    );
+}
 
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(35, 1, 0.01, 1000);
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.setClearColor(0x000000, 0);
-    wireframeViewer.appendChild(renderer.domElement);
+function setView(view, instant = false) {
+    if (!model) return;
+    const d = modelSize * 2.15;
+    const positions = {
+        front:      [0, modelSize * 0.12, d],
+        side:       [d, modelSize * 0.12, 0],
+        back:       [0, modelSize * 0.12, -d],
+        perspective:[d * 0.72, d * 0.42, d * 0.82]
+    };
+    const p = positions[view] || positions.perspective;
+    camera.position.set(modelCenter.x + p[0], modelCenter.y + p[1], modelCenter.z + p[2]);
+    controls.target.copy(modelCenter);
+    controls.update();
+    if (instant) camera.lookAt(modelCenter);
 
-    const controls = new OrbitControls(camera, renderer.domElement);
-    controls.enableDamping = true;
-    controls.dampingFactor = 0.06;
-    controls.enablePan = false;
+    viewButtons.forEach(btn =>
+        btn.classList.toggle('active', btn.dataset.view === view)
+    );
+}
 
-    const root = new THREE.Group();
-    scene.add(root);
+function fitModel() {
+    const box = new THREE.Box3().setFromObject(model);
+    modelCenter = box.getCenter(new THREE.Vector3());
+    const size = box.getSize(new THREE.Vector3());
+    modelSize = Math.max(size.x, size.y, size.z) || 1;
+    controls.minDistance = modelSize * 0.35;
+    controls.maxDistance = modelSize * 8;
+    camera.near = Math.max(modelSize / 1000, 0.001);
+    camera.far = modelSize * 100;
+    camera.updateProjectionMatrix();
+    setView('perspective', true);
+}
 
-    new GLTFLoader().load('gamedev/models/chair.glb', gltf => {
-        const box = new THREE.Box3().setFromObject(gltf.scene);
-        const center = box.getCenter(new THREE.Vector3());
-        const size = box.getSize(new THREE.Vector3());
-        const maxDim = Math.max(size.x, size.y, size.z);
+new GLTFLoader().load(
+    'gamedev/chair.glb',
+    gltf => {
+        model = gltf.scene;
+        scene.add(model);
 
-        gltf.scene.traverse(child => {
-            if (!child.isMesh || !child.geometry) return;
-            const wire = new THREE.LineSegments(
-                new THREE.WireframeGeometry(child.geometry),
-                new THREE.LineBasicMaterial({ color: 0xd8d8d8, transparent: true, opacity: 0.72 })
-            );
-            wire.position.copy(child.position);
-            wire.quaternion.copy(child.quaternion);
-            wire.scale.copy(child.scale);
-            root.add(wire);
+        model.traverse(child => {
+            if (!child.isMesh) return;
+            child.castShadow = true;
+            child.receiveShadow = true;
+            const original = cloneMaterial(child.material);
+            child.material = original;
+            meshData.push({ mesh: child, original });
         });
 
-        root.position.sub(center);
-        const distance = maxDim * 2.1;
-        camera.position.set(distance * 0.75, distance * 0.45, distance);
-        controls.target.set(0, 0, 0);
-        controls.update();
-
-        window.setWireframeView = view => {
-            const d = distance;
-            const positions = {
-                front: [0, 0.25 * d, d],
-                side: [d, 0.25 * d, 0],
-                back: [0, 0.25 * d, -d],
-                perspective: [0.75 * d, 0.45 * d, d]
-            };
-            const p = positions[view] || positions.perspective;
-            camera.position.set(...p);
-            controls.target.set(0, 0, 0);
-            controls.update();
-        };
-    });
-
-    function resizeWireframe() {
-        const width = wireframeViewer.clientWidth || 1;
-        const height = wireframeViewer.clientHeight || 1;
-        renderer.setSize(width, height, false);
-        camera.aspect = width / height;
-        camera.updateProjectionMatrix();
+        fitModel();
+        applyDisplayMode('material');
+        if (loading) loading.classList.add('is-hidden');
+    },
+    undefined,
+    error => {
+        console.error('GLB loading error:', error);
+        if (loading) loading.textContent = 'MODEL COULD NOT BE LOADED';
     }
+);
 
-    const observer = new ResizeObserver(resizeWireframe);
-    observer.observe(wireframeViewer);
-    resizeWireframe();
+displayButtons.forEach(button => {
+    button.addEventListener('click', () => applyDisplayMode(button.dataset.display));
+});
 
-    function animate() {
-        requestAnimationFrame(animate);
-        controls.update();
-        renderer.render(scene, camera);
-    }
-    animate();
-} catch (error) {
-    console.error('Wireframe viewer error:', error);
-    const wireButton = document.querySelector('[data-display="wireframe"]');
-    if (wireButton) {
-        wireButton.disabled = true;
-        wireButton.title = 'Wireframe viewer could not be loaded';
-    }
+viewButtons.forEach(button => {
+    button.addEventListener('click', () => setView(button.dataset.view));
+});
+
+function resizeRenderer() {
+    if (!stage) return;
+    const width = Math.max(stage.clientWidth, 1);
+    const height = Math.max(stage.clientHeight, 1);
+    renderer.setSize(width, height, false);
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
 }
+
+new ResizeObserver(resizeRenderer).observe(stage);
+resizeRenderer();
+
+function animate() {
+    requestAnimationFrame(animate);
+    controls.update();
+    renderer.render(scene, camera);
+}
+animate();
 </script>
 
 </body>
