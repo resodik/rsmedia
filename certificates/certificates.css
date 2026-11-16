@@ -1,0 +1,25 @@
+.certificates-hero{padding:92px 0 74px;background:radial-gradient(ellipse at 72% 40%,#25212e 0%,#111018 49%,#0c0c12 85%);border-bottom:1px solid #22212c}
+.certificates-hero h1{font-family:Manrope,sans-serif;font-size:clamp(44px,6vw,74px);line-height:1.05;letter-spacing:-.055em;margin:0 0 18px}
+.certificates-hero h1 span{color:#c5bdd8}
+.certificates-hero .intro{max-width:560px;color:#c6c1d0;font-size:17px;margin:0}
+.cert-nav{display:flex;align-items:center;gap:26px;white-space:nowrap}
+.cert-nav a{color:#a9a6b8;font-size:13px;font-weight:600;transition:color .2s}
+.cert-nav a:hover,.cert-nav a.current{color:#fff}
+.cert-nav a.current{position:relative}
+.cert-nav a.current:after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:2px;background:#8f72b6}
+.certificates-section{min-height:55vh}
+.certificate-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.certificate-card{display:grid;grid-template-columns:minmax(130px,200px) 1fr;min-height:210px;overflow:hidden;background:linear-gradient(160deg,#1b1b25,#14141d);border:1px solid #30303c;border-radius:15px;transition:transform .2s,border-color .2s}
+.certificate-card:hover{transform:translateY(-3px);border-color:#675779}
+.certificate-art{position:relative;display:grid;place-items:center;min-height:210px;overflow:hidden;background:radial-gradient(circle at 50% 38%,#393047,#201d2a 68%,#181720);border-right:1px solid #30303c}
+.certificate-art:before,.certificate-art:after{content:"";position:absolute;inset:18px;border:1px solid rgba(197,189,216,.25)}
+.certificate-art:after{inset:25px}
+.certificate-art span{font-family:Manrope,sans-serif;font-size:65px;font-weight:800;line-height:1;color:#c5bdd8;opacity:.9}
+.certificate-art b{position:absolute;bottom:27px;right:28px;color:#b69bda;font-size:10px;letter-spacing:.2em}
+.certificate-copy{align-self:center;padding:24px}
+.certificate-copy h3{font-size:19px;margin:8px 0}
+.certificate-copy p:not(.project-category){font-size:13px;color:#a9a6b8;margin:0}
+.certificate-copy .project-link{margin-top:18px}
+@media(max-width:850px){.certificate-grid{grid-template-columns:1fr}.certificate-card{grid-template-columns:minmax(120px,190px) 1fr}}
+@media(max-width:700px){.certificates-hero{padding:72px 0 58px}.nav-wrap{gap:12px}.brand{font-size:13px}.cert-nav{gap:13px}.cert-nav a{font-size:11px}.certificate-card{grid-template-columns:120px 1fr;min-height:190px}.certificate-art{min-height:190px}.certificate-copy{padding:18px}.certificate-copy h3{font-size:17px}}
+@media(max-width:430px){.certificate-card{grid-template-columns:1fr}.certificate-art{min-height:140px;border-right:0;border-bottom:1px solid #30303c}.certificate-art span{font-size:54px}}
