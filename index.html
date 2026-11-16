@@ -1,826 +1,172 @@
 <!DOCTYPE html>
-<html lang="pl">
-
+<html lang="en">
 <head>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Rogue Synthesis</title>
-
-  <meta property="og:title" content="Rogue Synthesis">
-<meta property="og:description" content="Fragrance, jewelry and digital objects from another reality.">
-<meta property="og:type" content="website">
-
-<meta property="og:image" content="https://TWOJA-DOMENA.pl/rs/link-preview.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://TWOJA-DOMENA.pl/rs/link-preview.jpg">
-
-  <!-- FONTS -->
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Inter:wght@300;400;500&display=swap"
-    rel="stylesheet"
-  >
-
-  <!-- CSS -->
-
+  <meta name="description" content="Rogue Synthesis — 3D art, character creation and motion capture portfolio.">
+  <title>Rogue Synthesis | 3D & Motion Capture</title>
   <link rel="stylesheet" href="style.css">
-
-<script
-  type="module"
-  src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
-</script>
+  <style>
+    .media-frame img[role="button"]{cursor:zoom-in}
+    .media-frame img[role="button"]:focus-visible{outline:3px solid #c5bdd8;outline-offset:-3px}
+    .gallery-lightbox{position:fixed;width:min(96vw,1400px);height:min(94vh,1000px);max-width:none;max-height:none;padding:24px;border:1px solid #494253;border-radius:14px;background:rgba(12,12,18,.97);color:#f2f0f8;overflow:hidden}
+    .gallery-lightbox::backdrop{background:rgba(0,0,0,.88);backdrop-filter:blur(5px)}
+    .gallery-lightbox figure{width:100%;height:100%;margin:0;display:grid;grid-template-rows:minmax(0,1fr) auto;justify-items:center;gap:10px}
+    .gallery-lightbox img{display:block;width:100%;height:100%;max-width:100%;max-height:calc(94vh - 78px);object-fit:contain}
+    .gallery-lightbox figcaption{color:#d8d4e0;font-size:14px;text-align:center}
+    .gallery-lightbox-close{position:absolute;top:10px;right:12px;z-index:2;width:42px;height:42px;border:1px solid #6b5b7f;border-radius:50%;background:rgba(12,12,18,.85);color:#fff;font-size:28px;line-height:1;cursor:pointer}
+    .gallery-lightbox-close:hover,.gallery-lightbox-nav:hover{background:#74578f}
+    .gallery-lightbox-nav{position:absolute;top:50%;z-index:1;transform:translateY(-50%);display:grid;place-items:center;width:48px;height:64px;border:1px solid #6b5b7f;border-radius:12px;background:rgba(12,12,18,.82);color:#fff;font-size:42px;line-height:1;cursor:pointer}
+    .gallery-lightbox-prev{left:12px}
+    .gallery-lightbox-next{right:12px}
+    @media(max-width:600px){.gallery-lightbox-nav{width:40px;height:54px;font-size:34px}.gallery-lightbox-prev{left:8px}.gallery-lightbox-next{right:8px}}
+    @media(max-width:600px){.gallery-lightbox{width:100vw;height:100dvh;padding:54px 12px 18px;border:0;border-radius:0}.gallery-lightbox img{max-height:calc(100dvh - 100px)}}
+  </style>
 
 </head>
-
-
 <body>
-
-
-<div class="page">
-
-
-  <!-- ======================================
-       NAVIGATION
-  ======================================= -->
-
-  <header class="nav">
-
-    <a href="index.html" class="logo">
-
-      <img
-        src="rs/logo1.1.png"
-        alt="Rogue Synthesis"
-      >
-
-    </a>
-
-
-    <nav class="nav-links">
-
-      <a href="#shop">SKLEP</a>
-
-      <a href="#fragrances">
-        PERFUMY
-      </a>
-
-      <a href="#jewelry">
-        BIŻUTERIA
-      </a>
-
-      <a href="#world">
-        NASZ ŚWIAT
-      </a>
-
-      <a href="#contact">
-        KONTAKT
-      </a>
-
-    </nav>
-
-
-    <div class="nav-actions">
-
-      <span>WYSZUKAJ</span>
-
-      <span class="cart-counter">
-        KOSZYK (0)
-      </span>
-
-<!-- <span class="menu-toggle">☰</span> -->
-
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home" aria-label="Rogue Synthesis home"><span class="brand-mark">✕</span><span>Rogue Synthesis </span></a>
+      <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <nav class="nav" aria-label="Main navigation">
+        <a class="active" href="#home">Home</a><a href="#projects">Projects</a><a href="#process">Process</a><a href="#about">About</a><a href="#gallery">Gallery</a><a href="#videos">Videos</a><a href="#contact">Contact</a>
+      </nav>
     </div>
-
   </header>
 
-  <!-- <div class="mobile-menu">
-  <a href="#shop">Shop</a>
-  <a href="#fragrances">Fragrances</a>
-  <a href="#jewellery">Jewellery</a>
-  <a href="#world">Our World</a>
-</div>  -->
-
-  <!-- ======================================
-       HERO
-  ======================================= -->
-
-  <section class="hero">
-
-  <!-- TŁO HERO -->
-  <div class="hero-image-right">
-    <img src="rs/hero-right.png" alt="">
-  </div>
-
-  <!-- CENTRALNE ZDJĘCIE -->
-  <div class="hero-image-center">
-    <img src="rs/hero-center.png" alt="">
-  </div>
-
-  <div class="hero-content">
-
-    <div class="eyebrow">
-      ZAPACH<br>
-      PRZENOSZĄCY W INNĄ<br>
-      RZECZYWISTOŚĆ
-    </div>
-
-    <h1>
-  <span class="rogue-word">ROGUE</span>
-  <span class="synthesis-word">SYNTHESIS</span>
-    </h1>
-
-    <div class="hero-meta">
-      <span>ZAPACHY</span>
-      <span>BIŻUTERIA</span>
-      <span>MODA</span>
-    </div>
-
-    <a class="hero-btn" href="#shop">
-      PO WIĘCEJ Z KOLEKCJI
-      <span>→</span>
-    </a>
-
-  </div>
-
-</section>
-
-
-
-  <!-- ======================================
-       CATEGORY GRID
-  ======================================= -->
-
-  <section
-    class="categories"
-    id="shop"
-  >
-
-
-    <!-- FRAGRANCES -->
-
-    <a
-      class="category-card"
-      href="#fragrances"
-    >
-
-  <img src="rs/zapach.png" alt="">
-
-
-      <div class="category-overlay">
-
-        <h3>
-          ZAPACHY
-        </h3>
-
-        <span>
-          Discover →
-        </span>
-
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-art" role="img" aria-label="3D character artwork placeholder"></div>
+      <div class="container hero-content">
+        <p class="eyebrow">INDEPENDENT 3D ARTIST / MOTION CAPTURE</p>
+        <h1>3D Art &<br><span>Motion Capture</span></h1>
+        <p class="hero-subtitle">Character creation <span>·</span> Animation <span>·</span> Motion Capture <span>·</span> Real-time production</p>
+        <p class="hero-description">I create 3D characters, animations and motion capture workflows, with a focus on character performance and real-time production in Unreal Engine.</p>
+        <div class="hero-actions"><a class="button button-primary" href="#projects">View Projects <span>↗</span></a><a class="button button-outline" href="#about">About Me</a></div>
+        <div class="socials"><a href="https://www.youtube.com/@roguesynthesis" target="_blank" rel="noopener noreferrer">YouTube ↗</a><a href="https://roguesynthesis.com/certifies/" target="_blank" rel="noopener noreferrer">Certifies ↗</a></div>
       </div>
+    </section>
 
-    </a>
-
-
-
-    <!-- JEWELRY -->
-
-    <a
-      class="category-card"
-      href="#jewelry"
-    >
-
-     <img src="rs/kolczyki.png" alt="">
-
-      <div class="category-overlay">
-
-        <h3>
-          BIŻUTERIA
-        </h3>
-
-        <span>
-          Explore →
-        </span>
-
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-heading"><div><p class="eyebrow">PORTFOLIO</p><h2>Selected Projects</h2></div><span class="section-note">Independent work & ongoing development</span></div>
+        <div class="project-grid">
+          <article class="project-card"><div class="project-image hair-image"><span class="image-placeholder">ADD HAIR RENDER</span></div><div class="project-body"><span class="project-category">CHARACTER ART</span><h3>Realistic Hair Creation</h3><p>Realistic hair grooming in Blender, transfer to Unreal Engine 5 and exploration of hair simulation.</p><div class="tags"><span>Blender</span><span>Unreal Engine 5</span><span>Hair Groom</span></div><a class="project-link" href="https://www.youtube.com/@roguesynthesis" target="_blank" rel="noopener noreferrer">Watch the process ↗</a></div></article>
+          <article class="project-card"><div class="project-image rig-image"><span class="status">WORK IN PROGRESS</span><span class="image-placeholder">ADD RIG PHOTO</span></div><div class="project-body"><span class="project-category">MOTION CAPTURE / HARDWARE</span><h3>Aerial Motion Capture Rig</h3><p>Custom aerial motion capture rig developed in collaboration with a welder. Currently refining the structure and developing a counterweight system.</p><div class="tags"><span>Motion Capture</span><span>Rig Design</span><span>Prototyping</span></div><a class="project-link" href="#process">Explore development ↗</a></div></article>
+          <article class="project-card"><div class="project-image character-image"><span class="status">ONGOING SERIES</span><span class="image-placeholder">ADD SERIES THUMBNAIL</span></div><div class="project-body"><span class="project-category">EDUCATION / CHARACTER PIPELINE</span><h3>3D Character Development</h3><p>An ongoing YouTube series about facial photogrammetry, shape keys, facial capture and realistic hair creation.</p><div class="tags"><span>Photogrammetry</span><span>Animation</span><span>YouTube</span></div><a class="project-link" href="https://www.youtube.com/@roguesynthesis" target="_blank" rel="noopener noreferrer">Watch the series ↗</a></div></article>
+        </div>
       </div>
+    </section>
 
-    </a>
+    <section class="section section-alt" id="process"><div class="container process-layout"><div><p class="eyebrow">BEHIND THE SCENES</p><h2>Design. Test.<br>Improve.</h2><p class="muted">The aerial motion capture rig is an ongoing technical project. This section documents the design, construction, tests and work on its counterweight system.</p><div class="tags"><span>Concept</span><span>Development</span><span>Testing</span><span>Iteration</span></div></div><div class="process-gallery"><div class="process-photo">ADD CONSTRUCTION PHOTO</div><div class="process-photo">ADD TEST PHOTO</div></div></div></section>
 
+    <section class="section" id="about"><div class="container about-layout"><div><p class="eyebrow">ABOUT ME</p><h2>Independent creator.<br>Technical mindset.</h2></div><div><p>I'm a 3D artist and founder of Rogue Synthesis, focused on character creation, animation and motion capture. I develop independent projects and document my workflow from Blender to Unreal Engine 5.</p><p class="muted">Tools: Blender · Unreal Engine 5 · Rokoko Studio · Rokoko Smartsuit Pro II · Substance 3D Painter</p></div></div></section>
 
+    <section class="section contact-section" id="contact"><div class="container"><p class="eyebrow">LET'S CONNECT</p><h2>Interested in my work?</h2><p class="muted">Explore my latest work or get in touch through my portfolio website.</p><a class="button button-primary" href="https://roguesynthesis.com/certifies/" target="_blank" rel="noopener noreferrer">View certificates ↗</a></div></section>
 
-    <!-- OBJECTS -->
-
-    <div class="category-card">
-
-      <img src="rs/tamagotchi.png" alt="">
-
-      <div class="category-overlay">
-
-        <h3>
-          KOLEKCJA
-        </h3>
-
-        <span>
-          Explore →
-        </span>
-
+    <section class="section section-alt" id="gallery">
+      <div class="container">
+        <div class="section-heading"><div><p class="eyebrow">SELECTED VISUALS</p><h2>Gallery</h2></div><span class="section-note">Renders, work in progress & behind the scenes</span></div>
+        <div class="media-grid gallery-grid">
+          <figure class="media-card"><div class="media-frame"><span class="media-placeholder">ADD PHOTO</span><img src="galeria/1.png" alt="3D artwork 1" loading="lazy"></div><figcaption>3D artwork</figcaption></figure>
+          <figure class="media-card"><div class="media-frame"><span class="media-placeholder">ADD PHOTO</span><img src="galeria/3.png" alt="3D artwork 2" loading="lazy"></div><figcaption>Character / environment</figcaption></figure>
+          <figure class="media-card"><div class="media-frame"><span class="media-placeholder">ADD PHOTO</span><img src="galeria/4.png" alt="Work in progress 1" loading="lazy"></div><figcaption>Work in progress</figcaption></figure>
+          <figure class="media-card"><div class="media-frame"><span class="media-placeholder">ADD PHOTO</span><img src="galeria/11.png" alt="Work in progress 2" loading="lazy"></div><figcaption>Behind the scenes</figcaption></figure>
+          <figure class="media-card"><div class="media-frame"><span class="media-placeholder">ADD PHOTO</span><img src="galeria/9.png" alt="Motion capture rig" loading="lazy"></div><figcaption>Motion capture rig</figcaption></figure>
+          <figure class="media-card"><div class="media-frame"><span class="media-placeholder">ADD PHOTO</span><img src="galeria/7.png" alt="Animation still" loading="lazy"></div><figcaption>Animation still</figcaption></figure>
+        </div>
       </div>
+    </section>
 
-    </div>
+    <dialog class="gallery-lightbox" id="gallery-lightbox" aria-label="Enlarged gallery image">
+      <button class="gallery-lightbox-close" type="button" aria-label="Close enlarged image">×</button>
+      <button class="gallery-lightbox-nav gallery-lightbox-prev" type="button" aria-label="Previous image">‹</button>
+      <button class="gallery-lightbox-nav gallery-lightbox-next" type="button" aria-label="Next image">›</button>
+      <figure>
+        <img id="gallery-lightbox-image" src="" alt="">
+        <figcaption id="gallery-lightbox-caption"></figcaption>
+      </figure>
+    </dialog>
 
-
-
-    <!-- WORLD -->
-
-    <div class="category-card">
-
-           <img src="rs/swiat.png" alt="">
-
-      <div class="category-overlay">
-
-        <h3>
-          NASZ ŚWIAT
-        </h3>
-
-        <span>
-          Read →
-        </span>
-
+    <section class="section" id="videos">
+      <div class="container">
+        <div class="section-heading"><div><p class="eyebrow">PROCESS & ANIMATION</p><h2>Videos</h2></div><span class="section-note">Vertical 9:16 clips · MP4 or WebM</span></div>
+        <div class="media-grid video-grid">
+          <article class="media-card video-card"><div class="video-preview"><video preload="metadata" playsinline poster="images/video-poster-01.jpg"><source src="videos/video-01.mp4" type="video/mp4"><source src="videos/video-01.webm" type="video/webm">Your browser does not support embedded videos.</video><button class="video-play" type="button" aria-label="Play project breakdown video"><span>▶</span></button></div><div class="video-caption"><h3>Project breakdown</h3><p>Add a short description of this video.</p></div></article>
+          <article class="media-card video-card"><div class="video-preview"><video preload="metadata" playsinline poster="images/video-poster-02.jpg"><source src="videos/video-02.mp4" type="video/mp4"><source src="videos/video-02.webm" type="video/webm">Your browser does not support embedded videos.</video><button class="video-play" type="button" aria-label="Play animation / motion capture video"><span>▶</span></button></div><div class="video-caption"><h3>Animation / Motion Capture</h3><p>Add a short description of this video.</p></div></article>
+          <article class="media-card video-card"><div class="video-preview"><video preload="metadata" playsinline poster="images/video-poster-03.jpg"><source src="videos/video-03.mp4" type="video/mp4"><source src="videos/video-03.webm" type="video/webm">Your browser does not support embedded videos.</video><button class="video-play" type="button" aria-label="Play behind the scenes video"><span>▶</span></button></div><div class="video-caption"><h3>Behind the scenes</h3><p>Add a short description of this video.</p></div></article>
+          <article class="media-card video-card"><div class="video-preview"><video preload="metadata" playsinline poster="images/video-poster-04.jpg"><source src="videos/video-04.mp4" type="video/mp4"><source src="videos/video-04.webm" type="video/webm">Your browser does not support embedded videos.</video><button class="video-play" type="button" aria-label="Play video 4"><span>▶</span></button></div><div class="video-caption"><h3>Video 04</h3><p>Add a short description of this video.</p></div></article>
+          <article class="media-card video-card"><div class="video-preview"><video preload="metadata" playsinline poster="images/video-poster-05.jpg"><source src="videos/video-05.mp4" type="video/mp4"><source src="videos/video-05.webm" type="video/webm">Your browser does not support embedded videos.</video><button class="video-play" type="button" aria-label="Play video 5"><span>▶</span></button></div><div class="video-caption"><h3>Video 05</h3><p>Add a short description of this video.</p></div></article>
+          <article class="media-card video-card"><div class="video-preview"><video preload="metadata" playsinline poster="images/video-poster-06.jpg"><source src="videos/video-06.mp4" type="video/mp4"><source src="videos/video-06.webm" type="video/webm">Your browser does not support embedded videos.</video><button class="video-play" type="button" aria-label="Play video 6"><span>▶</span></button></div><div class="video-caption"><h3>Video 06</h3><p>Add a short description of this video.</p></div></article>
+          <article class="media-card video-card"><div class="video-preview"><video preload="metadata" playsinline poster="images/video-poster-07.jpg"><source src="videos/video-07.mp4" type="video/mp4"><source src="videos/video-07.webm" type="video/webm">Your browser does not support embedded videos.</video><button class="video-play" type="button" aria-label="Play video 7"><span>▶</span></button></div><div class="video-caption"><h3>Video 07</h3><p>Add a short description of this video.</p></div></article>
+          <article class="media-card video-card"><div class="video-preview"><video preload="metadata" playsinline poster="images/video-poster-08.jpg"><source src="videos/video-08.mp4" type="video/mp4"><source src="videos/video-08.webm" type="video/webm">Your browser does not support embedded videos.</video><button class="video-play" type="button" aria-label="Play video 8"><span>▶</span></button></div><div class="video-caption"><h3>Video 08</h3><p>Add a short description of this video.</p></div></article>
+          <article class="media-card video-card"><div class="video-preview"><video preload="metadata" playsinline poster="images/video-poster-09.jpg"><source src="videos/video-09.mp4" type="video/mp4"><source src="videos/video-09.webm" type="video/webm">Your browser does not support embedded videos.</video><button class="video-play" type="button" aria-label="Play video 9"><span>▶</span></button></div><div class="video-caption"><h3>Video 09</h3><p>Add a short description of this video.</p></div></article>
+          <article class="media-card video-card"><div class="video-preview"><video preload="metadata" playsinline poster="images/video-poster-10.jpg"><source src="videos/video-10.mp4" type="video/mp4"><source src="videos/video-10.webm" type="video/webm">Your browser does not support embedded videos.</video><button class="video-play" type="button" aria-label="Play video 10"><span>▶</span></button></div><div class="video-caption"><h3>Video 10</h3><p>Add a short description of this video.</p></div></article>
+          <article class="media-card video-card"><div class="video-preview"><video preload="metadata" playsinline poster="images/video-poster-11.jpg"><source src="videos/video-11.mp4" type="video/mp4"><source src="videos/video-11.webm" type="video/webm">Your browser does not support embedded videos.</video><button class="video-play" type="button" aria-label="Play video 11"><span>▶</span></button></div><div class="video-caption"><h3>Video 11</h3><p>Add a short description of this video.</p></div></article>
+          <article class="media-card video-card"><div class="video-preview"><video preload="metadata" playsinline poster="images/video-poster-12.jpg"><source src="videos/video-12.mp4" type="video/mp4"><source src="videos/video-12.webm" type="video/webm">Your browser does not support embedded videos.</video><button class="video-play" type="button" aria-label="Play video 12"><span>▶</span></button></div><div class="video-caption"><h3>Video 12</h3><p>Add a short description of this video.</p></div></article>
+        </div>
       </div>
-
-    </div>
-
-
-  </section>
-
-
-
-  <!-- ======================================
-       FEATURED PERFUME
-  ======================================= -->
-
-  <section
-    class="featured"
-    id="fragrances"
-  >
-
-
-    <div class="featured-image">
-
-    <img src="rs/kwiat.png" 
-        alt="Rogue Synthesis perfume"
-      >
-
-    </div>
-
-
-
-    <div class="featured-copy">
-
-
-      <div class="section-kicker">
-
-        Featured
-
-      </div>
-
-
-      <h2>
-        SOMA
-      </h2>
-
-
-      <div class="product-type">
-
-        Extrait de Parfum
-
-      </div>
-
-
-      <p class="product-desc">
-
-        A fragment of another reality.
-        A scent that lingers between
-        the known and the unknown.
-
-      </p>
-
-
-      <div class="notes">
-
-        Notes
-
-        <br><br>
-
-        Metallic blossom /
-        black fig /
-        amber skin
-
-      </div>
-
-
-      <div class="buy-row">
-
-        <button
-          class="buy-btn"
-          onclick="addToCart()"
-        >
-
-          Add to cart
-          &nbsp;&nbsp; | &nbsp;&nbsp;
-          490 PLN
-
-        </button>
-
-      </div>
-
-
-    </div>
-
-
-
-    <div class="featured-art">
-
-
-   <img src="rs/perfum.png" alt="">
-
-
-
-      <p>
-
-        Floral<br>
-        Metallic<br>
-        Sensual<br>
-        Otherworldly
-
-      </p>
-
-
-    </div>
-
-
-  </section>
-
-
-
-  <!-- ======================================
-       CAMPAIGN
-  ======================================= -->
-
-  <!-- CAMPAIGN -->
-<section class="campaign" id="world">
-
-  <img
-    class="campaign-img"
-    src="rs/kampania.png"
-    alt="Rogue Synthesis Æthera campaign"
-  >
-
-</section>
-
-
-<!-- ======================================
-     INTERACTIVE 3D OBJECT
-======================================= -->
-
-<section class="featured featured-reversed">
-
-  <!-- MAŁY VISUAL PO LEWEJ -->
-  <div class="featured-art">
-
-    <img
-      src="rs/kwiat1.png"
-      alt="Rogue Synthesis 3D Object Detail"
-    >
-
-    <p>
-      ORGANIC<br>
-      DIGITAL<br>
-      SCULPTURAL<br>
-      SYNTHETIC
-    </p>
-
-  </div>
-
-
-  <!-- TEKST W ŚRODKU -->
-  <div class="featured-copy">
-
-    <div class="section-kicker">
-      DIGITAL OBJECT
-    </div>
-
-    <h2>
-      FORM / 01
-    </h2>
-
-    <div class="product-type">
-      INTERACTIVE 3D EXPERIENCE
-    </div>
-
-    <p class="product-desc">
-      A digital object developed as an extension
-      of the Rogue Synthesis visual language.
-      Organic structure meets synthetic form.
-    </p>
-
-    <div class="notes">
-      3D MODELING / MATERIAL DESIGN / DIGITAL OBJECT
-      <br><br>
-      DRAG TO ROTATE
-    </div>
-
-  </div>
-
-
-  <!-- INTERAKTYWNY MODEL 3D PO PRAWEJ -->
-  <div class="featured-image featured-model">
-
-<model-viewer
-  id="rogueModel"
-  src="rs/model7.glb"
-  alt="Rogue Synthesis interactive 3D object"
-  camera-controls
-  auto-rotate
-  rotation-per-second="12deg"
-  shadow-intensity="1"
-  exposure="1"
-  interaction-prompt="none">
-</model-viewer>
-
-  </div>
-
-</section>
-
-<!-- ======================================
-     ROGUE SYNTHESIS — COLLECTION LINKS
-======================================= -->
-
-<section class="collection-showcase">
-
-  <div class="collection-grid">
-
-    <!-- LEWA KOLUMNA -->
-    <div class="collection-box collection-product">
-
-      <img
-        src="rs/perfum.png"
-        alt="Rogue Synthesis SOMA perfume"
-      >
-
-    </div>
-
-
-    <!-- ŚRODEK -->
-    <div class="collection-box collection-about">
-
-      <p>
-        Opracowany język formy przez firmę<br>
-        Rogue Synthesis<br>
-        zostaje przeniesiony na biżuterię, akcesoria<br>
-        i przedmioty kolekcjonerskie,<br>
-        tworząc spójny system obiektów<br>
-        należących do jednego świata.
-      </p>
-
-    </div>
-
-
-    <!-- PRAWA KOLUMNA -->
-    <div class="collection-box collection-product">
-
-      <img
-        src="rs/tamagotchi1.png"
-        alt="Rogue Synthesis digital object"
-      >
-
-    </div>
-
-  </div>
-
-
-  <!-- DOLNY RZĄD -->
-  <div class="collection-navigation">
-
-    <a href="#fragrances" class="collection-button">
-      PO WIĘCEJ ZAPACHÓW
-    </a>
-
-
-    <div class="collection-line"></div>
-
-
-    <a href="#collection" class="collection-button">
-      PO WIĘCEJ Z KOLEKCJI
-    </a>
-
-  </div>
-
-</section>
-
-  <!-- ======================================
-       EDITORIAL
-  ======================================= -->
-
-  <section
-    class="editorial-grid"
-    id="jewelry"
-  >
-
-
-    <article class="editorial-card">
-
-
-       <img src="rs/bizu1.png" alt="">
-
-
-
-      <div class="editorial-text">
-
-        <h3>
-          Wear Another Reality
-        </h3>
-
-        <span>
-          Shop Jewelry →
-        </span>
-
-      </div>
-
-
-    </article>
-
-
-
-    <article class="editorial-card">
-
-
-        <img src="rs/swiat.png" alt="">
-
-
-
-      <div class="editorial-text">
-
-        <h3>
-          Rogue Synthesis
-        </h3>
-
-        <span>
-          Join The New Reality
-        </span>
-
-      </div>
-
-
-    </article>
-
-
-
-    <article class="editorial-card">
-
-
-             <img src="rs/opakowanie.png" alt="">
-
-
-      <div class="editorial-text">
-
-
-        <h3>
-
-          Not Just A Fragrance.<br>
-
-          A State Of Mind.
-
-        </h3>
-
-
-        <span>
-          Explore →
-        </span>
-
-
-      </div>
-
-
-    </article>
-
-
-  </section>
-
-
-
-  <!-- ======================================
-       FOOTER
-  ======================================= -->
-
-  <footer id="contact">
-
-
-    <div>
-
-      <div class="footer-logo">
-
-        ROGUE
-
-        <span>
-          SYNTHESIS
-        </span>
-
-      </div>
-
-    </div>
-
-
-
-    <div class="footer-links">
-
-      <a href="#">
-        Shop
-      </a>
-
-      <a href="#">
-        Fragrances
-      </a>
-
-      <a href="#">
-        Jewelry
-      </a>
-
-      <a href="#">
-        Our World
-      </a>
-
-      <a href="#">
-        Contact
-      </a>
-
-      <a href="#">
-        Privacy
-      </a>
-
-      <a href="#">
-        Terms
-      </a>
-
-      <a href="#">
-        Shipping
-      </a>
-
-      <a href="#">
-        FAQ
-      </a>
-
-    </div>
-
-
-
-    <div class="newsletter">
-
-
-      <label>
-
-        Join our universe
-
-      </label>
-
-
-      <div class="newsletter-box">
-
-
-        <input
-          type="email"
-          placeholder="YOUR EMAIL"
-        >
-
-
-        <button>
-          →
-        </button>
-
-
-      </div>
-
-
-    </div>
-
-
-  </footer>
-
-
-</div>
-
-
-
-<!-- ======================================
-     JAVASCRIPT
-======================================= -->
-
-<script>
-let cart = 0;
-
-function addToCart() {
-  cart++;
-
-  const cartLabel = document.querySelector(".cart-counter");
-
-  if (cartLabel) {
-    cartLabel.textContent = `KOSZYK (${cart})`;
-  }
-}
-
-const heroImage =
-  document.querySelector(".hero-image-center");
-
-const heroRight =
-  document.querySelector(".hero-image-right img");
-
-let introFinished = false;
-
-
-window.addEventListener("load", function () {
-
-  if (!heroImage) return;
-
-  setTimeout(function () {
-
-    /* CENTER IMAGE */
-    heroImage.classList.add("hero-loaded");
-
-
-    /* RIGHT IMAGE */
-    if (heroRight) {
-      heroRight.style.opacity = "0.8";
-    }
-
-  }, 100);
-
-
-  setTimeout(function () {
-    introFinished = true;
-  }, 1700);
-
-});
-
-
-window.addEventListener("scroll", function () {
-
-  if (!heroImage || !introFinished) return;
-
-  const scrollY = window.scrollY;
-
-  let scale =
-    1.18 - scrollY * 0.00055;
-
-  scale = Math.max(0.76, scale);
-
-  heroImage.style.transform =
-    `translate(-50%, -50%) scale(${scale})`;
-
-}, { passive: true });
-
-
-const menuToggle = document.querySelector('.menu-toggle');
-const mobileMenu = document.querySelector('.mobile-menu');
-
-menuToggle.addEventListener('click', () => {
-  mobileMenu.classList.toggle('open');
-
-  if (mobileMenu.classList.contains('open')) {
-    menuToggle.textContent = '×';
-  } else {
-    menuToggle.textContent = '☰';
-  }
-});
-
-mobileMenu.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    mobileMenu.classList.remove('open');
-    menuToggle.textContent = '☰';
-  });
-});
-
-  const rogueModel = document.getElementById('rogueModel');
-
-function updateModelTouch() {
-  if (window.matchMedia('(max-width: 1100px)').matches) {
-    rogueModel.setAttribute('touch-action', 'pan-y');
-  } else {
-    rogueModel.removeAttribute('touch-action');
-  }
-}
-
-updateModelTouch();
-
-window.addEventListener('resize', updateModelTouch);
-
-</script>
+    </section>
+
+  </main>
+  <footer class="footer"><div class="container footer-inner"><span>© <span id="year">2026</span> Rogue Synthesis Media</span><a href="#home">Back to top ↑</a></div></footer>
+  <script src="script.js"></script>
+  <script>
+    (() => {
+      const gallery = document.querySelector('#gallery .gallery-grid');
+      const lightbox = document.getElementById('gallery-lightbox');
+      const enlargedImage = document.getElementById('gallery-lightbox-image');
+      const caption = document.getElementById('gallery-lightbox-caption');
+      const closeButton = lightbox?.querySelector('.gallery-lightbox-close');
+      const previousButton = lightbox?.querySelector('.gallery-lightbox-prev');
+      const nextButton = lightbox?.querySelector('.gallery-lightbox-next');
+      if (!gallery || !lightbox || !enlargedImage || !caption || !closeButton || !previousButton || !nextButton) return;
+
+      const thumbnails = [...gallery.querySelectorAll('img')];
+      let currentIndex = 0;
+
+      const showImage = (index) => {
+        currentIndex = (index + thumbnails.length) % thumbnails.length;
+        const thumbnail = thumbnails[currentIndex];
+        enlargedImage.src = thumbnail.currentSrc || thumbnail.src;
+        enlargedImage.alt = thumbnail.alt;
+        caption.textContent = thumbnail.closest('figure')?.querySelector('figcaption')?.textContent || thumbnail.alt;
+      };
+
+      const openImage = (thumbnail) => {
+        showImage(thumbnails.indexOf(thumbnail));
+        lightbox.showModal();
+      };
+
+      thumbnails.forEach((thumbnail) => {
+        thumbnail.tabIndex = 0;
+        thumbnail.setAttribute('role', 'button');
+        thumbnail.setAttribute('aria-label', `Enlarge image: ${thumbnail.alt}`);
+        thumbnail.addEventListener('click', () => openImage(thumbnail));
+        thumbnail.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            openImage(thumbnail);
+          }
+        });
+      });
+
+      previousButton.addEventListener('click', () => showImage(currentIndex - 1));
+      nextButton.addEventListener('click', () => showImage(currentIndex + 1));
+      closeButton.addEventListener('click', () => lightbox.close());
+      lightbox.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowLeft') { event.preventDefault(); showImage(currentIndex - 1); }
+        if (event.key === 'ArrowRight') { event.preventDefault(); showImage(currentIndex + 1); }
+      });
+      lightbox.addEventListener('click', (event) => {
+        if (event.target === lightbox) lightbox.close();
+      });
+      lightbox.addEventListener('close', () => {
+        enlargedImage.removeAttribute('src');
+      });
+    })();
+  </script>
 
 </body>
-
 </html>
