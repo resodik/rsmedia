@@ -190,3 +190,25 @@
   .model-hint { margin-top: 12px; }
   .model-stage { width: 100%; height: min(620px, 76vh); min-height: 420px; }
 }
+
+/* Shift the 3D preview inward so it does not sit against the right edge. */
+.model-showcase-layout {
+  grid-template-columns: minmax(280px, .78fr) minmax(0, 1.22fr);
+  gap: clamp(28px, 3vw, 42px);
+}
+.model-stage {
+  width: calc(100% - 48px);
+  max-width: 720px;
+  height: clamp(480px, 42vw, 580px);
+  justify-self: center;
+}
+@media (max-width: 700px) {
+  .model-showcase-layout { grid-template-columns: 1fr; }
+  .model-stage {
+    width: 100%;
+    max-width: none;
+    height: min(620px, 76vh);
+    min-height: 420px;
+  }
+}
+
