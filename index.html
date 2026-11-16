@@ -5,7 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Rogue Synthesis — 3D art, character creation and motion capture portfolio.">
   <title>Rogue Synthesis | 3D & Motion Capture</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css"> 
+  <script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+  }
+}
+</script>
+
   <style>
     .featured-video{position:relative;width:min(100%,960px);aspect-ratio:16/9;margin:0 auto;overflow:hidden;border:1px solid #30303c;border-radius:14px;background:#09090e}
     .featured-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
@@ -235,7 +244,44 @@
         enlargedImage.removeAttribute('src');
       });
     })();
+
   </script>
+
+  <script type="module">
+const menuButton=document.querySelector(".menu-button"),navLinks=document.querySelector(".nav-links");
+if(menuButton&&navLinks){menuButton.addEventListener("click",()=>{navLinks.classList.toggle("open");menuButton.classList.toggle("open")});document.querySelectorAll(".nav-links a").forEach(a=>a.addEventListener("click",()=>{navLinks.classList.remove("open");menuButton.classList.remove("open")}));}
+const THREE=await import('three');
+const {GLTFLoader}=await import('three/addons/loaders/GLTFLoader.js');
+const {OrbitControls}=await import('three/addons/controls/OrbitControls.js');
+const canvas=document.getElementById('gameModel'),stage=document.querySelector('.model-stage'),loading=document.getElementById('modelLoading'),modelTitle=document.getElementById('modelTitle'),prevButton=document.getElementById('modelPrev'),nextButton=document.getElementById('modelNext'),displayButtons=document.querySelectorAll('[data-display]'),viewButtons=document.querySelectorAll('[data-view]');
+const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(35,1,.01,5000),renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.setClearColor(0x000000,0);renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.15;
+const controls=new OrbitControls(camera,canvas);controls.enableDamping=true;controls.dampingFactor=.06;controls.enablePan=false;controls.enableZoom=false;
+scene.add(new THREE.HemisphereLight(0xffffff,0x222222,2.2));
+const key=new THREE.DirectionalLight(0xffffff,3.2);key.position.set(4,7,6);scene.add(key);const fill=new THREE.DirectionalLight(0xbfd5ff,1.4);fill.position.set(-5,3,2);scene.add(fill);const rim=new THREE.DirectionalLight(0xffffff,1.8);rim.position.set(1,4,-6);scene.add(rim);
+const loader=new GLTFLoader(),clayMaterial=new THREE.MeshStandardMaterial({color:0xb9b7b0,roughness:.82,metalness:0});
+// DOPISUJ KOLEJNE SCENY/MODELE TUTAJ:
+const modelScenes=[
+ {title:'CHAIR / INTERACTIVE 3D ASSET',model:'gamedev/chair.glb',wireframe:'gamedev/chair_wireframe.glb'},
+ // {title:'MODEL 02 / INTERACTIVE 3D ASSET',model:'gamedev/model02.glb',wireframe:'gamedev/model02_wireframe.glb'},
+ // {title:'MODEL 03 / INTERACTIVE 3D ASSET',model:'gamedev/model03.glb',wireframe:'gamedev/model03_wireframe.glb'}
+];
+let sceneIndex=0,model=null,wireframeModel=null,modelCenter=new THREE.Vector3(),modelSize=1,currentDisplay='material',currentView='perspective',loadToken=0,meshData=[];
+function cloneMaterial(m){return Array.isArray(m)?m.map(x=>x.clone()):m.clone()}
+function removeObject(o){if(!o)return;scene.remove(o)}
+function clearModels(){removeObject(model);removeObject(wireframeModel);model=null;wireframeModel=null;meshData=[]}
+function setView(view,instant=false){if(!model)return;currentView=view;const d=modelSize*2.15,p={front:[0,modelSize*.12,d],side:[d,modelSize*.12,0],back:[0,modelSize*.12,-d],perspective:[d*.72,d*.42,d*.82]}[view]||[d*.72,d*.42,d*.82];camera.position.set(modelCenter.x+p[0],modelCenter.y+p[1],modelCenter.z+p[2]);controls.target.copy(modelCenter);controls.update();if(instant)camera.lookAt(modelCenter);viewButtons.forEach(b=>b.classList.toggle('active',b.dataset.view===view))}
+function fitModel(){const box=new THREE.Box3().setFromObject(model);modelCenter=box.getCenter(new THREE.Vector3());const s=box.getSize(new THREE.Vector3());modelSize=Math.max(s.x,s.y,s.z)||1;controls.minDistance=modelSize*.35;controls.maxDistance=modelSize*8;camera.near=Math.max(modelSize/1000,.001);camera.far=modelSize*100;camera.updateProjectionMatrix();setView(currentView,true)}
+function applyDisplayMode(mode){if(!model)return;currentDisplay=mode;if(mode==='material'){model.visible=true;if(wireframeModel)wireframeModel.visible=false;meshData.forEach(({mesh,original})=>mesh.material=original)}else if(mode==='clay'){model.visible=true;if(wireframeModel)wireframeModel.visible=false;meshData.forEach(({mesh,original})=>mesh.material=Array.isArray(original)?original.map(()=>clayMaterial):clayMaterial)}else if(mode==='wireframe'){model.visible=!wireframeModel;if(wireframeModel)wireframeModel.visible=true}displayButtons.forEach(b=>b.classList.toggle('active',b.dataset.display===mode))}
+function loadScene(index){const cfg=modelScenes[index];if(!cfg)return;const token=++loadToken;clearModels();if(modelTitle)modelTitle.textContent=cfg.title;if(loading){loading.textContent='LOADING 3D MODEL...';loading.classList.remove('is-hidden')}
+ loader.load(cfg.model,g=>{if(token!==loadToken)return;model=g.scene;scene.add(model);model.traverse(c=>{if(!c.isMesh)return;c.castShadow=true;c.receiveShadow=true;const original=cloneMaterial(c.material);c.material=original;meshData.push({mesh:c,original})});fitModel();applyDisplayMode(currentDisplay);if(loading)loading.classList.add('is-hidden')},undefined,e=>{console.error('GLB loading error:',e);if(loading)loading.textContent='MODEL COULD NOT BE LOADED'});
+ if(cfg.wireframe)loader.load(cfg.wireframe,g=>{if(token!==loadToken)return;wireframeModel=g.scene;wireframeModel.visible=false;scene.add(wireframeModel);if(currentDisplay==='wireframe')applyDisplayMode('wireframe')},undefined,e=>console.warn('Wireframe GLB could not be loaded:',e));}
+function changeScene(dir){if(modelScenes.length<2)return;sceneIndex=(sceneIndex+dir+modelScenes.length)%modelScenes.length;loadScene(sceneIndex)}
+displayButtons.forEach(b=>b.addEventListener('click',()=>applyDisplayMode(b.dataset.display)));viewButtons.forEach(b=>b.addEventListener('click',()=>setView(b.dataset.view)));if(prevButton)prevButton.addEventListener('click',()=>changeScene(-1));if(nextButton)nextButton.addEventListener('click',()=>changeScene(1));
+function resizeRenderer(){if(!stage)return;const w=Math.max(stage.clientWidth,1),h=Math.max(stage.clientHeight,1);renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix()}new ResizeObserver(resizeRenderer).observe(stage);resizeRenderer();
+function animate(){requestAnimationFrame(animate);controls.update();renderer.render(scene,camera)}loadScene(sceneIndex);animate();
+</script>
+
 
 </body>
 </html>
