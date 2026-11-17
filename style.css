@@ -212,3 +212,48 @@
   }
 }
 
+
+/* Hero: existing name and role on the right, short introduction on the left. */
+.hero-art { display: none; }
+.hero-content.hero-columns {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(40px, 7vw, 100px);
+  width: min(calc(100% - 64px), var(--container));
+  padding-block: 95px;
+}
+.hero-left-column { max-width: 520px; }
+.hero-left-column .hero-description {
+  max-width: 500px;
+  margin: 0 0 30px;
+  color: #c6c1d0;
+  font-size: clamp(16px, 1.45vw, 19px);
+  line-height: 1.8;
+}
+.hero-right-column {
+  justify-self: end;
+  width: 100%;
+  max-width: 620px;
+}
+.hero-right-column .eyebrow { max-width: 560px; }
+.hero-right-column h1 { font-size: clamp(44px, 5vw, 72px); }
+.hero-about {
+  max-width: 540px;
+  margin: 22px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.85;
+}
+@media (max-width: 760px) {
+  .hero-content.hero-columns {
+    grid-template-columns: 1fr;
+    gap: 34px;
+    width: min(calc(100% - 36px), var(--container));
+    padding-block: 70px;
+  }
+  .hero-right-column { grid-column: 1; grid-row: 1; justify-self: start; }
+  .hero-left-column { grid-column: 1; grid-row: 2; }
+  .hero-right-column h1 { font-size: clamp(43px, 10vw, 64px); }
+  .hero-about { margin-top: 16px; }
+}
