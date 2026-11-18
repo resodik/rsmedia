@@ -296,7 +296,7 @@ function loadScene(index){const cfg=modelScenes[index];if(!cfg)return;const toke
 function changeScene(dir){if(modelScenes.length<2)return;sceneIndex=(sceneIndex+dir+modelScenes.length)%modelScenes.length;loadScene(sceneIndex)}
 displayButtons.forEach(b=>b.addEventListener('click',()=>applyDisplayMode(b.dataset.display)));viewButtons.forEach(b=>b.addEventListener('click',()=>setView(b.dataset.view)));if(prevButton)prevButton.addEventListener('click',()=>changeScene(-1));if(nextButton)nextButton.addEventListener('click',()=>changeScene(1));
 function resizeRenderer(){if(!stage)return;const w=Math.max(stage.clientWidth,1),h=Math.max(stage.clientHeight,1);renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix()}new ResizeObserver(resizeRenderer).observe(stage);resizeRenderer();
-function animate(){requestAnimationFrame(animate);controls.update();renderer.render(scene,camera)}loFteadScene(sceneIndex);animate();
+function animate(){requestAnimationFrame(animate);controls.update();renderer.render(scene,camera)}loadScene(sceneIndex);animate();
 </script>
 
 
