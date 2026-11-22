@@ -20,6 +20,17 @@
 .video-play[hidden]{display:none}
 
 /* ========================================
+   foto
+======================================== */
+
+.about-photo {
+  min-height: 524px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: url("images/about.jpg") center / cover no-repeat;
+}
+
+/* ========================================
    MODEL 3D
 ======================================== */
 
