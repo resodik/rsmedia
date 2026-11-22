@@ -71,8 +71,14 @@
           <p></p>
           <p class="muted"></p>
         </div>
-        <div class="about-photo" role="img" aria-label="Portrait of Renata Sobieniak"></div>
-      </div>
+      <div class="about-photo" aria-label="Zdjęcia konstrukcji do motion capture">
+  <img class="about-photo-slide is-active" src="images/about.jpg" alt="Konstrukcja do motion capture">
+  <img class="about-photo-slide" src="images/about1.jpg" alt="Testowanie konstrukcji">
+  <img class="about-photo-slide" src="images/about2.jpg" alt="Szczegóły konstrukcji">
+
+  <button class="about-photo-arrow prev" type="button" aria-label="Poprzednie zdjęcie">‹</button>
+  <button class="about-photo-arrow next" type="button" aria-label="Następne zdjęcie">›</button>
+</div>
     </section>
 
 <!--
@@ -307,6 +313,32 @@ function changeScene(dir){if(modelScenes.length<2)return;sceneIndex=(sceneIndex+
 displayButtons.forEach(b=>b.addEventListener('click',()=>applyDisplayMode(b.dataset.display)));viewButtons.forEach(b=>b.addEventListener('click',()=>setView(b.dataset.view)));if(prevButton)prevButton.addEventListener('click',()=>changeScene(-1));if(nextButton)nextButton.addEventListener('click',()=>changeScene(1));
 function resizeRenderer(){if(!stage)return;const w=Math.max(stage.clientWidth,1),h=Math.max(stage.clientHeight,1);renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix()}new ResizeObserver(resizeRenderer).observe(stage);resizeRenderer();
 function animate(){requestAnimationFrame(animate);controls.update();renderer.render(scene,camera)}loadScene(sceneIndex);animate();
+
+
+
+
+
+
+    const photoSlides = document.querySelectorAll(".about-photo-slide");
+const photoPrev = document.querySelector(".about-photo-arrow.prev");
+const photoNext = document.querySelector(".about-photo-arrow.next");
+
+if (photoSlides.length) {
+  let currentPhoto = 0;
+
+  function showPhoto(index) {
+    photoSlides[currentPhoto].classList.remove("is-active");
+    currentPhoto = (index + photoSlides.length) % photoSlides.length;
+    photoSlides[currentPhoto].classList.add("is-active");
+  }
+
+  photoPrev?.addEventListener("click", () => showPhoto(currentPhoto - 1));
+  photoNext?.addEventListener("click", () => showPhoto(currentPhoto + 1));
+
+  setInterval(() => showPhoto(currentPhoto + 1), 4000);
+}
+
+    
 </script>
 
 
