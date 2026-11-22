@@ -389,3 +389,48 @@
   .about-intro-layout { grid-template-columns: 1fr; gap: 28px; }
   .about-photo { aspect-ratio: 4 / 3; }
 }
+
+
+.photo-lightbox[hidden] { display: none; }
+
+.photo-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  background: rgba(5, 5, 10, 0.92);
+}
+
+.photo-lightbox img {
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+}
+
+.lightbox-close,
+.lightbox-arrow {
+  position: absolute;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #15151e;
+  color: white;
+  cursor: pointer;
+}
+
+.lightbox-close {
+  top: 20px;
+  right: 24px;
+  font-size: 30px;
+}
+
+.lightbox-arrow {
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 36px;
+}
+
+.lightbox-prev { left: 24px; }
+.lightbox-next { right: 24px; }
