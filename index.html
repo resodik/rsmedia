@@ -81,6 +81,8 @@
 </div>
     </section>
 
+    
+
 <!--
 
    <section class="section" id="projects">
@@ -156,6 +158,14 @@
       <img src="portfolio/Plansza5.jpg" alt="Aerial rig — photo 5">
     </div>
   </div>
+
+      <div class="photo-lightbox" id="photoLightbox" hidden>
+  <button class="lightbox-close" aria-label="Zamknij">×</button>
+  <button class="lightbox-arrow lightbox-prev" aria-label="Poprzednie zdjęcie">‹</button>
+  <img id="lightboxImage" src="" alt="">
+  <button class="lightbox-arrow lightbox-next" aria-label="Następne zdjęcie">›</button>
+</div>
+      
 </section>
 
       <section class="section section-alt" id="gallery">
@@ -356,6 +366,39 @@ if (photoSlides.length) {
   photoNext?.addEventListener("click", () => showPhoto(currentPhoto + 1));
 
   setInterval(() => showPhoto(currentPhoto + 1), 4000);
+}
+
+
+
+
+
+    const photos = [...document.querySelectorAll(".portrait-grid img")];
+const lightbox = document.getElementById("photoLightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+
+if (photos.length && lightbox && lightboxImage) {
+  let current = 0;
+
+  function showPhoto(index) {
+    current = (index + photos.length) % photos.length;
+    lightboxImage.src = photos[current].src;
+    lightboxImage.alt = photos[current].alt;
+  }
+
+  photos.forEach((photo, index) => {
+    photo.addEventListener("click", () => {
+      showPhoto(index);
+      lightbox.hidden = false;
+    });
+  });
+
+  document.querySelector(".lightbox-prev").addEventListener("click", () => showPhoto(current - 1));
+  document.querySelector(".lightbox-next").addEventListener("click", () => showPhoto(current + 1));
+  document.querySelector(".lightbox-close").addEventListener("click", () => lightbox.hidden = true);
+
+  lightbox.addEventListener("click", event => {
+    if (event.target === lightbox) lightbox.hidden = true;
+  });
 }
 
     
