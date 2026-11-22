@@ -26,7 +26,8 @@
 
 .about-photo {
   position: relative;
-  min-height: 524px;
+  aspect-ratio: 16 / 9;
+  min-height: 0;
   overflow: hidden;
   border: 1px solid var(--border);
   border-radius: 20px;
